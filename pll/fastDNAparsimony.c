@@ -27,7 +27,13 @@
  * @file fastDNAparsimony.c
  */
 #include "mem_alloc.h"
-#include "systypes.h"
+
+#ifndef WIN32
+#include <sys/times.h>
+#include <sys/types.h>
+#include <sys/time.h>
+#include <unistd.h>  
+#endif
 
 #include <limits.h>
 #include <math.h>
@@ -112,11 +118,8 @@
 #		define __builtin_popcount _mm_popcnt_u32
 #		define __builtin_popcountl _mm_popcnt_u64
 #	else
-#       if defined(CLANG_UNDER_VS)
-#           define _mm_popcnt_u64 _popcnt64
-#       else
 #		include <intrin.h>
-static __inline uint32_t __builtin_popcount (uint32_t a) {
+	static __inline uint32_t __builtin_popcount (uint32_t a) {
 		// popcnt instruction not available
 		uint32_t b = a - ((a >> 1) & 0x55555555);
 		uint32_t c = (b & 0x33333333) + ((b >> 2) & 0x33333333);
@@ -126,7 +129,6 @@ static __inline uint32_t __builtin_popcount (uint32_t a) {
 	}
 //#		define __builtin_popcount __popcnt
 #		define __builtin_popcountl __popcnt64
-#       endif
 #	endif
 #endif
 
@@ -156,7 +158,7 @@ extern double masterTime;
 
 #if (defined(__SSE3) || defined(__AVX))
 
-#if defined(_WIN32) &&!defined(WIN64)
+#ifdef _WIN32
  /* emulate with 32-bit version */
 static __inline unsigned int vectorPopcount(INT_TYPE v)
 {
@@ -334,13 +336,13 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                 parsimonyNumber
                   *left[2],
                   *right[2],
-                  *here[2];
+                  *this[2];
 
                 for(k = 0; k < 2; k++)
                   {
                     left[k]  = &(pr->partitionData[model]->parsVect[(width * 2 * qNumber) + width * k]);
                     right[k] = &(pr->partitionData[model]->parsVect[(width * 2 * rNumber) + width * k]);
-                    here[k]  = &(pr->partitionData[model]->parsVect[(width * 2 * pNumber) + width * k]);
+                    this[k]  = &(pr->partitionData[model]->parsVect[(width * 2 * pNumber) + width * k]);
                   }
 
                 for(i = 0; i < width; i += INTS_PER_VECTOR)
@@ -362,8 +364,8 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                     
                     v_N = VECTOR_BIT_OR(l_A, l_C);
                     
-                    VECTOR_STORE((CAST)(&here[0][i]), VECTOR_BIT_OR(l_A, VECTOR_AND_NOT(v_N, v_A)));
-                    VECTOR_STORE((CAST)(&here[1][i]), VECTOR_BIT_OR(l_C, VECTOR_AND_NOT(v_N, v_C)));                                                                    
+                    VECTOR_STORE((CAST)(&this[0][i]), VECTOR_BIT_OR(l_A, VECTOR_AND_NOT(v_N, v_A)));
+                    VECTOR_STORE((CAST)(&this[1][i]), VECTOR_BIT_OR(l_C, VECTOR_AND_NOT(v_N, v_C)));                                                                    
                     
                     v_N = VECTOR_AND_NOT(v_N, allOne);
                     
@@ -376,13 +378,13 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                 parsimonyNumber
                   *left[4],
                   *right[4],
-                  *here[4];
+                  *this[4];
 
                 for(k = 0; k < 4; k++)
                   {
                     left[k]  = &(pr->partitionData[model]->parsVect[(width * 4 * qNumber) + width * k]);
                     right[k] = &(pr->partitionData[model]->parsVect[(width * 4 * rNumber) + width * k]);
-                    here[k]  = &(pr->partitionData[model]->parsVect[(width * 4 * pNumber) + width * k]);
+                    this[k]  = &(pr->partitionData[model]->parsVect[(width * 4 * pNumber) + width * k]);
                   }
 
                 for(i = 0; i < width; i += INTS_PER_VECTOR)
@@ -414,10 +416,10 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                     
                     v_N = VECTOR_BIT_OR(VECTOR_BIT_OR(l_A, l_C), VECTOR_BIT_OR(l_G, l_T));                                
                     
-                    VECTOR_STORE((CAST)(&here[0][i]), VECTOR_BIT_OR(l_A, VECTOR_AND_NOT(v_N, v_A)));
-                    VECTOR_STORE((CAST)(&here[1][i]), VECTOR_BIT_OR(l_C, VECTOR_AND_NOT(v_N, v_C)));
-                    VECTOR_STORE((CAST)(&here[2][i]), VECTOR_BIT_OR(l_G, VECTOR_AND_NOT(v_N, v_G)));
-                    VECTOR_STORE((CAST)(&here[3][i]), VECTOR_BIT_OR(l_T, VECTOR_AND_NOT(v_N, v_T)));                                                    
+                    VECTOR_STORE((CAST)(&this[0][i]), VECTOR_BIT_OR(l_A, VECTOR_AND_NOT(v_N, v_A)));
+                    VECTOR_STORE((CAST)(&this[1][i]), VECTOR_BIT_OR(l_C, VECTOR_AND_NOT(v_N, v_C)));
+                    VECTOR_STORE((CAST)(&this[2][i]), VECTOR_BIT_OR(l_G, VECTOR_AND_NOT(v_N, v_G)));
+                    VECTOR_STORE((CAST)(&this[3][i]), VECTOR_BIT_OR(l_T, VECTOR_AND_NOT(v_N, v_T)));                                                    
                     
                     v_N = VECTOR_AND_NOT(v_N, allOne);
                     
@@ -430,13 +432,13 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                 parsimonyNumber
                   *left[20],
                   *right[20],
-                  *here[20];
+                  *this[20];
 
                 for(k = 0; k < 20; k++)
                   {
                     left[k]  = &(pr->partitionData[model]->parsVect[(width * 20 * qNumber) + width * k]);
                     right[k] = &(pr->partitionData[model]->parsVect[(width * 20 * rNumber) + width * k]);
-                    here[k]  = &(pr->partitionData[model]->parsVect[(width * 20 * pNumber) + width * k]);
+                    this[k]  = &(pr->partitionData[model]->parsVect[(width * 20 * pNumber) + width * k]);
                   }
 
                 for(i = 0; i < width; i += INTS_PER_VECTOR)
@@ -460,7 +462,7 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                       }
                     
                     for(j = 0; j < 20; j++)                 
-                      VECTOR_STORE((CAST)(&here[j][i]), VECTOR_BIT_OR(l_A[j], VECTOR_AND_NOT(v_N, v_A[j])));                                                                    
+                      VECTOR_STORE((CAST)(&this[j][i]), VECTOR_BIT_OR(l_A[j], VECTOR_AND_NOT(v_N, v_A[j])));                                                                    
                     
                     v_N = VECTOR_AND_NOT(v_N, allOne);
                     
@@ -473,7 +475,7 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                 parsimonyNumber
                   *left[32], 
                   *right[32],
-                  *here[32];
+                  *this[32];
 
                 assert(states <= 32);
                 
@@ -481,7 +483,7 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                   {
                     left[k]  = &(pr->partitionData[model]->parsVect[(width * states * qNumber) + width * k]);
                     right[k] = &(pr->partitionData[model]->parsVect[(width * states * rNumber) + width * k]);
-                    here[k]  = &(pr->partitionData[model]->parsVect[(width * states * pNumber) + width * k]);
+                    this[k]  = &(pr->partitionData[model]->parsVect[(width * states * pNumber) + width * k]);
                   }
 
                 for(i = 0; i < width; i += INTS_PER_VECTOR)
@@ -505,7 +507,7 @@ static void newviewParsimonyIterativeFast(pllInstance *tr, partitionList *pr)
                       }
                     
                     for(j = 0; j < states; j++)             
-                      VECTOR_STORE((CAST)(&here[j][i]), VECTOR_BIT_OR(l_A[j], VECTOR_AND_NOT(v_N, v_A[j])));                                                                    
+                      VECTOR_STORE((CAST)(&this[j][i]), VECTOR_BIT_OR(l_A[j], VECTOR_AND_NOT(v_N, v_A[j])));                                                                    
                     
                     v_N = VECTOR_AND_NOT(v_N, allOne);
                     
@@ -1205,7 +1207,8 @@ static void testInsertParsimony (pllInstance *tr, partitionList *pr, nodeptr p, 
 
   if(doIt)
     {
-      double* z = (double*)rax_malloc(numBranches*sizeof(double));
+      double 
+        *z = rax_malloc(numBranches*sizeof(double));
       
       if(saveBranches)
         {

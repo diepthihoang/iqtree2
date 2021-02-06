@@ -27,7 +27,13 @@
  * @file bipartitionList.c
  */
 #include "mem_alloc.h"
-#include "systypes.h"
+
+#ifndef WIN32  
+#include <sys/times.h>
+#include <sys/types.h>
+#include <sys/time.h>
+#include <unistd.h>  
+#endif
 
 #include <limits.h>
 #include <math.h>
@@ -411,7 +417,7 @@ double convergenceCriterion(pllHashTable *h, int mxtips)
     {      
       for (hitem = h->Items[k]; hitem; hitem = hitem->next)
        {
-         pllBipartitionEntry* e = (pllBipartitionEntry*)(hitem->data);
+         pllBipartitionEntry *e = hitem->data;
          unsigned int *vector = e->treeVector;          
 
          if(((vector[0] & 1) > 0) + ((vector[0] & 2) > 0) == 1)

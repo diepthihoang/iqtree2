@@ -28,7 +28,6 @@
  * @brief Functions used for recomputation of vectors (only a fraction of LH vectors stored in RAM)   
  */
 #include "mem_alloc.h"
-#include "systypes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -37,6 +36,9 @@
 #include <errno.h>
 #include <time.h>
 #include <math.h>
+#ifndef WIN32
+#include <sys/time.h>
+#endif
 #include "pll.h"
 #include "pllInternal.h"
 

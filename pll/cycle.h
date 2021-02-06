@@ -251,9 +251,7 @@ INLINE_ELAPSED(__inline__)
 /* Visual C++, courtesy of Dirk Michaelis */
 #if defined(_MSC_VER) && _MSC_VER >= 1400 && (defined(_M_AMD64) || defined(_M_X64)) && !defined(HAVE_TICK_COUNTER)
 
-#ifndef CLANG_UNDER_VS
-    #include <intrin.h>
-#endif
+#include <intrin.h>
 #pragma intrinsic(__rdtsc)
 typedef unsigned __int64 ticks;
 #define getticks __rdtsc

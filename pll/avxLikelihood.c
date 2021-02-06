@@ -30,7 +30,10 @@
  *
  * AVX versions of the likelihood functions
  */
-#include "systypes.h"
+#ifndef WIN32
+#include <unistd.h>
+#endif
+
 #include <math.h>
 #include <time.h>
 #include <stdlib.h>
@@ -4100,9 +4103,8 @@ void newviewGTRGAMMAPROT_AVX_GAPPED_SAVE(int tipCase,
 	}
       break;
     default:
-		assert(0);
-		break;
-	}
+      assert(0);
+    }
  
   if(useFastScaling)
     *scalerIncrement = addScale;

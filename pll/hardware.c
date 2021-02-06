@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
-#include "systypes.h"
+#ifndef WIN32
+#include <unistd.h>
+#endif
 
 #include <string.h>
 #include "hardware.h"
@@ -9,21 +11,15 @@
 #define PLL_FEAT_AVAIL(x,y) (((x) & (y)) == (y))
 #define PLL_SYS_CPU_DIR_PATH "/sys/devices/system/cpu/"
 
-#ifdef CLANG_UNDER_VS
-    //James B. Workaround for Windows builds where these macros might not be defined
-    #ifndef S_ISDIR
-    #define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
-    #endif
-    #ifndef S_ISREG
-    #define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
-    #endif
-#endif
+//#ifdef _MSC_VER
+//#define inline __inline
+//#endif
 
 static __inline void cpuid(unsigned int op, int count,
                          unsigned int *eax, unsigned int *ebx,
                          unsigned int *ecx, unsigned int *edx)
 {
-#if defined(WIN32) || defined(WIN64)
+#ifdef WIN32
 	__int32 regs[4];
 	__cpuid((int*)regs, (int)op);
 	*eax = regs[0];
@@ -73,7 +69,7 @@ static int pll_probe_cpu (pllHardwareInfo * hw)
   char cpu[30];
   char cpupath[100];
   int i, id, max_physical_id = -1;
-  const char * physical_id_path = "/topology/physical_package_id";
+  char * physical_id_path = "/topology/physical_package_id";
   FILE * fd;
 
   /* check whether the sys cpu dir exists */

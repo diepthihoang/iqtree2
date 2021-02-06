@@ -30,7 +30,13 @@
  * Detailed description to appear soon.
  */
 #include "mem_alloc.h"
-#include "systypes.h"
+
+#ifndef WIN32
+#include <sys/times.h>
+#include <sys/types.h>
+#include <sys/time.h>
+#include <unistd.h> 
+#endif
 
 #include <math.h>
 #include <time.h> 
@@ -562,8 +568,7 @@ void regionalSmooth (pllInstance *tr, partitionList *pr, nodeptr p, int maxtimes
 nodeptr  removeNodeBIG (pllInstance *tr, partitionList *pr, nodeptr p, int numBranches)
 {  
 //  double   zqr[numBranches], result[numBranches];
-    double* zqr = (double*)rax_malloc(numBranches * sizeof(double));
-    double* result = (double*)rax_malloc(numBranches * sizeof(double));
+  double*   zqr = rax_malloc(numBranches*sizeof(double)), *result = rax_malloc(numBranches*sizeof(double));
   nodeptr  q, r;
   int i;
 
@@ -656,14 +661,14 @@ pllBoolean insertBIG (pllInstance *tr, partitionList *pr, nodeptr p, nodeptr q)
 
   if(tr->thoroughInsertion)
   { 
-      double* zqr = (double*)rax_malloc(numBranches * sizeof(double));
-      double* zqs = (double*)rax_malloc(numBranches * sizeof(double));
-      double* zrs = (double*)rax_malloc(numBranches * sizeof(double));
-	  double lzqr, lzqs, lzrs, lzsum, lzq, lzr, lzs, lzmax; 
-      double *defaultArray = (double*)rax_malloc(numBranches*sizeof(double));
-      double* e1 = (double*)rax_malloc(numBranches * sizeof(double));
-      double* e2 = (double*)rax_malloc(numBranches * sizeof(double));
-      double* e3 = (double*)rax_malloc(numBranches*sizeof(double));
+	  double * zqr = rax_malloc(numBranches*sizeof(double)), 
+		  *zqs = rax_malloc(numBranches*sizeof(double)), 
+		  *zrs = rax_malloc(numBranches*sizeof(double));
+	  double lzqr, lzqs, lzrs, lzsum, lzq, lzr, lzs, lzmax;
+    double *defaultArray=rax_malloc(numBranches*sizeof(double));
+	double *e1 = rax_malloc(numBranches*sizeof(double)),
+		*e2 = rax_malloc(numBranches*sizeof(double)),
+		*e3 = rax_malloc(numBranches*sizeof(double));
     double *qz;
 
     qz = q->z;
@@ -715,7 +720,7 @@ pllBoolean insertBIG (pllInstance *tr, partitionList *pr, nodeptr p, nodeptr q)
   }
   else
   {       
-	  double  *z = (double*) rax_malloc(numBranches*sizeof(double));
+	  double  *z = rax_malloc(numBranches*sizeof(double));
 
     for(i = 0; i < numBranches; i++)
     {
@@ -1146,13 +1151,17 @@ int rearrangeBIG(pllInstance *tr, partitionList *pr, nodeptr p, int mintrav, int
 */
 double treeOptimizeRapid(pllInstance *tr, partitionList *pr, int mintrav, int maxtrav, bestlist *bt, infoList *iList)
 {
-  int i, index, *perm = (int*)NULL;   
+  int i, index,
+      *perm = (int*)NULL;   
 
   nodeRectifier(tr);
 
-  if (maxtrav > tr->mxtips - 3) {
-      maxtrav = tr->mxtips - 3;
-  }
+
+
+  if (maxtrav > tr->mxtips - 3)  
+    maxtrav = tr->mxtips - 3;  
+
+
 
   resetInfoList(iList);
 
@@ -1182,12 +1191,21 @@ double treeOptimizeRapid(pllInstance *tr, partitionList *pr, int mintrav, int ma
     tr->lhDEC = 0;
   }
 
+  /*
+     printf("DoCutoff: %d\n", tr->doCutoff);
+     printf("%d %f %f %f\n", tr->itCount, tr->lhAVG, tr->lhDEC, tr->lhCutoff);
+
+     printf("%d %d\n", mintrav, maxtrav);
+     */
+
   for(i = 1; i <= tr->mxtips + tr->mxtips - 2; i++)
   {           
-    tr->bestOfNode = PLL_UNLIKELY;
-    //James B. Was doing a null de-reference of perm here, 
-    //if tr->permuteTreeoptimize was non-zero.  No longer!
-    index = i;     
+    tr->bestOfNode = PLL_UNLIKELY;          
+
+    if(tr->permuteTreeoptimize)
+      index = perm[i];
+    else
+      index = i;     
 
     if(rearrangeBIG(tr, pr, tr->nodep[index], mintrav, maxtrav))
     {    
@@ -1896,10 +1914,8 @@ int pllNniSearch(pllInstance * tr, partitionList *pr, int estimateModel) {
 		evalNNIForSubtree(tr, pr, q->back, nniList, &cnt, &cnt_nni, curScore);
 		q = q->next;
 	}
-    if (cnt_nni == 0) {
-        free(nniList); //James B. 23-Jul-2020 (memory leak)
-        return 0.0;
-    }
+	if (cnt_nni == 0)
+		return 0.0;
 
 	nniMove* impNNIList = (nniMove*) malloc(cnt_nni * sizeof(nniMove));
 	int j = 0;
@@ -2928,6 +2944,7 @@ determineRearrangementSetting(pllInstance *tr, partitionList *pr,
   tr->doCutoff = PLL_FALSE;
 
   mintrav = 1;
+  maxtrav = 5;
 
   bestTrav = maxtrav = 5;
 
@@ -2952,12 +2969,13 @@ determineRearrangementSetting(pllInstance *tr, partitionList *pr,
 
       tr->startLH = tr->endLH = tr->likelihood;
 
-      for (i = 1; i <= tr->mxtips + tr->mxtips - 2; i++) {
-          if (perm != NULL)
-              index = perm[i];
-          else
-              index = i;
+      for (i = 1; i <= tr->mxtips + tr->mxtips - 2; i++)
+        {
 
+          if (tr->permuteTreeoptimize)
+            index = perm[i];
+          else
+            index = i;
 
           tr->bestOfNode = PLL_UNLIKELY;
           if (rearrangeBIG(tr, pr, tr->nodep[index], mintrav, maxtrav))
@@ -3075,6 +3093,7 @@ pllRaxmlSearchAlgorithm(pllInstance * tr, partitionList * pr,
 
   initInfoList(&iList, 50);
 
+  difference = 10.0;
   epsilon = tr->likelihoodEpsilon;
 
   tr->thoroughInsertion = 0;

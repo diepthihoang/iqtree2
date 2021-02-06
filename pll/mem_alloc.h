@@ -1,9 +1,11 @@
 #ifndef __mem_alloc_h
 #define __mem_alloc_h
 
-#if defined WIN32 || defined _WIN32 || defined __WIN32__ || defined WIN64
+#if defined WIN32 || defined _WIN32 || defined __WIN32__
 #include <stdlib.h>
+//#include <intrin.h>
 #include <malloc.h>
+//#include <windows.h>
 #endif
 
 #include <stddef.h>
@@ -21,7 +23,7 @@
 //#define rax_realloc realloc
 
 
-#if defined WIN32 || defined _WIN32 || defined __WIN32__ || defined(WIN64)
+#if defined WIN32 || defined _WIN32 || defined __WIN32__
     #if (defined(__MINGW32__) || defined(__clang__)) && defined(BINARY32)
         #define rax_posix_memalign(ptr,alignment,size) *(ptr) = __mingw_aligned_malloc((size),(alignment))
         #define rax_malloc(size) __mingw_aligned_malloc((size), PLL_BYTE_ALIGNMENT)

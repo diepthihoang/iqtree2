@@ -30,7 +30,10 @@
  */
 
 #include "mem_alloc.h"
-#include "systypes.h"
+
+#ifndef WIN32
+#include <unistd.h>
+#endif
 
 #include <math.h>
 #include <time.h>
@@ -3957,9 +3960,7 @@ static char getStateCharacter(int dataType, int state)
       break;    
     default:
       assert(0);
-      result = '\x0';
-      break;
-  }
+    }
 
   return  result;
 }

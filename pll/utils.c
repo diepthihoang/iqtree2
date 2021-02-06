@@ -28,8 +28,17 @@
  *  
  * @brief Miscellaneous general utility and helper functions
  */
+#ifdef WIN32
+#include <direct.h>
+#endif
 
-#include "systypes.h"
+#ifndef WIN32
+#include <sys/times.h>
+#include <sys/types.h>
+#include <sys/time.h>
+#include <unistd.h>
+#endif
+
 #include <math.h>
 #include <time.h>
 #include <stdlib.h>
@@ -41,8 +50,6 @@
 #include <assert.h>
 #include <errno.h>
 #include "cycle.h"
-#include "mem_alloc.h" //for rax_malloc_string_copy
-
 
 
 #if ! (defined(__ppc) || defined(__powerpc__) || defined(PPC))
@@ -62,21 +69,9 @@
 #include "pll.h"
 #include "pllInternal.h"
 
-void rax_malloc_string_copy(const char* source, char** dest)
-{
-    size_t bufLen = (strlen(source) + 1);
-    *dest = (char*)rax_malloc(bufLen);
-    #ifdef CLANG_UNDER_VS
-        strcpy_s(*dest, bufLen, source);
-    #else
-        strcpy(*dest, source);
-    #endif
-}
-
 #define GLOBAL_VARIABLES_DEFINITION
 
 #include "globalVariables.h"
-
 
 /* mappings of BIN/DNA/AA alphabet to numbers */
 
@@ -170,9 +165,9 @@ char *strtok_r (char * s, const char * delim, char **save_ptr)
   char *token;
    
   /* Scan leading delimiters */
-  if (s == NULL) {
-      s = *save_ptr;
-  }   
+  if (s == NULL)
+    s = *save_ptr;
+   
   s += strspn (s, delim);
   if (*s == '\0')
    {
@@ -275,7 +270,6 @@ size_t discreteRateCategories(int rateHetModel)
       result = 4;
       break;
     default:
-      result = 0;
       assert(0);
   }
 
@@ -437,6 +431,8 @@ void hookupFull (nodeptr p, nodeptr q, double *z)
 /* connect node p with q and assign the default branch lengths */
 void hookupDefault (nodeptr p, nodeptr q)
 {
+  int i;
+
   p->back = q;
   q->back = p;
 
@@ -646,7 +642,7 @@ void initializePartitionData(pllInstance *localTree, partitionList * localPartit
 
       /* 
          Initializing the xVector array like this is absolutely required !!!!
-         I don't know which programming genius removed this, but it must absolutely stay in here!!!!
+         I don't know which programming genious removed this, but it must absolutely stay in here!!!!
       */
       
       {
@@ -869,26 +865,33 @@ void pllSetBranchLength (pllInstance *tr, nodeptr p, int partition_id, double bl
 }
 
 #if (!defined(_FINE_GRAIN_MPI) && !defined(_USE_PTHREADS))
-static void initializePartitionsSequential(pllInstance* tr, partitionList* pr)
-{
-    for (size_t model = 0; model < (size_t)pr->numberOfPartitions; model++) {
-        assert(pr->partitionData[model]->width == pr->partitionData[model]->upper - pr->partitionData[model]->lower);
-    }
-    initializePartitionData(tr, pr);
+static void initializePartitionsSequential(pllInstance *tr, partitionList *pr)
+{ 
+  size_t
+    model;
 
-    /* figure in tip sequence data per-site pattern weights */
-    for (size_t model = 0; model < (size_t)pr->numberOfPartitions; model++)
+  for(model = 0; model < (size_t)pr->numberOfPartitions; model++)
+    assert(pr->partitionData[model]->width == pr->partitionData[model]->upper - pr->partitionData[model]->lower);
+
+  initializePartitionData(tr, pr);
+
+  /* figure in tip sequence data per-site pattern weights */ 
+  for(model = 0; model < (size_t)pr->numberOfPartitions; model++)
+  {
+    size_t
+      j;
+    size_t lower = pr->partitionData[model]->lower;
+    size_t width = pr->partitionData[model]->upper - lower;
+
+    for(j = 1; j <= (size_t)tr->mxtips; j++)
     {
-        size_t lower = pr->partitionData[model]->lower;
-        size_t width = pr->partitionData[model]->upper - lower;
-        for (size_t j = 1; j <= (size_t)tr->mxtips; j++)
-        {
-            pr->partitionData[model]->yVector[j] = &(tr->yVector[j][pr->partitionData[model]->lower]);
-        }
-        memcpy((void*)(&(pr->partitionData[model]->wgt[0])), (void*)(&(tr->aliaswgt[lower])), sizeof(int) * width);
+      pr->partitionData[model]->yVector[j] = &(tr->yVector[j][pr->partitionData[model]->lower]);
     }
 
-    initMemorySavingAndRecom(tr, pr);
+    memcpy((void*)(&(pr->partitionData[model]->wgt[0])),         (void*)(&(tr->aliaswgt[lower])),      sizeof(int) * width);
+  }  
+
+  initMemorySavingAndRecom(tr, pr);
 }
 #endif
 
@@ -1143,68 +1146,70 @@ static partitionList * createPartitions (pllQueue * parts, int * bounds)
   // TODO: change PLL_NUM_BRANCHES to number of partitions I guess
   pl->partitionData = (pInfo **) rax_calloc (PLL_NUM_BRANCHES, sizeof (pInfo *));
   
-  for (i = 0, elm = parts->head; elm; elm = elm->next, ++i)
-  {
-      pi = (pllPartitionInfo*)elm->item;
+  for (i = 0, elm = parts->head; elm; elm = elm->next, ++ i)
+   {
+     pi = (pllPartitionInfo *) elm->item;
 
-      /* check whether the data type is valid, and in case it's not, deallocate
-         and return NULL */
-      if (pi->dataType <= PLL_MIN_MODEL || pi->dataType >= PLL_MAX_MODEL)
+     /* check whether the data type is valid, and in case it's not, deallocate
+        and return NULL */
+     if (pi->dataType <= PLL_MIN_MODEL || pi->dataType >= PLL_MAX_MODEL)
       {
-          for (j = 0; j < i; ++j)
-          {
-              rax_free(pl->partitionData[j]->partitionName);
-              rax_free(pl->partitionData[j]);
-          }
-          rax_free(pl->partitionData);
-          rax_free(pl);
-          return (NULL);
+        for (j = 0; j < i; ++ j)
+         {
+           rax_free (pl->partitionData[j]->partitionName);
+           rax_free (pl->partitionData[j]);
+         }
+        rax_free (pl->partitionData);
+        rax_free (pl);
+        return (NULL);
       }
 
-      pl->partitionData[i] = (pInfo*)rax_malloc(sizeof(pInfo));
+     pl->partitionData[i] = (pInfo *) rax_malloc (sizeof (pInfo));
 
-      pl->partitionData[i]->lower = bounds[i << 1];
-      pl->partitionData[i]->upper = bounds[(i << 1) + 1];
-      pl->partitionData[i]->width = bounds[(i << 1) + 1] - bounds[i << 1];
-      pl->partitionData[i]->partitionWeight = 1.0 * (double)pl->partitionData[i]->width;
+     pl->partitionData[i]->lower = bounds[i << 1];
+     pl->partitionData[i]->upper = bounds[(i << 1) + 1];
+     pl->partitionData[i]->width = bounds[(i << 1) + 1] - bounds[i << 1];
+     pl->partitionData[i]->partitionWeight = 1.0 * (double) pl->partitionData[i]->width;
 
-      //the two flags below are required to allow users to set 
-      //alpha parameters and substitution rates in the Q matrix 
-      //to fixed values. These parameters will then not be optimized 
-      //in the model parameter optimization functions
-      //by default we assume that all parameters are being optimized, i.e., 
-      //this has to be explicitly set by the user 
+     //the two flags below are required to allow users to set 
+     //alpha parameters and substitution rates in the Q matrix 
+     //to fixed values. These parameters will then not be optimized 
+     //in the model parameter optimization functions
+     //by default we assume that all parameters are being optimized, i.e., 
+     //this has to be explicitly set by the user 
+     
+     pl->partitionData[i]->optimizeAlphaParameter    = PLL_TRUE;
+     pl->partitionData[i]->optimizeSubstitutionRates = PLL_TRUE;
+     pl->partitionData[i]->dataType                  = pi->dataType;
+     pl->partitionData[i]->protModels                = -1;
+     pl->partitionData[i]->protUseEmpiricalFreqs     = -1;
+     pl->partitionData[i]->maxTipStates              = pLengths[pi->dataType].undetermined + 1;
+     pl->partitionData[i]->optimizeBaseFrequencies   = pi->optimizeBaseFrequencies;
+     pl->partitionData[i]->ascBias                   = pi->ascBias;
+     pl->partitionData[i]->parsVect                  = NULL;
 
-      pl->partitionData[i]->optimizeAlphaParameter = PLL_TRUE;
-      pl->partitionData[i]->optimizeSubstitutionRates = PLL_TRUE;
-      pl->partitionData[i]->dataType = pi->dataType;
-      pl->partitionData[i]->protModels = -1;
-      pl->partitionData[i]->protUseEmpiricalFreqs = -1;
-      pl->partitionData[i]->maxTipStates = pLengths[pi->dataType].undetermined + 1;
-      pl->partitionData[i]->optimizeBaseFrequencies = pi->optimizeBaseFrequencies;
-      pl->partitionData[i]->ascBias = pi->ascBias;
-      pl->partitionData[i]->parsVect = NULL;
 
 
-
-      if (pi->dataType == PLL_AA_DATA)
+     if (pi->dataType == PLL_AA_DATA)
       {
-          if (pl->partitionData[i]->protModels != PLL_GTR)
-              pl->partitionData[i]->optimizeSubstitutionRates = PLL_FALSE;
-          pl->partitionData[i]->protUseEmpiricalFreqs = pi->protUseEmpiricalFreqs;
-          pl->partitionData[i]->protModels = pi->protModels;
+        if(pl->partitionData[i]->protModels != PLL_GTR)
+          pl->partitionData[i]->optimizeSubstitutionRates = PLL_FALSE;
+        pl->partitionData[i]->protUseEmpiricalFreqs     = pi->protUseEmpiricalFreqs;
+        pl->partitionData[i]->protModels                = pi->protModels;
       }
 
-      pl->partitionData[i]->states = pLengths[pl->partitionData[i]->dataType].states;
-      pl->partitionData[i]->numberOfCategories = 1;
-      pl->partitionData[i]->autoProtModels = 0;
-      pl->partitionData[i]->nonGTR = PLL_FALSE;
-      pl->partitionData[i]->partitionContribution = -1.0;
-      pl->partitionData[i]->partitionLH = 0.0;
-      pl->partitionData[i]->fracchange = 1.0;
-      pl->partitionData[i]->executeModel = PLL_TRUE;
+     pl->partitionData[i]->states                = pLengths[pl->partitionData[i]->dataType].states;
+     pl->partitionData[i]->numberOfCategories    =        1;
+     pl->partitionData[i]->autoProtModels        =        0;
+     pl->partitionData[i]->nonGTR                =        PLL_FALSE;
+     pl->partitionData[i]->partitionContribution =     -1.0;
+     pl->partitionData[i]->partitionLH           =      0.0;
+     pl->partitionData[i]->fracchange            =      1.0;
+     pl->partitionData[i]->executeModel          =     PLL_TRUE;
 
-      rax_malloc_string_copy(pi->partitionName, &(pl->partitionData[i]->partitionName));
+
+     pl->partitionData[i]->partitionName         = (char *) rax_malloc ((strlen (pi->partitionName) + 1) * sizeof (char));
+     strcpy (pl->partitionData[i]->partitionName, pi->partitionName);
    }
 
   return (pl);
@@ -1505,9 +1510,9 @@ static int genericBaseFrequenciesAlignment (pInfo * partition,
   lower    = partition->lower;
   upper    = partition->upper;
 
-  for (l = 0; l < numFreqs; l++) {
-      pfreqs[l] = 1.0 / ((double)numFreqs);
-  }          
+  for(l = 0; l < numFreqs; l++)     
+    pfreqs[l] = 1.0 / ((double)numFreqs);
+          
   for (k = 1; k <= 8; k++) 
     {                                                   
       for(l = 0; l < numFreqs; l++)
@@ -2414,10 +2419,13 @@ pllTreeInitTopologyRandom (pllInstance * tr, int tips, char ** nameList)
   int i;
   pllTreeInitDefaults (tr, tips);
 
-  for (i = 1; i <= tips; ++i) {
-      rax_malloc_string_copy(nameList[i], &(tr->nameList[i]));
-      pllHashAdd(tr->nameHash, pllHashString(tr->nameList[i], tr->nameHash->size), tr->nameList[i], (void*)(tr->nodep[i]));
-  }
+  for (i = 1; i <= tips; ++ i)
+   {
+     tr->nameList[i] = (char *) rax_malloc ((strlen (nameList[i]) + 1) * sizeof (char));
+     strcpy (tr->nameList[i], nameList[i]);
+     pllHashAdd (tr->nameHash, pllHashString(tr->nameList[i], tr->nameHash->size), tr->nameList[i], (void *) (tr->nodep[i]));
+   }
+  
 
   pllMakeRandomTree (tr);
 }
@@ -2437,17 +2445,23 @@ pllTreeInitTopologyRandom (pllInstance * tr, int tips, char ** nameList)
       Parsed alignment
 */
 void 
-pllTreeInitTopologyForAlignment(pllInstance* tr, pllAlignmentData* alignmentData)
+pllTreeInitTopologyForAlignment (pllInstance * tr, pllAlignmentData * alignmentData)
 {
-    int tips = alignmentData->sequenceCount;
-    char** nameList = alignmentData->sequenceLabels;
+  int
+    tips = alignmentData->sequenceCount,
+    i;
 
-    pllTreeInitDefaults(tr, tips);
+  char 
+    **nameList = alignmentData->sequenceLabels;
+  
+  pllTreeInitDefaults (tr, tips);
 
-    for (int i = 1; i <= tips; ++i) {
-        rax_malloc_string_copy(nameList[i], &(tr->nameList[i]));
-        pllHashAdd(tr->nameHash, pllHashString(tr->nameList[i], tr->nameHash->size), tr->nameList[i], (void*)(tr->nodep[i]));
-    }
+  for (i = 1; i <= tips; ++ i)
+   {
+     tr->nameList[i] = (char *) rax_malloc ((strlen (nameList[i]) + 1) * sizeof (char));
+     strcpy (tr->nameList[i], nameList[i]);
+     pllHashAdd (tr->nameHash, pllHashString(tr->nameList[i], tr->nameHash->size), tr->nameList[i], (void *) (tr->nodep[i]));
+   }
 }
 
 
@@ -2603,7 +2617,9 @@ static int init_Q_MatrixSymmetries(char *linkageString, partitionList * pr, int 
     *ch,
     *token;
 
-  rax_malloc_string_copy(linkageString, &ch);
+  ch = (char *) rax_malloc (strlen (linkageString) + 1);
+  strcpy (ch, linkageString);
+
 
   for(j = 0, str1 = ch; ;j++, str1 = (char *)NULL) 
     {
@@ -3357,26 +3373,41 @@ linkageList* initLinkageList(int *linkList, partitionList *pr)
 
 
 
-static linkageList* initLinkageListString(char* linkageString, partitionList* pr)
+static linkageList* initLinkageListString(char *linkageString, partitionList * pr)
 {
-    int* list = (int*)rax_malloc(sizeof(int) * pr->numberOfPartitions);
-    char* saveptr, * ch;
+  int 
+    *list = (int*)rax_malloc(sizeof(int) * pr->numberOfPartitions),
+    j;
 
-    rax_malloc_string_copy(linkageString, &ch);
-    char* str1 = ch;
-    for (int j = 0; ; j++, str1 = (char*)NULL) {
-        char* token = strtok_r(str1, ",", &saveptr);
-        if (token == (char*)NULL) {
-            break;
-        }
-        assert(j < pr->numberOfPartitions);
-        list[j] = atoi(token);
+  linkageList 
+    *l;
+
+  char
+    *str1,
+    *saveptr,
+//    *ch = strdup(linkageString),
+    *ch,
+    *token;
+  
+  ch = (char *) rax_malloc (strlen (linkageString) + 1);
+  strcpy (ch, linkageString);
+
+  for(j = 0, str1 = ch; ;j++, str1 = (char *)NULL) 
+    {
+      token = strtok_r(str1, ",", &saveptr);
+      if(token == (char *)NULL)
+        break;
+      assert(j < pr->numberOfPartitions);
+      list[j] = atoi(token);
     }
-    rax_free(ch);
-    linkageList* l = initLinkageList(list, pr);
-    rax_free(list);
+  
+  rax_free(ch);
 
-    return l;
+  l = initLinkageList(list, pr);
+  
+  rax_free(list);
+
+  return l;
 }
 
 /** @ingroup modelParamsGroups
