@@ -1152,6 +1152,7 @@ void parseArg(int argc, char *argv[], Params &params) {
     params.suppress_output_flags = 0;
     params.ufboot2corr = false;
     params.u2c_nni5 = false;
+    params.mpboot2 = false;
     params.date_with_outgroup = true;
     params.date_debug = false;
     params.date_replicates = 0;
@@ -3464,6 +3465,11 @@ void parseArg(int argc, char *argv[], Params &params) {
 			}
 			if (strcmp(argv[cnt], "-u2c_nni5") == 0) {
 				params.u2c_nni5 = true;
+				continue;
+			}
+
+			if (strcmp(argv[cnt], "--mpboot2") == 0) {
+				params.mpboot2 = true;
 				continue;
 			}
 
