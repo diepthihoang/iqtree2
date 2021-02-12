@@ -61,6 +61,14 @@ class AlignmentPairwise;
 #define BootValType float
 //#define BootValType double
 
+/**
+ * Diep:
+ * In MPBoot1, this was located in phyloanalysis.h
+ * so that it can be seen by optimizeAlignment
+ * Probably need relocating
+ */
+#define BootValTypePars unsigned short // Diep added
+
 enum CostMatrixType {CM_UNIFORM, CM_LINEAR};
 
 //extern int instruction_set;
@@ -1361,6 +1369,15 @@ public:
      */
     virtual void computePatternLikelihood(double *pattern_lh, double *cur_logl = NULL,
     		double *pattern_lh_cat = NULL, SiteLoglType wsl = WSL_RATECAT);
+
+    /**
+     * Diep:
+     * compute the array of pattern parsimony
+     * to be serving the parsimony UFBoot
+     * @param ptn_npars: array to store negative pattern parsimony
+     * @cur_npars: pointer to the variable storing tree's negative parsimony score
+     */
+    virtual void computePatternParsimony(double *ptn_npars, double *cur_npars = NULL);
 
     /**
             compute pattern posterior probabilities per rate/mixture category
@@ -2747,6 +2764,12 @@ protected:
 
     /** current best parsimony score */
     UINT best_pars_score;
+
+    /**
+     * Diep:
+     * Array of pattern parsimony computed in computeParsimonyBranch()
+     */
+    BootValTypePars* _pattern_pars;
 
     /** cost_matrix for non-uniform parsimony */
     unsigned int * cost_matrix; // Sep 2016: store cost matrix in 1D array

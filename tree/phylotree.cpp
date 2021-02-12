@@ -145,6 +145,8 @@ void PhyloTree::init() {
     isShowingProgressDisabled = false;
     warnedAboutThreadCount = false;
     warnedAboutNumericalUnderflow = false;
+
+    _pattern_pars = NULL; // Diep: for mpboot2
 }
 
 PhyloTree::PhyloTree(Alignment *aln) : MTree(), CheckpointFactory() {
@@ -240,6 +242,11 @@ PhyloTree::~PhyloTree() {
 
     delete[] var_matrix;
     var_matrix = nullptr;
+
+    if(_pattern_pars){
+    	aligned_free(_pattern_pars);
+    	_pattern_pars = NULL;
+    }
 
     if (pllPartitions!=nullptr) {
         myPartitionsDestroy(pllPartitions);
@@ -1537,6 +1544,9 @@ int PhyloTree::computeParsimony(const char* taskDescription,
     if (central_partial_pars == nullptr) {
         initializeAllPartialPars();
     }
+
+    if(_pattern_pars == NULL) _pattern_pars = aligned_alloc<BootValTypePars>(get_safe_upper_limit_float(getAlnNPattern()));
+
     PhyloNode* r = getRoot();
     if (taskDescription==nullptr || taskDescription[0]=='\0') {
         return computeParsimonyBranch(r->firstNeighbor(), r);
@@ -2004,6 +2014,10 @@ UBYTE *PhyloTree::newScaleNum() {
 }
 
 double PhyloTree::computeLikelihood(double *pattern_lh) {
+    if(params->mpboot2){
+    	clearAllPartialLH();
+ 		return -computeParsimony();
+	}
     ASSERT(model);
     ASSERT(site_rate);
     ASSERT(root->isLeaf());
@@ -2212,6 +2226,10 @@ void PhyloTree::computePatternStateFreq(double *ptn_state_freq) {
 
 
 void PhyloTree::computePatternLikelihood(double *ptn_lh, double *cur_logl, double *ptn_lh_cat, SiteLoglType wsl) {
+	if(params->mpboot2){
+		computePatternParsimony(ptn_lh, cur_logl);
+		return;
+	}
     /*    if (!dad_branch) {
      dad = getRoot();
      dad_branch = dad->firstNeighbor();
@@ -2354,6 +2372,23 @@ void PhyloTree::computePatternLikelihood(double *ptn_lh, double *cur_logl, doubl
 //    }
     //double score = computeLikelihoodBranch(dad_branch, dad, pattern_lh);
     //return score;
+}
+
+void PhyloTree::computePatternParsimony(double *ptn_npars, double *cur_npars){
+	if(!ptn_npars)
+		outError("ERROR: No space allocated for the pattern parsimony vector.\n");
+
+	if(!params)
+		outError("No params detected!");
+
+	// As IQTree::computeParsimonBranch already computed _pattern_pars
+	// just copy from that
+	int nptn = aln->getNPattern();
+	int i;
+	for (i = 0; i < nptn; i++) {
+		// TODO: this is a bit inefficient, should change everthing to int operations
+		ptn_npars[i] = -double(_pattern_pars[i]);
+	}
 }
 
 void PhyloTree::computePatternProbabilityCategory(double *ptn_prob_cat, SiteLoglType wsl) {

@@ -1280,6 +1280,14 @@ double ModelFactory::optimizeParameters(int fixed_len, bool write_info,
     PhyloTree *tree = site_rate->getTree();
     ASSERT(tree);
 
+    /**
+     * Diep: Ignore the rest if --mpboot2
+     * Placing the IF here as params is needed
+     */
+    if(tree->params->mpboot2){
+ 		return -tree->computeParsimony();
+    }
+
     double estimatedIterations = tree->params->num_param_iterations; //for now
     tree->initProgress(estimatedIterations, "Optimizing Model Parameters", "finished", "iteration", true );
     

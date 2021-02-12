@@ -718,9 +718,12 @@ int IQTree::addTreeToCandidateSet(string treeString, double score, bool updateSt
         if (score > curBestScore) {
             if (pos != -1) {
                 stop_rule.addImprovedIteration(stop_rule.getCurIt());
-                LOG_LINE(VB_QUIET, "BETTER TREE FOUND at iteration " << stop_rule.getCurIt() << ": " << score);
+                LOG_LINE(VB_QUIET, "BETTER TREE FOUND at iteration " << stop_rule.getCurIt() << ": " << (params->mpboot2 ? (-score) : score));
             } else {
-                LOG_LINE(VB_QUIET, "UPDATE BEST LOG-LIKELIHOOD: " << score);
+            	if(params->mpboot2)
+            		LOG_LINE(VB_QUIET, "UPDATE BEST PARSIMONY SCORE: " << -score);
+            	else
+            		LOG_LINE(VB_QUIET, "UPDATE BEST LOG-LIKELIHOOD: " << score);
             }
             bestcandidate_changed = true;
             // COMMENT OUT: not safe with MPI version
@@ -821,14 +824,37 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
                 //Use the tree we've already got!
             }
             curParsTree = getTreeString();
-            int pos = addTreeToCandidateSet(curParsTree, -DBL_MAX, false, MPIHelper::getInstance().getProcessID());
+
+            // Diep: add IF for mpboot2
+            double tmpScore;
+            if(params->mpboot2){
+        		this->initializeAllPartialPars();
+        		this->clearAllPartialLH();
+        		tmpScore = -this->computeParsimony();
+//        		iqtree.candidateTrees.update(curParsTree, iqtree.curScore);
+//                if (iqtree.curScore > iqtree.bestScore) {
+//                    iqtree.setBestTree(curParsTree, iqtree.curScore);
+//                }
+            }else
+            	tmpScore = -DBL_MAX;
+
+//            int pos = addTreeToCandidateSet(curParsTree, -DBL_MAX, false, MPIHelper::getInstance().getProcessID());
+            int pos = addTreeToCandidateSet(curParsTree, tmpScore, false, MPIHelper::getInstance().getProcessID());
             // if a duplicated tree is generated, then randomize the tree
             if (pos == -1) {
                 readTreeString(curParsTree);
                 doRandomNNIs();
                 wrapperFixNegativeBranch(true);
                 string randTree = getTreeString();
-                addTreeToCandidateSet(randTree, -DBL_MAX, false, MPIHelper::getInstance().getProcessID());
+                if(params->mpboot2){
+					this->initializeAllPartialPars();
+					this->clearAllPartialLH();
+					tmpScore = -this->computeParsimony();
+                }else
+                	tmpScore = -DBL_MAX;
+
+//                addTreeToCandidateSet(randTree, -DBL_MAX, false, MPIHelper::getInstance().getProcessID());
+                addTreeToCandidateSet(randTree, tmpScore, false, MPIHelper::getInstance().getProcessID());
             }
             trackProgress(1);
         }
@@ -838,6 +864,15 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
         LOG_LINE( VB_QUIET, whatAmIDoingHere
                  << " took " << getRealTime() - startTime << " wall-clock seconds");
     }
+
+    // Diep: add IF for mpboot2
+    // Parsimony scores were already optimized
+    if(params->mpboot2){
+		//---- BLOCKING COMMUNICATION
+		syncCandidateTrees(nNNITrees, false);
+		return;
+    }
+
     /****************************************************************************************
                           Compute logl of all initial trees
     *****************************************************************************************/
@@ -937,8 +972,12 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
             readTreeString(*it);
             //tree = optimizeBranches();
             tree = optimizeModelParameters();
-            LOG_LINE(VB_QUIET, "Tree " << distance(bestInitTrees.begin(), it)+1
-                     << " / LogL: " << getCurScore());
+            if(params->mpboot2)
+                LOG_LINE(VB_QUIET, "Tree " << distance(bestInitTrees.begin(), it)+1
+                         << " / Score: " << -getCurScore());
+            else
+				LOG_LINE(VB_QUIET, "Tree " << distance(bestInitTrees.begin(), it)+1
+						 << " / LogL: " << getCurScore());
             candidateTrees.update(tree, getCurScore());
             trackProgress(1.0);
         }
@@ -1029,6 +1068,12 @@ bool IQTree::isInitializedPLL() {
 }
 
 void IQTree::initializeModel(Params &params, string model_name, ModelsBlock *models_block) {
+	VerboseMode saved_mode;
+	if(params.mpboot2){
+        saved_mode = verbose_mode;
+        verbose_mode = VB_QUIET;
+	}
+
     try {
         if (!getModelFactory()) {
             if (isSuperTree()) {
@@ -1081,6 +1126,9 @@ void IQTree::initializeModel(Params &params, string model_name, ModelsBlock *mod
         aln->orderPatternByNumChars(PAT_VARIANT);
     }
 
+	if(params.mpboot2){
+        verbose_mode = saved_mode;
+	}
 }
 double IQTree::getProbDelete() {
     return (double) k_delete / leafNum;
@@ -2214,13 +2262,13 @@ void IQTree::printBestScores() {
     vector<double> bestScores = candidateTrees.getBestScores(params->popSize);
     std::stringstream msg;
     for (vector<double>::iterator it = bestScores.begin(); it != bestScores.end(); it++) {
-        msg << (*it) << " ";
+        msg << (params->mpboot2 ? -(*it) : (*it)) << " ";
     }
     logLine(msg.str());
 }
 
 double IQTree::computeLogL() {
-    if (params->pll) {
+    if (params->pll && !params->mpboot2) {
         if (curScore == -DBL_MAX) {
             pllEvaluateLikelihood(pllInst, pllPartitions, pllInst->start, PLL_TRUE, PLL_FALSE);
         } else {
@@ -2296,8 +2344,9 @@ double IQTree::doTreeSearch() {
 
     auto best_tree_score = candidateTrees.getBestScore();
     auto cpu_time_spent  = getRealTime() - initCPUTime;
-    LOG_LINE(VB_QUIET,"Current best tree score: " << best_tree_score
-             << " / CPU time: " << cpu_time_spent);
+    LOG_LINE(VB_QUIET,"Current best tree score: "
+    			<< (params->mpboot2 ? -best_tree_score : best_tree_score)
+				<< " / CPU time: " << cpu_time_spent);
     LOG_LINE(VB_QUIET,"Number of iterations: " << stop_rule.getCurIt());
 
 //    string treels_name = params->out_prefix;
@@ -2915,7 +2964,8 @@ void IQTree::printIterationInfo(int sourceProcID) {
         std::stringstream msg;
         msg << ((iqp_assess_quartet == IQP_BOOTSTRAP) ? "Bootstrap " : "Iteration ")
             << stop_rule.getCurIt()
-            << " / LogL: " << curScore
+            << (params->mpboot2 ? " / Score: " : " / LogL: ")
+            << (params->mpboot2 ? -curScore : curScore)
             << " / Time: " << convert_time(getRealTime() - params->start_real_time);
         if (stop_rule.getCurIt() > 20) {
             msg << " (" << convert_time(realtime_remaining) << " left)";
@@ -4474,7 +4524,8 @@ int PhyloTree::testNumThreads() {
                  << " / Time: " << runTime << " sec"
                  << " / Speedup: " << speedup
                  << " / Efficiency: " << (int)round(speedup*100/proc) << "%"
-                 << " / LogL: " << (int)logl);
+                 << (params->mpboot2 ? " / Score: " : " / LogL: ")
+                 <<  (params->mpboot2 ? (int)-logl : (int)logl));
 
         // break if too bad efficiency ( < 50%) or worse than than 10% of the best run time
         if (speedup*2 <= proc || (runTime > runTimes[bestProc]*1.1 && proc>1)) {

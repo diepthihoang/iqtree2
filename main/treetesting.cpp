@@ -1213,7 +1213,10 @@ void evaluateTrees(string treeset_file, Params &params, IQTree *tree, vector<Tre
         if (params.print_tree_lh)
             scoreout << tree->getCurScore() << endl;
         
-        cout << " / LogL: " << tree->getCurScore() << endl;
+        if(params.mpboot2)
+        	cout << " / Score: " << -tree->getCurScore() << endl;
+        else
+        	cout << " / LogL: " << tree->getCurScore() << endl;
         
         if (pattern_lh) {
             double curScore = tree->getCurScore();
