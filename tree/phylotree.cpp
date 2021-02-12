@@ -1545,7 +1545,8 @@ int PhyloTree::computeParsimony(const char* taskDescription,
         initializeAllPartialPars();
     }
 
-    if(_pattern_pars == NULL) _pattern_pars = aligned_alloc<BootValTypePars>(get_safe_upper_limit_float(getAlnNPattern()));
+    if(params->gbo_replicates > 0 && _pattern_pars == NULL)
+    	_pattern_pars = aligned_alloc<BootValTypePars>(get_safe_upper_limit_float(getAlnNPattern()));
 
     PhyloNode* r = getRoot();
     if (taskDescription==nullptr || taskDescription[0]=='\0') {

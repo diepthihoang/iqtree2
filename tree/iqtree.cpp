@@ -3082,7 +3082,7 @@ pair<int, int> IQTree::doNNISearch(bool write_info, const char* context) {
             computePatternCategories();
     }
 
-    if(!on_refine_btree){ // Diep add (IF in Refinement Step, do not optimize model parameters)
+    if((!params->mpboot2) && (!on_refine_btree)){ // Diep add (IF in Refinement Step, do not optimize model parameters)
         // Better tree or score is found
         if (getCurScore() > curBestScore + params->modelEps) {
             // Re-optimize model parameters (the sNNI algorithm)

@@ -2560,7 +2560,14 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
             string tree;
             Params::getInstance().fixStableSplits = false;
             Params::getInstance().tabu = false;
-            tree = iqtree->optimizeModelParameters(true);
+            if(params.mpboot2){ // Diep: consider remove this.
+        		iqtree->initializeAllPartialPars();
+        		iqtree->clearAllPartialLH();
+        		iqtree->setCurScore(-iqtree->computeParsimony());
+            	tree = iqtree->getTreeString();
+            }
+            else
+            	tree = iqtree->optimizeModelParameters(true);
             iqtree->addTreeToCandidateSet(tree, iqtree->getCurScore(), false, MPIHelper::getInstance().getProcessID());
             iqtree->getCheckpoint()->putBool("finishedModelFinal", true);
             iqtree->saveCheckpoint();
@@ -2572,9 +2579,14 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         ((PhyloSuperTree*) iqtree)->printBestPartitionParams((string(params.out_prefix) + ".best_model.nex").c_str());
     }
 
-    cout 	<< "BEST SCORE FOUND : "
-    		<< (params.mpboot2 ? int(-iqtree->getCurScore()) : iqtree->getCurScore())
-			<< endl;
+    if(params.mpboot2){
+    	cout.precision(0);
+    	cout.setf(ios_base::fixed);
+    	cout << "BEST SCORE FOUND : " << int(-iqtree->getCurScore()) << endl;
+    }else{
+    	cout << "BEST SCORE FOUND : " << iqtree->getCurScore() << endl;
+    }
+
 
     if (params.write_candidate_trees) {
         printTrees(iqtree->getBestTrees(), params, ".imd_trees");
@@ -2590,7 +2602,7 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
     iqtree->setRootNode(params.root);
 
 
-    if (!params.pll) {
+    if ((!params.pll) && (!params.mpboot2)) {
         iqtree->computeLikelihood(pattern_lh);
         // compute logl variance
         iqtree->logl_variance = iqtree->computeLogLVariance();

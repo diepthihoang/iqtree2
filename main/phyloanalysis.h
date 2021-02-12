@@ -101,11 +101,4 @@ void computeConsensusNetwork(const char *input_trees, int burnin,
                              const char *output_tree, const char *out_prefix,
                              const char* tree_weight_file);
 
-/**
- * Diep:
- * In MPBoot1, this was located here so that it can be seen by optimizeAlignment
- * Probably need relocating
- */
-#define BootValTypePars unsigned short // Diep added
-
 #endif
