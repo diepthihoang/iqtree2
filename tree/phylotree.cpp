@@ -1634,7 +1634,8 @@ int PhyloTree::computeParsimonyPatternScore() {
         checkscore += pattern_pars[i] * aln->at(i).frequency;
     }
 
-    return score;
+//    return score;
+    return checkscore;
 }
 
 int PhyloTree::computeParsimonyOutOfTree(const UINT* dad_partial_pars,

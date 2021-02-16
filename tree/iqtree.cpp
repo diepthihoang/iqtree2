@@ -2310,7 +2310,9 @@ double IQTree::doTreeSearch() {
     
     cout << endl;
     cout << "Pattern score check: " << computeParsimonyPatternScore() << endl;
+    cout << "Parsimony score computed by core-iqtree2: " << -int(this->getCurScore()) << endl;
     cout << endl;
+    exit(0);
 
     if (params->numInitTrees > 1) {
         logLine( "--------------------------------------------------------------------");
