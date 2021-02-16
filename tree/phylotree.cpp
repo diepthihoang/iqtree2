@@ -1627,14 +1627,13 @@ int PhyloTree::computeParsimonyPatternScore() {
     computeParsimonyBranchSite(nei2, p2);
     computeParsimonyBranchSiteOutOfTree(nei, nei2, pattern_state, pattern_pars);
 
-    int score = computeParsimonyBranch((PhyloNeighbor*) root->neighbors[0], (PhyloNode*) root);
     int checkscore = 0;
 
     for(int i = 0; i < aln->size(); ++i) {
         checkscore += pattern_pars[i] * aln->at(i).frequency;
     }
 
-    return score;
+    return checkscore;
 }
 
 int PhyloTree::computeParsimonyOutOfTree(const UINT* dad_partial_pars,
