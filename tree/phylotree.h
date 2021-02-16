@@ -805,7 +805,16 @@ public:
 
     template<class VectorClass>
     int getSubTreeParsimonySankoffSIMD(PhyloNeighbor *dad_branch, PhyloNode *dad) const;
-    
+
+    /*
+        PARSIMONY SITE SCORE, by nghia
+    */
+    void computeParsimonyBranchSiteOutOfTree(PhyloNeighbor *left, PhyloNeighbor *right, UINT *dad_partial_pars, UINT *dad_score_pars);
+
+    void computeParsimonyBranchSite(PhyloNeighbor *dad_branch, PhyloNode *dad, int *branch_subst = NULL);
+
+    // ===============================================================================================================================
+
     void computeReversePartialParsimony(PhyloNode *node, PhyloNode *dad);
 
     typedef int (PhyloTree::*ComputeParsimonyBranchType)(PhyloNeighbor *, PhyloNode *, int *);
@@ -922,6 +931,19 @@ public:
             initialize partial_lh vector of all PhyloNeighbors, allocating central_partial_lh
      */
     virtual void initializeAllPartialLh();
+
+    /**
+            initialize partial_score_pars vector of all PhyloNeighbors, allocating central_score_pars
+            @param node the current node
+            @param dad dad of the node, used to direct the search
+            @param index the index
+     */
+    virtual void initializeAllPartialScorePars(int &index, PhyloNode *node = NULL, PhyloNode *dad = NULL);
+
+    /**
+     *      initialize partial_score_pars, partial_state_pars and partial_lh_computed for column scores
+     */
+    virtual void initializeAllScorePars();
 
     /**
             de-allocate central_partial_lh, central_scale_num and parsimony vectors
@@ -2680,6 +2702,13 @@ protected:
     double *nni_partial_lh; // used for NNI functions
 
     /**
+            the main memory storing all partial parsimony pattern score for all neighbors of the tree.
+            The variable partial_pars in PhyloNeighbor will be assigned to a region inside this variable.
+     */
+    UINT *central_score_pars;
+    UINT *central_state_pars;
+
+    /**
             the main memory storing all scaling event numbers for all neighbors of the tree.
             The variable scale_num in PhyloNeighbor will be assigned to a region inside this variable.
      */
@@ -2800,6 +2829,18 @@ protected:
         processing for this tree */
     bool warnedAboutNumericalUnderflow;
 
+    /**
+     * Final state for pattern pars
+     */
+    UINT *pattern_pars;
+    UINT *pattern_state;
+
+
+    /**
+     * Compute parsimony pattern score
+     */
+
+    int computeParsimonyPatternScore(); 
 };
         
 #endif

@@ -369,6 +369,16 @@ private:
     UINT *partial_pars;
 
     /**
+     * vector containing the partial parsimony score for columns
+     */
+    UINT *partial_score_pars;
+
+    /**
+     * vector containing the parsimony state for columns
+     */
+    UINT *partial_state_pars;
+
+    /**
      * direction of the Neighbor in a rooted tree
      */
     RootDirection direction;
@@ -376,6 +386,10 @@ private:
     /** size of subtree below this neighbor in terms of number of taxa */
     int size;
 
+    /**
+     * True if site score is calculated
+     */
+    bool computed_site_parsimony;
 };
 
 template <class T, class S> class SubclassPointerVector: public S {

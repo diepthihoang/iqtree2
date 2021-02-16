@@ -91,6 +91,10 @@ void PhyloTree::init() {
     nni_scale_num                   = nullptr;
     central_partial_pars            = nullptr; //points to per-node partial parsimony vectors
                                                //followed by tip partial parsimony vectors.
+
+    central_score_pars = nullptr;
+    central_state_pars = nullptr;
+
     total_parsimony_mem_size        = 0;       //will be set, when central_partial_pars is allocated
     pars_block_size                 = 0;       //will be set, later, by determineBlockSizes()
     tip_partial_pars                = nullptr; //points to the last part of central_partial_pars
@@ -1459,6 +1463,83 @@ void PhyloTree::ensureCentralPartialParsimonyIsAllocated(size_t extra_vector_cou
     return;
 }
 
+void PhyloTree::initializeAllPartialScorePars(int &index, PhyloNode *node, PhyloNode *dad) {
+
+    /*
+        Each branch has a set of vector for:
+            - patternwise score
+            - patternwise state
+        
+        for patternwise score, each integer stands for the score of the pattern it represents
+        
+        same thing for patternwise state, but only its first num_state bits is used 
+
+        To merge states of a pattern from 2 children branch:
+            vecp = vecc1 & vecc2
+            step = ~((vecp | (vecp >> 1) | (vecp >> 2) | (vecp >> 3)) & vecone)
+        where vecone is the vector with only the first bit of each integer is 1
+
+        To get the fitch state:
+            step = step | (step << 1) | (step << 2) | (step << 3)
+            state_p = (vecc1 & vecc2) | (step & (vecc1 | vecc2))
+    */
+
+    size_t VCSIZE = Vec4ui::size();
+    size_t numbranch = ((getNumTaxa() - 1) * 2 - 1) * 2 + 1;
+
+
+    size_t num_pattern = aln->size();
+
+    const int NUM_BITS = VCSIZE * UINT_BITS;
+
+    size_t num_blocks = (num_pattern + UINT_BITS - 1) / UINT_BITS;
+    while (num_blocks % VCSIZE != 0)
+        num_blocks++;
+    size_t blocks_size = num_blocks * 4;
+    size_t state_size = blocks_size * numbranch;
+
+    while (num_pattern % VCSIZE != 0)
+        num_pattern++;
+    size_t memsize = numbranch * num_pattern;
+
+
+    if (!node) {
+        node = (PhyloNode *)root;
+
+        if (!central_score_pars) {
+            central_score_pars = aligned_alloc<UINT> (memsize);
+            central_state_pars = aligned_alloc<UINT> (state_size);
+            if (!central_score_pars || !central_state_pars) {
+                outError("Not enough memory for partial parsimony scores");
+            }
+        }
+
+        memset(central_score_pars, 0, sizeof(UINT) * memsize);
+        memset(central_state_pars, 0, sizeof(UINT) * state_size);
+
+        pattern_pars = central_score_pars;
+        pattern_state = central_state_pars;
+        index = 1;
+
+    }
+
+    if (dad) {
+        PhyloNeighbor *nei = (PhyloNeighbor *)node->findNeighbor(dad);
+        nei->partial_score_pars = central_score_pars + (index * num_pattern);
+        nei->partial_state_pars = central_state_pars + (index * blocks_size);
+        nei->computed_site_parsimony = false;
+        nei = (PhyloNeighbor *)dad->findNeighbor(node);
+        nei->partial_score_pars = central_score_pars + ((index + 1) * num_pattern);
+        nei->partial_state_pars = central_state_pars + ((index + 1) * blocks_size);
+        nei->computed_site_parsimony = false;
+        index += 2;
+    }
+
+    FOR_NEIGHBOR_IT(node, dad, it) {
+        initializeAllPartialScorePars(index, (PhyloNode *)((*it)->node), node);
+    }
+}
+
 void PhyloTree::initializeAllPartialPars(int &index, PhyloNode *node, PhyloNode *dad) {
     if (!node) {
         ensureCentralPartialParsimonyIsAllocated(0);
@@ -1529,6 +1610,31 @@ void PhyloTree::computeReversePartialParsimony(PhyloNode *node, PhyloNode *dad) 
 int PhyloTree::computeParsimonyBranch(PhyloNeighbor* dad_branch,
                                       PhyloNode* dad, int* branch_subst) {
     return (this->*computeParsimonyBranchPointer)(dad_branch, dad, branch_subst);
+}
+
+int PhyloTree::computeParsimonyPatternScore() {
+    
+    PhyloNode* p1 = (PhyloNode*) root;
+    PhyloNode* p2 = (PhyloNode*) (((PhyloNeighbor*) root->neighbors[0]) -> node);
+    PhyloNeighbor *nei, *nei2;
+
+    FOR_EACH_PHYLO_NEIGHBOR(p2, NULL, it, pit) {
+        if (pit->node == root) nei2 = pit;
+    }
+    nei = (PhyloNeighbor *)root->neighbors[0];
+
+    computeParsimonyBranchSite(nei, p1);
+    computeParsimonyBranchSite(nei2, p2);
+    computeParsimonyBranchSiteOutOfTree(nei, nei2, pattern_state, pattern_pars);
+
+    int score = computeParsimonyBranch((PhyloNeighbor*) root->neighbors[0], (PhyloNode*) root);
+    int checkscore = 0;
+
+    for(int i = 0; i < aln->size(); ++i) {
+        checkscore += pattern_pars[i] * aln->at(i).frequency;
+    }
+
+    return score;
 }
 
 int PhyloTree::computeParsimonyOutOfTree(const UINT* dad_partial_pars,
@@ -1649,6 +1755,13 @@ void PhyloTree::initializeAllPartialLh() {
         ASSERT(index_lh == nodeNum-leafNum);
     }
     clearAllPartialLH();
+}
+
+void PhyloTree::initializeAllScorePars() {
+    clearAllPartialLH();
+    int index = 0;
+    initializeAllPartialScorePars(index);
+    return;
 }
 
 void PhyloTree::deleteAllPartialParsimony() {

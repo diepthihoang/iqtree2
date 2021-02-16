@@ -2300,7 +2300,18 @@ string IQTree::optimizeBranches(int maxTraversal) {
 }
 
 double IQTree::doTreeSearch() {
+    // ngfam: Added pattern score here. Currently the function returns the score sum (technically the score for the whole tree)
+    // The pattern score is stored in pattern_pars
+    // @TODO: 
+    // 1. Create template for pattern score
+    // 2. Scores for binary and protein
+     
+    initializeAllScorePars();
     
+    cout << endl;
+    cout << "Pattern score check: " << computeParsimonyPatternScore() << endl;
+    cout << endl;
+
     if (params->numInitTrees > 1) {
         logLine( "--------------------------------------------------------------------");
         logLine( "|             INITIALIZING CANDIDATE TREE SET                      |");

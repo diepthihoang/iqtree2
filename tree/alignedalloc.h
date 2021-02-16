@@ -49,6 +49,7 @@ inline T *aligned_alloc(size_t size) {
 #endif
         outError("Not enough memory, allocation of " + convertInt64ToString(size*sizeof(T)) + " bytes failed (bad_alloc)");
     }
+
     return (T*)mem;
 }
 
