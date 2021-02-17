@@ -1484,7 +1484,7 @@ void PhyloTree::initializeAllPartialScorePars(int &index, PhyloNode *node, Phylo
             state_p = (vecc1 & vecc2) | (step & (vecc1 | vecc2))
     */
 
-    size_t VCSIZE = Vec4ui::size();
+    size_t VCSIZE = Vec8ui::size();
     size_t numbranch = ((getNumTaxa() - 1) * 2 - 1) * 2 + 1;
 
 
@@ -1613,6 +1613,8 @@ int PhyloTree::computeParsimonyBranch(PhyloNeighbor* dad_branch,
 }
 
 int PhyloTree::computeParsimonyPatternScore() {
+
+    initializeAllScorePars();
     
     PhyloNode* p1 = (PhyloNode*) root;
     PhyloNode* p2 = (PhyloNode*) (((PhyloNeighbor*) root->neighbors[0]) -> node);
@@ -1629,10 +1631,13 @@ int PhyloTree::computeParsimonyPatternScore() {
 
     int checkscore = 0;
 
-    for(int i = 0; i < aln->size(); ++i) {
-        checkscore += pattern_pars[i] * aln->at(i).frequency;
+    for(int i = 0; i < aln->ordered_pattern.size(); ++i) {
+        checkscore += pattern_pars[i] * aln->ordered_pattern.at(i).frequency;
     }
 
+    // cout << computeParsimony() << endl;
+
+//    return score;
     return checkscore;
 }
 
@@ -1757,7 +1762,7 @@ void PhyloTree::initializeAllPartialLh() {
 }
 
 void PhyloTree::initializeAllScorePars() {
-    clearAllPartialLH();
+    // clearAllPartialLH();
     int index = 0;
     initializeAllPartialScorePars(index);
     return;
