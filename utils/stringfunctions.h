@@ -9,6 +9,7 @@
 
 #include <string>
 #include <sstream>
+#include <cstring>
 #include "vectortypes.h" //for IntVector, DoubleVector, StrVector
 
 /**
