@@ -1544,8 +1544,11 @@ void PhyloTree::computePartialParsimonyFastSIMD(PhyloNeighbor *dad_branch, Phylo
     } else if (node->isLeaf() && dad) {
         // external node
         vector<Alignment*> *partitions = NULL;
-        if (aln->isSuperAlignment())
+        if (aln->isSuperAlignment()) {
             partitions = &((SuperAlignment*)aln)->partitions;
+            cout << "PArtition needed" << endl;
+            exit(0);
+        }
         else {
             partitions = new vector<Alignment*>;
             partitions->push_back(aln);

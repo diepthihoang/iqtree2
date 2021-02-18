@@ -1488,7 +1488,7 @@ void PhyloTree::initializeAllPartialScorePars(int &index, PhyloNode *node, Phylo
     size_t numbranch = ((getNumTaxa() - 1) * 2 - 1) * 2 + 1;
 
 
-    size_t num_pattern = aln->size();
+    size_t num_pattern = aln->ordered_pattern.size();
 
     const int NUM_BITS = VCSIZE * UINT_BITS;
 

@@ -807,6 +807,7 @@ void PhyloTree::computeTipPartialParsimony() {
 #endif
 
 #define VectorClass Vec8ui
+#define VectorBool to_Vec8ib
 
 inline UINT fast_popcount(Vec4ui &x) {
     MEM_ALIGN_BEGIN UINT vec[4] MEM_ALIGN_END;
@@ -861,7 +862,7 @@ void PhyloTree::computeParsimonyBranchSiteOutOfTree(PhyloNeighbor *left, PhyloNe
 
             for(int j = 0; j < VC_SIZE; ++j) {
                 for(int k = 0; k < UINT_BITS; k += VC_SIZE) {
-                    ds[score_offset++] -= VectorClass(to_Vec8ib((w[j] >> k) & base));  
+                    ds[score_offset++] -= VectorClass(VectorBool((w[j] >> k) & base));  
                 }
             }
         }
