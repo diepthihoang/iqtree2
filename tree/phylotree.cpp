@@ -1483,7 +1483,7 @@ void PhyloTree::initializeAllPartialScorePars(int &index, PhyloNode *node, Phylo
             step = step | (step << 1) | (step << 2) | (step << 3)
             state_p = (vecc1 & vecc2) | (step & (vecc1 | vecc2))
     */
-
+    int nstates = aln->getMaxNumStates();
     size_t VCSIZE = Vec8ui::size();
     size_t numbranch = ((getNumTaxa() - 1) * 2 - 1) * 2 + 1;
 
@@ -1495,7 +1495,7 @@ void PhyloTree::initializeAllPartialScorePars(int &index, PhyloNode *node, Phylo
     size_t num_blocks = (num_pattern + UINT_BITS - 1) / UINT_BITS;
     while (num_blocks % VCSIZE != 0)
         num_blocks++;
-    size_t blocks_size = num_blocks * 4;
+    size_t blocks_size = num_blocks * nstates;
     size_t state_size = blocks_size * numbranch;
 
     while (num_pattern % VCSIZE != 0)
@@ -1625,9 +1625,9 @@ int PhyloTree::computeParsimonyPatternScore() {
     }
     nei = (PhyloNeighbor *)root->neighbors[0];
 
-    computeParsimonyBranchSite(nei, p1);
-    computeParsimonyBranchSite(nei2, p2);
-    computeParsimonyBranchSiteOutOfTree(nei, nei2, pattern_state, pattern_pars);
+    (this->*computeParsimonyPatternPointer)(nei, p1, nullptr);
+    (this->*computeParsimonyPatternPointer)(nei2, p2, nullptr);
+    (this->*computeParsimonyPatternOutOfTreePointer)(nei, nei2, pattern_state, pattern_pars);
 
     int checkscore = 0;
 

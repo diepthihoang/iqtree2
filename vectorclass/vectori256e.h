@@ -2201,6 +2201,7 @@ public:
     Vec8ui(Vec4ui const & a0, Vec4ui const & a1) {
         y0 = a0;  y1 = a1;
     }
+
     // Constructor to convert from type Vec256ie
     Vec8ui(Vec256ie const & x) {
         y0 = x.get_low();  y1 = x.get_high();
@@ -2243,6 +2244,10 @@ public:
     }
     Vec4ui get_high() const {
         return y1;
+    }
+
+    static Vec8ui to_boolean(uint8_t x) {
+        return Vec8ui(Vec8i(to_Vec4ib(x), to_Vec4ib(x>>4)));
     }
 };
 
@@ -4398,6 +4403,7 @@ static inline uint8_t to_bits(Vec4qb const & x) {
 static inline Vec4qb to_Vec4qb(uint8_t x) {
     return Vec4q(to_Vec2qb(x), to_Vec2qb(x>>2));
 }
+
 
 #ifdef VCL_NAMESPACE
 }

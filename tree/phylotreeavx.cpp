@@ -44,6 +44,8 @@ void PhyloTree::setParsimonyKernelAVX() {
     computePartialParsimonyPointer          = &PhyloTree::computePartialParsimonyFastSIMD<Vec8ui>;
     computePartialParsimonyOutOfTreePointer = &PhyloTree::computePartialParsimonyOutOfTreeSIMD<Vec8ui>;
     getSubTreeParsimonyPointer              = &PhyloTree::getSubTreeParsimonyFastSIMD<Vec8ui>;
+    computeParsimonyPatternPointer          = &PhyloTree::computeParsimonyBranchPattern<Vec8ui>;
+    computeParsimonyPatternOutOfTreePointer = &PhyloTree::computeParsimonyBranchPatternOutOfTree<Vec8ui>;
 }
 
 void PhyloTree::setDotProductAVX() {

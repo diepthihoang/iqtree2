@@ -2561,6 +2561,19 @@ public:
     uint32_t operator [] (uint32_t index) const {
         return extract(index);
     }
+
+    static Vec4ui to_boolean(uint8_t x) {
+        static const uint32_t table[16] = {    // lookup-table
+        0x00000000, 0x000000FF, 0x0000FF00, 0x0000FFFF, 
+        0x00FF0000, 0x00FF00FF, 0x00FFFF00, 0x00FFFFFF, 
+        0xFF000000, 0xFF0000FF, 0xFF00FF00, 0xFF00FFFF, 
+        0xFFFF0000, 0xFFFF00FF, 0xFFFFFF00, 0xFFFFFFFF}; 
+        uint32_t a = table[x & 0xF];           // 4 bytes
+        __m128i b = _mm_cvtsi32_si128(a);      // transfer to vector register
+        __m128i c = _mm_unpacklo_epi8(b, b);   // duplicate bytes to 16-bit words
+        __m128i d = _mm_unpacklo_epi16(c, c);  // duplicate 16-bit words to 32-bit dwords
+        return Vec4ui(d);
+    }
 };
 
 // Define operators for this class

@@ -44,6 +44,8 @@ void PhyloTree::setParsimonyKernelSSE() {
     computePartialParsimonyPointer          = &PhyloTree::computePartialParsimonyFastSIMD<Vec4ui>;
     computePartialParsimonyOutOfTreePointer = &PhyloTree::computePartialParsimonyOutOfTreeSIMD<Vec4ui>;
     getSubTreeParsimonyPointer              = &PhyloTree::getSubTreeParsimonyFastSIMD<Vec4ui>;
+    computeParsimonyPatternPointer          = &PhyloTree::computeParsimonyBranchPattern<Vec4ui>;
+    computeParsimonyPatternOutOfTreePointer = &PhyloTree::computeParsimonyBranchPatternOutOfTree<Vec4ui>;
 }
 
 void PhyloTree::setDotProductSSE() {

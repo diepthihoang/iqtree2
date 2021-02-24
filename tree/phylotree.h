@@ -806,12 +806,12 @@ public:
     template<class VectorClass>
     int getSubTreeParsimonySankoffSIMD(PhyloNeighbor *dad_branch, PhyloNode *dad) const;
 
-    /*
-        PARSIMONY SITE SCORE, by nghia
-    */
-    void computeParsimonyBranchSiteOutOfTree(PhyloNeighbor *left, PhyloNeighbor *right, UINT *dad_partial_pars, UINT *dad_score_pars);
+    template<class VectorClass>
+    void computeParsimonyBranchPatternOutOfTree(PhyloNeighbor *left, PhyloNeighbor *right, UINT *dad_partial_pars, UINT *dad_score_pars);
 
-    void computeParsimonyBranchSite(PhyloNeighbor *dad_branch, PhyloNode *dad, int *branch_subst = NULL);
+
+    template<class VectorClass>
+    void computeParsimonyBranchPattern(PhyloNeighbor *dad_branch, PhyloNode *dad, int *branch_subst = NULL);
 
     // ===============================================================================================================================
 
@@ -824,6 +824,15 @@ public:
                                              const UINT* node_partial_pars,
                                              int* branch_subst) const;
     ComputeParsimonyOutOfTreeType computeParsimonyOutOfTreePointer;
+
+
+    typedef void (PhyloTree::*ComputeParsimonyBranchSiteType) (PhyloNeighbor *, PhyloNode *, int*);
+    ComputeParsimonyBranchSiteType computeParsimonyPatternPointer;
+
+
+    typedef void (PhyloTree::*ComputeParsimonyBranchSiteOutOfTreeType) (PhyloNeighbor*, PhyloNeighbor*, UINT*, UINT*);
+    ComputeParsimonyBranchSiteOutOfTreeType computeParsimonyPatternOutOfTreePointer;
+    
     /**
             compute tree parsimony score on a branch
             @param dad_branch the branch leading to the subtree

@@ -8,7 +8,6 @@
  */
 
 
-#include <vectorclass/vectorclass.h>
 #include "phylotree.h"
 #include "phylotreethreadingcontext.h"
 #include "phylosupertree.h"
@@ -19,7 +18,7 @@
 #if defined (__GNUC__) || defined(__clang__)
 #define vml_popcnt __builtin_popcount
 #else
-// taken from vectorclass library
+// taken from Vec8ui library
 static inline uint32_t vml_popcnt (uint32_t a) {	
     // popcnt instruction not available
     uint32_t b = a - ((a >> 1) & 0x55555555);
@@ -797,187 +796,6 @@ void PhyloTree::computeTipPartialParsimony() {
     }
 }
 
-
-#ifdef _MSC_VER
-#define MEM_ALIGN_BEGIN __declspec(align(32))
-#define MEM_ALIGN_END
-#else
-#define MEM_ALIGN_BEGIN
-#define MEM_ALIGN_END __attribute__((aligned(32)))
-#endif
-
-#define VectorClass Vec8ui
-#define VectorBool to_Vec8ib
-
-inline UINT fast_popcount(Vec4ui &x) {
-    MEM_ALIGN_BEGIN UINT vec[4] MEM_ALIGN_END;
-    x.store_a(vec);
-    return popcount_lauradoux(vec, 4);
-}
-
-/**
- * compute partial parsimony score for sites of inner node
- * @param left the child on the left
- * @param right the child on the right
- * @param dad the node itself
-*/
-
-void PhyloTree::computeParsimonyBranchSiteOutOfTree(PhyloNeighbor *left, PhyloNeighbor *right, UINT *dad_partial_pars, UINT *dad_score_pars){
-
-    static const int NUM_BITS = VectorClass::size() * UINT_BITS;
-    static const int VC_SIZE = VectorClass::size();
-    static const UINT base = (1 << VC_SIZE) - 1;
-
-    static int nstates = aln->getMaxNumStates();
-    static int nsites = (aln->ordered_pattern.size() + NUM_BITS - 1) / NUM_BITS;
-    static int entry_size = nstates * VC_SIZE;
-
-    UINT *left_partial_pars = left->partial_state_pars;
-    UINT *right_partial_pars = right->partial_state_pars;
-
-    VectorClass *ds = (VectorClass *)dad_score_pars;
-    VectorClass *ls = (VectorClass *)left->partial_score_pars;
-    VectorClass *rs = (VectorClass *)right->partial_score_pars;
-
-    int score_offset = 0;
-
-    switch (nstates) {
-    case 4:
-        for (int site = 0; site < nsites; ++site) {
-            size_t offset = entry_size * site;
-            VectorClass *x = (VectorClass *)(left_partial_pars + offset);
-            VectorClass *y = (VectorClass *)(right_partial_pars + offset);
-            VectorClass *z = (VectorClass *)(dad_partial_pars + offset);
-
-            z[0] = x[0] & y[0];
-            z[1] = x[1] & y[1];
-            z[2] = x[2] & y[2];
-            z[3] = x[3] & y[3];
-            VectorClass w = z[0] | z[1] | z[2] | z[3];
-            w = ~w;
-            z[0] |= w & (x[0] | y[0]);
-            z[1] |= w & (x[1] | y[1]);
-            z[2] |= w & (x[2] | y[2]);
-            z[3] |= w & (x[3] | y[3]);
-
-            for(int j = 0; j < VC_SIZE; ++j) {
-                for(int k = 0; k < UINT_BITS; k += VC_SIZE) {
-                    ds[score_offset++] -= VectorClass(VectorBool((w[j] >> k) & base));  
-                }
-            }
-        }
-        break;
-
-    default:
-        break;
-    }
-
-    for (int i = 0; i * VC_SIZE < aln->ordered_pattern.size(); ++i) {
-        ds[i] += ls[i] + rs[i];
-    }
-}
-
-/**
- * compute partial parsimony score for sites
- * @param dad_branch the branch leading to the subtree
- * @param dad its dad, used to direct the traversal
- */
-void PhyloTree::computeParsimonyBranchSite(PhyloNeighbor *dad_branch, PhyloNode *dad, int *branch_subst) {
-    PhyloNode *node = dad_branch->getNode();
-    dad_branch->computed_site_parsimony = true;
-    PhyloNeighbor *dad_nei = (PhyloNeighbor *)node->findNeighbor(dad);
-
-    int nsites = aln->ordered_pattern.size();
-    int nstates = aln->getMaxNumStates();
-    int site = 0;
-
-    const int VC_SIZE = VectorClass::size();
-    const int NUM_BITS = VC_SIZE * UINT_BITS;
-    const int entry_size = nstates * VC_SIZE;
-
-    if (false) {
-        ASSERT(dad);
-    }
-    else {
-        switch (aln->seq_type) {
-        case SEQ_DNA:
-            if (node->isLeaf() && dad) {
-                UINT *y = dad_branch->partial_score_pars;
-                UINT *x = dad_branch->partial_state_pars;
-                for (int i = 0; i < aln->ordered_pattern.size(); ++i, site++) {
-                    int state = aln->ordered_pattern.at(i)[node->id];
-                    if (state < 4) {
-                        if (site == NUM_BITS) {
-                            x += nstates * VC_SIZE;
-                            site = 0;
-                        }
-                        y[i] = 0;
-                        x[state * VC_SIZE + site / UINT_BITS] |= 1 << (site % UINT_BITS);
-                    }
-                    else if (state == aln->STATE_UNKNOWN) {
-                        if (site == NUM_BITS) {
-                            x += nstates * VC_SIZE;
-                            site = 0;
-                        }
-                        y[i] = 0;
-                        UINT bit1 = (1 << (site % UINT_BITS));
-                        UINT *p = x + (site / UINT_BITS);
-                        p[0] |= bit1;
-                        p[VC_SIZE] |= bit1;
-                        p[VC_SIZE * 2] |= bit1;
-                        p[VC_SIZE * 3] |= bit1;
-                    }
-                    else {
-                        state -= 3;
-                        if (site == NUM_BITS) {
-                            x += nstates * VC_SIZE;
-                            site = 0;
-                        }
-                        y[i] = 0;
-                        UINT bit1 = (1 << (site % UINT_BITS));
-                        UINT *p = x + (site / UINT_BITS);
-
-                        for(int j = 0; j < nstates; ++j) {
-                            if (state & (1 << j)) p[j * VC_SIZE] |= bit1;
-                        }
-                    }
-                }
-
-                while (site % NUM_BITS != 0) {
-                    UINT bit1 = (1 << (site % UINT_BITS));
-                    UINT *p = x + (site / UINT_BITS);
-                    p[0] |= bit1;
-                    p[VC_SIZE] |= bit1;
-                    p[VC_SIZE * 2] |= bit1;
-                    p[VC_SIZE * 3] |= bit1;
-                    site++;
-                }
-                // cout << site << endl;
-
-                // cout << endl << "===================================" << endl;
-            }
-            else {
-                ASSERT(node->degree() == 3 || (dad == nullptr && 1 < node->degree()));
-
-                PhyloNeighbor *left = NULL;
-                PhyloNeighbor *right = NULL;
-                FOR_EACH_PHYLO_NEIGHBOR(node, dad, it, pit) {
-                    computeParsimonyBranchSite(pit, node);
-                    if (!left) {
-                        left = pit;
-                    }
-                    else {
-                        right = pit;
-                    }
-                }
-                computeParsimonyBranchSiteOutOfTree(left, right, dad_branch->partial_state_pars, dad_branch->partial_score_pars);
-            }
-            break;
-        }
-    }
-}
-
-#undef VectorClass
 
 /**
  compute partial parsimony score of the subtree rooted at dad
