@@ -1,0 +1,113 @@
+IQ-TREE 2.1.2 COVID-edition built Feb 24 2021
+
+Input file name: ../iqtree2/example/example.phy
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 745783
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 17 sequences with 1998 nucleotide sites
+Number of constant sites: 686 (= 34.3343% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 686 (= 34.3343% of all sites)
+Number of parsimony informative sites: 1009
+Number of distinct site patterns: 1152
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: HKY+F
+
+Rate parameter R:
+
+  A-C: 1.0000
+  A-G: 1.0000
+  A-T: 1.0000
+  C-G: 1.0000
+  C-T: 1.0000
+  G-T: 1.0000
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.3547
+  pi(C) = 0.2282
+  pi(G) = 0.1919
+  pi(T) = 0.2252
+
+Rate matrix Q:
+
+  A   -0.8785    0.3107    0.2613    0.3065
+  C    0.4828    -1.051    0.2613    0.3065
+  G    0.4828    0.3107      -1.1    0.3065
+  T    0.4828    0.3107    0.2613    -1.055
+
+Model of rate heterogeneity: Uniform
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Parsimony score of the tree: 4870NOTE: Tree is UNROOTED although outgroup taxon 'LngfishAu' is drawn at root
+
++-----------------LngfishAu
+|
+|      +------------LngfishSA
++------|
+|      +------------LngfishAf
+|
+|      +-------------Frog
++------|
+       |                 +----------Turtle
+       |          +------|
+       |          |      |            +------------------Sphenodon
+       |          |      |       +----|
+       |          |      |       |    +-------------------Lizard
+       |          |      +-------|
+       |          |              |     +-----------------Crocodile
+       |          |              +-----|
+       |          |                    +--------------Bird
+       +----------|
+                  |                       +-----------Human
+                  |                  +----|
+                  |                  |    |   +-------Cow
+                  |                  |    +---|
+                  |                  |        +-------Whale
+                  |             +----|
+                  |             |    +-----Seal
+                  |        +----|
+                  |        |    |      +-----Mouse
+                  |        |    +------|
+                  |        |           +-------Rat
+                  +--------|
+                           |    +-------------Platypus
+                           +----|
+                                +-----------Opossum
+
+Tree in newick format:
+
+(LngfishAu:0.1517937790,(LngfishSA:0.1087708792,LngfishAf:0.1110960697):0.0610245794,(Frog:0.1198816777,((Turtle:0.0926974211,((Sphenodon:0.1554954016,Lizard:0.1692298725):0.0438241773,(Crocodile:0.1530255818,Bird:0.1287736352):0.0512998453):0.0686782834):0.0577686758,((((Human:0.1058747030,(Cow:0.0659356542,Whale:0.0730879009):0.0353726879):0.0432931009,Seal:0.0523740355):0.0443556379,(Mouse:0.0507633386,Rat:0.0670314774):0.0610245794):0.0443556379,(Platypus:0.1157686478,Opossum:0.1024142971):0.0417021716):0.0803104708):0.0904296564):0.0610245794);
+
+TIME STAMP
+----------
+
+Date and time: Mon Mar  1 20:26:22 2021
+Total CPU time used: 1.80733 seconds (0h:0m:1s)
+Total wall-clock time used: 1.85184 seconds (0h:0m:1s)
+

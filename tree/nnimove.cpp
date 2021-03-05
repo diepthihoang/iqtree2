@@ -157,6 +157,8 @@ NNIContext::NNIContext(PhyloTree* phylo_tree, PhyloNode* firstNode, PhyloNode* s
             tree->mem_slots.addSpecialNei(newNei);
         }
     }
+
+    // cout << mem_id << endl;
     if (nni5) {
         ASSERT(mem_id == 2);
     }

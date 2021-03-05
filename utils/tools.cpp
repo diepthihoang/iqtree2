@@ -2377,6 +2377,13 @@ void parseArg(int argc, char *argv[], Params &params) {
                 params.parsimony_spr_iterations = atoi(next_arg.c_str());
                 continue;
             }
+            if (arg == "--hclimb-spr") {
+                std::string next_arg = next_argument(argc, argv,
+                                        "max_parsimony_spr_radius_hclimb", cnt);
+                params.hclimb_spr = atoi(next_arg.c_str());
+                params.sprDist = params.hclimb_spr;
+                continue;
+            }
             if (arg=="-lazy-spr") {
                 params.use_lazy_parsimony_spr = true;
                 continue;

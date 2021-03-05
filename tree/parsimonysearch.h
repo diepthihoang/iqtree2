@@ -83,6 +83,7 @@ void PhyloTree::doParsimonySearch(const ParsimonySearchParameters& s) {
             LOG_LINE(VB_DEBUG, "Branch " << i
                      << " has branch cost " << tb.getBranchCost()
                      << " and connection_cost " << tb.getConnectionCost() );
+            
         }
         LOG_LINE(VB_DEBUG, "finding best " << s.name << " move for each branch");
         std::vector<Move> moves;

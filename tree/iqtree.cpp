@@ -2306,13 +2306,14 @@ double IQTree::doTreeSearch() {
     // 1. Create template for pattern score
     // 2. Scores for binary and protein
      
-    initializeAllScorePars();
+    // initializeAllScorePars();
     
-    cout << endl;
-    cout << "Pattern score check: " << computeParsimonyPatternScore() << endl;
-    cout << "Parsimony score computed by core-iqtree2: " << -int(this->getCurScore()) << endl;
-    cout << endl;
-    exit(0);
+    // cout << endl;
+    // cout << "Pattern score check: " << computeParsimonyPatternScore() << endl;
+    // cout << "Parsimony score computed by core-iqtree2: " << -int(this->getCurScore()) << endl;
+    // cout << endl;
+
+
 
     if (params->numInitTrees > 1) {
         logLine( "--------------------------------------------------------------------");
@@ -2341,6 +2342,7 @@ double IQTree::doTreeSearch() {
 
     /* Initialize candidate tree set */
     if (!getCheckpoint()->getBool("finishedCandidateSet")) {
+        cout << "WEQRQEWR" << endl;
         initCandidateTreeSet(treesPerProc, params->numNNITrees);
         // write best tree to disk
         printBestCandidateTree();
@@ -2436,6 +2438,13 @@ double IQTree::doTreeSearch() {
         /*----------------------------------------
          * Optimize tree with NNI
          *----------------------------------------*/
+
+        doParsimonySPR();
+        curScore = computeParsimony("Determining two-way parsimony", true, true );
+        initializeAllPartialLh();
+        initializeAllPartialPars();
+
+
         pair<int, int> nniInfos; // <num_NNIs, num_steps>
         nniInfos = doNNISearch(true, "");
         curTree = getTreeString();
@@ -3094,6 +3103,7 @@ pair<int, int> IQTree::doNNISearch(bool write_info, const char* context) {
         if (params->print_trees_site_posterior)
             computePatternCategories();
     }
+
 
     if((!params->mpboot2) && (!on_refine_btree)){ // Diep add (IF in Refinement Step, do not optimize model parameters)
         // Better tree or score is found

@@ -125,6 +125,7 @@ double TargetBranch::computeState(PhyloTree& phylo_tree,
                       << ", neigh1->length was " << neigh1->length);
     }
     if (partial_lh != nullptr) {
+        cout << "Bitch??" << endl;
         blocker->makeTreeReady(first, second);
         LikelihoodBufferSet localBuffers(phylo_tree.tree_buffers);
         double score = -phylo_tree.computeLikelihoodBranch(neigh1, first, localBuffers);

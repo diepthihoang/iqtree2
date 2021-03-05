@@ -585,6 +585,11 @@ private:
 public:
 
     /**
+     * radius for hclimb spr parsimony 
+     */
+    int hclimb_spr;
+
+    /**
     *  Fast and accurate optimiation for alpha and p_invar
     */
     bool fai;
@@ -2371,6 +2376,7 @@ struct PDRelatedMeasures {
             pd-complementarity scores of an area given some provided area
      */
     DoubleVector PDComplementarity;
+
 
 };
 
