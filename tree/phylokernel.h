@@ -1653,6 +1653,7 @@ void PhyloTree::computeParsimonyBranchPatternOutOfTree(PhyloNeighbor *left, Phyl
     int nsites = (aln->ordered_pattern.size() + NUM_BITS - 1) / NUM_BITS;
     int entry_size = nstates * VCSIZE;
 
+
     UINT *left_partial_pars = left->partial_state_pars;
     UINT *right_partial_pars = right->partial_state_pars;
 
@@ -1735,6 +1736,7 @@ void PhyloTree::computePartialParsimonyFastSIMD(PhyloNeighbor *dad_branch, Phylo
     const int  NUM_BITS = VectorClass::size() * UINT_BITS;
 
     dad_branch->setParsimonyComputed(true);
+
 
     if (node->name == ROOT_NAME) {
         ASSERT(dad);
@@ -1985,11 +1987,12 @@ double PhyloTree::computePartialParsimonyOutOfTreeSIMD(const UINT* left_partial_
                                                      UINT* dad_partial_pars) const {
     const int NUM_BITS   = VectorClass::size() * UINT_BITS;
     int       nstates    = aln->getMaxNumStates();
+
     UINT      score      = 0;
     size_t    nsites     = (aln->num_parsimony_sites+NUM_BITS-1)/NUM_BITS;
     const int VCSIZE     = VectorClass::size();
     int       entry_size = nstates * VCSIZE;
-    
+
     switch (nstates) {
     case 4:
         #ifdef _OPENMP
@@ -2011,6 +2014,7 @@ double PhyloTree::computePartialParsimonyOutOfTreeSIMD(const UINT* left_partial_
             z[2] |= w & (x[2] | y[2]);
             z[3] |= w & (x[3] | y[3]);
             score += fast_popcount(w);
+      
         }
         break;
             

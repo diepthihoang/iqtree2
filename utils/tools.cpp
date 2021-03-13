@@ -1158,8 +1158,12 @@ void parseArg(int argc, char *argv[], Params &params) {
     params.date_replicates = 0;
     params.clock_stddev = -1.0;
     params.date_outlier = -1.0;
-    
     params.matrix_exp_technique = MET_EIGEN3LIB_DECOMPOSITION;
+
+    params.ratchet_iter = -1;
+    params.ratchet_wgt = 1; // default if just specify -ratchet
+    params.ratchet_percent = 50; // default if just specify -ratchet
+    params.sort_alignment = true;
 
 	if (params.nni5) {
 	    params.nni_type = NNI5;
@@ -2358,6 +2362,27 @@ void parseArg(int argc, char *argv[], Params &params) {
 //                params.parsimony = true;
 //				continue;
 //			}
+
+
+            /***
+             * NGFAM SPACE
+             */
+            if(strcmp(argv[cnt], "-ratchet") == 0){
+            	if(params.ratchet_iter < 0) params.ratchet_iter = 2;
+            	continue;
+            }
+            if(strcmp(argv[cnt], "-ratchet_off") == 0){
+            	params.ratchet_iter = -1;
+            	continue;
+            }
+            if(strcmp(argv[cnt], "-ratchet_iter") == 0){
+            	cnt++;
+                if (cnt >= argc)
+                    throw "Use -ratchet_iter <number iterations between 2 ratchets>";
+            	params.ratchet_iter = convert_int(argv[cnt]);
+            	continue;
+            }
+
 			if (strcmp(argv[cnt], "-spr") == 0) {
 				// subtree pruning and regrafting
 				params.tree_spr = true;

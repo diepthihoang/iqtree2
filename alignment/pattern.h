@@ -91,6 +91,8 @@ public:
 
     /** number of different character states */
     int num_chars;
+
+	int ras_pars_score;
 };
 
 #endif

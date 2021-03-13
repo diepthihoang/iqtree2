@@ -2345,7 +2345,15 @@ public:
 
     /** compression level to use when writing (.mldist) distance matrix files */
     int    dist_compression_level;
-    
+
+
+    /**
+     * @brief A ratchet pertub happens every rachet_iters iterations
+     */
+    int ratchet_iter;
+    int ratchet_percent;
+    int ratchet_wgt;
+    int sort_alignment;
 };
 
 /**

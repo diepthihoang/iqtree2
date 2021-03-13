@@ -474,7 +474,10 @@ public:
             Assing taxa ids according to their position in the alignment
             @param alignment associated alignment
      */
-    virtual void setAlignment(Alignment* alignment);
+    virtual void setAlignment(Alignment* alignment, bool ngfam_debug=false);
+
+    UINT *pattern_pars;
+
 
     void configureLikelihoodKernel(const Params& params);
     
@@ -728,11 +731,14 @@ public:
      */
 //    double computeCorrectedParsimonyBranch(PhyloNeighbor *dad_branch, PhyloNode *dad);
 
-    /**
+    /** 
             initialize partial_pars vector of all PhyloNeighbors, allocating central_partial_pars
             @return the number of partial parsimony blocks that were used by existing nodes of the tree
      */
     virtual int initializeAllPartialPars();
+
+    virtual int computeParsimonyPatternScore(); 
+
 
     void ensureCentralPartialParsimonyIsAllocated(size_t extra_block_count);
     
@@ -2841,7 +2847,6 @@ protected:
     /**
      * Final state for pattern pars
      */
-    UINT *pattern_pars;
     UINT *pattern_state;
 
 
@@ -2849,7 +2854,6 @@ protected:
      * Compute parsimony pattern score
      */
 
-    int computeParsimonyPatternScore(); 
 };
         
 #endif

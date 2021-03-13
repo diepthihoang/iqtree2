@@ -379,11 +379,14 @@ void PhyloTree::copyPhyloTreeMixlen(PhyloTree *tree, int mix, bool borrowSummary
 }
 
 #define FAST_NAME_CHECK 1
-void PhyloTree::setAlignment(Alignment *alignment) {
+void PhyloTree::setAlignment(Alignment *alignment, bool ngfam_debug) {
     aln = alignment;
+
     //double checkStart = getRealTime();
     int nseq = aln->getNSeq32();
     bool err = false;
+
+    
 #if FAST_NAME_CHECK
     map<string, Node*> mapNameToNode;
     getMapOfTaxonNameToNode(nullptr, nullptr, mapNameToNode);
@@ -1439,6 +1442,7 @@ void PhyloTree::ensureCentralPartialParsimonyIsAllocated(size_t extra_vector_cou
     size_t   vector_count          = aln->getNSeq() * 4 - 6 + extra_vector_count;
     total_parsimony_mem_size       = vector_count * pars_block_size + tip_partial_pars_size;
 
+
     LOG_LINE(VB_DEBUG, "Allocating " << total_parsimony_mem_size * sizeof(UINT)
              << " bytes for " << vector_count << " partial parsimony vectors"
              << " of " << (pars_block_size * sizeof(UINT)) << " bytes each, and "
@@ -1629,16 +1633,16 @@ int PhyloTree::computeParsimonyPatternScore() {
     (this->*computeParsimonyPatternPointer)(nei2, p2, nullptr);
     (this->*computeParsimonyPatternOutOfTreePointer)(nei, nei2, pattern_state, pattern_pars);
 
-    int checkscore = 0;
+    // int checkscore = 0;
 
-    for(int i = 0; i < aln->ordered_pattern.size(); ++i) {
-        checkscore += pattern_pars[i] * aln->ordered_pattern.at(i).frequency;
-    }
+    // for(int i = 0; i < aln->ordered_pattern.size(); ++i) {
+    //     checkscore += pattern_pars[i] * aln->ordered_pattern.at(i).frequency;
+    // }
 
     // cout << computeParsimony() << endl;
 
 //    return score;
-    return checkscore;
+    return -1;
 }
 
 int PhyloTree::computeParsimonyOutOfTree(const UINT* dad_partial_pars,
@@ -1662,6 +1666,7 @@ int PhyloTree::computeParsimony(const char* taskDescription,
     if (taskDescription==nullptr || taskDescription[0]=='\0') {
         return computeParsimonyBranch(r->firstNeighbor(), r);
     }
+
     ParallelParsimonyCalculator calculator(*this, countProgress);
     if (bidirectional) {
         return calculator.computeAllParsimony(r->firstNeighbor(), r);

@@ -126,6 +126,7 @@ public:
      *      Return -2 if the candidate set is not updated
      */
     int update(string newTree, double newScore);
+    int updateRandom(string newTree, double newScore);
 
     /**
      *  Get the \a numBestScores best scores in the candidate set

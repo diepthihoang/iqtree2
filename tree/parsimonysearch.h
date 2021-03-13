@@ -12,7 +12,9 @@
 
 template <class Move>
 void PhyloTree::doParsimonySearch(const ParsimonySearchParameters& s) {
+    // exit(0);
     intptr_t branch_count    = leafNum * 2 - 3; //assumed > 3
+
     int      index_parsimony = 0;
     
     TimeKeeper initializing ("initializing");
@@ -87,6 +89,7 @@ void PhyloTree::doParsimonySearch(const ParsimonySearchParameters& s) {
         }
         LOG_LINE(VB_DEBUG, "finding best " << s.name << " move for each branch");
         std::vector<Move> moves;
+
         moves.resize(branch_count);
         
 #ifdef _OPENMP

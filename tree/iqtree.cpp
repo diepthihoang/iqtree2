@@ -84,6 +84,7 @@ void IQTree::init() {
     if (Params::getInstance().write_intermediate_trees)
         out_treels.open(treels_name.c_str());
     on_refine_btree = false;
+    on_ratchet_hclimb1 = false;
     contree_rfdist = -1;
     boot_consense_logl = 0.0;
 
@@ -708,11 +709,20 @@ void IQTree::computeInitialTree(LikelihoodKernel kernel) {
         out_file += ".init_tree";
         printTree(out_file.c_str(), WT_NEWLINE);
     }
+
+    if (params->mpboot2) {
+        params->unsuccess_iteration = (aln->at(0).size() + 99) / 100 * 100;
+    }
 }
 
 int IQTree::addTreeToCandidateSet(string treeString, double score, bool updateStopRule, int sourceProcID) {
     double curBestScore = candidateTrees.getBestScore();
     int pos = candidateTrees.update(treeString, score);
+
+    // if (pos == -2) {
+    //     pos = candidateRandoms.updateRandom(treeString, score);
+    // }
+
     if (updateStopRule) {
         stop_rule.setCurIt(stop_rule.getCurIt() + 1);
         if (score > curBestScore) {
@@ -1061,6 +1071,8 @@ void IQTree::initializePLL(Params &params) {
     if (!pllLoadAlignment(pllInst, pllAlignment, pllPartitions)) {
         outError("Incompatible tree/alignment combination");
     }
+
+
 }
 
 bool IQTree::isInitializedPLL() {
@@ -2299,6 +2311,195 @@ string IQTree::optimizeBranches(int maxTraversal) {
     return tree;
 }
 
+#include "phylotreethreadingcontext.h"
+#include <placement/targetbranch.h>            //for TargetBranchRange
+#include <placement/placementcostcalculator.h> //for ParsimonyCostCalculator
+#include "phylotreethreadingcontext.h"
+#include "parsimonysearchparameters.h"
+#include "parsimonyspr.cpp"
+
+#define Move ParsimonySPRMove
+
+void IQTree::doSPRSearch() {
+
+    ParsimonySearchParameters s;
+    s.name                      = "SPR";
+    s.iterations                = params->parsimony_spr_iterations;
+    s.lazy_mode                 = params->use_lazy_parsimony_spr;
+    s.radius                    = params->sprDist;
+
+    intptr_t branch_count    = leafNum * 2 - 3; //assumed > 3
+    int      index_parsimony = 0;
+
+    PhyloTreeThreadingContext context(*this, params->parsimony_uses_max_threads);
+    std::vector< std::vector<UINT*> > per_thread_path_parsimony;
+    intptr_t pv_per_thread = Move::getParsimonyVectorSize(s.radius);
+    intptr_t path_overhead = num_threads * pv_per_thread;
+        
+    deleteAllPartialLhAndParsimony();
+    initializeTree(); //to ensure all branches are properly numbered
+    ensureCentralPartialParsimonyIsAllocated(branch_count + path_overhead);
+    initializeAllPartialPars(index_parsimony);
+    BlockAllocator          block_allocator(*this, index_parsimony);
+    ParsimonyCostCalculator calculator(isUsingSankoffParsimony());
+    TargetBranchRange       targets(*this, &block_allocator, &calculator, true);
+        
+    //Allocate per-thread parsimony vector work areas used to calculate
+    //modified parsimony scores along the path between the
+    //pruning and regrafting points.
+    per_thread_path_parsimony.resize(num_threads);
+    for (int thread=0; thread<num_threads; ++thread) {
+        block_allocator.allocateVectorOfParsimonyBlocks
+        (pv_per_thread, per_thread_path_parsimony[thread]);
+    }
+
+
+    int parsimony_score = computeParsimony("Determining two-way parsimony", true, true );
+    int start_score = parsimony_score;
+
+    int iteration = 0, moves_applied = 0, moves_considered = 0;
+    cout << "Staring at: " << parsimony_score << endl;
+    do{
+
+
+        // if (iteration++ == 1) {
+        //     LOG_LINE(VB_DEBUG, "Parsimony score before parsimony " << s.name
+        //                 << " iteration " << iteration
+        //                 << " was " << parsimony_score);
+        // } else {
+        //     LOG_LINE(VB_MIN, "Applied " << moves_applied << " move"
+        //              << ((1==moves_applied) ? "" : "s")
+        //              << " (out of " << moves_considered << ")"
+        //              << " in iteration " << (iteration-1)
+        //              << " (parsimony now " << parsimony_score << ")");
+        // }
+        start_score = parsimony_score = computeParsimony("Determining two-way parsimony", true, true );
+        
+        size_t  moves_applied    = 0;
+        size_t  moves_considered = 0;
+        int64_t positions_considered = 0;
+        LikelihoodBlockPairs dummyBlocks;
+        
+#ifdef _OPENMP
+#pragma omp parallel for
+#endif
+        for (intptr_t i=0; i<branch_count; ++i) {
+            TargetBranch&     tb   = targets[i];
+            tb.computeState(*this, i, dummyBlocks);
+            tb.getBranchCost();
+            tb.getConnectionCost();
+        }
+
+        LOG_LINE(VB_DEBUG, "finding best " << s.name << " move for each branch");
+        std::vector<Move> moves;
+
+        
+        
+        int step = branch_count;
+            
+        for(int from = 0; from<branch_count; from += step ) {
+            int to = min((int)branch_count, from + step);
+            moves.resize(to - from);
+
+#ifdef _OPENMP
+#pragma omp parallel for num_threads(num_threads) reduction(+:positions_considered)
+#endif
+            for (intptr_t i=from; i<to; ++i) {
+                TargetBranch& source = targets[i];
+                Move&         move   = moves[i - from];
+                BenefitPair   benefit = source.getPartialDisconnectionBenefit(*this, targets);
+                //LOG_LINE(VB_MIN, "for s=" << i << " bf=" << benefit.forwardBenefit
+                //         << ", bb=" << benefit.backwardBenefit);
+                int thread = context.getThreadNumber();
+                move.initialize(i, s.lazy_mode);
+                move.findMove(*this, targets, s.radius,
+                            benefit.forwardBenefit,
+                            per_thread_path_parsimony[thread],
+                            parsimony_score);
+                
+                move.finalize(*this, targets);
+                if (i%100 == 99) {
+                    trackProgress(100.0);
+                }
+                positions_considered += move.positions_considered;
+            }
+            // auto first         = moves.begin();
+            // auto firstNegative = std::partition(first, moves.end(),
+            //                                     [](const Move& move) { return 0 < move.benefit; } );
+            // std::sort(first, firstNegative);
+            // moves_considered=firstNegative-first;
+            // moves_applied=0;
+            
+            // size_t i=moves_considered;
+
+            random_shuffle(moves.begin(), moves.end());
+            // while(i>0){
+            //     --i;
+            for(int i = 0; i < moves.size(); ++i) {
+                Move& move = moves[i];
+        
+                PhyloBranchVector path;
+                if ( move.isNoLongerPossible(targets, path) ) {
+                    //The tree topology has changed and this move
+                    //is no longer legal (source doesn't exist, target
+                    //branch doesn't exist, or target branch is now on
+                    //"the wrong side"of the source branch (so connecting
+                    //to it would create a disconnected subtree and introduce
+                    //a cycle containing the source branch).
+                    continue;
+                }
+                double benefit = move.getBenefit();
+                if (s.lazy_mode) {
+                    benefit = move.recalculateBenefit(*this, targets, dummyBlocks) ;
+                    if ( benefit <= 0) {
+                        if (benefit < -1) {
+                            continue;
+                        }
+                        if (rand() % (abs((int) benefit) + 2) != 0) continue; 
+                    }
+                }
+                else {
+                    //If we're not running in lazy mode, we'll just apply the move
+                    //(since figuring out what the benefit would really be takes
+                    //so long we might as well do it and see what is after we've
+                    //done it!). If it were re-evaluated properly, and then done,
+                    //that'd mean calculating new parsimony views twice (and we'd
+                    //never back out).
+                    //But if it is *not* re-evaluated properly, but just done, parsimony
+                    //views are calculated ONCE unless the move is not an improvement
+                    //(in which case it gets re-evaluated when backing out).
+                    //Admittedly more parsimony views get marked as out of date,
+                    //for moves that turned out not to be beneficial, this
+                    //way, but after the first iteration, almost all moves we
+                    //try here turn out to be beneficial.
+                    //So: not only is not re-evaluating the move simpler, it's more
+                    //efficient (in terms of CPU cost), on average.
+                }
+                double revised_score = move.apply(*this, targets, dummyBlocks);
+                if (parsimony_score <= revised_score) {
+                    const char* same_or_worse = (parsimony_score < revised_score)
+                    ? " a worse " : " the same ";
+                    //ParsimonyMove::apply() is its own inverse.  Calling it again
+                    //with the same parameters, reverses what it did.
+                    revised_score = move.apply(*this, targets, dummyBlocks);
+                    ASSERT( revised_score == parsimony_score );
+                } else {
+                    parsimony_score = revised_score;
+                    ++moves_applied;
+                }
+            }
+        }
+    } while (parsimony_score < start_score);
+
+    deleteAllPartialParsimony();
+    initializeAllPartialLh();
+    double final_parsimony_score = computeParsimony();
+    cout << "SPR Applied: " << final_parsimony_score << endl;
+
+}
+
+#undef Move
+
 double IQTree::doTreeSearch() {
     // ngfam: Added pattern score here. Currently the function returns the score sum (technically the score for the whole tree)
     // The pattern score is stored in pattern_pars
@@ -2416,7 +2617,12 @@ double IQTree::doTreeSearch() {
     stop_rule.getUFBootCountCheck(ufboot_count, ufboot_count_check);
     showNoProgress();
     
+    int search_iterations = 0;
+
     while (!stop_rule.meetStopCondition(stop_rule.getCurIt(), cur_correlation)) {
+        ++search_iterations;
+
+
         searchinfo.curIter = stop_rule.getCurIt();
         // estimate logl_cutoff for bootstrap
         if (!boot_orig_logl.empty())
@@ -2433,20 +2639,81 @@ double IQTree::doTreeSearch() {
         /*----------------------------------------
          * Perturb the tree
          *---------------------------------------*/
-        doTreePerturbation();
+        
+        if (params->ratchet_iter > 0 && search_iterations % params->ratchet_iter == 0) {
+            string candidateTree = candidateTrees.getNextCandTree();
+            readTreeString(candidateTree);
+
+            /// do fix this
+            Alignment* perturb_alignment = new Alignment();
+            perturb_alignment->createPerturbAlignment(aln, params->ratchet_percent, params->ratchet_wgt, params->sort_alignment);
+            saved_aln_on_ratchet_iter = aln;
+
+
+            setAlignment(perturb_alignment, true);
+            setRootNode(params->root);
+
+
+            on_ratchet_hclimb1 = true;
+            initializeAllPartialLh();
+            clearAllPartialLH();
+            curScore = optimizeAllBranches();
+        }
+        else doTreePerturbation();
 
         /*----------------------------------------
-         * Optimize tree with NNI
+         * Optimize tree with SPR && NNI
          *----------------------------------------*/
 
+        // if (rand()%2 < 1) doSPRSearch();
+        // else doParsimonySPR();
+
         doParsimonySPR();
-        curScore = computeParsimony("Determining two-way parsimony", true, true );
-        initializeAllPartialLh();
-        initializeAllPartialPars();
+
+        curScore = -computeParsimony("Determining two-way parsimony", true, true );
+
+        // initializeAllPartialLh();
+
+        // pair<int, int> nniInfos; // <num_NNIs, num_steps>
+        // nniInfos = doNNISearch(true, "");
+
+        // TODO: cannot check yet, need to somehow return treechanged
+//        if (nni_count == 0 && params->snni && numPerturb > 0 && treechanged) {
+//            assert(0 && "BUG: NNI could not improved perturbed tree");
+//        }
 
 
-        pair<int, int> nniInfos; // <num_NNIs, num_steps>
-        nniInfos = doNNISearch(true, "");
+        /*--------------------------------------------------------------------------
+         * PARSIMONY RATCHET-LIKE IDEA
+         * -------------------------------------------------------------------------*/
+        
+
+        if (on_ratchet_hclimb1) {
+            // cout << "cham hoi??" << endl;
+            // cout << aln << endl;
+            // assert(aln);
+            
+            // delete aln;
+            setAlignment(saved_aln_on_ratchet_iter, true);
+            on_ratchet_hclimb1 = false;
+
+            initializeAllPartialLh();
+            clearAllPartialLH();
+            curScore = optimizeAllBranches();
+
+            /*----------------------------------------
+			 * Optimize tree with NNI & SPR
+			 *---------------------------------------*/
+            if (rand()%2 < 1) doSPRSearch();
+            else doParsimonySPR();
+
+            curScore = -computeParsimony("Determining two-way parsimony", true, true );
+            initializeAllPartialLh();
+
+            pair<int, int> nniInfos; // <num_NNIs, num_steps>
+            nniInfos = doNNISearch(true, "");
+        }
+
         curTree = getTreeString();
         int pos = addTreeToCandidateSet(curTree, curScore, true, MPIHelper::getInstance().getProcessID());
         if (pos != -2 && pos != -1 && (Params::getInstance().fixStableSplits || Params::getInstance().adaptPertubation)) {
@@ -2455,10 +2722,7 @@ double IQTree::doTreeSearch() {
         if (MPIHelper::getInstance().isWorker() || MPIHelper::getInstance().gotMessage()) {
             syncCurrentTree();
         }
-        // TODO: cannot check yet, need to somehow return treechanged
-//        if (nni_count == 0 && params->snni && numPerturb > 0 && treechanged) {
-//            assert(0 && "BUG: NNI could not improved perturbed tree");
-//        }
+
         if (iqp_assess_quartet == IQP_BOOTSTRAP) {
             // restore alignment
             delete aln;
@@ -2469,6 +2733,7 @@ double IQTree::doTreeSearch() {
         if (isSuperTree()) {
             ((PhyloSuperTree *) this)->computeBranchLengths();
         }
+        
         /*----------------------------------------
          * Print information
          *---------------------------------------*/
@@ -3045,7 +3310,10 @@ double IQTree::doTreePerturbation() {
             if (Params::getInstance().five_plus_five) {
                 readTreeString(candidateTrees.getNextCandTree());
             } else {
-                readTreeString(candidateTrees.getRandTopTree(Params::getInstance().popSize));
+                if (rand() % 1000000 != 0 || candidateRandoms.empty()) readTreeString(candidateTrees.getRandTopTree(Params::getInstance().popSize));
+                else {
+                    readTreeString(candidateRandoms.getRandTopTree(Params::getInstance().popSize));
+                }
             }
             if (Params::getInstance().iqp) {
                 doIQP();

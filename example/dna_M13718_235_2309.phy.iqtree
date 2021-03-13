@@ -1,0 +1,549 @@
+IQ-TREE 2.1.2 COVID-edition built Mar  9 2021
+
+Input file name: ../iqtree2/example/dna_M13718_235_2309.phy
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 8
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 235 sequences with 2309 nucleotide sites
+Number of constant sites: 720 (= 31.1823% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 720 (= 31.1823% of all sites)
+Number of parsimony informative sites: 1232
+Number of distinct site patterns: 1915
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: HKY+F
+
+Rate parameter R:
+
+  A-C: 1.0000
+  A-G: 1.0000
+  A-T: 1.0000
+  C-G: 1.0000
+  C-T: 1.0000
+  G-T: 1.0000
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.2679
+  pi(C) = 0.2224
+  pi(G) = 0.2498
+  pi(T) = 0.2598
+
+Rate matrix Q:
+
+  A   -0.9776     0.297    0.3336     0.347
+  C    0.3578    -1.038    0.3336     0.347
+  G    0.3578     0.297    -1.002     0.347
+  T    0.3578     0.297    0.3336   -0.9884
+
+Model of rate heterogeneity: Uniform
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Parsimony score of the tree: 23511NOTE: Tree is UNROOTED although outgroup taxon 'Acragas_sp._A_Ecuador' is drawn at root
+
++--Acragas_sp._A_Ecuador
+|
+|           +--Acragas_sp._B_Ecuador
+|        +--|
+|        |  |  +--Frespera_sp._Ecuador
+|        |  +--|
+|        |     +--amycine_indet._Ecuador
+|     +--|
+|     |  +---Hypaeus_mystacalis
+|  +--|
+|  |  +--Mago_steindachneri
++--|
+|  |                                            +--Aelurillus_cf._ater
+|  |                                         +--|
+|  |                                         |  |       +--Langelurillus_sp.
+|  |                                         |  |   +---|
+|  |                                         |  |   |   +---Phlegra_hentzi
+|  |                                         |  +---|
+|  |                                         |      +--Phlegra_cf._bresnieri
+|  |                                      +--|
+|  |                                      |  |   +---Langona_sp.
+|  |                                      |  +---|
+|  |                                      |      +--Stenaelurillus_sp._South_Africa
+|  |                                   +--|
+|  |                                   |  +---Langelurillus_nigritus
+|  |                                +--|
+|  |                                |  |              +--Bacelarella_cf._pavida
+|  |                                |  |           +--|
+|  |                                |  |           |  |  +--indet._d193_Ghana
+|  |                                |  |           |  +--|
+|  |                                |  |           |     +--thiratoscirtine__spot__foliage_
+|  |                                |  |        +--|
+|  |                                |  |        |  +--Bacelarella_cf._tentativa
+|  |                                |  |     +--|
+|  |                                |  |     |  |     +--Pochyta_cf._fastibilis
+|  |                                |  |     |  |  +--|
+|  |                                |  |     |  |  |  +--Pochyta_sp.__dusted__roadside_
+|  |                                |  |     |  +--|
+|  |                                |  |     |     |        +--Pochyta_cf._pannosa__red_band_
+|  |                                |  |     |     |     +--|
+|  |                                |  |     |     |     |  +--Pochyta_cf._pannosa_Ghana
+|  |                                |  |     |     |  +--|
+|  |                                |  |     |     |  |  |  +--Pochyta_pulchra_1
+|  |                                |  |     |     |  |  +--|
+|  |                                |  |     |     |  |     +--Pochyta_pulchra_2
+|  |                                |  |     |     +--|
+|  |                                |  |     |        |  +--Pochyta_cf._pannosa__small_
+|  |                                |  |     |        +--|
+|  |                                |  |     |           |  +--Pochyta_sp.__brown__1
+|  |                                |  |     |           +--|
+|  |                                |  |     |              +--Pochyta_sp.__orange__black_spot_
+|  |                                |  |  +--|
+|  |                                |  |  |  +--thiratoscirtine__elongate__foliage_
+|  |                                |  +--|
+|  |                                |     |              +--Bacelarella_iactans
+|  |                                |     |           +--|
+|  |                                |     |           |  |        +--Longarenus_brachycephalus
+|  |                                |     |           |  |     +--|
+|  |                                |     |           |  |     |  +--Longarenus_sp._B
+|  |                                |     |           |  |  +--|
+|  |                                |     |           |  |  |  |                 +**Thiratoscirtus_sp.__band_
+|  |                                |     |           |  |  |  |              +--|
+|  |                                |     |           |  |  |  |              |  +--thiratoscirtine__small_shiny__litter_
+|  |                                |     |           |  |  |  |           +--|
+|  |                                |     |           |  |  |  |           |  +--Thiratoscirtus_sp.__brown_
+|  |                                |     |           |  |  |  |        +--|
+|  |                                |     |           |  |  |  |        |  +--Thiratoscirtus_sp.__long_cymbium_
+|  |                                |     |           |  |  |  |     +--|
+|  |                                |     |           |  |  |  |     |  +--Thiratoscirtus_sp.__small_bulb__1
+|  |                                |     |           |  |  |  |  +--|
+|  |                                |     |           |  |  |  |  |  +**Thiratoscirtus_sp.__small_bulb__2
+|  |                                |     |           |  |  |  +--|
+|  |                                |     |           |  |  |     +--Thiratoscirtus_sp.__gold_band_
+|  |                                |     |           |  +--|
+|  |                                |     |           |     +--Thiratoscirtus_sp.__round_bulb_
+|  |                                |     |        +--|
+|  |                                |     |        |  |  +--cf._Nimbarus_sp.
+|  |                                |     |        |  +--|
+|  |                                |     |        |     |  +--indet._MRB157_Ghana
+|  |                                |     |        |     +--|
+|  |                                |     |        |        +--indet._d196_Ghana
+|  |                                |     |     +--|
+|  |                                |     |     |  |  +--cf._Alfenus_sp._B_1
+|  |                                |     |     |  +--|
+|  |                                |     |     |     +**cf._Alfenus_sp._B_2
+|  |                                |     |  +--|
+|  |                                |     |  |  |                 +--Malloneta_guineensis_2
+|  |                                |     |  |  |              +--|
+|  |                                |     |  |  |              |  +--Malloneta_guineensis_3
+|  |                                |     |  |  |           +--|
+|  |                                |     |  |  |           |  +--Malloneta_sp._B
+|  |                                |     |  |  |        +--|
+|  |                                |     |  |  |        |  +--thiratoscirtine__large__freyine-like_
+|  |                                |     |  |  |     +--|
+|  |                                |     |  |  |     |  |     +--thiratoscirtine__moss_
+|  |                                |     |  |  |     |  |  +--|
+|  |                                |     |  |  |     |  |  |  +--thiratoscirtine__white_palps_A_
+|  |                                |     |  |  |     |  +--|
+|  |                                |     |  |  |     |     +--thiratoscirtine__white_palps_B_
+|  |                                |     |  |  |  +--|
+|  |                                |     |  |  |  |  |  +--Saraina_rubrofasciata
+|  |                                |     |  |  |  |  +--|
+|  |                                |     |  |  |  |     +--Tarne_dives
+|  |                                |     |  |  +--|
+|  |                                |     |  |     +--cf._Alfenus_sp._A
+|  |                                |     +--|
+|  |                                |        |  +--thiratoscirtine__small_black__litter_
+|  |                                |        +--|
+|  |                                |           +--thiratoscirtine__small_cross__litter_
+|  |                             +--|
+|  |                             |  |  +----Chira_cf._spinipes
+|  |                             |  +--|
+|  |                             |     |   +---Freya_decorata
+|  |                             |     +---|
+|  |                             |         +**Freya_regia
+|  |                          +--|
+|  |                          |  |  +---Frigga_crocuta
+|  |                          |  +--|
+|  |                          |     |  +---Nycerella_neglecta
+|  |                          |     +--|
+|  |                          |        +--Pachomius_cf._flavescens
+|  |                       +--|
+|  |                       |  |                    +--Anarrhotus_fossulatus
+|  |                       |  |                 +--|
+|  |                       |  |                 |  |        +--Telamonia_cf._besanconi
+|  |                       |  |                 |  |     +--|
+|  |                       |  |                 |  |     |  +**Telamonia_thoracica
+|  |                       |  |                 |  |  +--|
+|  |                       |  |                 |  |  |  +--Telamonia_longiuscula
+|  |                       |  |                 |  +--|
+|  |                       |  |                 |     +--Telamonia_cf._fuscimana
+|  |                       |  |              +--|
+|  |                       |  |              |  |     +--Telamonia_cf._festiva
+|  |                       |  |              |  |  +--|
+|  |                       |  |              |  |  |  +--Telamonia_dimidiata_
+|  |                       |  |              |  +--|
+|  |                       |  |              |     +--Telamonia_masinloc
+|  |                       |  |           +--|
+|  |                       |  |           |  |                 +--Baryphas_ahenus
+|  |                       |  |           |  |              +--|
+|  |                       |  |           |  |              |  |  +--Plexippus_paykulli
+|  |                       |  |           |  |              |  +--|
+|  |                       |  |           |  |              |     +--Plexippus_paykulli_2
+|  |                       |  |           |  |           +--|
+|  |                       |  |           |  |           |  |  +--Hermotimus_sp.
+|  |                       |  |           |  |           |  +--|
+|  |                       |  |           |  |           |     |  +--Schenkelia_cf._modesta
+|  |                       |  |           |  |           |     +--|
+|  |                       |  |           |  |           |        +--Schenkelia_modesta
+|  |                       |  |           |  |        +--|
+|  |                       |  |           |  |        |  |     +---Burmattus_sp.
+|  |                       |  |           |  |        |  |  +--|
+|  |                       |  |           |  |        |  |  |  +--plexippine_indet._sp._B_Gabon
+|  |                       |  |           |  |        |  +--|
+|  |                       |  |           |  |        |     +--plexippine_indet._sp._A_Gabon
+|  |                       |  |           |  |     +--|
+|  |                       |  |           |  |     |  |     +--Evarcha_sp._B_Gabon
+|  |                       |  |           |  |     |  |  +--|
+|  |                       |  |           |  |     |  |  |  |  +--Hyllus_sp._Gabon
+|  |                       |  |           |  |     |  |  |  +--|
+|  |                       |  |           |  |     |  |  |     +--Plexippoides_regius
+|  |                       |  |           |  |     |  +--|
+|  |                       |  |           |  |     |     +--Hyllus_treleaveni
+|  |                       |  |           |  |  +--|
+|  |                       |  |           |  |  |  |  +--Hyllus_tuberculatus
+|  |                       |  |           |  |  |  +--|
+|  |                       |  |           |  |  |     +--Polemus_cf._chrysochirus
+|  |                       |  |           |  +--|
+|  |                       |  |           |     |     +--Evarcha_proszynskii
+|  |                       |  |           |     |  +--|
+|  |                       |  |           |     |  |  +--Pancorius_sp._B
+|  |                       |  |           |     +--|
+|  |                       |  |           |        +--Pancorius_sp._A
+|  |                       |  |        +--|
+|  |                       |  |        |  |     +--Brancus_viciriaeformis
+|  |                       |  |        |  |  +--|
+|  |                       |  |        |  |  |  +--Thyene_sp._South_Africa
+|  |                       |  |        |  +--|
+|  |                       |  |        |     +--Epeus_sp.
+|  |                       |  |     +--|
+|  |                       |  |     |  |        +--Bianor_maculatus
+|  |                       |  |     |  |     +--|
+|  |                       |  |     |  |     |  +--Bianor_sp.
+|  |                       |  |     |  |  +--|
+|  |                       |  |     |  |  |  +--Harmochirus_cf._brachiatus
+|  |                       |  |     |  +--|
+|  |                       |  |     |     |           +--Habronattus_cf._paratus
+|  |                       |  |     |     |        +--|
+|  |                       |  |     |     |        |  |  +**Habronattus_decorus
+|  |                       |  |     |     |        |  +--|
+|  |                       |  |     |     |        |     +--Habronattus_mexicanus_
+|  |                       |  |     |     |     +--|
+|  |                       |  |     |     |     |  +**Pellenes_peninsularis
+|  |                       |  |     |     |  +--|
+|  |                       |  |     |     |  |  |     +--Havaika_cf._pubens_1
+|  |                       |  |     |     |  |  |  +--|
+|  |                       |  |     |     |  |  |  |  |  +--Havaika_cf._pubens_2
+|  |                       |  |     |     |  |  |  |  +--|
+|  |                       |  |     |     |  |  |  |     +--Havaika_sp.
+|  |                       |  |     |     |  |  +--|
+|  |                       |  |     |     |  |     |  +--Havaika_cf._verecunda
+|  |                       |  |     |     |  |     +--|
+|  |                       |  |     |     |  |        |  +--Havaika_cruciata
+|  |                       |  |     |     |  |        +--|
+|  |                       |  |     |     |  |           +--Havaika_sp.__morphotype_D_
+|  |                       |  |     |     +--|
+|  |                       |  |     |        +--Pellenes_bulawayoensis
+|  |                       |  |  +--|
+|  |                       |  |  |  |              +--Carrhotus_sp._Malaysia
+|  |                       |  |  |  |           +--|
+|  |                       |  |  |  |           |  +----Carrhotus_sp._Philippines
+|  |                       |  |  |  |        +--|
+|  |                       |  |  |  |        |  +--Philaeus_chrysops
+|  |                       |  |  |  |     +--|
+|  |                       |  |  |  |     |  +--Mogrus_mathisi
+|  |                       |  |  |  |  +--|
+|  |                       |  |  |  |  |  |  +--Pignus_sp.
+|  |                       |  |  |  |  |  +--|
+|  |                       |  |  |  |  |     |  +---Tusitala_hirsuta
+|  |                       |  |  |  |  |     +--|
+|  |                       |  |  |  |  |        +--Tusitala_lyrata
+|  |                       |  |  |  +--|
+|  |                       |  |  |     +--Salticus_scenicus
+|  |                       |  +--|
+|  |                       |     |           +----Chalcotropis_luceroi
+|  |                       |     |        +--|
+|  |                       |     |        |  |  +---Hypoblemum_albovittatum
+|  |                       |     |        |  +--|
+|  |                       |     |        |     +--cf._Thorelliola
+|  |                       |     |     +--|
+|  |                       |     |     |  |  +------Lepidemathis_haemorroidalis
+|  |                       |     |     |  +--|
+|  |                       |     |     |     +----Mexigonus_sp.
+|  |                       |     |  +--|
+|  |                       |     |  |  |             +-----Corythalia_cf._tropica
+|  |                       |     |  |  |        +----|
+|  |                       |     |  |  |        |    +--Zenodorus_orbiculatus
+|  |                       |     |  |  |     +--|
+|  |                       |     |  |  |     |  +----Lagnus_sp.
+|  |                       |     |  |  |  +--|
+|  |                       |     |  |  |  |  |   +--Thiania_bhamoensis
+|  |                       |     |  |  |  |  +---|
+|  |                       |     |  |  |  |      +--Thiania_viscaensis
+|  |                       |     |  |  +--|
+|  |                       |     |  |     +-----Naphrys_pulex
+|  |                       |     +--|
+|  |                       |        |  +---Idastrandia_orientalis
+|  |                       |        +--|
+|  |                       |           +---Nannenus_lyriger
+|  |                    +--|
+|  |                    |  |     +---Cheliceroides_sp._China
+|  |                    |  |  +--|
+|  |                    |  |  |  |       +--Chinattus_parvulus
+|  |                    |  |  |  |   +---|
+|  |                    |  |  |  |   |   +--Habrocestum_cf._albimanum
+|  |                    |  |  |  +---|
+|  |                    |  |  |      +--Hasarius_adansoni
+|  |                    |  +--|
+|  |                    |     |              +--Cosmophasis_micarioides
+|  |                    |     |           +--|
+|  |                    |     |           |  |  +--Menemerus_bivittatus
+|  |                    |     |           |  +--|
+|  |                    |     |           |     +---cf._Phintella
+|  |                    |     |        +--|
+|  |                    |     |        |  +--Pseudicius_reiskindi
+|  |                    |     |     +--|
+|  |                    |     |     |  |  +--Heliophanus_cupreus
+|  |                    |     |     |  +--|
+|  |                    |     |     |     |  +--Mexcala_elegans
+|  |                    |     |     |     +--|
+|  |                    |     |     |        |  +--Phintella_piatensis
+|  |                    |     |     |        +--|
+|  |                    |     |     |           +--Phintella_sp.
+|  |                    |     |  +--|
+|  |                    |     |  |  +--Helvetia_cf._zonata
+|  |                    |     +--|
+|  |                    |        |     +--Enoplomischus_sp.
+|  |                    |        |  +--|
+|  |                    |        |  |  |   +----Paramarpissa_sp.
+|  |                    |        |  |  +---|
+|  |                    |        |  |      |  +**Yllenus_arenarius_1
+|  |                    |        |  |      +--|
+|  |                    |        |  |         +**Yllenus_arenarius_2
+|  |                    |        +--|
+|  |                    |           +----Leptorchestes_berolinensis
+|  |                 +--|
+|  |                 |  |                 +--Afromarengo_sp._Gabon
+|  |                 |  |              +--|
+|  |                 |  |              |  |  +--Pachyballus_sp._South_Africa
+|  |                 |  |              |  +--|
+|  |                 |  |              |     +--Peplometus_sp._Ghana
+|  |                 |  |           +--|
+|  |                 |  |           |  +--Padilla_mitohy
+|  |                 |  |        +--|
+|  |                 |  |        |  +------Mantisatta_longicauda
+|  |                 |  |     +--|
+|  |                 |  |     |  |     +----Attidops_youngi
+|  |                 |  |     |  |  +--|
+|  |                 |  |     |  |  |  +----Peckhamia_sp.
+|  |                 |  |     |  +--|
+|  |                 |  |     |     |           +--Eris_militaris
+|  |                 |  |     |     |        +--|
+|  |                 |  |     |     |        |  |           +--Ghelna_canadensis
+|  |                 |  |     |     |        |  |        +--|
+|  |                 |  |     |     |        |  |        |  +--Zygoballus_rufipes
+|  |                 |  |     |     |        |  |     +--|
+|  |                 |  |     |     |        |  |     |  +--Phidippus_sp.
+|  |                 |  |     |     |        |  |  +--|
+|  |                 |  |     |     |        |  |  |  +--Terralonus_mylothrus
+|  |                 |  |     |     |        |  +--|
+|  |                 |  |     |     |        |     +--Pelegrina_spp.
+|  |                 |  |     |     |     +--|
+|  |                 |  |     |     |     |  +--Phanias_sp.
+|  |                 |  |     |     |  +--|
+|  |                 |  |     |     |  |  +---Itata_sp.
+|  |                 |  |     |     +--|
+|  |                 |  |     |        |  +--Maevia_intermedia
+|  |                 |  |     |        +--|
+|  |                 |  |     |           |     +--Marpissa_pikei
+|  |                 |  |     |           |  +--|
+|  |                 |  |     |           |  |  |  +--Platycryptus_undatus
+|  |                 |  |     |           |  |  +--|
+|  |                 |  |     |           |  |     +---Psecas_cf._viridipurpureus
+|  |                 |  |     |           +--|
+|  |                 |  |     |              +--marpissine_indet._China
+|  |                 |  |  +--|
+|  |                 |  |  |  |     +--Arasia_mollicoma
+|  |                 |  |  |  |  +--|
+|  |                 |  |  |  |  |  |  +--Helpis_minitabunda
+|  |                 |  |  |  |  |  +--|
+|  |                 |  |  |  |  |     |   +----Orthrus_bicolor
+|  |                 |  |  |  |  |     +---|
+|  |                 |  |  |  |  |         +--Tauala_lepidus
+|  |                 |  |  |  +--|
+|  |                 |  |  |     |         +--Breda_jovialis
+|  |                 |  |  |     |     +---|
+|  |                 |  |  |     |     |   +--Holoplatys_cf._planissima
+|  |                 |  |  |     |  +--|
+|  |                 |  |  |     |  |  |   +--Mopsus_mormon
+|  |                 |  |  |     |  |  +---|
+|  |                 |  |  |     |  |      +-----Neon_nelli
+|  |                 |  |  |     +--|
+|  |                 |  |  |        |        +---Heratemita_alboplagiata
+|  |                 |  |  |        |     +--|
+|  |                 |  |  |        |     |  |  +---Ligurra_latidens
+|  |                 |  |  |        |     |  +--|
+|  |                 |  |  |        |     |     +---Simaetha_sp._Australia
+|  |                 |  |  |        |  +--|
+|  |                 |  |  |        |  |  |        +--Opisthoncus_kochi
+|  |                 |  |  |        |  |  |     +--|
+|  |                 |  |  |        |  |  |     |  |  +--Trite_pennata
+|  |                 |  |  |        |  |  |     |  +--|
+|  |                 |  |  |        |  |  |     |     +--Trite_planiceps
+|  |                 |  |  |        |  |  |  +--|
+|  |                 |  |  |        |  |  |  |  |     +--Penionomus_sp._New_Caledonia
+|  |                 |  |  |        |  |  |  |  |  +--|
+|  |                 |  |  |        |  |  |  |  |  |  +--Trite_ignipilosa
+|  |                 |  |  |        |  |  |  |  +--|
+|  |                 |  |  |        |  |  |  |     +--cf._Mopsus_New_Caledonia
+|  |                 |  |  |        |  |  +--|
+|  |                 |  |  |        |  |     +----Viciria_praemandibularis
+|  |                 |  |  |        +--|
+|  |                 |  |  |           +--Simaetha_sp._Malaysia
+|  |                 |  +--|
+|  |                 |     |         +--Bavia_cf._aericeps
+|  |                 |     |      +--|
+|  |                 |     |      |  +--Stagetilus_sp._Malaysia
+|  |                 |     |  +---|
+|  |                 |     |  |   +-----Stagetilus_sp._Philippines
+|  |                 |     +--|
+|  |                 |        |               +--Belippo_cf._ibadan
+|  |                 |        |            +--|
+|  |                 |        |            |  +--Myrmarachne_plataleoides
+|  |                 |        |         +--|
+|  |                 |        |         |  |     +--Myrmarachne_assimilis
+|  |                 |        |         |  |  +--|
+|  |                 |        |         |  |  |  |     +--Myrmarachne_evidens
+|  |                 |        |         |  |  |  |  +--|
+|  |                 |        |         |  |  |  |  |  +--Myrmarachne_sp.__tristis_group_
+|  |                 |        |         |  |  |  +--|
+|  |                 |        |         |  |  |     +--Myrmarachne_foenisex
+|  |                 |        |         |  +--|
+|  |                 |        |         |     +--Myrmarachne_sp._Singapore
+|  |                 |        |    +----|
+|  |                 |        |    |    |  +--Myrmarachne_cf._gedongensis
+|  |                 |        |    |    +--|
+|  |                 |        |    |       +--Myrmarachne_sp._Malaysia
+|  |                 |        +----|
+|  |                 |             +---Ligonipes_sp._Australia
+|  |              +--|
+|  |              |  |              +-----Anyphaenidae-__Hibana_sp.
+|  |              |  |           +--|
+|  |              |  |           |  +------Corinnidae-_Castianeira_sp.
+|  |              |  |        +--|
+|  |              |  |        |  +------Gnaphosidae-_Cesonia_sp.
+|  |              |  |     +--|
+|  |              |  |     |  |  +------Miturgidae-_Cheiracanthium_sp.
+|  |              |  |     |  +--|
+|  |              |  |     |     +------Xysticus_sp.
+|  |              |  |  +--|
+|  |              |  |  |  |        +--Asemonea_sp._South_Africa
+|  |              |  |  |  |     +--|
+|  |              |  |  |  |     |  +--Goleba_lyra_
+|  |              |  |  |  |  +--|
+|  |              |  |  |  |  |  |  +-----Lyssomanes_viridis_1
+|  |              |  |  |  |  |  +--|
+|  |              |  |  |  |  |     +-----Onomastus_sp._China
+|  |              |  |  |  +--|
+|  |              |  |  |     |                       +--Cyrba_lineata
+|  |              |  |  |     |                  +----|
+|  |              |  |  |     |                  |    +----Portia_labiata
+|  |              |  |  |     |           +------|
+|  |              |  |  |     |           |      +--Portia_cf._schultzi
+|  |              |  |  |     |      +----|
+|  |              |  |  |     |      |    +--Spartaeus_uplandicus
+|  |              |  |  |     |  +---|
+|  |              |  |  |     |  |   |    +--Holcolaetis_cf._zuluensis
+|  |              |  |  |     |  |   +----|
+|  |              |  |  |     |  |        +---Sonoita_cf._lightfooti
+|  |              |  |  |     +--|
+|  |              |  |  |        |      +---Galianora_bryicola_
+|  |              |  |  |        |  +---|
+|  |              |  |  |        |  |   +--Galianora_sacha_
+|  |              |  |  |        +--|
+|  |              |  |  |           +------Thrandina_parocula
+|  |              |  +--|
+|  |              |     |           +--Massagris_cf._honesta_
+|  |              |     |       +---|
+|  |              |     |       |   +---Massagris_schisma
+|  |              |     |   +---|
+|  |              |     |   |   +--Tomomingi_sp.
+|  |              |     +---|
+|  |              |         +--Tomobella_andasibe
+|  |           +--|
+|  |           |  |        +----Jollas_sp.
+|  |           |  |     +--|
+|  |           |  |     |  +---Sitticus_palustris
+|  |           |  |  +--|
+|  |           |  |  |  +---Sitticus_sp._Ecuador
+|  |           |  +--|
+|  |           |     |     +--Thiodina_hespera
+|  |           |     |  +--|
+|  |           |     |  |  +--Thiodina_sp._B
+|  |           |     +--|
+|  |           |        +---thiodinine_indet._Ecuador
+|  |        +--|
+|  |        |  |        +--Sarinda_cutleri
+|  |        |  |     +--|
+|  |        |  |     |  +--Sarinda_sp.
+|  |        |  |  +--|
+|  |        |  |  |  |       +--Zuniga_cf._laeta
+|  |        |  |  |  |  +----|
+|  |        |  |  |  |  |    +--Zuniga_cf._magna
+|  |        |  |  |  +--|
+|  |        |  |  |     +--cf._Agelista
+|  |        |  +--|
+|  |        |     +-----Scopocira_cf._tenella
+|  |     +--|
+|  |     |  |  +---Hurius_vulpinus
+|  |     |  +--|
+|  |     |     +----cf.__Arachnomura
+|  |  +--|
+|  |  |  +---amycoid_indet._Ecuador
+|  +--|
+|     +----Encolpius_sp.
+|
+|  +--Noegus_cf._rufus
++--|
+   +---Noegus_transversalis
+
+Tree in newick format:
+
+(Acragas_sp._A_Ecuador:0.0095279342,((((Acragas_sp._B_Ecuador:0.0376786488,(Frespera_sp._Ecuador:0.0229536596,amycine_indet._Ecuador:0.0268956428):0.0307492421):0.0242529233,Hypaeus_mystacalis:0.0558683413):0.0329146817,Mago_steindachneri:0.0519705500):0.0307492421,(((((((((((((((Aelurillus_cf._ater:0.0398440883,((Langelurillus_sp.:0.0060632308,Phlegra_hentzi:0.0558683413):0.0528367259,Phlegra_cf._bresnieri:0.0082286704):0.0545690775):0.0316154179,(Langona_sp.:0.0640970117,Stenaelurillus_sp._South_Africa:0.0116933738):0.0532698138):0.0324815938,Langelurillus_nigritus:0.0636639238):0.0437418796,(((((Bacelarella_cf._pavida:0.0385448246,(indet._d193_Ghana:0.0099610221,thiratoscirtine__spot__foliage_:0.0255521871):0.0255521871):0.0316154179,Bacelarella_cf._tentativa:0.0064963188):0.0229536596,((Pochyta_cf._fastibilis:0.0498051104,Pochyta_sp.__dusted__roadside_:0.0420095279):0.0203551321,(((Pochyta_cf._pannosa__red_band_:0.0246860113,Pochyta_cf._pannosa_Ghana:0.0201918496):0.0268514508,(Pochyta_pulchra_1:0.0008666772,Pochyta_pulchra_2:0.0004332132):0.0030316154):0.0285838025,(Pochyta_cf._pannosa__small_:0.0086617583,(Pochyta_sp.__brown__1:0.0402771763,Pochyta_sp.__orange__black_spot_:0.0155911650):0.0459073192):0.0459073192):0.0272845388):0.0255521871):0.0229536596,thiratoscirtine__elongate__foliage_:0.0463404071):0.0225205717,(((((Bacelarella_iactans:0.0424426159,(((Longarenus_brachycephalus:0.0017343586,Longarenus_sp._B:0.0363793850):0.0355132092,((((((Thiratoscirtus_sp.__band_:0.0004330879,thiratoscirtine__small_shiny__litter_:0.0021685767):0.0021654396,Thiratoscirtus_sp.__brown_:0.0021654396):0.0008661758,Thiratoscirtus_sp.__long_cymbium_:0.0021654396):0.0017323517,Thiratoscirtus_sp.__small_bulb__1:0.0311823300):0.0324815938,Thiratoscirtus_sp.__small_bulb__2:0.0000010000):0.0324815938,Thiratoscirtus_sp.__gold_band_:0.0017323517):0.0329146817):0.0216543958,Thiratoscirtus_sp.__round_bulb_:0.0043308792):0.0229536596):0.0259852750,(cf._Nimbarus_sp.:0.0255521871,(indet._MRB157_Ghana:0.0463404071,indet._d196_Ghana:0.0034647033):0.0368124729):0.0333477696):0.0251190992,(cf._Alfenus_sp._B_1:0.0285838025,cf._Alfenus_sp._B_2:0.0000010000):0.0346470334):0.0199220442,((((((Malloneta_guineensis_2:0.0065246620,Malloneta_guineensis_3:0.0134257254):0.0329146817,Malloneta_sp._B:0.0272845388):0.0394110004,thiratoscirtine__large__freyine-like_:0.0381117367):0.0203551321,((thiratoscirtine__moss_:0.0303161542,thiratoscirtine__white_palps_A_:0.0498051104):0.0376786488,thiratoscirtine__white_palps_B_:0.0069294067):0.0368124729):0.0290168904,(Saraina_rubrofasciata:0.0095279342,Tarne_dives:0.0459073192):0.0428757038):0.0272845388,cf._Alfenus_sp._A:0.0056301429):0.0268514508):0.0311823300,(thiratoscirtine__small_black__litter_:0.0086617583,thiratoscirtine__small_cross__litter_:0.0095279342):0.0047639671):0.0316154179):0.0437418796):0.0316154179,(Chira_cf._spinipes:0.0666955392,(Freya_decorata:0.0563014292,Freya_regia:0.0000010000):0.0623646600):0.0329146817):0.0303161542,(Frigga_crocuta:0.0524036379,(Nycerella_neglecta:0.0636639238,Pachomius_cf._flavescens:0.0519705500):0.0251190992):0.0368124729):0.0342139454,(((((((Anarrhotus_fossulatus:0.0506712863,(((Telamonia_cf._besanconi:0.0013003922,Telamonia_thoracica:0.0000010000):0.0039079711,Telamonia_longiuscula:0.0060879113):0.0210822287,Telamonia_cf._fuscimana:0.0311823300):0.0303161542):0.0186227804,((Telamonia_cf._festiva:0.0246860113,Telamonia_dimidiata_:0.0303161542):0.0190558683,Telamonia_masinloc:0.0264183629):0.0229536596):0.0199220442,((((((Baryphas_ahenus:0.0047639671,(Plexippus_paykulli:0.0017343586,Plexippus_paykulli_2:0.0038977913):0.0402771763):0.0407102642,(Hermotimus_sp.:0.0064963188,(Schenkelia_cf._modesta:0.0131066751,Schenkelia_modesta:0.0082742163):0.0342139454):0.0337808575):0.0225205717,((Burmattus_sp.:0.0528367259,plexippine_indet._sp._B_Gabon:0.0043308792):0.0506712863,plexippine_indet._sp._A_Gabon:0.0450411434):0.0242529233):0.0199220442,((Evarcha_sp._B_Gabon:0.0012992638,(Hyllus_sp._Gabon:0.0021654396,Plexippoides_regius:0.0450411434):0.0420095279):0.0385448246,Hyllus_treleaveni:0.0476396709):0.0207882200):0.0216543958,(Hyllus_tuberculatus:0.0342139454,Polemus_cf._chrysochirus:0.0489389346):0.0203551321):0.0199220442,((Evarcha_proszynskii:0.0411433521,Pancorius_sp._B:0.0368124729):0.0233867475,Pancorius_sp._A:0.0519705500):0.0186227804):0.0190558683):0.0199220442,((Brancus_viciriaeformis:0.0395722695,Thyene_sp._South_Africa:0.0282436335):0.0255521871,Epeus_sp.:0.0441749675):0.0233867475):0.0290168904,(((Bianor_maculatus:0.0385448246,Bianor_sp.:0.0372455608):0.0129926375,Harmochirus_cf._brachiatus:0.0372455608):0.0290168904,((((Habronattus_cf._paratus:0.0346470333,(Habronattus_decorus:0.0004330879,Habronattus_mexicanus_:0.0004332132):0.0272845388):0.0173235167,Pellenes_peninsularis:0.0004330879):0.0177566046,((Havaika_cf._pubens_1:0.0095279342,(Havaika_cf._pubens_2:0.0069294067,Havaika_sp.:0.0259852750):0.0151580771):0.0186227804,(Havaika_cf._verecunda:0.0238198354,(Havaika_cruciata:0.0064963188,Havaika_sp.__morphotype_D_:0.0030316154):0.0095279342):0.0147249892):0.0415764400):0.0177566046,Pellenes_bulawayoensis:0.0030316154):0.0229536596):0.0342139454):0.0424426158,(((((Carrhotus_sp._Malaysia:0.0441749675,Carrhotus_sp._Philippines:0.0775227371):0.0320485058,Philaeus_chrysops:0.0268956428):0.0290168904,Mogrus_mathisi:0.0454742313):0.0363793850,(Pignus_sp.:0.0463404071,(Tusitala_hirsuta:0.0532698138,Tusitala_lyrata:0.0420095279):0.0216543958):0.0350801213):0.0398440884,Salticus_scenicus:0.0277176267):0.0411433521):0.0316154179,((((Chalcotropis_luceroi:0.0658293634,(Hypoblemum_albovittatum:0.0563014292,cf._Thorelliola:0.0519705500):0.0342139454):0.0337808575,(Lepidemathis_haemorroidalis:0.0987440450,Mexigonus_sp.:0.0770896492):0.0402771763):0.0363793850,((((Corythalia_cf._tropica:0.0827197921,Zenodorus_orbiculatus:0.0476396709):0.0757903854,Lagnus_sp.:0.0757903854):0.0472065829,(Thiania_bhamoensis:0.0229536596,Thiania_viscaensis:0.0519705500):0.0550021654):0.0350801213,Naphrys_pulex:0.0840190559):0.0320485058):0.0476396709,(Idastrandia_orientalis:0.0636995314,Nannenus_lyriger:0.0604059935):0.0485058467):0.0398440884):0.0259852750):0.0316154179,((Cheliceroides_sp._China:0.0571676050,((Chinattus_parvulus:0.0095890698,Habrocestum_cf._albimanum:0.0052151735):0.0588999567,Hasarius_adansoni:0.0134257254):0.0619315721):0.0346470334,(((((Cosmophasis_micarioides:0.0472065829,(Menemerus_bivittatus:0.0103941100,cf._Phintella:0.0563014292):0.0485058467):0.0264183629,Pseudicius_reiskindi:0.0467734950):0.0281507146,(Heliophanus_cupreus:0.0129926375,(Mexcala_elegans:0.0212213079,(Phintella_piatensis:0.0268514508,Phintella_sp.:0.0506712863):0.0489389346):0.0441749675):0.0450411433):0.0251190992,Helvetia_cf._zonata:0.0480727588):0.0446080554,((Enoplomischus_sp.:0.0186227804,(Paramarpissa_sp.:0.0658293634,(Yllenus_arenarius_1:0.0000010000,Yllenus_arenarius_2:0.0000010000):0.0498051104):0.0623646600):0.0333477696,Leptorchestes_berolinensis:0.0701602425):0.0476396709):0.0281507146):0.0272845388):0.0355132092,((((((Afromarengo_sp._Gabon:0.0496852439,(Pachyballus_sp._South_Africa:0.0108271979,Peplometus_sp._Ghana:0.0420095279):0.0463404071):0.0407102642,Padilla_mitohy:0.0489389346):0.0394110004,Mantisatta_longicauda:0.0939800780):0.0502381983,((Attidops_youngi:0.0666955392,Peckhamia_sp.:0.0674813986):0.0277176267,((((Eris_militaris:0.0255521871,((((Ghelna_canadensis:0.0021654396,Zygoballus_rufipes:0.0034727435):0.0433087917,Phidippus_sp.:0.0025985275):0.0381117367,Terralonus_mylothrus:0.0424426159):0.0177566046,Pelegrina_spp.:0.0025985275):0.0190558683):0.0233867475,Phanias_sp.:0.0407102642):0.0298830663,Itata_sp.:0.0597661325):0.0259852750,(Maevia_intermedia:0.0498051104,((Marpissa_pikei:0.0108271979,(Platycryptus_undatus:0.0446080554,Psecas_cf._viridipurpureus:0.0554352534):0.0207882200):0.0207882200,marpissine_indet._China:0.0476396709):0.0454742313):0.0290168904):0.0311823300):0.0411433521):0.0307492421,((Arasia_mollicoma:0.0398440883,(Helpis_minitabunda:0.0125595496,(Orthrus_bicolor:0.0753572975,Tauala_lepidus:0.0207882200):0.0576006929):0.0519705500):0.0420095279,(((Breda_jovialis:0.0100278679,Holoplatys_cf._planissima:0.0052151735):0.0584668688,(Mopsus_mormon:0.0272845388,Neon_nelli:0.0788220009):0.0593330446):0.0264183629,(((Heratemita_alboplagiata:0.0545690775,(Ligurra_latidens:0.0610653963,Simaetha_sp._Australia:0.0554352534):0.0264183629):0.0346470334,(((Opisthoncus_kochi:0.0307492421,(Trite_pennata:0.0506712863,Trite_planiceps:0.0313984141):0.0251190992):0.0233867475,((Penionomus_sp._New_Caledonia:0.0428757038,Trite_ignipilosa:0.0485058467):0.0454742313,cf._Mopsus_New_Caledonia:0.0519705500):0.0285838025):0.0294499783,Viciria_praemandibularis:0.0762234734):0.0346470334):0.0285838025,Simaetha_sp._Malaysia:0.0281507146):0.0320485058):0.0307492421):0.0337808575):0.0298830663,(((Bavia_cf._aericeps:0.0173235167,Stagetilus_sp._Malaysia:0.0268514508):0.0082286704,Stagetilus_sp._Philippines:0.0909484625):0.0645300996,((((Belippo_cf._ibadan:0.0281507146,Myrmarachne_plataleoides:0.0346470333):0.0294499783,((Myrmarachne_assimilis:0.0303161542,((Myrmarachne_evidens:0.0034647033,Myrmarachne_sp.__tristis_group_:0.0203551321):0.0181896925,Myrmarachne_foenisex:0.0147249892):0.0177566046):0.0160242529,Myrmarachne_sp._Singapore:0.0264183629):0.0225205717):0.0415764400,(Myrmarachne_cf._gedongensis:0.0013003922,Myrmarachne_sp._Malaysia:0.0021685767):0.0446080554):0.0701602425,Ligonipes_sp._Australia:0.0601992204):0.0684278909):0.0441749675):0.0298830663):0.0372455608,(((((Anyphaenidae-__Hibana_sp.:0.0866175834,Corinnidae-_Castianeira_sp.:0.0970116934):0.0480727588,Gnaphosidae-_Cesonia_sp.:0.0978778692):0.0506712863,(Miturgidae-_Cheiracanthium_sp.:0.0944131659,Xysticus_sp.:0.0996102209):0.0480727588):0.0467734950,(((Asemonea_sp._South_Africa:0.0194889563,Goleba_lyra_:0.0216543958):0.0168904288,(Lyssomanes_viridis_1:0.0840190559,Onomastus_sp._China:0.0887830230):0.0454742313):0.0424426158,(((((Cyrba_lineata:0.0385448246,Portia_labiata:0.0749242096):0.0744911217,Portia_cf._schultzi:0.0164573408):0.0939800780,Spartaeus_uplandicus:0.0480727588):0.0731918579,(Holcolaetis_cf._zuluensis:0.0212213079,Sonoita_cf._lightfooti:0.0571676050):0.0688609788):0.0563014292,((Galianora_bryicola_:0.0537029017,Galianora_sacha_:0.0181896925):0.0588999567,Thrandina_parocula:0.0926808142):0.0476396709):0.0511043742):0.0424426158):0.0394110004,(((Massagris_cf._honesta_:0.0175270469,Massagris_schisma:0.0558683413):0.0545690775,Tomomingi_sp.:0.0337808575):0.0619315721,Tomobella_andasibe:0.0519705500):0.0576006929):0.0411433521):0.0311823300,(((Jollas_sp.:0.0666955392,Sitticus_palustris:0.0550021654):0.0355132092,Sitticus_sp._Ecuador:0.0601992204):0.0485058467,((Thiodina_hespera:0.0103941100,Thiodina_sp._B:0.0134257254):0.0147249892,thiodinine_indet._Ecuador:0.0645300996):0.0511043742):0.0303161542):0.0307492421,(((Sarinda_cutleri:0.0446080554,Sarinda_sp.:0.0472065829):0.0446080554,((Zuniga_cf._laeta:0.0064963188,Zuniga_cf._magna:0.0168904288):0.0705933305,cf._Agelista:0.0502381984):0.0385448246):0.0350801213,Scopocira_cf._tenella:0.0796881767):0.0359462971):0.0290168904,(Hurius_vulpinus:0.0576006929,cf.__Arachnomura:0.0753572975):0.0285838025):0.0307492421,amycoid_indet._Ecuador:0.0537029017):0.0324815938,Encolpius_sp.:0.0662624513):0.0298830663):0.0498051104,(Noegus_cf._rufus:0.0064963188,Noegus_transversalis:0.0528367259):0.0489389346);
+
+TIME STAMP
+----------
+
+Date and time: Tue Mar  9 19:36:26 2021
+Total CPU time used: 321.925 seconds (0h:5m:21s)
+Total wall-clock time used: 118.973 seconds (0h:1m:58s)
+

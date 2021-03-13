@@ -1,0 +1,535 @@
+IQ-TREE 2.1.2 COVID-edition built Mar  9 2021
+
+Input file name: ../iqtree2/example/dna_M1838_228_1131.phy
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 11
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 228 sequences with 1131 nucleotide sites
+Number of constant sites: 373 (= 32.9797% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 373 (= 32.9797% of all sites)
+Number of parsimony informative sites: 601
+Number of distinct site patterns: 779
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: HKY+F
+
+Rate parameter R:
+
+  A-C: 1.0000
+  A-G: 1.0000
+  A-T: 1.0000
+  C-G: 1.0000
+  C-T: 1.0000
+  G-T: 1.0000
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.2759
+  pi(C) = 0.2772
+  pi(G) = 0.1549
+  pi(T) = 0.292
+
+Rate matrix Q:
+
+  A   -0.9815    0.3758      0.21    0.3957
+  C    0.3739   -0.9796      0.21    0.3957
+  G    0.3739    0.3758    -1.145    0.3957
+  T    0.3739    0.3758      0.21   -0.9597
+
+Model of rate heterogeneity: Uniform
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Parsimony score of the tree: 20532NOTE: Tree is UNROOTED although outgroup taxon 'Aaptosyax_grypus' is drawn at root
+
++------Aaptosyax_grypus
+|
+|                                   +-------Abbottina_rivularis
+|                                +--|
+|                                |  |    +-------Rhodeus_sericeus
+|                                |  +----|
+|                                |       +-------Rhodeus_sp._LR1681
+|                             +--|
+|                             |  |           +-------Gobio_gobio
+|                             |  |        +--|
+|                             |  |        |  +-------Romanogobio_banarescui
+|                             |  |     +--|
+|                             |  |     |  +------Pungtungia_herzi
+|                             |  |  +--|
+|                             |  |  |  |  +-------Gobiocypris_rarus
+|                             |  |  |  +--|
+|                             |  |  |     +-----Pseudorasbora_parva
+|                             |  +--|
+|                             |     +------Sarcocheilichthys_variegatus
+|                          +--|
+|                          |  |        +-----Biwia_zezera
+|                          |  |     +--|
+|                          |  |     |  |  +------Coreoleuciscus_splendidus
+|                          |  |     |  +--|
+|                          |  |     |     +------Saurogobio_dabryi
+|                          |  |  +--|
+|                          |  |  |  +-----Pseudogobio_vaillanti
+|                          |  +--|
+|                          |     |  +------Gobiobotia_meridionalis
+|                          |     +--|
+|                          |        +------Xenophysogobio_boulengeri
+|                       +--|
+|                       |  |     +-----Hemibarbus_labeo
+|                       |  |  +--|
+|                       |  |  |  +--------Hemibarbus_longirostris
+|                       |  +--|
+|                       |     +-------Squalidus_gracilis
+|                    +--|
+|                    |  |                 +--Abramis_brama
+|                    |  |              +--|
+|                    |  |              |  |        +--Acanthalburnus_microlepis
+|                    |  |              |  |     +--|
+|                    |  |              |  |     |  +--Blicca_bjoerkna
+|                    |  |              |  |  +--|
+|                    |  |              |  |  |  +--Vimba_vimba
+|                    |  |              |  +--|
+|                    |  |              |     +----Acanthobrama_terraesanctae
+|                    |  |           +--|
+|                    |  |           |  |              +-----Alburnoides_bipunctatus
+|                    |  |           |  |           +--|
+|                    |  |           |  |           |  +---Rutilus_rutilus
+|                    |  |           |  |        +--|
+|                    |  |           |  |        |  |     +---Chondrostoma_lemmingii
+|                    |  |           |  |        |  |  +--|
+|                    |  |           |  |        |  |  |  |        +--Chondrostoma_nasus
+|                    |  |           |  |        |  |  |  |     +--|
+|                    |  |           |  |        |  |  |  |     |  +--Chondrostoma_polylepis
+|                    |  |           |  |        |  |  |  |  +--|
+|                    |  |           |  |        |  |  |  |  |  |  +--Phoxinellus_alepidotus
+|                    |  |           |  |        |  |  |  |  |  +--|
+|                    |  |           |  |        |  |  |  |  |     +--Phoxinellus_dalmaticus
+|                    |  |           |  |        |  |  |  +--|
+|                    |  |           |  |        |  |  |     |     +----Pseudophoxinus_anatolicus
+|                    |  |           |  |        |  |  |     |  +--|
+|                    |  |           |  |        |  |  |     |  |  +---Pseudophoxinus_crassus
+|                    |  |           |  |        |  |  |     +--|
+|                    |  |           |  |        |  |  |        |  +--Telestes_beoticus
+|                    |  |           |  |        |  |  |        +--|
+|                    |  |           |  |        |  |  |           +--Telestes_souffia
+|                    |  |           |  |        |  +--|
+|                    |  |           |  |        |     |  +-----Ladigesocypris_ghigii
+|                    |  |           |  |        |     +--|
+|                    |  |           |  |        |        |     +--Leuciscus_cephalus
+|                    |  |           |  |        |        |  +--|
+|                    |  |           |  |        |        |  |  +--Squalius_albus
+|                    |  |           |  |        |        +--|
+|                    |  |           |  |        |           |   +--Leuciscus_pyrenaicus
+|                    |  |           |  |        |           +---|
+|                    |  |           |  |        |               +--Squalius_palaciosi
+|                    |  |           |  |     +--|
+|                    |  |           |  |     |  +----Notemigonus_crysoleucas
+|                    |  |           |  |  +--|
+|                    |  |           |  |  |  |     +---Aspius_aspius
+|                    |  |           |  |  |  |  +--|
+|                    |  |           |  |  |  |  |  +---Leuciscus_leuciscus
+|                    |  |           |  |  |  +--|
+|                    |  |           |  |  |     +---Aspius_vorax
+|                    |  |           |  +--|
+|                    |  |           |     |               +--Alburnus_alburnus
+|                    |  |           |     |            +--|
+|                    |  |           |     |            |  |  +--Alburnus_chalcoides
+|                    |  |           |     |            |  +--|
+|                    |  |           |     |            |     +--Alburnus_filippi
+|                    |  |           |     |        +---|
+|                    |  |           |     |        |   +---Anaecypris_hispanica
+|                    |  |           |     |     +--|
+|                    |  |           |     |     |  |   +--Scardinius_acarnanicus
+|                    |  |           |     |     |  +---|
+|                    |  |           |     |     |      +--Scardinius_erythrophthalmus
+|                    |  |           |     |  +--|
+|                    |  |           |     |  |  |   +--Tropidophoxinellus_hellenicus
+|                    |  |           |     |  |  +---|
+|                    |  |           |     |  |      +--Tropidophoxinellus_spartiaticus
+|                    |  |           |     +--|
+|                    |  |           |        +------Pachychilon_pictum
+|                    |  |        +--|
+|                    |  |        |  +----Pelecus_cultratus
+|                    |  |     +--|
+|                    |  |     |  |              +--Acrocheilus_alutaceus
+|                    |  |     |  |           +--|
+|                    |  |     |  |           |  |  +--Gila_cypha
+|                    |  |     |  |           |  +--|
+|                    |  |     |  |           |     |  +--Gila_robusta
+|                    |  |     |  |           |     +--|
+|                    |  |     |  |           |        +--Moapa_coriacea
+|                    |  |     |  |        +--|
+|                    |  |     |  |        |  |     +---Eremichthys_acros
+|                    |  |     |  |        |  |  +--|
+|                    |  |     |  |        |  |  |  +----Gila_orcuttii
+|                    |  |     |  |        |  +--|
+|                    |  |     |  |        |     |  +--Hesperoleucus_symmetricus
+|                    |  |     |  |        |     +--|
+|                    |  |     |  |        |        +--Relictus_solitarius
+|                    |  |     |  |     +--|
+|                    |  |     |  |     |  |  +---Siphateles_alvordensis
+|                    |  |     |  |     |  +--|
+|                    |  |     |  |     |     +--Siphateles_bicolor
+|                    |  |     |  |  +--|
+|                    |  |     |  |  |  +-----Orthodon_microlepidotus
+|                    |  |     |  +--|
+|                    |  |     |     |     +----Couesius_plumbeus
+|                    |  |     |     |  +--|
+|                    |  |     |     |  |  |         +--Lepidomeda_albivallis
+|                    |  |     |     |  |  |      +--|
+|                    |  |     |     |  |  |      |  +---Snyderichthys_copei
+|                    |  |     |     |  |  |  +---|
+|                    |  |     |     |  |  |  |   |   +------Meda_fulgida
+|                    |  |     |     |  |  |  |   +---|
+|                    |  |     |     |  |  |  |       +-----Plagopterus_argentissimus
+|                    |  |     |     |  |  +--|
+|                    |  |     |     |  |     +----Margariscus_margarita
+|                    |  |     |     +--|
+|                    |  |     |        +---------Phoxinus_phoxinus
+|                    |  |  +--|
+|                    |  |  |  |                    +-------Agosia_chrysogaster
+|                    |  |  |  |                 +--|
+|                    |  |  |  |                 |  +---Notropis_texanus
+|                    |  |  |  |              +--|
+|                    |  |  |  |              |  |  +-----Cyprinella_galactura
+|                    |  |  |  |              |  +--|
+|                    |  |  |  |              |     +------Cyprinella_spiloptera
+|                    |  |  |  |           +--|
+|                    |  |  |  |           |  |              +------Codoma_ornata
+|                    |  |  |  |           |  |           +--|
+|                    |  |  |  |           |  |           |  +-----Notropis_stramineus
+|                    |  |  |  |           |  |        +--|
+|                    |  |  |  |           |  |        |  +-------Ericymba_buccata
+|                    |  |  |  |           |  |     +--|
+|                    |  |  |  |           |  |     |  +---Luxilus_albeolus
+|                    |  |  |  |           |  |  +--|
+|                    |  |  |  |           |  |  |  |     +----Hybognathus_hankinsoni
+|                    |  |  |  |           |  |  |  |  +--|
+|                    |  |  |  |           |  |  |  |  |  +-----Yuriria_altaYalt3449
+|                    |  |  |  |           |  |  |  +--|
+|                    |  |  |  |           |  |  |     |  +-----Lythrurus_fumeus
+|                    |  |  |  |           |  |  |     +--|
+|                    |  |  |  |           |  |  |        +----Lythrurus_lirus
+|                    |  |  |  |           |  +--|
+|                    |  |  |  |           |     |  +---Hybopsis_winchelli
+|                    |  |  |  |           |     +--|
+|                    |  |  |  |           |        +---Notropis_telescopus
+|                    |  |  |  |        +--|
+|                    |  |  |  |        |  |     +-----Opsopoeodus_emilae
+|                    |  |  |  |        |  |  +--|
+|                    |  |  |  |        |  |  |  |  +---Pimephales_notatus
+|                    |  |  |  |        |  |  |  +--|
+|                    |  |  |  |        |  |  |     +----Pimephales_vigilax
+|                    |  |  |  |        |  +--|
+|                    |  |  |  |        |     +-----Pteronotropis_hubbsi
+|                    |  |  |  |     +--|
+|                    |  |  |  |     |  |       +-----Erimystax_cahni
+|                    |  |  |  |     |  |   +---|
+|                    |  |  |  |     |  |   |   +----Erimystax_dissimilis
+|                    |  |  |  |     |  +---|
+|                    |  |  |  |     |      |       +----Phenacobius_catostomus
+|                    |  |  |  |     |      |    +--|
+|                    |  |  |  |     |      |    |  +----Phenacobius_uranops
+|                    |  |  |  |     |      +----|
+|                    |  |  |  |     |           +-----Phenacobius_mirabilis
+|                    |  |  |  |  +--|
+|                    |  |  |  |  |  |     +--------Campostoma_anomalum
+|                    |  |  |  |  |  |  +--|
+|                    |  |  |  |  |  |  |  +------Rhinichthys_atratulus
+|                    |  |  |  |  |  +--|
+|                    |  |  |  |  |     |  +-----Nocomis_biguttatus
+|                    |  |  |  |  |     +--|
+|                    |  |  |  |  |        +----Nocomis_micropogon
+|                    |  |  |  +--|
+|                    |  |  |     |      +---Iotichthys_phlegethontis
+|                    |  |  |     |  +---|
+|                    |  |  |     |  |   +--Richardsonius_balteatus
+|                    |  |  |     +--|
+|                    |  |  |        |  +--Mylocheilus_caurinus
+|                    |  |  |        +--|
+|                    |  |  |           +---Pogonichthys_macrolepidotus
+|                    |  +--|
+|                    |     |     +-----Hemitremia_flammea
+|                    |     |  +--|
+|                    |     |  |  +----Semotilus_atromaculatus
+|                    |     +--|
+|                    |        |      +--Pseudaspius_leptocephalus
+|                    |        |   +--|
+|                    |        |   |  +---Tribolodon_nakamurai
+|                    |        +---|
+|                    |            +--Tribolodon_hakonensis
+|                 +--|
+|                 |  |                    +----Aphyocypris_chinensis
+|                 |  |                 +--|
+|                 |  |                 |  +-----Yaoshanicus_arcus
+|                 |  |              +--|
+|                 |  |              |  |  +-------Parazacco_fasciatus
+|                 |  |              |  +--|
+|                 |  |              |     |        +----Tanichthys_albonubes_AF375869
+|                 |  |              |     |  +-----|
+|                 |  |              |     |  |     +--Tanichthys_albonubes_LR1651
+|                 |  |              |     +--|
+|                 |  |              |        +------Tinca_tinca
+|                 |  |           +--|
+|                 |  |           |  |  +-----Hemigrammocypris_rasborella
+|                 |  |           |  +--|
+|                 |  |           |     +-------Parachela_sp._LR1657
+|                 |  |        +--|
+|                 |  |        |  |  +----Candidia_barbata
+|                 |  |        |  +--|
+|                 |  |        |     |             +--Opsariichthys_bidens
+|                 |  |        |     |        +----|
+|                 |  |        |     |        |    +--Opsariichthys_uncirostris
+|                 |  |        |     |   +----|
+|                 |  |        |     |   |    |  +---Opsariichthys_sp._LR1645
+|                 |  |        |     |   |    +--|
+|                 |  |        |     |   |       +---Zacco_pachycephalus
+|                 |  |        |     +---|
+|                 |  |        |         +-----Zacco_platypus
+|                 |  |     +--|
+|                 |  |     |  |     +---Ctenopharyngodon_idella
+|                 |  |     |  |  +--|
+|                 |  |     |  |  |  +-------Elopichthys_bambusa
+|                 |  |     |  +--|
+|                 |  |     |     +---Ochetobius_elongatus
+|                 |  |  +--|
+|                 |  |  |  +---Mylopharyngodon_piceus
+|                 |  +--|
+|                 |     |              +---Chanodichthys_erythropterus
+|                 |     |           +--|
+|                 |     |           |  |     +--Megalobrama_pellegrini
+|                 |     |           |  |  +--|
+|                 |     |           |  |  |  +--Xenocyprioides_carinatus
+|                 |     |           |  +--|
+|                 |     |           |     +--Parabramis_pekinensis
+|                 |     |        +--|
+|                 |     |        |  |     +--Hemiculter_leucisculus
+|                 |     |        |  |  +--|
+|                 |     |        |  |  |  +--Hemiculterella_macrolepis
+|                 |     |        |  +--|
+|                 |     |        |     +--Ischikauia_steenackeri
+|                 |     |     +--|
+|                 |     |     |  |        +--Distoechodon_compressus
+|                 |     |     |  |     +--|
+|                 |     |     |  |     |  +---Pseudobrama_simoni
+|                 |     |     |  |  +--|
+|                 |     |     |  |  |  |  +---Gobiobotia_abbreviata
+|                 |     |     |  |  |  +--|
+|                 |     |     |  |  |     +--Xenocypris_fangi
+|                 |     |     |  +--|
+|                 |     |     |     +---Xenocyprioides_parvulus
+|                 |     |  +--|
+|                 |     |  |  |  +--Hypophthalmichthys_molitrix
+|                 |     |  |  +--|
+|                 |     |  |     +--Hypophthalmichthys_nobilis
+|                 |     +--|
+|                 |        +---Squaliobarbus_curriculus
+|              +--|
+|              |  +-----Acrossocheilus_yunnanensis
+|           +--|
+|           |  |                   +--Barbatula_barbatula
+|           |  |              +----|
+|           |  |              |    +--Schistura_longa
+|           |  |           +--|
+|           |  |           |  |    +-------Misgurnus_anguillicaudatus
+|           |  |           |  +----|
+|           |  |           |       +-------Sabanejewia_aurata
+|           |  |        +--|
+|           |  |        |  |  +------Gastromyzon_ctenocephalus
+|           |  |        |  +--|
+|           |  |        |     +------Hemimyzon_formosanum
+|           |  |     +--|
+|           |  |     |  +----Leptobotia_elongata
+|           |  |  +--|
+|           |  |  |  |          +------Carpiodes_carpio
+|           |  |  |  |       +--|
+|           |  |  |  |       |  +-----Myxocyprinus_asiaticus
+|           |  |  |  |  +----|
+|           |  |  |  |  |    |    +-------Catostomus_catostomus
+|           |  |  |  |  |    +----|
+|           |  |  |  |  |         |    +---Moxostoma_anisurum
+|           |  |  |  |  |         +----|
+|           |  |  |  |  |              +----Scartomyzon_congestus
+|           |  |  |  +--|
+|           |  |  |     |  +--------Chanos_chanos
+|           |  |  |     +--|
+|           |  |  |        |   +---Gyrinocheilus_aymonieri
+|           |  |  |        +---|
+|           |  |  |            +---Gyrinocheilus_pustulosus
+|           |  +--|
+|           |     |                      +---Boraras_maculatus
+|           |     |                 +----|
+|           |     |                 |    +------Rasbora_pauciperforata
+|           |     |            +----|
+|           |     |            |    +---Rasbora_kalbarensis
+|           |     |         +--|
+|           |     |         |  |              +------------Esomus_metallicus
+|           |     |         |  |      +-------|
+|           |     |         |  |      |       +--Rasbora_kalochroma
+|           |     |         |  +------|
+|           |     |         |         |        +---Horadandia_atukorali
+|           |     |         |         |     +--|
+|           |     |         |         |     |  +--Rasbora_daniconius
+|           |     |         |         |  +--|
+|           |     |         |         |  |  +--Pectenocypris_korthusae
+|           |     |         |         +--|
+|           |     |         |            |  +--Rasbora_cephalotaenia
+|           |     |         |            +--|
+|           |     |         |               |  +--Rasbora_vulcanus
+|           |     |         |               +--|
+|           |     |         |                  +---Trigonostigma_heteromorpha
+|           |     |      +--|
+|           |     |      |  |       +------Chela_maasii
+|           |     |      |  |   +---|
+|           |     |      |  |   |   +------Nematobramis_steindachneri
+|           |     |      |  +---|
+|           |     |      |      +--------Luciosoma_sp._LR1659
+|           |     |  +---|
+|           |     |  |   |             +--------Chela_dadiburjori
+|           |     |  |   |        +----|
+|           |     |  |   |        |    +------------Danionella_sp._Myanmar_LR1600
+|           |     |  |   |    +---|
+|           |     |  |   |    |   |    +------Danio_erythromicron
+|           |     |  |   |    |   +----|
+|           |     |  |   |    |        +---------Danio_rerio
+|           |     |  |   +----|
+|           |     |  |        |         +-----Devario_regina
+|           |     |  |        |    +----|
+|           |     |  |        |    |    +-------Inlecypris_auropurpureus
+|           |     |  |        +----|
+|           |     |  |             +---------Microrasbora_kubotai
+|           |     +--|
+|           |        |               +--Paedocypris_sp._Banka_LR1662
+|           |        |          +----|
+|           |        |          |    +--Paedocypris_sp._Pulau_Singkep_LR1663
+|           |        |   +------|
+|           |        |   |      |   +--Paedocypris_sp._Kalimantan_LR1601
+|           |        |   |      +---|
+|           |        |   |          +--Paedocypris_sp._Pontianak_LR1664
+|           |        +---|
+|           |            |   +-----Sundadanio_axelrodi_LR1650
+|           |            +---|
+|           |                +-----Sundadanio_axelrodi_LR1686
+|        +--|
+|        |  |        +----Crossocheilus_nigriloba
+|        |  |     +--|
+|        |  |     |  +----Lobocheilos_sp._LR1660
+|        |  |  +--|
+|        |  |  |  |  +------Garra_rufa
+|        |  |  |  +--|
+|        |  |  |     +-----Garra_variabilis
+|        |  +--|
+|        |     +----Paracrossochilus_vittatus
+|     +--|
+|     |  |     +------Barboides_britzi
+|     |  |  +--|
+|     |  |  |  |     +-----Barbus_ablabes
+|     |  |  |  |  +--|
+|     |  |  |  |  |  |  +------Barbus_sublineatus
+|     |  |  |  |  |  +--|
+|     |  |  |  |  |     +--------Barbus_trimaculatus
+|     |  |  |  +--|
+|     |  |  |     |    +--Pseudobarbus_afer
+|     |  |  |     +----|
+|     |  |  |          +--Pseudobarbus_asper
+|     |  +--|
+|     |     |  +-----Puntius_conchonius
+|     |     +--|
+|     |        +-----Puntius_sp._Odessa_LR1602
+|  +--|
+|  |  |                 +---Aulopyge_huegelii
+|  |  |              +--|
+|  |  |              |  |  +--Barbus_barbus
+|  |  |              |  +--|
+|  |  |              |     +--Barbus_meridionalis
+|  |  |           +--|
+|  |  |           |  |      +--Schizothorax_argentatus
+|  |  |           |  |  +---|
+|  |  |           |  |  |   +--Schizothorax_waltoni
+|  |  |           |  +--|
+|  |  |           |     +----Spinibarbichthys_sinensis
+|  |  |        +--|
+|  |  |        |  |  +--Spinibarbus_caldwelli
+|  |  |        |  +--|
+|  |  |        |     +---Spinibarbus_hollandi
+|  |  |     +--|
+|  |  |     |  |                    +--Chuanchia_labiosa
+|  |  |     |  |                 +--|
+|  |  |     |  |                 |  +--Platypharodon_extremus
+|  |  |     |  |              +--|
+|  |  |     |  |              |  +--Gymnocypris_eckloni
+|  |  |     |  |          +---|
+|  |  |     |  |          |   +--Schizopygopsis_pylzovi
+|  |  |     |  |       +--|
+|  |  |     |  |       |  |  +--Ptychobarbus_chungtienensis
+|  |  |     |  |       |  +--|
+|  |  |     |  |       |     +--Ptychobarbus_dipogon
+|  |  |     |  |  +----|
+|  |  |     |  |  |    |   +------Diptychus_maculatus
+|  |  |     |  |  |    +---|
+|  |  |     |  |  |        |  +----Gymnodiptychus_dybowskii
+|  |  |     |  |  |        +--|
+|  |  |     |  |  |           +---Gymnodiptychus_pachycheilus
+|  |  |     |  +--|
+|  |  |     |     +---Cyprinion_kais
+|  |  |  +--|
+|  |  |  |  |        +-----Carassius_carassius
+|  |  |  |  |     +--|
+|  |  |  |  |     |  +----Semilabeo_prochilus
+|  |  |  |  |  +--|
+|  |  |  |  |  |  |     +----------Puntius_titteya
+|  |  |  |  |  |  |  +--|
+|  |  |  |  |  |  |  |  +---Sinocyclocheilus_rhinocerous
+|  |  |  |  |  |  +--|
+|  |  |  |  |  |     |  +----Sinocyclocheilus_oxycephalus
+|  |  |  |  |  |     +--|
+|  |  |  |  |  |        +---Sinocyclocheilus_yishanensis
+|  |  |  |  +--|
+|  |  |  |     +--Cyprinus_carpio
+|  |  +--|
+|  |     +----Barbonymus_gonionotus
++--|
+|  +---Barbonymus_schwanenfeldii
+|
+|     +--Barbus_intermedius
+|  +--|
+|  |  |  +--Varicorhinus_mariae
+|  |  +--|
+|  |     +--Varicorhinus_steindachneri
++--|
+   +---Kosswigobarbus_kosswigi
+
+Tree in newick format:
+
+(Aaptosyax_grypus:0.0972590628,((((((((((((Abbottina_rivularis:0.1025641026,(Rhodeus_sericeus:0.1096374889,Rhodeus_sp._LR1681:0.1034482759):0.0680813439):0.0477453581,((((Gobio_gobio:0.1069849691,Romanogobio_banarescui:0.1131741821):0.0477453581,Pungtungia_herzi:0.0990274094):0.0477453581,(Gobiocypris_rarus:0.1052166225,Pseudorasbora_parva:0.0884173298):0.0415561450):0.0415561450,Sarcocheilichthys_variegatus:0.0901856764):0.0415561450):0.0371352785,(((Biwia_zezera:0.0804597701,(Coreoleuciscus_splendidus:0.0910698497,Saurogobio_dabryi:0.0901856764):0.0335985853):0.0371352785,Pseudogobio_vaillanti:0.0857648099):0.0353669319,(Gobiobotia_meridionalis:0.0919540230,Xenophysogobio_boulengeri:0.0919540230):0.0371352785):0.0362511052):0.0327144120,((Hemibarbus_labeo:0.0822281167,Hemibarbus_longirostris:0.1158267020):0.0380194518,Squalidus_gracilis:0.1096374889):0.0495137047):0.0344827586,((((((Abramis_brama:0.0415561450,(((Acanthalburnus_microlepis:0.0495137047,Blicca_bjoerkna:0.0247568523):0.0150309461,Vimba_vimba:0.0300618921):0.0300618921,Acanthobrama_terraesanctae:0.0645446508):0.0212201592):0.0362511052,(((((Alburnoides_bipunctatus:0.0875331565,Rutilus_rutilus:0.0636604775):0.0221043324,((Chondrostoma_lemmingii:0.0592396110,(((Chondrostoma_nasus:0.0397877984,Chondrostoma_polylepis:0.0389036251):0.0176834660,(Phoxinellus_alepidotus:0.0150309461,Phoxinellus_dalmaticus:0.0318302387):0.0397877984):0.0229885057,((Pseudophoxinus_anatolicus:0.0680813439,Pseudophoxinus_crassus:0.0539345712):0.0300618921,(Telestes_beoticus:0.0495137047,Telestes_souffia:0.0468611848):0.0265251989):0.0247568523):0.0265251989):0.0327144120,(Ladigesocypris_ghigii:0.0804597701,((Leuciscus_cephalus:0.0415561450,Squalius_albus:0.0362511052):0.0203359858,(Leuciscus_pyrenaicus:0.0079575597,Squalius_palaciosi:0.0097259063):0.0583554377):0.0318302387):0.0176834660):0.0309460654):0.0282935455,Notemigonus_crysoleucas:0.0725022104):0.0256410256,((Aspius_aspius:0.0565870911,Leuciscus_leuciscus:0.0548187445):0.0256410256,Aspius_vorax:0.0592396110):0.0468611848):0.0282935455,(((((Alburnus_alburnus:0.0495137047,(Alburnus_chalcoides:0.0123784262,Alburnus_filippi:0.0141467728):0.0300618921):0.0282935455,Anaecypris_hispanica:0.0548187445):0.0548187445,(Scardinius_acarnanicus:0.0335985853,Scardinius_erythrophthalmus:0.0389036251):0.0530503979):0.0327144120,(Tropidophoxinellus_hellenicus:0.0309460654,Tropidophoxinellus_spartiaticus:0.0406719717):0.0548187445):0.0335985853,Pachychilon_pictum:0.0999115827):0.0300618921):0.0203359858):0.0327144120,Pelecus_cultratus:0.0725022104):0.0344827586,(((((Acrocheilus_alutaceus:0.0309460654,(Gila_cypha:0.0229885057,(Gila_robusta:0.0203359859,Moapa_coriacea:0.0353669319):0.0106100796):0.0150309461):0.0150309461,((Eremichthys_acros:0.0530503979,Gila_orcuttii:0.0654288240):0.0132625995,(Hesperoleucus_symmetricus:0.0265251989,Relictus_solitarius:0.0150309461):0.0274093722):0.0159151194):0.0238726791,(Siphateles_alvordensis:0.0601237843,Siphateles_bicolor:0.0459770115):0.0150309461):0.0327144120,Orthodon_microlepidotus:0.0804597701):0.0335985853,((Couesius_plumbeus:0.0733863837,(((Lepidomeda_albivallis:0.0486295314,Snyderichthys_copei:0.0521662246):0.0450928382,(Meda_fulgida:0.0990274094,Plagopterus_argentissimus:0.0813439434):0.0548187445):0.0530503979,Margariscus_margarita:0.0760389036):0.0433244916):0.0495137047,Phoxinus_phoxinus:0.1290893015):0.0495137047):0.0291777188):0.0282935455,(((((((Agosia_chrysogaster:0.1078691424,Notropis_texanus:0.0636604775):0.0318302387,(Cyprinella_galactura:0.0875331565,Cyprinella_spiloptera:0.0928381963):0.0468611848):0.0362511052,(((((Codoma_ornata:0.0999115827,Notropis_stramineus:0.0831122900):0.0371352785,Ericymba_buccata:0.1043324492):0.0371352785,Luxilus_albeolus:0.0539345712):0.0282935455,((Hybognathus_hankinsoni:0.0654288240,Yuriria_altaYalt3449:0.0778072502):0.0194518126,(Lythrurus_fumeus:0.0866489832,Lythrurus_lirus:0.0716180371):0.0344827586):0.0274093722):0.0300618921,(Hybopsis_winchelli:0.0627763042,Notropis_telescopus:0.0592396110):0.0274093722):0.0265251989):0.0309460654,((Opsopoeodus_emilae:0.0769230769,(Pimephales_notatus:0.0627763042,Pimephales_vigilax:0.0689655172):0.0362511052):0.0406719717,Pteronotropis_hubbsi:0.0831122900):0.0282935455):0.0397877984,((Erimystax_cahni:0.0813439434,Erimystax_dissimilis:0.0751547303):0.0565870911,((Phenacobius_catostomus:0.0671971706,Phenacobius_uranops:0.0698496905):0.0327144120,Phenacobius_mirabilis:0.0884173298):0.0663129973):0.0512820513):0.0424403183,((Campostoma_anomalum:0.1149425287,Rhinichthys_atratulus:0.0963748895):0.0442086649,(Nocomis_biguttatus:0.0857648099,Nocomis_micropogon:0.0689655172):0.0468611848):0.0468611848):0.0442086649,((Iotichthys_phlegethontis:0.0521662246,Richardsonius_balteatus:0.0450928382):0.0548187445,(Mylocheilus_caurinus:0.0459770115,Pogonichthys_macrolepidotus:0.0592396110):0.0477453581):0.0389036251):0.0415561450):0.0291777188,((Hemitremia_flammea:0.0848806366,Semotilus_atromaculatus:0.0751547303):0.0477453581,((Pseudaspius_leptocephalus:0.0495137047,Tribolodon_nakamurai:0.0539345712):0.0256410256,Tribolodon_hakonensis:0.0442086649):0.0636604775):0.0397877984):0.0442086649):0.0318302387,(((((((Aphyocypris_chinensis:0.0707338638,Yaoshanicus_arcus:0.0831122900):0.0468611848,(Parazacco_fasciatus:0.1061007958,((Tanichthys_albonubes_AF375869:0.0725022104,Tanichthys_albonubes_LR1651:0.0335985853):0.0875331565,Tinca_tinca:0.0893015031):0.0468611848):0.0486295314):0.0433244916,(Hemigrammocypris_rasborella:0.0795755968,Parachela_sp._LR1657:0.1025641026):0.0327144120):0.0327144120,(Candidia_barbata:0.0733863837,(((Opsariichthys_bidens:0.0318302387,Opsariichthys_uncirostris:0.0433244916):0.0654288241,(Opsariichthys_sp._LR1645:0.0627763042,Zacco_pachycephalus:0.0592396110):0.0415561450):0.0645446508,Zacco_platypus:0.0822281167):0.0512820513):0.0389036251):0.0362511052,((Ctenopharyngodon_idella:0.0601237843,Elopichthys_bambusa:0.1131741821):0.0291777188,Ochetobius_elongatus:0.0574712644):0.0274093722):0.0212201592,Mylopharyngodon_piceus:0.0539345712):0.0229885057,(((((Chanodichthys_erythropterus:0.0521662246,((Megalobrama_pellegrini:0.0212201592,Xenocyprioides_carinatus:0.0097259063):0.0274093722,Parabramis_pekinensis:0.0397877984):0.0265251989):0.0247568523,((Hemiculter_leucisculus:0.0397877984,Hemiculterella_macrolepis:0.0486295314):0.0291777188,Ischikauia_steenackeri:0.0477453581):0.0176834660):0.0229885057,(((Distoechodon_compressus:0.0486295314,Pseudobrama_simoni:0.0601237843):0.0194518126,(Gobiobotia_abbreviata:0.0565870911,Xenocypris_fangi:0.0371352785):0.0185676393):0.0274093722,Xenocyprioides_parvulus:0.0530503979):0.0212201592):0.0212201592,(Hypophthalmichthys_molitrix:0.0424403183,Hypophthalmichthys_nobilis:0.0424403183):0.0282935455):0.0212201592,Squaliobarbus_curriculus:0.0574712644):0.0256410256):0.0274093722):0.0309460654,Acrossocheilus_yunnanensis:0.0795755968):0.0300618921,((((((Barbatula_barbatula:0.0424403183,Schistura_longa:0.0468611848):0.0751547303,(Misgurnus_anguillicaudatus:0.1052166225,Sabanejewia_aurata:0.1131741821):0.0645446508):0.0459770115,(Gastromyzon_ctenocephalus:0.0937223696,Hemimyzon_formosanum:0.0910698497):0.0415561450):0.0362511052,Leptobotia_elongata:0.0742705570):0.0318302387,(((Carpiodes_carpio:0.0901856764,Myxocyprinus_asiaticus:0.0848806366):0.0397877984,(Catostomus_catostomus:0.1122900088,(Moxostoma_anisurum:0.0592396110,Scartomyzon_congestus:0.0733863837):0.0742705570):0.0654288241):0.0671971706,(Chanos_chanos:0.1237842617,(Gyrinocheilus_aymonieri:0.0610079576,Gyrinocheilus_pustulosus:0.0583554377):0.0521662246):0.0477453581):0.0344827586):0.0353669319,((((((Boraras_maculatus:0.0574712644,Rasbora_pauciperforata:0.0928381963):0.0680813439,Rasbora_kalbarensis:0.0512820513):0.0663129973,((Esomus_metallicus:0.1671087533,Rasbora_kalochroma:0.0459770115):0.1114058355,(((Horadandia_atukorali:0.0530503979,Rasbora_daniconius:0.0495137047):0.0344827586,Pectenocypris_korthusae:0.0503978780):0.0318302387,(Rasbora_cephalotaenia:0.0397877984,(Rasbora_vulcanus:0.0433244916,Trigonostigma_heteromorpha:0.0512820513):0.0247568523):0.0229885057):0.0203359858):0.0946065429):0.0459770115,((Chela_maasii:0.0990274094,Nematobramis_steindachneri:0.0954907162):0.0618921309,Luciosoma_sp._LR1659:0.1193633952):0.0610079576):0.0389036251,(((Chela_dadiburjori:0.1211317418,Danionella_sp._Myanmar_LR1600:0.1777188329):0.0654288241,(Danio_erythromicron:0.0963748895,Danio_rerio:0.1299734748):0.0645446508):0.0627763042,((Devario_regina:0.0813439434,Inlecypris_auropurpureus:0.1096374889):0.0751547303,Microrasbora_kubotai:0.1308576481):0.0707338638):0.0689655172):0.0521662246,(((Paedocypris_sp._Banka_LR1662:0.0221043324,Paedocypris_sp._Pulau_Singkep_LR1663:0.0167992927):0.0671971706,(Paedocypris_sp._Kalimantan_LR1601:0.0291777188,Paedocypris_sp._Pontianak_LR1664:0.0291777188):0.0530503979):0.0893015031,(Sundadanio_axelrodi_LR1650:0.0857648099,Sundadanio_axelrodi_LR1686:0.0769230769):0.0565870911):0.0583554377):0.0371352785):0.0221043324):0.0265251989,(((Crossocheilus_nigriloba:0.0663129973,Lobocheilos_sp._LR1660:0.0654288240):0.0247568523,(Garra_rufa:0.0919540230,Garra_variabilis:0.0884173298):0.0397877984):0.0274093722,Paracrossochilus_vittatus:0.0663129973):0.0309460654):0.0247568523,((Barboides_britzi:0.0999115827,((Barbus_ablabes:0.0848806366,(Barbus_sublineatus:0.1016799293,Barbus_trimaculatus:0.1167108753):0.0468611848):0.0468611848,(Pseudobarbus_afer:0.0468611848,Pseudobarbus_asper:0.0442086649):0.0751547303):0.0433244916):0.0442086649,(Puntius_conchonius:0.0813439434,Puntius_sp._Odessa_LR1602:0.0804597701):0.0486295314):0.0450928382):0.0274093722,((((((Aulopyge_huegelii:0.0618921309,(Barbus_barbus:0.0503978780,Barbus_meridionalis:0.0477453581):0.0380194518):0.0344827586,((Schizothorax_argentatus:0.0442086649,Schizothorax_waltoni:0.0503978780):0.0592396110,Spinibarbichthys_sinensis:0.0645446508):0.0265251989):0.0238726791,(Spinibarbus_caldwelli:0.0406719717,Spinibarbus_hollandi:0.0610079576):0.0415561450):0.0238726791,((((((Chuanchia_labiosa:0.0070733864,Platypharodon_extremus:0.0114942529):0.0318302387,Gymnocypris_eckloni:0.0371352785):0.0141467728,Schizopygopsis_pylzovi:0.0389036251):0.0574712644,(Ptychobarbus_chungtienensis:0.0477453581,Ptychobarbus_dipogon:0.0477453581):0.0459770115):0.0459770115,(Diptychus_maculatus:0.0972590628,(Gymnodiptychus_dybowskii:0.0698496905,Gymnodiptychus_pachycheilus:0.0530503979):0.0486295314):0.0521662246):0.0698496905,Cyprinion_kais:0.0618921309):0.0362511052):0.0256410256,(((Carassius_carassius:0.0778072502,Semilabeo_prochilus:0.0645446508):0.0362511052,((Puntius_titteya:0.1441202476,Sinocyclocheilus_rhinocerous:0.0636604775):0.0327144120,(Sinocyclocheilus_oxycephalus:0.0707338638,Sinocyclocheilus_yishanensis:0.0610079576):0.0274093722):0.0389036251):0.0265251989,Cyprinus_carpio:0.0495137047):0.0167992927):0.0185676393,Barbonymus_gonionotus:0.0663129973):0.0185676393):0.0265251989,Barbonymus_schwanenfeldii:0.0530503979):0.0353669319,((Barbus_intermedius:0.0380194518,(Varicorhinus_mariae:0.0309460654,Varicorhinus_steindachneri:0.0229885057):0.0265251989):0.0415561450,Kosswigobarbus_kosswigi:0.0601237843):0.0495137047);
+
+TIME STAMP
+----------
+
+Date and time: Tue Mar  9 19:55:33 2021
+Total CPU time used: 625.73 seconds (0h:10m:25s)
+Total wall-clock time used: 218.502 seconds (0h:3m:38s)
+

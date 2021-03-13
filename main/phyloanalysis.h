@@ -101,4 +101,14 @@ void computeConsensusNetwork(const char *input_trees, int burnin,
                              const char *output_tree, const char *out_prefix,
                              const char* tree_weight_file);
 
+void optimizeAlignment(IQTree * & tree, Params & params);
+
+struct PatternComp{
+	bool operator() (Pattern i, Pattern j) {
+		return (i.ras_pars_score * i.frequency > j.ras_pars_score * j.frequency);
+//		return (i.ras_pars_score > j.ras_pars_score);
+	}
+};
+
+
 #endif

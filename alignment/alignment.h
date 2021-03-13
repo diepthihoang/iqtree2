@@ -100,6 +100,9 @@ class Alignment : public vector<Pattern>, public CharSet, public StateSpace {
     friend class SuperAlignmentUnlinked;
 
 public:
+    void createPerturbAlignment(Alignment *aln, int percentage, int weight, bool sort_aln);
+    void initRatechetVector();
+    vector<int> ratchet_vector;
 
     /**
             constructor
@@ -949,7 +952,7 @@ public:
     /* build seq_states containing set of states per sequence
      * @param add_unobs_const TRUE to add all unobserved constant states (for +ASC model)
      */
-    //virtual void buildSeqStates(vector<vector<int> > &seq_states, bool add_unobs_const = false);
+    virtual void buildSeqStates(bool add_unobs_const = false);
 
     /** Added by MA
             Compute the probability of this alignment according to the multinomial distribution with parameters determined by the reference alignment
@@ -1035,6 +1038,14 @@ protected:
 	void initCodon(const char *gene_code_id);
 
     bool isShowingProgressDisabled;
+
+    vector<IntList> seq_states;
+
+
+    int n_informative_sites;
+    int n_informative_patterns;
+    void updateSitePatternAfterOptimized(); // Diep added mostly for sorting aln
+
 };
 
 

@@ -3,6 +3,7 @@
 .settings
 .project
 examples
+example/
 pll/CMakeFiles/
 pll/Makefile
 pll/cmake_install.cmake

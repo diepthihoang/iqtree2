@@ -69,7 +69,7 @@ extern "C" {
 #endif
 
 #ifdef IQTREE_TERRAPHAST
-    #include "terrace/terrace.h"
+#include "terrace/terrace.h"
 #endif
 
 #if defined(_MSC_VER) && !defined(_CRT_SECURE_NO_WARNINGS)
@@ -78,81 +78,111 @@ extern "C" {
 
 void reportReferences(Params &params, ofstream &out) {
 
-    out << "To cite IQ-TREE please use:" << endl << endl
-    << "Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf," << endl
-    << "Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)" << endl
-    << "IQ-TREE 2: New models and efficient methods for phylogenetic inference" << endl
-    << "in the genomic era. Mol. Biol. Evol., in press." << endl
-    << "https://doi.org/10.1093/molbev/msaa015" << endl << endl;
-    
+    out << "To cite IQ-TREE please use:" << endl
+        << endl
+        << "Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf," << endl
+        << "Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)" << endl
+        << "IQ-TREE 2: New models and efficient methods for phylogenetic inference" << endl
+        << "in the genomic era. Mol. Biol. Evol., in press." << endl
+        << "https://doi.org/10.1093/molbev/msaa015" << endl
+        << endl;
+
     bool modelfinder_only = false;
-    if (params.model_name.substr(0,4) == "TEST" || params.model_name.substr(0, 2) == "MF" || params.model_name.empty()) {
-        out << "To cite ModelFinder please use: " << endl << endl
+    if (params.model_name.substr(0, 4) == "TEST" || params.model_name.substr(0, 2) == "MF" || params.model_name.empty()) {
+        out << "To cite ModelFinder please use: " << endl
+            << endl
             << "Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler," << endl
             << "and Lars S Jermiin (2017) ModelFinder: Fast model selection for" << endl
             << "accurate phylogenetic estimates. Nature Methods, 14:587–589." << endl
-            << "https://doi.org/10.1038/nmeth.4285" << endl << endl;
-        if (params.model_name.find("ONLY") != string::npos || (params.model_name.substr(0,2)=="MF" && params.model_name.substr(0,3)!="MFP"))
+            << "https://doi.org/10.1038/nmeth.4285" << endl
+            << endl;
+        if (params.model_name.find("ONLY") != string::npos || (params.model_name.substr(0, 2) == "MF" && params.model_name.substr(0, 3) != "MFP"))
             modelfinder_only = true;
     }
     if (posPOMO(params.model_name) != string::npos) {
-        out << "For polymorphism-aware models please cite:" << endl << endl
+        out << "For polymorphism-aware models please cite:" << endl
+            << endl
             << "Dominik Schrempf, Bui Quang Minh, Nicola De Maio, Arndt von Haeseler, and Carolin Kosiol" << endl
             << "(2016) Reversible polymorphism-aware phylogenetic models and their application to" << endl
             << "tree inference. J. Theor. Biol., 407:362–370." << endl
-            << "https://doi.org/10.1016/j.jtbi.2016.07.042" << endl << endl;
+            << "https://doi.org/10.1016/j.jtbi.2016.07.042" << endl
+            << endl;
     }
 
     if (params.site_freq_file || params.tree_freq_file)
-    out << "Since you used site-specific frequency model please also cite: " << endl << endl
-        << "Huai-Chun Wang, Edward Susko, Bui Quang Minh, and Andrew J. Roger (2018)" << endl
-        << "Modeling site heterogeneity with posterior mean site frequency profiles" << endl
-        << "accelerates accurate phylogenomic estimation. Syst. Biol., 67:216–235." << endl
-        << "https://doi.org/10.1093/sysbio/syx068" << endl << endl;
-
+        out << "Since you used site-specific frequency model please also cite: " << endl
+            << endl
+            << "Huai-Chun Wang, Edward Susko, Bui Quang Minh, and Andrew J. Roger (2018)" << endl
+            << "Modeling site heterogeneity with posterior mean site frequency profiles" << endl
+            << "accelerates accurate phylogenomic estimation. Syst. Biol., 67:216–235." << endl
+            << "https://doi.org/10.1093/sysbio/syx068" << endl
+            << endl;
 
     if (params.gbo_replicates)
-    out << "Since you used ultrafast bootstrap (UFBoot) please also cite: " << endl << endl
-        << "Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh," << endl
-        << "and Le Sy Vinh (2018) UFBoot2: Improving the ultrafast bootstrap" << endl
-        << "approximation. Mol. Biol. Evol., 35:518–522." << endl
-        << "https://doi.org/10.1093/molbev/msx281" << endl << endl;
+        out << "Since you used ultrafast bootstrap (UFBoot) please also cite: " << endl
+            << endl
+            << "Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh," << endl
+            << "and Le Sy Vinh (2018) UFBoot2: Improving the ultrafast bootstrap" << endl
+            << "approximation. Mol. Biol. Evol., 35:518–522." << endl
+            << "https://doi.org/10.1093/molbev/msx281" << endl
+            << endl;
 
     if (params.partition_file)
-    out << "Since you used partition models please also cite:" << endl << endl
-        << "Olga Chernomor, Arndt von Haeseler, and Bui Quang Minh (2016)" << endl
-        << "Terrace aware data structure for phylogenomic inference from" << endl
-        << "supermatrices. Syst. Biol., 65:997-1008." << endl
-        << "https://doi.org/10.1093/sysbio/syw037" << endl << endl;
+        out << "Since you used partition models please also cite:" << endl
+            << endl
+            << "Olga Chernomor, Arndt von Haeseler, and Bui Quang Minh (2016)" << endl
+            << "Terrace aware data structure for phylogenomic inference from" << endl
+            << "supermatrices. Syst. Biol., 65:997-1008." << endl
+            << "https://doi.org/10.1093/sysbio/syw037" << endl
+            << endl;
 
     if (params.terrace_analysis)
-    out << "Since you used terrace analysis please also cite:" << endl << endl
-        << "Biczok R, Bozsoky P, Eisenmann P, Ernst J, Ribizel T, Scholz F," << endl
-        << "Trefzer A, Weber F, Hamann M, Stamatakis A. (2018)" << endl
-        << "Two C++ libraries for counting trees on a phylogenetic" << endl
-        << "terrace. Bioinformatics 34:3399–3401." << endl
-        << "https://doi.org/10.1093/bioinformatics/bty384" << endl << endl;
+        out << "Since you used terrace analysis please also cite:" << endl
+            << endl
+            << "Biczok R, Bozsoky P, Eisenmann P, Ernst J, Ribizel T, Scholz F," << endl
+            << "Trefzer A, Weber F, Hamann M, Stamatakis A. (2018)" << endl
+            << "Two C++ libraries for counting trees on a phylogenetic" << endl
+            << "terrace. Bioinformatics 34:3399–3401." << endl
+            << "https://doi.org/10.1093/bioinformatics/bty384" << endl
+            << endl;
 
     if (params.dating_method == "LSD")
-        out << "Since you used least square dating (LSD) please also cite: " << endl << endl
-        << "Thu-Hien To, Matthieu Jung, Samantha Lycett, Olivier Gascuel (2016)" << endl
-        << "Fast dating using least-squares criteria and algorithms. Syst. Biol. 65:82-97." << endl
-        << "https://doi.org/10.1093/sysbio/syv068" << endl << endl;
+        out << "Since you used least square dating (LSD) please also cite: " << endl
+            << endl
+            << "Thu-Hien To, Matthieu Jung, Samantha Lycett, Olivier Gascuel (2016)" << endl
+            << "Fast dating using least-squares criteria and algorithms. Syst. Biol. 65:82-97." << endl
+            << "https://doi.org/10.1093/sysbio/syv068" << endl
+            << endl;
 }
 
 void reportAlignment(ofstream &out, Alignment &alignment, int nremoved_seqs) {
-    out << "Input data: " << alignment.getNSeq()+nremoved_seqs << " sequences with "
-            << alignment.getNSite() << " ";
+    out << "Input data: " << alignment.getNSeq() + nremoved_seqs << " sequences with "
+        << alignment.getNSite() << " ";
     switch (alignment.seq_type) {
-    case SEQ_BINARY: out << "binary"; break;
-    case SEQ_DNA: out << "nucleotide"; break;
-    case SEQ_PROTEIN: out << "amino-acid"; break;
-    case SEQ_CODON: out << "codon"; break;
-    case SEQ_MORPH: out << "morphological"; break;
-    case SEQ_POMO: out << "PoMo"; break;
-    default: out << "unknown"; break;
+    case SEQ_BINARY:
+        out << "binary";
+        break;
+    case SEQ_DNA:
+        out << "nucleotide";
+        break;
+    case SEQ_PROTEIN:
+        out << "amino-acid";
+        break;
+    case SEQ_CODON:
+        out << "codon";
+        break;
+    case SEQ_MORPH:
+        out << "morphological";
+        break;
+    case SEQ_POMO:
+        out << "PoMo";
+        break;
+    default:
+        out << "unknown";
+        break;
     }
-    out << " sites" << endl << "Number of constant sites: "
+    out << " sites" << endl
+        << "Number of constant sites: "
         << round(alignment.frac_const_sites * alignment.getNSite())
         << " (= " << alignment.frac_const_sites * 100 << "% of all sites)" << endl
 
@@ -166,10 +196,8 @@ void reportAlignment(ofstream &out, Alignment &alignment, int nremoved_seqs) {
         << endl;
 }
 
-/*
-void pruneModelInfo(ModelCheckpoint &model_info, PhyloSuperTree *tree) {
-    ModelCheckpoint res_info;
-    for (vector<PartitionInfo>::iterator it = tree->part_info.begin(); it != tree->part_info.end(); it++) {
+/* {
+    ModelCheckpoint res_info; {
         for (ModelCheckpoint::iterator mit = model_info.begin(); mit != model_info.end(); mit++)
             if (mit->set_name == it->name)
                 res_info.push_back(*mit);
@@ -180,39 +208,46 @@ void pruneModelInfo(ModelCheckpoint &model_info, PhyloSuperTree *tree) {
 */
 void reportModelSelection(ofstream &out, Params &params, ModelCheckpoint *model_info, PhyloTree *tree) {
     out << "Best-fit model according to " << criterionName(params.model_test_criterion) << ": ";
-//    ModelCheckpoint::iterator it;
+    //    ModelCheckpoint::iterator it;
     string best_model;
     PhyloSuperTree *stree = nullptr;
     if (tree->isSuperTree()) {
-        stree = (PhyloSuperTree*)tree;
-        SuperAlignment *saln = (SuperAlignment*)stree->aln;
+        stree = (PhyloSuperTree *)tree;
+        SuperAlignment *saln = (SuperAlignment *)stree->aln;
         for (int part = 0; part != stree->size(); part++) {
             if (part != 0)
                 out << ",";
             out << saln->partitions[part]->model_name << ":" << saln->partitions[part]->name;
         }
-//        string set_name = "";
-//        for (it = model_info.begin(); it != model_info.end(); it++) {
-//            if (it->set_name != set_name) {
-//                if (set_name != "")
-//                    out << ",";
-//                out << it->name << ":" << it->set_name;
-//                set_name = it->set_name;
-//            }
-//        }
-    } else {
-//        out << model_info[0].name;
+        //        string set_name = "";
+        //        for (it = model_info.begin(); it != model_info.end(); it++) {
+        //            if (it->set_name != set_name) {
+        //                if (set_name != "")
+        //                    out << ",";
+        //                out << it->name << ":" << it->set_name;
+        //                set_name = it->set_name;
+        //            }
+        //        }
+    }
+    else {
+        //        out << model_info[0].name;
         model_info->getBestModel(best_model);
         out << best_model;
     }
 
     if (tree->isSuperTree()) {
-        out << endl << endl << "List of best-fit models per partition:" << endl << endl;
-    } else {
-        out << endl << endl << "List of models sorted by "
-            << ((params.model_test_criterion == MTC_BIC) ? "BIC" :
-                ((params.model_test_criterion == MTC_AIC) ? "AIC" : "AICc"))
-            << " scores: " << endl << endl;
+        out << endl
+            << endl
+            << "List of best-fit models per partition:" << endl
+            << endl;
+    }
+    else {
+        out << endl
+            << endl
+            << "List of models sorted by "
+            << ((params.model_test_criterion == MTC_BIC) ? "BIC" : ((params.model_test_criterion == MTC_AIC) ? "AIC" : "AICc"))
+            << " scores: " << endl
+            << endl;
     }
     if (tree->isSuperTree())
         out << "  ID  ";
@@ -239,7 +274,7 @@ void reportModelSelection(ofstream &out, Params &params, ModelCheckpoint *model_
         out.width(11);
         out << right << it->logl << " ";
         out.width(11);
-        out    << it->AIC_score << ((it->AIC_conf) ? " + " : " - ");
+        out << it->AIC_score << ((it->AIC_conf) ? " + " : " - ");
         out.unsetf(ios::fixed);
         out.width(8);
         out << it->AIC_weight << " ";
@@ -251,7 +286,7 @@ void reportModelSelection(ofstream &out, Params &params, ModelCheckpoint *model_
         out << it->AICc_weight << " ";
         out.setf(ios::fixed);
         out.width(11);
-        out << it->BIC_score  << ((it->BIC_conf) ? " + " : " - ");
+        out << it->BIC_score << ((it->BIC_conf) ? " + " : " - ");
         out.unsetf(ios::fixed);
         out.width(8);
         out << it->BIC_weight;
@@ -260,14 +295,12 @@ void reportModelSelection(ofstream &out, Params &params, ModelCheckpoint *model_
     }
     out.precision(4);
 
-    /* TODO
-    for (it = model_info.begin(); it != model_info.end(); it++) {
+    /* TODO {
         if (it->AIC_score == DBL_MAX) continue;
         if (it != model_info.begin() && it->set_name != (it-1)->set_name)
             setid++;
         if (is_partitioned && it != model_info.begin() && it->set_name == (it-1)->set_name)
-            continue;
-        if (is_partitioned) {
+            continue; {
             out.width(4);
             out << right << setid << "  ";
         }
@@ -285,12 +318,13 @@ void reportModelSelection(ofstream &out, Params &params, ModelCheckpoint *model_
     }
     */
     out << endl;
-    out <<  "AIC, w-AIC   : Akaike information criterion scores and weights." << endl
-         << "AICc, w-AICc : Corrected AIC scores and weights." << endl
-         << "BIC, w-BIC   : Bayesian information criterion scores and weights." << endl << endl
+    out << "AIC, w-AIC   : Akaike information criterion scores and weights." << endl
+        << "AICc, w-AICc : Corrected AIC scores and weights." << endl
+        << "BIC, w-BIC   : Bayesian information criterion scores and weights." << endl
+        << endl
 
-         << "Plus signs denote the 95% confidence sets." << endl
-         << "Minus signs denote significant exclusion." <<endl;
+        << "Plus signs denote the 95% confidence sets." << endl
+        << "Minus signs denote significant exclusion." << endl;
     out << endl;
 }
 
@@ -301,10 +335,11 @@ void reportModel(ofstream &out, Alignment *aln, ModelSubst *m) {
     if (!m->isSiteSpecificModel())
         m->getRateMatrix(rate_mat);
     else
-        ((ModelSet*)m)->front()->getRateMatrix(rate_mat);
+        ((ModelSet *)m)->front()->getRateMatrix(rate_mat);
 
     if (m->num_states <= 4) {
-        out << "Rate parameter R:" << endl << endl;
+        out << "Rate parameter R:" << endl
+            << endl;
 
         if (m->num_states > 4)
             out << fixed;
@@ -312,56 +347,61 @@ void reportModel(ofstream &out, Alignment *aln, ModelSubst *m) {
             for (i = 0, k = 0; i < m->num_states - 1; i++)
                 for (j = i + 1; j < m->num_states; j++, k++) {
                     out << "  " << aln->convertStateBackStr(i) << "-" << aln->convertStateBackStr(j) << ": "
-                            << rate_mat[k];
+                        << rate_mat[k];
                     if (m->num_states <= 4)
                         out << endl;
                     else if (k % 5 == 4)
                         out << endl;
                 }
-
-        } else { // non-reversible model
+        }
+        else
+        { // non-reversible model
             for (i = 0, k = 0; i < m->num_states; i++)
                 for (j = 0; j < m->num_states; j++)
                     if (i != j) {
                         out << "  " << aln->convertStateBackStr(i) << "-" << aln->convertStateBackStr(j)
-                                << ": " << rate_mat[k];
+                            << ": " << rate_mat[k];
                         if (m->num_states <= 4)
                             out << endl;
                         else if (k % 5 == 4)
                             out << endl;
                         k++;
                     }
-
         }
 
         //if (tree.aln->num_states > 4)
         out << endl;
         out.unsetf(ios_base::fixed);
-    } else if (aln->seq_type == SEQ_PROTEIN && m->getNDim() > 20) {
+    }
+    else if (aln->seq_type == SEQ_PROTEIN && m->getNDim() > 20) {
         ASSERT(m->num_states == 20);
-        out << "WARNING: This model has " << m->getNDim() + m->getNDimFreq() << " parameters that may be overfitting. Please use with caution!" << endl << endl;
+        out << "WARNING: This model has " << m->getNDim() + m->getNDimFreq() << " parameters that may be overfitting. Please use with caution!" << endl
+            << endl;
         double full_mat[400];
-        
+
         out.precision(6);
 
         if (m->isReversible()) {
             for (i = 0, k = 0; i < m->num_states - 1; i++)
                 for (j = i + 1; j < m->num_states; j++, k++) {
-                    full_mat[i*m->num_states+j] = rate_mat[k];
+                    full_mat[i * m->num_states + j] = rate_mat[k];
                 }
-            out << "Substitution parameters (lower-diagonal) and state frequencies in PAML format (can be used as input for IQ-TREE): " << endl << endl;
+            out << "Substitution parameters (lower-diagonal) and state frequencies in PAML format (can be used as input for IQ-TREE): " << endl
+                << endl;
             for (i = 1; i < m->num_states; i++) {
                 for (j = 0; j < i; j++)
-                    out << " " << full_mat[j*m->num_states+i];
+                    out << " " << full_mat[j * m->num_states + i];
                 out << endl;
             }
-        } else {
+        }
+        else {
             // non-reversible model
             m->getQMatrix(full_mat);
-            out << "Full Q matrix and state frequencies (can be used as input for IQ-TREE): " << endl << endl;
+            out << "Full Q matrix and state frequencies (can be used as input for IQ-TREE): " << endl
+                << endl;
             for (i = 0; i < m->num_states; i++) {
                 for (j = 0; j < m->num_states; j++)
-                    out << " " << full_mat[i*m->num_states+j];
+                    out << " " << full_mat[i * m->num_states + j];
                 out << endl;
             }
         }
@@ -369,10 +409,11 @@ void reportModel(ofstream &out, Alignment *aln, ModelSubst *m) {
         m->getStateFrequency(state_freq);
         for (i = 0; i < m->num_states; i++)
             out << " " << state_freq[i];
-        out << endl << endl;
+        out << endl
+            << endl;
         out.precision(4);
     }
-    
+
     delete[] rate_mat;
 
     if (aln->seq_type == SEQ_POMO) {
@@ -382,37 +423,38 @@ void reportModel(ofstream &out, Alignment *aln, ModelSubst *m) {
 
     out << "State frequencies: ";
     if (m->isSiteSpecificModel())
-        out << "(site specific frequencies)" << endl << endl;
+        out << "(site specific frequencies)" << endl
+            << endl;
     else {
         // 2016-11-03: commented out as this is not correct anymore
-//        if (!m->isReversible())
-//            out << "(inferred from Q matrix)" << endl;
-//        else
-            switch (m->getFreqType()) {
-            case FREQ_EMPIRICAL:
-                out << "(empirical counts from alignment)" << endl;
-                break;
-            case FREQ_ESTIMATE:
-                out << "(estimated with maximum likelihood)" << endl;
-                break;
-            case FREQ_USER_DEFINED:
-                out << ((aln->seq_type == SEQ_PROTEIN) ? "(model)" : "(user-defined)") << endl;
-                break;
-            case FREQ_EQUAL:
-                out << "(equal frequencies)" << endl;
-                break;
-            default:
-                break;
-            }
+        //        if (!m->isReversible())
+        //            out << "(inferred from Q matrix)" << endl;
+        //        else
+        switch (m->getFreqType()) {
+        case FREQ_EMPIRICAL:
+            out << "(empirical counts from alignment)" << endl;
+            break;
+        case FREQ_ESTIMATE:
+            out << "(estimated with maximum likelihood)" << endl;
+            break;
+        case FREQ_USER_DEFINED:
+            out << ((aln->seq_type == SEQ_PROTEIN) ? "(model)" : "(user-defined)") << endl;
+            break;
+        case FREQ_EQUAL:
+            out << "(equal frequencies)" << endl;
+            break;
+        default:
+            break;
+        }
         out << endl;
 
         if ((m->getFreqType() != FREQ_USER_DEFINED || aln->seq_type == SEQ_DNA) && m->getFreqType() != FREQ_EQUAL) {
             double *state_freqs = new double[m->num_states];
             m->getStateFrequency(state_freqs);
-            int ncols=(aln->seq_type == SEQ_CODON) ? 4 : 1;
+            int ncols = (aln->seq_type == SEQ_CODON) ? 4 : 1;
             for (i = 0; i < m->num_states; i++) {
                 out << "  pi(" << aln->convertStateBackStr(i) << ") = " << state_freqs[i];
-                if (i % ncols == ncols-1)
+                if (i % ncols == ncols - 1)
                     out << endl;
             }
             delete[] state_freqs;
@@ -425,7 +467,8 @@ void reportModel(ofstream &out, Alignment *aln, ModelSubst *m) {
             double *q_mat = new double[m->num_states * m->num_states];
             m->getQMatrix(q_mat);
 
-            out << "Rate matrix Q:" << endl << endl;
+            out << "Rate matrix Q:" << endl
+                << endl;
             for (i = 0, k = 0; i < m->num_states; i++) {
                 out << "  " << aln->convertStateBackStr(i);
                 for (j = 0; j < m->num_states; j++, k++) {
@@ -442,19 +485,20 @@ void reportModel(ofstream &out, Alignment *aln, ModelSubst *m) {
 }
 
 void reportModel(ofstream &out, PhyloTree &tree) {
-//    int i, j, k;
+    //    int i, j, k;
     int i;
 
     if (tree.getModel()->isMixture() && !tree.getModel()->isPolymorphismAware()) {
         out << "Mixture model of substitution: " << tree.getModelName() << endl;
-//        out << "Full name: " << tree.getModelName() << endl;
+        //        out << "Full name: " << tree.getModelName() << endl;
         ModelSubst *mmodel = tree.getModel();
-        out << endl << "  No  Component      Rate    Weight   Parameters" << endl;
+        out << endl
+            << "  No  Component      Rate    Weight   Parameters" << endl;
         int nmix = mmodel->getNMixtures();
         for (i = 0; i < nmix; i++) {
-            ModelMarkov *m = (ModelMarkov*)mmodel->getMixtureClass(i);
+            ModelMarkov *m = (ModelMarkov *)mmodel->getMixtureClass(i);
             out.width(4);
-            out << right << i+1 << "  ";
+            out << right << i + 1 << "  ";
             out.width(12);
             out << left << (m)->name << "  ";
             out.width(7);
@@ -463,21 +507,25 @@ void reportModel(ofstream &out, PhyloTree &tree) {
             out << mmodel->getMixtureWeight(i) << "  " << (m)->getNameParams() << endl;
 
             if (tree.aln->seq_type == SEQ_POMO) {
-                out << endl << "Model for mixture component "  << i+1 << ": " << (m)->name << endl;
+                out << endl
+                    << "Model for mixture component " << i + 1 << ": " << (m)->name << endl;
                 reportModel(out, tree.aln, m);
             }
         }
         if (tree.aln->seq_type != SEQ_POMO && tree.aln->seq_type != SEQ_DNA)
-        for (i = 0; i < nmix; i++) {
-            ModelMarkov *m = (ModelMarkov*)mmodel->getMixtureClass(i);
-            if (m->getFreqType() == FREQ_EQUAL || m->getFreqType() == FREQ_USER_DEFINED)
-                continue;
-            out << endl << "Model for mixture component "  << i+1 << ": " << (m)->name << endl;
-            reportModel(out, tree.aln, m);
-        }
+            for (i = 0; i < nmix; i++) {
+                ModelMarkov *m = (ModelMarkov *)mmodel->getMixtureClass(i);
+                if (m->getFreqType() == FREQ_EQUAL || m->getFreqType() == FREQ_USER_DEFINED)
+                    continue;
+                out << endl
+                    << "Model for mixture component " << i + 1 << ": " << (m)->name << endl;
+                reportModel(out, tree.aln, m);
+            }
         out << endl;
-    } else {
-        out << "Model of substitution: " << tree.getModelName() << endl << endl;
+    }
+    else {
+        out << "Model of substitution: " << tree.getModelName() << endl
+            << endl;
         reportModel(out, tree.aln, tree.getModel());
     }
 }
@@ -488,10 +536,11 @@ void reportRate(ostream &out, PhyloTree &tree) {
     rate_model->writeInfo(out);
 
     if (rate_model->getNDiscreteRate() > 1 || rate_model->getPInvar() > 0.0) {
-        out << endl << " Category  Relative_rate  Proportion" << endl;
+        out << endl
+            << " Category  Relative_rate  Proportion" << endl;
         if (rate_model->getPInvar() > 0.0)
             out << "  0         0              " << rate_model->getPInvar()
-                    << endl;
+                << endl;
         int cats = rate_model->getNDiscreteRate();
         DoubleVector prop;
         if (rate_model->getGammaShape() > 0 || rate_model->getPtnCat(0) < 0) {
@@ -500,16 +549,18 @@ void reportRate(ostream &out, PhyloTree &tree) {
             for (int i = 0; i < cats; i++) {
                 prop[i] = rate_model->getProp(i);
             }
-        } else {
+        }
+        else {
             prop.resize(cats, 0.0);
-            auto   frequencies  = tree.getConvertedSequenceFrequencies();
+            auto frequencies = tree.getConvertedSequenceFrequencies();
             size_t num_patterns = tree.aln->getNPattern();
-            if (frequencies!=nullptr) {
+            if (frequencies != nullptr) {
                 for (size_t i = 0; i < num_patterns; i++) {
                     //This won't work if >2 billion patterns
                     prop[rate_model->getPtnCat(static_cast<int>(i))] += static_cast<double>(frequencies[i]);
                 }
-            } else {
+            }
+            else {
                 for (size_t i = 0; i < num_patterns; i++) {
                     //This won't work if >2 billion patterns
                     prop[rate_model->getPtnCat(static_cast<int>(i))] += static_cast<double>(tree.aln->at(i).frequency);
@@ -526,8 +577,7 @@ void reportRate(ostream &out, PhyloTree &tree) {
             out << endl;
         }
         if (rate_model->isGammaRate()) {
-            out << "Relative rates are computed as " << ((rate_model->isGammaRate() == GAMMA_CUT_MEDIAN) ? "MEDIAN" : "MEAN") <<
-                " of the portion of the Gamma distribution falling in the category." << endl;
+            out << "Relative rates are computed as " << ((rate_model->isGammaRate() == GAMMA_CUT_MEDIAN) ? "MEDIAN" : "MEAN") << " of the portion of the Gamma distribution falling in the category." << endl;
         }
     }
     /*
@@ -544,152 +594,161 @@ void reportTree(ofstream &out, Params &params, PhyloTree &tree, double tree_lh, 
     double AIC_score, AICc_score, BIC_score;
     computeInformationScores(tree_lh, df, ssize, AIC_score, AICc_score, BIC_score);
 
-    if(params.mpboot2){
-		out << "Parsimony score of the tree: " << fixed << -int(tree_lh);
-    }else{
-		out << "Log-likelihood of the tree: " << fixed << tree_lh;
-		if (lh_variance > 0.0)
-			out << " (s.e. " << sqrt(lh_variance) << ")";
-		out << endl;
-		out    << "Unconstrained log-likelihood (without tree): " << tree.aln->computeUnconstrainedLogL() << endl;
+    if (params.mpboot2) {
+        out << "Parsimony score of the tree: " << fixed << -int(tree_lh);
+    }
+    else {
+        out << "Log-likelihood of the tree: " << fixed << tree_lh;
+        if (lh_variance > 0.0)
+            out << " (s.e. " << sqrt(lh_variance) << ")";
+        out << endl;
+        out << "Unconstrained log-likelihood (without tree): " << tree.aln->computeUnconstrainedLogL() << endl;
 
-		out << "Number of free parameters (#branches + #model parameters): " << df << endl;
-	//    if (ssize > df) {
-	//        if (ssize > 40*df)
-	//            out    << "Akaike information criterion (AIC) score: " << AIC_score << endl;
-	//        else
-	//            out << "Corrected Akaike information criterion (AICc) score: " << AICc_score << endl;
-	//
-	//        out << "Bayesian information criterion (BIC) score: " << BIC_score << endl;
-	//    } else
-		out    << "Akaike information criterion (AIC) score: " << AIC_score << endl;
-		out << "Corrected Akaike information criterion (AICc) score: " << AICc_score << endl;
-		out << "Bayesian information criterion (BIC) score: " << BIC_score << endl;
+        out << "Number of free parameters (#branches + #model parameters): " << df << endl;
+        //    if (ssize > df) {
+        //        if (ssize > 40*df)
+        //            out    << "Akaike information criterion (AIC) score: " << AIC_score << endl;
+        //        else
+        //            out << "Corrected Akaike information criterion (AICc) score: " << AICc_score << endl;
+        //
+        //        out << "Bayesian information criterion (BIC) score: " << BIC_score << endl;
+        //    } else
+        out << "Akaike information criterion (AIC) score: " << AIC_score << endl;
+        out << "Corrected Akaike information criterion (AICc) score: " << AICc_score << endl;
+        out << "Bayesian information criterion (BIC) score: " << BIC_score << endl;
 
-		if (ssize <= df && main_tree) {
+        if (ssize <= df && main_tree) {
 
-			out << endl
-				<< "**************************** WARNING ****************************" << endl
-				<< "Number of parameters (K, model parameters and branch lengths): " << df << endl
-				<< "Sample size (n, alignment length): " << ssize << endl << endl
-				<< "Given that K>=n, the parameter estimates might be inaccurate." << endl
-				<< "Thus, phylogenetic estimates should be interpreted with caution." << endl << endl
+            out << endl
+                << "**************************** WARNING ****************************" << endl
+                << "Number of parameters (K, model parameters and branch lengths): " << df << endl
+                << "Sample size (n, alignment length): " << ssize << endl
+                << endl
+                << "Given that K>=n, the parameter estimates might be inaccurate." << endl
+                << "Thus, phylogenetic estimates should be interpreted with caution." << endl
+                << endl
 
-				<< "Ideally, it is desirable that n >> K. When selecting optimal models," << endl
-				<< "1. use AIC or BIC if n > 40K;" << endl
-				<< "2. use AICc or BIC if 40K >= n > K;" << endl
-				<< "3. be extremely cautious if n <= K" << endl << endl
+                << "Ideally, it is desirable that n >> K. When selecting optimal models," << endl
+                << "1. use AIC or BIC if n > 40K;" << endl
+                << "2. use AICc or BIC if 40K >= n > K;" << endl
+                << "3. be extremely cautious if n <= K" << endl
+                << endl
 
-				<< "To improve the situation (3), consider the following options:" << endl
-				<< "  1. Increase the sample size (n)" << endl
-				<< "  2. Decrease the number of parameters (K) to be estimated. If" << endl
-				<< "     possible:" << endl
-				<< "     a. Remove the least important sequences from the alignment" << endl
-				<< "     b. Specify some of the parameter values for the substitution"<< endl
-				<< "        model (e.g., the nucleotide or amino acid frequencies)" << endl
-				<< "     c. Specify some of the parameter values for the rates-across-" << endl
-				<< "        sites model (e.g., the shape parameter for the discrete" << endl
-				<< "        Gamma distribution, the proportion of invariable sites, or" << endl
-				<< "        the rates of change for different rate categories under" << endl
-				<< "        the FreeRate model)" << endl << endl
-				<< "Reference:" << endl
-				<< "Burnham KR, Anderson DR (2002). Model Selection and Multimodel" << endl
-				<< "Inference: A Practical Information-Theoretic Approach. Springer," << endl
-				<< "New York." << endl
-				<< "************************ END OF WARNING ***********************" << endl;
-		}
-		out << endl;
+                << "To improve the situation (3), consider the following options:" << endl
+                << "  1. Increase the sample size (n)" << endl
+                << "  2. Decrease the number of parameters (K) to be estimated. If" << endl
+                << "     possible:" << endl
+                << "     a. Remove the least important sequences from the alignment" << endl
+                << "     b. Specify some of the parameter values for the substitution" << endl
+                << "        model (e.g., the nucleotide or amino acid frequencies)" << endl
+                << "     c. Specify some of the parameter values for the rates-across-" << endl
+                << "        sites model (e.g., the shape parameter for the discrete" << endl
+                << "        Gamma distribution, the proportion of invariable sites, or" << endl
+                << "        the rates of change for different rate categories under" << endl
+                << "        the FreeRate model)" << endl
+                << endl
+                << "Reference:" << endl
+                << "Burnham KR, Anderson DR (2002). Model Selection and Multimodel" << endl
+                << "Inference: A Practical Information-Theoretic Approach. Springer," << endl
+                << "New York." << endl
+                << "************************ END OF WARNING ***********************" << endl;
+        }
+        out << endl;
 
-		if (tree.aln->seq_type == SEQ_POMO) {
-			int N = tree.aln->virtual_pop_size;
-			out << "NOTE: The branch lengths of PoMo measure mutations and frequency shifts." << endl;
-			out << "To compare PoMo branch lengths to DNA substitution models use the tree length" << endl;
-			out << "measured in substitutions per site." << endl << endl;
-			out << "PoMo branch length = Substitution model branch length * N * N." << endl << endl;
-			out << "Total tree length (sum of branch lengths)" << endl;
-			out << " - measured in number of mutations and frequency shifts per site: " << totalLen << endl;
-			out << " - measured in number of substitutions per site (divided by N^2): " << totalLen / (N * N) << endl;
-		}
-		else out << "Total tree length (sum of branch lengths): " << totalLen << endl;
+        if (tree.aln->seq_type == SEQ_POMO) {
+            int N = tree.aln->virtual_pop_size;
+            out << "NOTE: The branch lengths of PoMo measure mutations and frequency shifts." << endl;
+            out << "To compare PoMo branch lengths to DNA substitution models use the tree length" << endl;
+            out << "measured in substitutions per site." << endl
+                << endl;
+            out << "PoMo branch length = Substitution model branch length * N * N." << endl
+                << endl;
+            out << "Total tree length (sum of branch lengths)" << endl;
+            out << " - measured in number of mutations and frequency shifts per site: " << totalLen << endl;
+            out << " - measured in number of substitutions per site (divided by N^2): " << totalLen / (N * N) << endl;
+        }
+        else
+            out << "Total tree length (sum of branch lengths): " << totalLen << endl;
 
-		double totalLenInternal = tree.treeLengthInternal(epsilon);
-		double totalLenInternalP = totalLenInternal*100.0 / totalLen;
-		if (tree.aln->seq_type == SEQ_POMO) {
-		  int N = tree.aln->virtual_pop_size;
-		  double totLenIntSub = totalLenInternal/(N * N);
-			out << "Sum of internal branch lengths" << endl;
-			out << "- measured in mutations and frequency shifts per site: " << totalLenInternal << " (" << totalLenInternalP << "% of tree length)" << endl;
-			out << "- measured in substitutions per site: " << totLenIntSub << " (" << totalLenInternalP << "% of tree length)" << endl;
-			out << endl;
-		}
-		else {
-			out << "Sum of internal branch lengths: " << totalLenInternal << " (" << totalLenInternalP << "% of tree length)" << endl;
-			//    out << "Sum of internal branch lengths divided by total tree length: "
-			//            << totalLenInternal / totalLen << endl;
-			out << endl;
-		}
+        double totalLenInternal = tree.treeLengthInternal(epsilon);
+        double totalLenInternalP = totalLenInternal * 100.0 / totalLen;
+        if (tree.aln->seq_type == SEQ_POMO) {
+            int N = tree.aln->virtual_pop_size;
+            double totLenIntSub = totalLenInternal / (N * N);
+            out << "Sum of internal branch lengths" << endl;
+            out << "- measured in mutations and frequency shifts per site: " << totalLenInternal << " (" << totalLenInternalP << "% of tree length)" << endl;
+            out << "- measured in substitutions per site: " << totLenIntSub << " (" << totalLenInternalP << "% of tree length)" << endl;
+            out << endl;
+        }
+        else {
+            out << "Sum of internal branch lengths: " << totalLenInternal << " (" << totalLenInternalP << "% of tree length)" << endl;
+            //    out << "Sum of internal branch lengths divided by total tree length: "
+            //            << totalLenInternal / totalLen << endl;
+            out << endl;
+        }
 
-		if (tree.isMixlen()) {
-			DoubleVector lenvec;
-			tree.treeLengths(lenvec);
-			out << "Class tree lengths: ";
-			for (int i = 0; i < lenvec.size(); i++)
-				out << " " << lenvec[i];
-			out << endl;
-		}
+        if (tree.isMixlen()) {
+            DoubleVector lenvec;
+            tree.treeLengths(lenvec);
+            out << "Class tree lengths: ";
+            for (int i = 0; i < lenvec.size(); i++)
+                out << " " << lenvec[i];
+            out << endl;
+        }
 
-		if (params.partition_type == TOPO_UNLINKED) {
-			out << "Tree topologies are unlinked across partitions, thus no drawing will be displayed here" << endl;
-			out << endl;
-			return;
-		}
+        if (params.partition_type == TOPO_UNLINKED) {
+            out << "Tree topologies are unlinked across partitions, thus no drawing will be displayed here" << endl;
+            out << endl;
+            return;
+        }
 
-		//out << "ZERO BRANCH EPSILON = " << epsilon << endl;
-		int zero_internal_branches = tree.countZeroInternalBranches(NULL, NULL, epsilon);
-		if (zero_internal_branches > 0) {
-			//int zero_internal_branches = tree.countZeroInternalBranches(NULL, NULL, epsilon);
-			/*
+        //out << "ZERO BRANCH EPSILON = " << epsilon << endl;
+        int zero_internal_branches = tree.countZeroInternalBranches(NULL, NULL, epsilon);
+        if (zero_internal_branches > 0) {
+            //int zero_internal_branches = tree.countZeroInternalBranches(NULL, NULL, epsilon);
+            /*
 			out << "WARNING: " << zero_branches
 					<< " branches of near-zero lengths (<" << epsilon << ") and should be treated with caution!"
 					<< endl;
 			*/
-			out << "WARNING: " << zero_internal_branches
-					<< " near-zero internal branches (<" << epsilon << ") should be treated with caution"
-					<< endl;
-			/*
+            out << "WARNING: " << zero_internal_branches
+                << " near-zero internal branches (<" << epsilon << ") should be treated with caution"
+                << endl;
+            /*
 			cout << endl << "WARNING: " << zero_branches
 					<< " branches of near-zero lengths (<" << epsilon << ") and should be treated with caution!"
 					<< endl;
 			*/
-			out << "         Such branches are denoted by '**' in the figure below"
-					<< endl << endl;
-		}
-		int long_branches = tree.countLongBranches(NULL, NULL, params.max_branch_length-0.2);
-		if (long_branches > 0) {
-			//stringstream sstr;
-			out << "WARNING: " << long_branches << " too long branches (>"
-				<< params.max_branch_length-0.2 << ") should be treated with caution!" << endl;
-			//out << sstr.str();
-			//cout << sstr.str();
-		}
+            out << "         Such branches are denoted by '**' in the figure below"
+                << endl
+                << endl;
+        }
+        int long_branches = tree.countLongBranches(NULL, NULL, params.max_branch_length - 0.2);
+        if (long_branches > 0) {
+            //stringstream sstr;
+            out << "WARNING: " << long_branches << " too long branches (>"
+                << params.max_branch_length - 0.2 << ") should be treated with caution!" << endl;
+            //out << sstr.str();
+            //cout << sstr.str();
+        }
 
-				//<< "Total tree length: " << tree.treeLength() << endl << endl
+        //<< "Total tree length: " << tree.treeLength() << endl << endl
     }
-	tree.sortTaxa();
+    tree.sortTaxa();
     if (tree.rooted)
         out << "NOTE: Tree is ROOTED at virtual root '" << tree.root->name << "'" << endl;
     else
         out << "NOTE: Tree is UNROOTED although outgroup taxon '" << tree.root->name << "' is drawn at root" << endl;
 
     if (tree.isSuperTree() && params.partition_type == BRLEN_OPTIMIZE)
-        out    << "NOTE: Branch lengths are weighted average over all partitions" << endl
+        out << "NOTE: Branch lengths are weighted average over all partitions" << endl
             << "      (weighted by the number of sites in the partitions)" << endl;
     if (tree.isMixlen())
         out << "NOTE: Branch lengths are weighted average over heterotachy classes" << endl;
 
     bool is_codon = tree.aln->seq_type == SEQ_CODON;
     if (tree.isSuperTree()) {
-        PhyloSuperTree *stree = (PhyloSuperTree*) &tree;
+        PhyloSuperTree *stree = (PhyloSuperTree *)&tree;
         is_codon = true;
         for (PhyloSuperTree::iterator sit = stree->begin(); sit != stree->end(); sit++)
             if ((*sit)->aln->seq_type != SEQ_CODON) {
@@ -698,32 +757,34 @@ void reportTree(ofstream &out, Params &params, PhyloTree &tree, double tree_lh, 
             }
     }
     if (is_codon)
-        out << endl << "NOTE: Branch lengths are interpreted as number of nucleotide substitutions per codon site!"
-                << endl << "      Rescale them by 1/3 if you want to have #nt substitutions per nt site" << endl;
-    if (main_tree) 
-    if (params.aLRT_replicates > 0 || params.gbo_replicates || (params.num_bootstrap_samples && params.compute_ml_tree)) {
-        out << "Numbers in parentheses are ";
-        if (params.aLRT_replicates > 0) {
-            out << "SH-aLRT support (%)";
-            if (params.localbp_replicates)
-                out << " / local bootstrap support (%)";
+        out << endl
+            << "NOTE: Branch lengths are interpreted as number of nucleotide substitutions per codon site!"
+            << endl
+            << "      Rescale them by 1/3 if you want to have #nt substitutions per nt site" << endl;
+    if (main_tree)
+        if (params.aLRT_replicates > 0 || params.gbo_replicates || (params.num_bootstrap_samples && params.compute_ml_tree)) {
+            out << "Numbers in parentheses are ";
+            if (params.aLRT_replicates > 0) {
+                out << "SH-aLRT support (%)";
+                if (params.localbp_replicates)
+                    out << " / local bootstrap support (%)";
+            }
+            if (params.aLRT_test)
+                out << " / parametric aLRT support";
+            if (params.aBayes_test)
+                out << " / aBayes support";
+            if (params.num_bootstrap_samples && params.compute_ml_tree) {
+                if (params.aLRT_replicates > 0 || params.aLRT_test || params.aBayes_test)
+                    out << " /";
+                out << " standard " << RESAMPLE_NAME << " support (%)";
+            }
+            if (params.gbo_replicates) {
+                if (params.aLRT_replicates > 0 || params.aLRT_test || params.aBayes_test)
+                    out << " /";
+                out << " ultrafast " << RESAMPLE_NAME << " support (%)";
+            }
+            out << endl;
         }
-        if (params.aLRT_test)
-            out << " / parametric aLRT support";
-        if (params.aBayes_test)
-            out << " / aBayes support";
-        if (params.num_bootstrap_samples && params.compute_ml_tree) {
-            if (params.aLRT_replicates > 0 || params.aLRT_test || params.aBayes_test)
-                out << " /";
-            out << " standard " << RESAMPLE_NAME << " support (%)";
-        }
-        if (params.gbo_replicates) {
-            if (params.aLRT_replicates > 0 || params.aLRT_test || params.aBayes_test)
-                out << " /";
-            out << " ultrafast " << RESAMPLE_NAME << " support (%)";
-        }
-        out << endl;
-    }
     out << endl;
 
     //tree.setExtendedFigChar();
@@ -735,51 +796,62 @@ void reportTree(ofstream &out, Params &params, PhyloTree &tree, double tree_lh, 
         out << " (class branch lengths are given in [...] and separated by '/' )";
     if (tree.aln->seq_type == SEQ_POMO)
         out << " (measured in mutations and frequency shifts)";
-    out << endl << endl;
+    out << endl
+        << endl;
 
     tree.printTree(out, WT_BR_LEN | WT_BR_LEN_FIXED_WIDTH | WT_SORT_TAXA);
-    out << endl << endl;
+    out << endl
+        << endl;
 
-  if (tree.aln->seq_type == SEQ_POMO) {
-    out << "Tree in newick format (measured in substitutions, see above):" << endl;
-    out << "WARNING: Only for comparison with substitution models." << endl;
-    out << "         These are NOT the branch lengths inferred by PoMo." << endl << endl;
-    double len_scale_old = tree.len_scale;
-    int N = tree.aln->virtual_pop_size;
-    tree.len_scale = 1.0/(N*N);
-    tree.printTree(out, WT_BR_SCALE | WT_BR_LEN | WT_BR_LEN_FIXED_WIDTH | WT_SORT_TAXA);
-    tree.len_scale = len_scale_old;
-    out << endl << endl;
+    if (tree.aln->seq_type == SEQ_POMO) {
+        out << "Tree in newick format (measured in substitutions, see above):" << endl;
+        out << "WARNING: Only for comparison with substitution models." << endl;
+        out << "         These are NOT the branch lengths inferred by PoMo." << endl
+            << endl;
+        double len_scale_old = tree.len_scale;
+        int N = tree.aln->virtual_pop_size;
+        tree.len_scale = 1.0 / (N * N);
+        tree.printTree(out, WT_BR_SCALE | WT_BR_LEN | WT_BR_LEN_FIXED_WIDTH | WT_SORT_TAXA);
+        tree.len_scale = len_scale_old;
+        out << endl
+            << endl;
     }
 
-  tree.setRootNode(params.root, false);
-
+    tree.setRootNode(params.root, false);
 }
 
 void reportCredits(ofstream &out) {
-    out << "CREDITS" << endl << "-------" << endl << endl
-            << "Some parts of the code were taken from the following packages/libraries:"
-            << endl << endl
-            << "Schmidt HA, Strimmer K, Vingron M, and von Haeseler A (2002)" << endl
-            << "TREE-PUZZLE: maximum likelihood phylogenetic analysis using quartets" << endl
-            << "and parallel computing. Bioinformatics, 18(3):502-504." << endl << endl
+    out << "CREDITS" << endl
+        << "-------" << endl
+        << endl
+        << "Some parts of the code were taken from the following packages/libraries:"
+        << endl
+        << endl
+        << "Schmidt HA, Strimmer K, Vingron M, and von Haeseler A (2002)" << endl
+        << "TREE-PUZZLE: maximum likelihood phylogenetic analysis using quartets" << endl
+        << "and parallel computing. Bioinformatics, 18(3):502-504." << endl
+        << endl
 
-            //<< "The source code to construct the BIONJ tree were taken from BIONJ software:"
-            //<< endl << endl
-            << "Gascuel O (1997) BIONJ: an improved version of the NJ algorithm" << endl
-            << "based on a simple model of sequence data. Mol. Bio. Evol., 14:685-695." << endl << endl
+        //<< "The source code to construct the BIONJ tree were taken from BIONJ software:"
+        //<< endl << endl
+        << "Gascuel O (1997) BIONJ: an improved version of the NJ algorithm" << endl
+        << "based on a simple model of sequence data. Mol. Bio. Evol., 14:685-695." << endl
+        << endl
 
-            //<< "The Nexus file parser was taken from the Nexus Class Library:"
-            //<< endl << endl
-            << "Paul O. Lewis (2003) NCL: a C++ class library for interpreting data files in" << endl
-            << "NEXUS format. Bioinformatics, 19(17):2330-2331." << endl << endl
+        //<< "The Nexus file parser was taken from the Nexus Class Library:"
+        //<< endl << endl
+        << "Paul O. Lewis (2003) NCL: a C++ class library for interpreting data files in" << endl
+        << "NEXUS format. Bioinformatics, 19(17):2330-2331." << endl
+        << endl
 
-            << "Mascagni M and Srinivasan A (2000) Algorithm 806: SPRNG: A Scalable Library" << endl
-            << "for Pseudorandom Number Generation. ACM Transactions on Mathematical Software," << endl
-            << "26: 436-461." << endl << endl
+        << "Mascagni M and Srinivasan A (2000) Algorithm 806: SPRNG: A Scalable Library" << endl
+        << "for Pseudorandom Number Generation. ACM Transactions on Mathematical Software," << endl
+        << "26: 436-461." << endl
+        << endl
 
-            << "Guennebaud G, Jacob B, et al. (2010) Eigen v3. http://eigen.tuxfamily.org" << endl << endl;
-            /*
+        << "Guennebaud G, Jacob B, et al. (2010) Eigen v3. http://eigen.tuxfamily.org" << endl
+        << endl;
+    /*
             << "The Modeltest 3.7 source codes were taken from:" << endl << endl
             << "David Posada and Keith A. Crandall (1998) MODELTEST: testing the model of"
             << endl << "DNA substitution. Bioinformatics, 14(9):817-8." << endl
@@ -799,13 +871,14 @@ void computeLoglFromUserInputGAMMAInvar(Params &params, IQTree &iqtree);
 
 void printOutfilesInfo(Params &params, IQTree &tree) {
 
-    cout << endl << "Analysis results written to: " << endl;
+    cout << endl
+         << "Analysis results written to: " << endl;
     if (!(params.suppress_output_flags & OUT_IQTREE))
-        cout<< "  IQ-TREE report:                " << params.out_prefix << ".iqtree"
-            << endl;
+        cout << "  IQ-TREE report:                " << params.out_prefix << ".iqtree"
+             << endl;
     if (params.compute_ml_tree) {
         if (!(params.suppress_output_flags & OUT_TREEFILE)) {
-            if (params.model_name.find("ONLY") != string::npos || (params.model_name.substr(0,2)=="MF" && params.model_name.substr(0,3)!="MFP"))
+            if (params.model_name.find("ONLY") != string::npos || (params.model_name.substr(0, 2) == "MF" && params.model_name.substr(0, 3) != "MFP"))
                 cout << "  Tree used for ModelFinder:     " << params.out_prefix << ".treefile" << endl;
             else {
                 cout << "  Maximum-likelihood tree:       " << params.out_prefix << ".treefile" << endl;
@@ -813,89 +886,89 @@ void printOutfilesInfo(Params &params, IQTree &tree) {
                     cout << "  Partition trees:               " << params.out_prefix << ".parttrees" << endl;
             }
         }
-//        if (params.snni && params.write_local_optimal_trees) {
-//            cout << "  Locally optimal trees (" << tree.candidateTrees.getNumLocalOptTrees() << "):    " << params.out_prefix << ".suboptimal_trees" << endl;
-//        }
+        //        if (params.snni && params.write_local_optimal_trees) {
+        //            cout << "  Locally optimal trees (" << tree.candidateTrees.getNumLocalOptTrees() << "):    " << params.out_prefix << ".suboptimal_trees" << endl;
+        //        }
     }
     if (params.num_runs > 1)
         cout << "  Trees from independent runs:   " << params.out_prefix << ".runtrees" << endl;
 
     if (params.user_file.empty() && params.start_tree == STT_BIONJ) {
         cout << "  BIONJ tree:                    " << params.out_prefix << ".bionj"
-                << endl;
+             << endl;
     }
     if (!params.dist_file) {
         //cout << "  Juke-Cantor distances:    " << params.out_prefix << ".jcdist" << endl;
         if (params.compute_ml_dist)
-        cout << "  Likelihood distances:          " << params.out_prefix
-                    << ".mldist" << endl;
+            cout << "  Likelihood distances:          " << params.out_prefix
+                 << ".mldist" << endl;
         if (params.print_conaln)
-        cout << "  Concatenated alignment:        " << params.out_prefix
-                    << ".conaln" << endl;
+            cout << "  Concatenated alignment:        " << params.out_prefix
+                 << ".conaln" << endl;
     }
-    if ((params.model_name.find("TEST") != string::npos || params.model_name.substr(0,2) == "MF") && tree.isSuperTree()) {
+    if ((params.model_name.find("TEST") != string::npos || params.model_name.substr(0, 2) == "MF") && tree.isSuperTree()) {
         cout << "  Best partitioning scheme:      " << params.out_prefix << ".best_scheme.nex" << endl;
         bool raxml_format_printed = true;
 
-        for (auto it = ((SuperAlignment*)tree.aln)->partitions.begin();
-                it != ((SuperAlignment*)tree.aln)->partitions.end(); it++)
+        for (auto it = ((SuperAlignment *)tree.aln)->partitions.begin();
+             it != ((SuperAlignment *)tree.aln)->partitions.end(); it++)
             if (!(*it)->aln_file.empty()) {
                 raxml_format_printed = false;
                 break;
             }
         if (raxml_format_printed)
-             cout << "           in RAxML format:      " << params.out_prefix << ".best_scheme" << endl;
+            cout << "           in RAxML format:      " << params.out_prefix << ".best_scheme" << endl;
     }
     if ((tree.getRate()->getGammaShape() > 0 || params.partition_file) && params.print_site_rate)
         cout << "  Site-specific rates:           " << params.out_prefix << ".rate"
-                << endl;
+             << endl;
 
     if ((tree.getRate()->isSiteSpecificRate() || tree.getRate()->getPtnCat(0) >= 0) && params.print_site_rate)
         cout << "  Site-rates by MH model:        " << params.out_prefix << ".rate"
-                << endl;
+             << endl;
 
     if (params.print_site_lh)
         cout << "  Site log-likelihoods:          " << params.out_prefix << ".sitelh"
-                << endl;
+             << endl;
 
     if (params.print_partition_lh)
         cout << "  Partition log-likelihoods:     " << params.out_prefix << ".partlh"
-                << endl;
+             << endl;
 
     if (params.print_site_prob)
         cout << "  Site probability per rate/mix: " << params.out_prefix << ".siteprob"
-                << endl;
+             << endl;
 
     if (params.print_ancestral_sequence) {
         cout << "  Ancestral state:               " << params.out_prefix << ".state" << endl;
-//        cout << "  Ancestral sequences:           " << params.out_prefix << ".aseq" << endl;
+        //        cout << "  Ancestral sequences:           " << params.out_prefix << ".aseq" << endl;
     }
 
     if (params.write_intermediate_trees)
         cout << "  All intermediate trees:        " << params.out_prefix << ".treels"
-                << endl;
+             << endl;
 
     if (params.writeDistImdTrees) {
         tree.intermediateTrees.printTrees(string("ditrees"));
-        cout << "  Distinct intermediate trees:   " << params.out_prefix <<  ".ditrees" << endl;
-        cout << "  Logl of intermediate trees:    " << params.out_prefix <<  ".ditrees_lh" << endl;
+        cout << "  Distinct intermediate trees:   " << params.out_prefix << ".ditrees" << endl;
+        cout << "  Logl of intermediate trees:    " << params.out_prefix << ".ditrees_lh" << endl;
     }
 
     if (params.gbo_replicates) {
-        cout << endl << "Ultrafast " << RESAMPLE_NAME << " approximation results written to:" << endl;
+        cout << endl
+             << "Ultrafast " << RESAMPLE_NAME << " approximation results written to:" << endl;
         if (!tree.isSuperTreeUnlinked())
             cout << "  Split support values:          " << params.out_prefix << ".splits.nex" << endl
-             << "  Consensus tree:                " << params.out_prefix << ".contree" << endl;
+                 << "  Consensus tree:                " << params.out_prefix << ".contree" << endl;
         if (params.print_ufboot_trees)
-        cout << "  UFBoot trees:                  " << params.out_prefix << ".ufboot" << endl;
-
+            cout << "  UFBoot trees:                  " << params.out_prefix << ".ufboot" << endl;
     }
 
     if (!params.treeset_file.empty()) {
         cout << "  Evaluated user trees:          " << params.out_prefix << ".trees" << endl;
 
         if (params.print_tree_lh) {
-        cout << "  Tree log-likelihoods:          " << params.out_prefix << ".treelh" << endl;
+            cout << "  Tree log-likelihoods:          " << params.out_prefix << ".treelh" << endl;
         }
     }
     if (params.lmap_num_quartets >= 0) {
@@ -908,7 +981,6 @@ void printOutfilesInfo(Params &params, IQTree &tree) {
      cout <<"  WH-TEST report:           " << params.out_prefix << ".whtest" << endl;*/
 
     cout << endl;
-
 }
 
 void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_info) {
@@ -919,20 +991,21 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
         printOutfilesInfo(params, tree);
         return;
     }
-        
+
     if (params.count_trees) {
         // addon: print #distinct trees
-        cout << endl << "NOTE: " << pllTreeCounter.size() << " distinct trees evaluated during whole tree search" << endl;
+        cout << endl
+             << "NOTE: " << pllTreeCounter.size() << " distinct trees evaluated during whole tree search" << endl;
 
         IntVector counts;
         for (StringIntMap::iterator i = pllTreeCounter.begin(); i != pllTreeCounter.end(); i++) {
             if (i->second > counts.size())
-                counts.resize(i->second+1, 0);
+                counts.resize(i->second + 1, 0);
             counts[i->second]++;
         }
         for (IntVector::iterator i2 = counts.begin(); i2 != counts.end(); i2++) {
             if (*i2 != 0) {
-                cout << "#Trees occurring " << (i2-counts.begin()) << " times: " << *i2 << endl;
+                cout << "#Trees occurring " << (i2 - counts.begin()) << " times: " << *i2 << endl;
             }
         }
     }
@@ -945,7 +1018,7 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
         out.open(outfile.c_str());
         out << "IQ-TREE " << iqtree_VERSION_MAJOR << "." << iqtree_VERSION_MINOR
             << iqtree_VERSION_PATCH << " COVID-edition built " << __DATE__ << endl
-                << endl;
+            << endl;
         if (params.partition_file)
             out << "Partition file name: " << params.partition_file << endl;
         if (params.aln_file)
@@ -955,7 +1028,7 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
             out << "User tree file name: " << params.user_file << endl;
         }
         out << "Type of analysis: ";
-        bool modelfinder = params.model_name.substr(0,4)=="TEST" || params.model_name.substr(0,2) == "MF" || params.model_name.empty();
+        bool modelfinder = params.model_name.substr(0, 4) == "TEST" || params.model_name.substr(0, 2) == "MF" || params.model_name.empty();
         if (modelfinder)
             out << "ModelFinder";
         if (params.compute_ml_tree) {
@@ -967,60 +1040,83 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
             if (params.compute_ml_tree)
                 out << " + ";
             out << "non-parametric " << RESAMPLE_NAME << " (" << params.num_bootstrap_samples
-                    << " replicates)";
+                << " replicates)";
         }
         if (params.gbo_replicates > 0) {
             out << " + ultrafast " << RESAMPLE_NAME << " (" << params.gbo_replicates << " replicates)";
         }
         out << endl;
-        out << "Random seed number: " << params.ran_seed << endl << endl;
-        out << "REFERENCES" << endl << "----------" << endl << endl;
+        out << "Random seed number: " << params.ran_seed << endl
+            << endl;
+        out << "REFERENCES" << endl
+            << "----------" << endl
+            << endl;
         reportReferences(params, out);
 
-        out << "SEQUENCE ALIGNMENT" << endl << "------------------" << endl
-                << endl;
+        out << "SEQUENCE ALIGNMENT" << endl
+            << "------------------" << endl
+            << endl;
         if (tree.isSuperTree()) {
-      // TODO DS: Changes may be needed here for PoMo.
-            out << "Input data: " << tree.aln->getNSeq()+tree.removed_seqs.size() << " taxa with "
-                    << tree.aln->getNSite() << " partitions and "
-                    << tree.getAlnNSite() << " total sites ("
-                    << ((SuperAlignment*)tree.aln)->computeMissingData()*100 << "% missing data)" << endl << endl;
+            // TODO DS: Changes may be needed here for PoMo.
+            out << "Input data: " << tree.aln->getNSeq() + tree.removed_seqs.size() << " taxa with "
+                << tree.aln->getNSite() << " partitions and "
+                << tree.getAlnNSite() << " total sites ("
+                << ((SuperAlignment *)tree.aln)->computeMissingData() * 100 << "% missing data)" << endl
+                << endl;
 
-            PhyloSuperTree *stree = (PhyloSuperTree*) &tree;
+            PhyloSuperTree *stree = (PhyloSuperTree *)&tree;
             int namelen = stree->getMaxPartNameLength();
             int part;
-            out.width(max(namelen+6,10));
-            out << left << "  ID  Name" << "  Type\tSeq\tSite\tUnique\tInfor\tInvar\tConst" << endl;
+            out.width(max(namelen + 6, 10));
+            out << left << "  ID  Name"
+                << "  Type\tSeq\tSite\tUnique\tInfor\tInvar\tConst" << endl;
             //out << string(namelen+54, '-') << endl;
             part = 0;
             for (PhyloSuperTree::iterator it = stree->begin(); it != stree->end(); it++, part++) {
                 //out << "FOR PARTITION " << stree->part_info[part].name << ":" << endl << endl;
                 //reportAlignment(out, *((*it)->aln));
                 out.width(4);
-                out << right << part+1 << "  ";
-                out.width(max(namelen,4));
+                out << right << part + 1 << "  ";
+                out.width(max(namelen, 4));
                 out << left << (*it)->aln->name << "  ";
                 switch ((*it)->aln->seq_type) {
-                case SEQ_BINARY: out << "BIN"; break;
-                case SEQ_CODON: out << "CODON"; break;
-                case SEQ_DNA: out << "DNA"; break;
-                case SEQ_MORPH: out << "MORPH"; break;
-                case SEQ_MULTISTATE: out << "MULTI"; break;
-                case SEQ_PROTEIN: out << "AA"; break;
-                case SEQ_POMO: out << "POMO"; break;
-                case SEQ_UNKNOWN: out << "???"; break;
+                case SEQ_BINARY:
+                    out << "BIN";
+                    break;
+                case SEQ_CODON:
+                    out << "CODON";
+                    break;
+                case SEQ_DNA:
+                    out << "DNA";
+                    break;
+                case SEQ_MORPH:
+                    out << "MORPH";
+                    break;
+                case SEQ_MULTISTATE:
+                    out << "MULTI";
+                    break;
+                case SEQ_PROTEIN:
+                    out << "AA";
+                    break;
+                case SEQ_POMO:
+                    out << "POMO";
+                    break;
+                case SEQ_UNKNOWN:
+                    out << "???";
+                    break;
                 }
                 out << "\t" << (*it)->aln->getNSeq() << "\t" << (*it)->aln->getNSite()
                     << "\t" << (*it)->aln->getNPattern() << "\t" << (*it)->aln->num_informative_sites
                     << "\t" << (*it)->getAlnNSite() - (*it)->aln->num_variant_sites
-                    << "\t" << int((*it)->aln->frac_const_sites*(*it)->getAlnNSite()) << endl;
+                    << "\t" << int((*it)->aln->frac_const_sites * (*it)->getAlnNSite()) << endl;
             }
-            out << endl << "Column meanings:" << endl
+            out << endl
+                << "Column meanings:" << endl
                 << "  Unique: Number of unique site patterns" << endl
                 << "  Infor:  Number of parsimony-informative sites" << endl
                 << "  Invar:  Number of invariant sites" << endl
-                << "  Const:  Number of constant sites (can be subset of invariant sites)" << endl << endl;
-
+                << "  Const:  Number of constant sites (can be subset of invariant sites)" << endl
+                << endl;
         }
         else {
             reportAlignment(out, *(tree.aln), static_cast<int>(tree.removed_seqs.size()));
@@ -1030,24 +1126,27 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
         out << fixed;
 
         if (!model_info.empty()) {
-            out << "ModelFinder" << endl << "-----------" << endl << endl;
-//            if (tree.isSuperTree())
-//                pruneModelInfo(model_info, (PhyloSuperTree*)&tree);
+            out << "ModelFinder" << endl
+                << "-----------" << endl
+                << endl;
+            //            if (tree.isSuperTree())
+            //                pruneModelInfo(model_info, (PhyloSuperTree*)&tree);
             reportModelSelection(out, params, &model_info, &tree);
         }
 
-        out << "SUBSTITUTION PROCESS" << endl << "--------------------" << endl
-                << endl;
+        out << "SUBSTITUTION PROCESS" << endl
+            << "--------------------" << endl
+            << endl;
         if (tree.isSuperTree()) {
-            if(params.partition_type == BRLEN_SCALE)
+            if (params.partition_type == BRLEN_SCALE)
                 out << "Edge-linked-proportional partition model with ";
-            else if(params.partition_type == BRLEN_FIX)
+            else if (params.partition_type == BRLEN_FIX)
                 out << "Edge-linked-equal partition model with ";
             else if (params.partition_type == BRLEN_OPTIMIZE)
                 out << "Edge-unlinked partition model with ";
             else
                 out << "Topology-unlinked partition model with ";
-            
+
             if (params.model_joint)
                 out << "joint substitution model ";
             else
@@ -1056,43 +1155,45 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
                 out << "and joint gamma shape";
             else
                 out << "and separate rates across sites";
-            out << endl << endl;
+            out << endl
+                << endl;
 
-            PhyloSuperTree *stree = (PhyloSuperTree*) &tree;
+            PhyloSuperTree *stree = (PhyloSuperTree *)&tree;
             PhyloSuperTree::iterator it;
             int part;
-            if(params.partition_type == BRLEN_OPTIMIZE || params.partition_type == TOPO_UNLINKED)
+            if (params.partition_type == BRLEN_OPTIMIZE || params.partition_type == TOPO_UNLINKED)
                 out << "  ID  Model         TreeLen  Parameters" << endl;
             else
                 out << "  ID  Model           Speed  Parameters" << endl;
             //out << "-------------------------------------" << endl;
             for (it = stree->begin(), part = 0; it != stree->end(); it++, part++) {
                 out.width(4);
-                out << right << (part+1) << "  ";
+                out << right << (part + 1) << "  ";
                 out.width(14);
-                if(params.partition_type == BRLEN_OPTIMIZE || params.partition_type == TOPO_UNLINKED)
+                if (params.partition_type == BRLEN_OPTIMIZE || params.partition_type == TOPO_UNLINKED)
                     out << left << (*it)->getModelName() << " " << (*it)->treeLength() << "  " << (*it)->getModelNameParams() << endl;
                 else
-                    out << left << (*it)->getModelName() << " " << stree->part_info[part].part_rate  << "  " << (*it)->getModelNameParams() << endl;
+                    out << left << (*it)->getModelName() << " " << stree->part_info[part].part_rate << "  " << (*it)->getModelNameParams() << endl;
             }
             out << endl;
-            /*
-            for (it = stree->begin(), part = 0; it != stree->end(); it++, part++) {
+            /* {
                 reportModel(out, *(*it));
                 reportRate(out, *(*it));
             }*/
-            PartitionModel *part_model = (PartitionModel*)tree.getModelFactory();
+            PartitionModel *part_model = (PartitionModel *)tree.getModelFactory();
             for (auto itm = part_model->linked_models.begin(); itm != part_model->linked_models.end(); itm++) {
                 for (it = stree->begin(); it != stree->end(); it++)
                     if ((*it)->getModel() == itm->second) {
-                        out << "Linked model of substitution: " << itm->second->getName() << endl << endl;
+                        out << "Linked model of substitution: " << itm->second->getName() << endl
+                            << endl;
                         bool fixed = (*it)->getModel()->fixParameters(false);
                         reportModel(out, (*it)->aln, (*it)->getModel());
                         (*it)->getModel()->fixParameters(fixed);
                         break;
                     }
             }
-        } else {
+        }
+        else {
             reportModel(out, tree);
             reportRate(out, tree);
         }
@@ -1102,12 +1203,10 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
 
         /*
         out << "RATE HETEROGENEITY" << endl << "------------------" << endl
-                << endl;
-        if (tree.isSuperTree()) {
+                << endl;fkkf {
             PhyloSuperTree *stree = (PhyloSuperTree*) &tree;
             int part = 0;
-            for (PhyloSuperTree::iterator it = stree->begin();
-                    it != stree->end(); it++, part++) {
+            for (PhyloSuperTree::iterator it = stree->begin(); {
                 out << "FOR PARTITION " << stree->part_info[part].name << ":"
                         << endl << endl;
                 reportRate(out, *(*it));
@@ -1120,43 +1219,49 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
 
         if (params.model_name == "WHTEST") {
             out << "TEST OF MODEL HOMOGENEITY" << endl
-                    << "-------------------------" << endl << endl;
+                << "-------------------------" << endl
+                << endl;
             out << "Delta of input data:                 "
-                    << params.whtest_delta << endl;
+                << params.whtest_delta << endl;
             out << ".95 quantile of Delta distribution:  "
-                    << params.whtest_delta_quantile << endl;
+                << params.whtest_delta_quantile << endl;
             out << "Number of simulations performed:     "
-                    << params.whtest_simulations << endl;
+                << params.whtest_simulations << endl;
             out << "P-value:                             "
-                    << params.whtest_p_value << endl;
+                << params.whtest_p_value << endl;
             if (params.whtest_p_value < 0.05) {
                 out
-                        << "RESULT: Homogeneity assumption is rejected (p-value cutoff 0.05)"
-                        << endl;
-            } else {
-                out
-                        << "RESULT: Homogeneity assumption is NOT rejected (p-value cutoff 0.05)"
-                        << endl;
+                    << "RESULT: Homogeneity assumption is rejected (p-value cutoff 0.05)"
+                    << endl;
             }
-            out << endl << "*** For this result please cite:" << endl << endl;
+            else {
+                out
+                    << "RESULT: Homogeneity assumption is NOT rejected (p-value cutoff 0.05)"
+                    << endl;
+            }
+            out << endl
+                << "*** For this result please cite:" << endl
+                << endl;
             out
-                    << "G. Weiss and A. von Haeseler (2003) Testing substitution models"
-                    << endl
-                    << "within a phylogenetic tree. Mol. Biol. Evol, 20(4):572-578"
-                    << endl << endl;
+                << "G. Weiss and A. von Haeseler (2003) Testing substitution models"
+                << endl
+                << "within a phylogenetic tree. Mol. Biol. Evol, 20(4):572-578"
+                << endl
+                << endl;
         }
-        
+
         if (params.num_runs > 1) {
             out << "MULTIPLE RUNS" << endl
-                << "-------------" << endl << endl;
+                << "-------------" << endl
+                << endl;
             out << "Run     logL" << endl;
             DoubleVector runLnL;
             tree.getCheckpoint()->getVector("runLnL", runLnL);
             for (int run = 0; run < runLnL.size(); run++)
-                out << run+1 << "\t" << fixed << runLnL[run] << endl;
+                out << run + 1 << "\t" << fixed << runLnL[run] << endl;
             out << endl;
         }
-/*
+        /*
         out << "TREE SEARCH" << endl << "-----------" << endl << endl
                 << "Stopping rule: "
                 << ((params.stop_condition == SC_STOP_PREDICT) ? "Yes" : "No")
@@ -1169,55 +1274,61 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
                 << endl;
 */
         if (params.compute_ml_tree) {
-            if (params.model_name.find("ONLY") != string::npos || (params.model_name.substr(0,2) == "MF" && params.model_name.substr(0,3) != "MFP")) {
+            if (params.model_name.find("ONLY") != string::npos || (params.model_name.substr(0, 2) == "MF" && params.model_name.substr(0, 3) != "MFP")) {
                 out << "TREE USED FOR ModelFinder" << endl
-                    << "-------------------------" << endl << endl;
-            } else if (params.min_iterations == 0) {
+                    << "-------------------------" << endl
+                    << endl;
+            }
+            else if (params.min_iterations == 0) {
                 if (!params.user_file.empty())
                     out << "USER TREE" << endl
-                        << "---------" << endl << endl;
+                        << "---------" << endl
+                        << endl;
                 else
                     out << "STARTING TREE" << endl
-                        << "-------------" << endl << endl;
-            } else {
+                        << "-------------" << endl
+                        << endl;
+            }
+            else {
                 out << "MAXIMUM LIKELIHOOD TREE" << endl
-                    << "-----------------------" << endl << endl;
+                    << "-----------------------" << endl
+                    << endl;
             }
 
             tree.setRootNode(params.root);
 
             if (params.gbo_replicates) {
                 if (tree.boot_consense_logl > tree.getBestScore() + 0.1 && !tree.isSuperTreeUnlinked()) {
-                    out << endl << "**NOTE**: Consensus tree has higher likelihood than ML tree found! Please use consensus tree below." << endl;
+                    out << endl
+                        << "**NOTE**: Consensus tree has higher likelihood than ML tree found! Please use consensus tree below." << endl;
                 }
             }
 
             reportTree(out, params, tree, tree.getBestScore(), tree.logl_variance, true);
 
             if (tree.isSuperTree() && verbose_mode >= VB_MED) {
-                PhyloSuperTree *stree = (PhyloSuperTree*) &tree;
-//                stree->mapTrees();
-//                int empty_branches = stree->countEmptyBranches();
-//                if (empty_branches) {
-//                    stringstream ss;
-//                    ss << empty_branches << " branches in the overall tree with no phylogenetic information due to missing data!";
-//                    outWarning(ss.str());
-//                }
+                PhyloSuperTree *stree = (PhyloSuperTree *)&tree;
+                //                stree->mapTrees();
+                //                int empty_branches = stree->countEmptyBranches();
+                //                if (empty_branches) {
+                //                    stringstream ss;
+                //                    ss << empty_branches << " branches in the overall tree with no phylogenetic information due to missing data!";
+                //                    outWarning(ss.str());
+                //                }
 
                 int part = 0;
                 for (PhyloSuperTree::iterator it = stree->begin();
-                        it != stree->end(); it++, part++) {
+                     it != stree->end(); it++, part++) {
                     out << "FOR PARTITION " << (*it)->aln->name
-                            << ":" << endl << endl;
+                        << ":" << endl
+                        << endl;
                     (*it)->setRootNode(params.root);
-//                    reportTree(out, params, *(*it), (*it)->computeLikelihood(), (*it)->computeLogLVariance(), false);
+                    //                    reportTree(out, params, *(*it), (*it)->computeLikelihood(), (*it)->computeLogLVariance(), false);
                     reportTree(out, params, *(*it), stree->part_info[part].cur_score, 0.0, false);
                 }
             }
-
         }
-        /*
-         if (params.write_intermediate_trees) {
+        /* {
          out << endl << "CONSENSUS OF INTERMEDIATE TREES" << endl << "-----------------------" << endl << endl
          << "Number of intermediate trees: " << tree.stop_rule.getNumIterations() << endl
          << "Split threshold: " << params.split_threshold << endl
@@ -1225,12 +1336,15 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
          }*/
 
         if (params.consensus_type == CT_CONSENSUS_TREE && !tree.isSuperTreeUnlinked()) {
-            out << "CONSENSUS TREE" << endl << "--------------" << endl << endl;
+            out << "CONSENSUS TREE" << endl
+                << "--------------" << endl
+                << endl;
             out << "Consensus tree is constructed from "
-                    << (params.num_bootstrap_samples ? params.num_bootstrap_samples : params.gbo_replicates)
-                    << " " << RESAMPLE_NAME << " trees";
+                << (params.num_bootstrap_samples ? params.num_bootstrap_samples : params.gbo_replicates)
+                << " " << RESAMPLE_NAME << " trees";
             if (params.gbo_replicates || params.num_bootstrap_samples) {
-                out << endl << "Log-likelihood of consensus tree: " << fixed << tree.boot_consense_logl;
+                out << endl
+                    << "Log-likelihood of consensus tree: " << fixed << tree.boot_consense_logl;
             }
             string con_file = params.out_prefix;
             con_file += ".contree";
@@ -1238,12 +1352,14 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
             // -- Mon Apr 17 21:14:53 BST 2017
             // DONE Minh: merged correctly
             if (params.compute_ml_tree)
-                out << endl << "Robinson-Foulds distance between ML tree and consensus tree: "
+                out << endl
+                    << "Robinson-Foulds distance between ML tree and consensus tree: "
                     << tree.contree_rfdist << endl;
             // --
-            
-            out << endl << "Branches with support >"
-                    << floor(params.split_threshold * 1000) / 10 << "% are kept";
+
+            out << endl
+                << "Branches with support >"
+                << floor(params.split_threshold * 1000) / 10 << "% are kept";
             if (params.split_threshold == 0.0)
                 out << " (extended consensus)";
             if (params.split_threshold == 0.5)
@@ -1251,65 +1367,73 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
             if (params.split_threshold >= 0.99)
                 out << " (strict consensus)";
 
-            out << endl << "Branch lengths are optimized by maximum likelihood on original alignment" << endl;
-            out << "Numbers in parentheses are " << RESAMPLE_NAME << " supports (%)" << endl << endl;
+            out << endl
+                << "Branch lengths are optimized by maximum likelihood on original alignment" << endl;
+            out << "Numbers in parentheses are " << RESAMPLE_NAME << " supports (%)" << endl
+                << endl;
 
             bool rooted = false;
             MTree contree;
             contree.readTree(con_file.c_str(), rooted);
             contree.drawTree(out, WT_BR_SCALE);
-            out << endl << "Consensus tree in newick format: " << endl << endl;
+            out << endl
+                << "Consensus tree in newick format: " << endl
+                << endl;
             contree.printTree(out);
-            out << endl << endl;
-//            tree.freeNode();
-//            tree.root = NULL;
-//            tree.readTree(con_file.c_str(), rooted);
-//            if (removed_seqs.size() > 0) {
-//                tree.reinsertIdenticalSeqs(tree.aln, removed_seqs, twin_seqs);
-//            }
-//            tree.setAlignment(tree.aln);
+            out << endl
+                << endl;
+            //            tree.freeNode();
+            //            tree.root = NULL;
+            //            tree.readTree(con_file.c_str(), rooted);
+            //            if (removed_seqs.size() > 0) {
+            //                tree.reinsertIdenticalSeqs(tree.aln, removed_seqs, twin_seqs);
+            //            }
+            //            tree.setAlignment(tree.aln);
 
             // bug fix
-//            if ((tree.sse == LK_EIGEN || tree.sse == LK_EIGEN_SSE) && !tree.isBifurcating()) {
-//                cout << "NOTE: Changing to old kernel as consensus tree is multifurcating" << endl;
-//                tree.changeLikelihoodKernel(LK_SSE);
-//            }
+            //            if ((tree.sse == LK_EIGEN || tree.sse == LK_EIGEN_SSE) && !tree.isBifurcating()) {
+            //                cout << "NOTE: Changing to old kernel as consensus tree is multifurcating" << endl;
+            //                tree.changeLikelihoodKernel(LK_SSE);
+            //            }
 
-//            tree.initializeAllPartialLh();
-//            tree.fixNegativeBranch(false);
-//            if (tree.isSuperTree())
-//                ((PhyloSuperTree*) &tree)->mapTrees();
-//            tree.optimizeAllBranches();
-//            tree.printTree(con_file.c_str(), WT_BR_LEN | WT_BR_LEN_FIXED_WIDTH | WT_SORT_TAXA);
-//            tree.sortTaxa();
-//            tree.drawTree(out, WT_BR_SCALE);
-//            out << endl << "Consensus tree in newick format: " << endl << endl;
-//            tree.printResultTree(out);
-//            out << endl << endl;
+            //            tree.initializeAllPartialLh();
+            //            tree.fixNegativeBranch(false);
+            //            if (tree.isSuperTree())
+            //                ((PhyloSuperTree*) &tree)->mapTrees();
+            //            tree.optimizeAllBranches();
+            //            tree.printTree(con_file.c_str(), WT_BR_LEN | WT_BR_LEN_FIXED_WIDTH | WT_SORT_TAXA);
+            //            tree.sortTaxa();
+            //            tree.drawTree(out, WT_BR_SCALE);
+            //            out << endl << "Consensus tree in newick format: " << endl << endl;
+            //            tree.printResultTree(out);
+            //            out << endl << endl;
         }
 #ifdef IQTREE_TERRAPHAST
         if (params.terrace_analysis && params.compute_ml_tree) {
-            
-            out << "TERRACE ANALYSIS" << endl << "----------------" << endl << endl;
-            cout << "Running additional analysis: Phylogenetic Terraces ..."<< endl;
-            
+
+            out << "TERRACE ANALYSIS" << endl
+                << "----------------" << endl
+                << endl;
+            cout << "Running additional analysis: Phylogenetic Terraces ..." << endl;
+
             string filename = params.out_prefix;
             filename += ".terrace";
 
-            try
-            {
-                Terrace terrace(tree, (SuperAlignment*)(tree.aln));
+            try {
+                Terrace terrace(tree, (SuperAlignment *)(tree.aln));
 
                 uint64_t terrace_size = terrace.getSize();
 
                 if (terrace_size == 1) {
                     out << "The tree does not lie on a terrace." << endl;
-                } else {
+                }
+                else {
                     out << "The tree lies on a terrace of size ";
 
                     if (terrace_size == UINT64_MAX) {
                         out << "at least " << terrace_size << " (integer overflow)";
-                    } else {
+                    }
+                    else {
                         out << terrace_size;
                     }
 
@@ -1325,17 +1449,18 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
                     out << "Terrace trees written (in compressed Newick format) to " << filename << endl;
                 }
             }
-            catch (std::exception& e)
-            {
-                out << "ERROR: Terrace analysis using Terraphast failed: " << e.what() << endl << endl;
+            catch (std::exception &e) {
+                out << "ERROR: Terrace analysis using Terraphast failed: " << e.what() << endl
+                    << endl;
             }
 
             out << endl;
             out << "For documentation, see the technical supplement to Biczok et al. (2018)" << endl;
             out << "https://doi.org/10.1093/bioinformatics/bty384";
 
-            out << endl << endl;
-            cout<< "Done. Results are written in "<<params.out_prefix<<".iqtree file."<<endl;
+            out << endl
+                << endl;
+            cout << "Done. Results are written in " << params.out_prefix << ".iqtree file." << endl;
         }
 #endif
         /* evaluate user trees */
@@ -1346,93 +1471,100 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
             out.precision(4);
             out.setf(ios_base::fixed);
 
-			out << endl << "USER TREES" << endl << "----------" << endl << endl;
-			out << "See " << params.out_prefix << ".trees for trees with branch lengths." << endl << endl;
-			if (params.topotest_replicates && info.size() > 1) {
+            out << endl
+                << "USER TREES" << endl
+                << "----------" << endl
+                << endl;
+            out << "See " << params.out_prefix << ".trees for trees with branch lengths." << endl
+                << endl;
+            if (params.topotest_replicates && info.size() > 1) {
                 if (params.do_au_test && params.topotest_replicates < 10000)
-                    out << "WARNING: Too few replicates for AU test. At least -zb 10000 for reliable results!" << endl << endl;
+                    out << "WARNING: Too few replicates for AU test. At least -zb 10000 for reliable results!" << endl
+                        << endl;
                 out << "Tree      logL    deltaL  bp-RELL    p-KH     p-SH    ";
-				if (params.do_weighted_test)
-					out << "p-WKH    p-WSH    ";
+                if (params.do_weighted_test)
+                    out << "p-WKH    p-WSH    ";
                 out << "   c-ELW";
                 if (params.do_au_test)
                     out << "       p-AU";
 
-                out << endl << "------------------------------------------------------------------";
+                out << endl
+                    << "------------------------------------------------------------------";
                 if (params.do_weighted_test)
                     out << "------------------";
                 if (params.do_au_test)
                     out << "-------";
                 out << endl;
-			} else {
-				out << "Tree      logL    deltaL" << endl;
-				out << "-------------------------" << endl;
-
-			}
-			double maxL = -DBL_MAX;
-			int tid, orig_id;
-			for (tid = 0; tid < info.size(); tid++)
-				if (info[tid].logl > maxL) maxL = info[tid].logl;
-			for (orig_id = 0, tid = 0; orig_id < distinct_trees.size(); orig_id++) {
-				out.width(3);
-				out << right << orig_id+1 << " ";
-				if (distinct_trees[orig_id] >= 0) {
-					out << " = tree " << distinct_trees[orig_id]+1 << endl;
-					continue;
-				}
+            }
+            else {
+                out << "Tree      logL    deltaL" << endl;
+                out << "-------------------------" << endl;
+            }
+            double maxL = -DBL_MAX;
+            int tid, orig_id;
+            for (tid = 0; tid < info.size(); tid++)
+                if (info[tid].logl > maxL)
+                    maxL = info[tid].logl;
+            for (orig_id = 0, tid = 0; orig_id < distinct_trees.size(); orig_id++) {
+                out.width(3);
+                out << right << orig_id + 1 << " ";
+                if (distinct_trees[orig_id] >= 0) {
+                    out << " = tree " << distinct_trees[orig_id] + 1 << endl;
+                    continue;
+                }
                 out.unsetf(ios::fixed);
-				out.precision(10);
-				out.width(12);
-				out << info[tid].logl << " ";
-				out.width(7);
+                out.precision(10);
+                out.width(12);
+                out << info[tid].logl << " ";
+                out.width(7);
                 out.precision(5);
-				out << maxL - info[tid].logl;
-				if (!params.topotest_replicates || info.size() <= 1) {
-					out << endl;
-					tid++;
-					continue;
-				}
-				out.precision(3);
-				out << "  ";
-				out.width(6);
-				out << info[tid].rell_bp;
-				if (info[tid].rell_confident)
-					out << " + ";
-				else
-					out << " - ";
-				out.width(6);
-				out << right << info[tid].kh_pvalue;
-				if (info[tid].kh_pvalue < 0.05)
-					out << " - ";
-				else
-					out << " + ";
-				out.width(6);
-				out << right << info[tid].sh_pvalue;
-				if (info[tid].sh_pvalue < 0.05)
-					out << " - ";
-				else
-					out << " + ";
+                out << maxL - info[tid].logl;
+                if (!params.topotest_replicates || info.size() <= 1) {
+                    out << endl;
+                    tid++;
+                    continue;
+                }
+                out.precision(3);
+                out << "  ";
+                out.width(6);
+                out << info[tid].rell_bp;
+                if (info[tid].rell_confident)
+                    out << " + ";
+                else
+                    out << " - ";
+                out.width(6);
+                out << right << info[tid].kh_pvalue;
+                if (info[tid].kh_pvalue < 0.05)
+                    out << " - ";
+                else
+                    out << " + ";
+                out.width(6);
+                out << right << info[tid].sh_pvalue;
+                if (info[tid].sh_pvalue < 0.05)
+                    out << " - ";
+                else
+                    out << " + ";
 
-				if (params.do_weighted_test) {
-					out.width(6);
-					out << right << info[tid].wkh_pvalue;
-					if (info[tid].wkh_pvalue < 0.05)
-						out << " - ";
-					else
-						out << " + ";
-					out.width(6);
-					out << right << info[tid].wsh_pvalue;
-					if (info[tid].wsh_pvalue < 0.05)
-						out << " - ";
-					else
-						out << " + ";
-				}
-				out.width(9);
-				out << right << info[tid].elw_value;
-				if (info[tid].elw_confident)
-					out << " + ";
-				else
-					out << " - ";
+                if (params.do_weighted_test) {
+                    out.width(6);
+                    out << right << info[tid].wkh_pvalue;
+                    if (info[tid].wkh_pvalue < 0.05)
+                        out << " - ";
+                    else
+                        out << " + ";
+                    out.width(6);
+                    out << right << info[tid].wsh_pvalue;
+                    if (info[tid].wsh_pvalue < 0.05)
+                        out << " - ";
+                    else
+                        out << " + ";
+                }
+                out.width(9);
+                out << right << info[tid].elw_value;
+                if (info[tid].elw_confident)
+                    out << " + ";
+                else
+                    out << " - ";
 
                 if (params.do_au_test) {
                     out.width(8);
@@ -1450,27 +1582,26 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
             out << endl;
 
             if (params.topotest_replicates) {
-                out <<  "deltaL  : logL difference from the maximal logl in the set." << endl
-                     << "bp-RELL : bootstrap proportion using RELL method (Kishino et al. 1990)." << endl
-                     << "p-KH    : p-value of one sided Kishino-Hasegawa test (1989)." << endl
-                     << "p-SH    : p-value of Shimodaira-Hasegawa test (2000)." << endl;
+                out << "deltaL  : logL difference from the maximal logl in the set." << endl
+                    << "bp-RELL : bootstrap proportion using RELL method (Kishino et al. 1990)." << endl
+                    << "p-KH    : p-value of one sided Kishino-Hasegawa test (1989)." << endl
+                    << "p-SH    : p-value of Shimodaira-Hasegawa test (2000)." << endl;
                 if (params.do_weighted_test) {
                     out << "p-WKH   : p-value of weighted KH test." << endl
-                     << "p-WSH   : p-value of weighted SH test." << endl;
+                        << "p-WSH   : p-value of weighted SH test." << endl;
                 }
-                out     << "c-ELW   : Expected Likelihood Weight (Strimmer & Rambaut 2002)." << endl;
+                out << "c-ELW   : Expected Likelihood Weight (Strimmer & Rambaut 2002)." << endl;
                 if (params.do_au_test) {
                     out << "p-AU    : p-value of approximately unbiased (AU) test (Shimodaira, 2002)." << endl;
                 }
-                out  << endl
-                     << "Plus signs denote the 95% confidence sets." << endl
-                     << "Minus signs denote significant exclusion."  << endl
-                     << "All tests performed "
-                     << params.topotest_replicates << " resamplings using the RELL method."<<endl;
+                out << endl
+                    << "Plus signs denote the 95% confidence sets." << endl
+                    << "Minus signs denote significant exclusion." << endl
+                    << "All tests performed "
+                    << params.topotest_replicates << " resamplings using the RELL method." << endl;
             }
             out << endl;
         }
-
 
         time_t cur_time;
         time(&cur_time);
@@ -1478,19 +1609,22 @@ void reportPhyloAnalysis(Params &params, IQTree &tree, ModelCheckpoint &model_in
         char *date_str;
         date_str = ctime(&cur_time);
         out.unsetf(ios_base::fixed);
-        out << "TIME STAMP" << endl << "----------" << endl << endl
-                << "Date and time: " << date_str << "Total CPU time used: "
-                << (double) params.run_time << " seconds (" << convert_time(params.run_time) << ")" << endl
-                << "Total wall-clock time used: " << getRealTime() - params.start_real_time
-                << " seconds (" << convert_time(getRealTime() - params.start_real_time) << ")" << endl << endl;
+        out << "TIME STAMP" << endl
+            << "----------" << endl
+            << endl
+            << "Date and time: " << date_str << "Total CPU time used: "
+            << (double)params.run_time << " seconds (" << convert_time(params.run_time) << ")" << endl
+            << "Total wall-clock time used: " << getRealTime() - params.start_real_time
+            << " seconds (" << convert_time(getRealTime() - params.start_real_time) << ")" << endl
+            << endl;
 
         //reportCredits(out); // not needed, now in the manual
         out.close();
-
-    } catch (ios::failure) {
+    }
+    catch (ios::failure) {
         outError(ERR_WRITE_OUTPUT, outfile);
     }
-    
+
     printOutfilesInfo(params, tree);
 }
 
@@ -1504,12 +1638,11 @@ void checkZeroDist(Alignment *aln, double *dist) {
             continue;
         string str = "";
         bool first = true;
-        auto distRow = dist + i*ntaxa;
+        auto distRow = dist + i * ntaxa;
         for (size_t j = i + 1; j < ntaxa; ++j)
-            if (distRow[j] <= minLen ) {
+            if (distRow[j] <= minLen) {
                 if (first)
-                    str = "ZERO distance between sequences "
-                            + aln->getSeqName(static_cast<int>(i));
+                    str = "ZERO distance between sequences " + aln->getSeqName(static_cast<int>(i));
                 str += ", " + aln->getSeqName(static_cast<int>(j));
                 checked[j] = 1;
                 first = false;
@@ -1521,13 +1654,13 @@ void checkZeroDist(Alignment *aln, double *dist) {
     }
 }
 
-
-void printAnalysisInfo(int model_df, IQTree& iqtree, Params& params) {
-//    if (!params.raxmllib) {
+void printAnalysisInfo(int model_df, IQTree &iqtree, Params &params) {
+    //    if (!params.raxmllib) {
     cout << "Model of evolution: ";
     if (iqtree.isSuperTree()) {
         cout << iqtree.getModelName() << " (" << model_df << " free parameters)" << endl;
-    } else {
+    }
+    else {
         cout << iqtree.getModelName() << " with ";
         switch (iqtree.getModel()->getFreqType()) {
         case FREQ_EQUAL:
@@ -1605,22 +1738,26 @@ void printAnalysisInfo(int model_df, IQTree& iqtree, Params& params) {
         cout << " frequencies (" << model_df << " free parameters)" << endl;
     }
     cout << "Fixed branch lengths: "
-            << ((params.fixed_branch_length) ? "Yes" : "No") << endl;
+         << ((params.fixed_branch_length) ? "Yes" : "No") << endl;
 
     if (params.min_iterations > 0) {
         cout << "Tree search algorithm: " << (params.snni ? "Stochastic nearest neighbor interchange" : "IQPNNI") << endl;
         cout << "Termination condition: ";
         if (params.stop_condition == SC_REAL_TIME) {
             cout << "after " << params.maxtime << " minutes" << endl;
-        } else if (params.stop_condition == SC_UNSUCCESS_ITERATION) {
+        }
+        else if (params.stop_condition == SC_UNSUCCESS_ITERATION) {
             cout << "after " << params.unsuccess_iteration << " unsuccessful iterations" << endl;
-        } else if (params.stop_condition == SC_FIXED_ITERATION) {
-                cout << params.min_iterations << " iterations" << endl;
-        } else if(params.stop_condition == SC_WEIBULL) {
-                cout << "predicted in [" << params.min_iterations << ","
-                        << params.max_iterations << "] (confidence "
-                        << params.stop_confidence << ")" << endl;
-        } else if (params.stop_condition == SC_BOOTSTRAP_CORRELATION) {
+        }
+        else if (params.stop_condition == SC_FIXED_ITERATION) {
+            cout << params.min_iterations << " iterations" << endl;
+        }
+        else if (params.stop_condition == SC_WEIBULL) {
+            cout << "predicted in [" << params.min_iterations << ","
+                 << params.max_iterations << "] (confidence "
+                 << params.stop_confidence << ")" << endl;
+        }
+        else if (params.stop_condition == SC_BOOTSTRAP_CORRELATION) {
             cout << "min " << params.min_correlation << " correlation coefficient" << endl;
         }
 
@@ -1629,35 +1766,32 @@ void printAnalysisInfo(int model_df, IQTree& iqtree, Params& params) {
             cout << "Probability of deleting sequences: " << iqtree.getProbDelete() << endl;
             cout << "Number of leaves to be deleted   : " << iqtree.getDelete() << endl;
             cout << "Important quartets assessed on: "
-                    << ((params.iqp_assess_quartet == IQP_DISTANCE) ?
-                            "Distance" : ((params.iqp_assess_quartet == IQP_PARSIMONY) ? "Parsimony" : "Bootstrap"))
-                    << endl;
+                 << ((params.iqp_assess_quartet == IQP_DISTANCE) ? "Distance" : ((params.iqp_assess_quartet == IQP_PARSIMONY) ? "Parsimony" : "Bootstrap"))
+                 << endl;
         }
         cout << "NNI assessed on: " << ((params.nni5) ? "5 branches" : "1 branch") << endl;
     }
     cout << "Phylogenetic likelihood library: " << (params.pll ? "Yes" : "No") << endl;
     if (params.fixed_branch_length != BRLEN_FIX)
         cout << "Branch length optimization method: "
-            << ((iqtree.optimize_by_newton) ? "Newton" : "Brent") << endl;
+             << ((iqtree.optimize_by_newton) ? "Newton" : "Brent") << endl;
     cout << "Number of Newton-Raphson steps in NNI evaluation and branch length optimization: " << NNI_MAX_NR_STEP
-            << " / " << PLL_NEWZPERCYCLE << endl;
+         << " / " << PLL_NEWZPERCYCLE << endl;
     cout << "SSE instructions: "
-            << ((iqtree.sse) ? "Yes" : "No") << endl;
+         << ((iqtree.sse) ? "Yes" : "No") << endl;
     cout << endl;
 }
 
-void computeMLDist ( Params& params, IQTree& iqtree
-                   , double begin_wallclock_time, double begin_cpu_time) {
+void computeMLDist(Params &params, IQTree &iqtree, double begin_wallclock_time, double begin_cpu_time) {
     double longest_dist;
     cout << "Computing ML distances based on estimated model parameters..." << endl;
     iqtree.decideDistanceFilePath(params);
     longest_dist = iqtree.computeDistanceMatrix(params, iqtree.aln);
     cout << "Computing ML distances took "
-        << (getRealTime() - begin_wallclock_time) << " sec (of wall-clock time) "
-        << (getCPUTime() - begin_cpu_time) << " sec (of CPU time)" << endl;
+         << (getRealTime() - begin_wallclock_time) << " sec (of wall-clock time) "
+         << (getCPUTime() - begin_cpu_time) << " sec (of CPU time)" << endl;
 
-    if ( params.dist_file != nullptr )
-    {
+    if (params.dist_file != nullptr) {
         iqtree.printDistanceFile();
     }
     double max_genetic_dist = MAX_GENETIC_DIST;
@@ -1674,9 +1808,11 @@ void computeInitialDist(Params &params, IQTree &iqtree) {
     double longest_dist;
     if (params.dist_file) {
         cout << "Reading distance matrix file " << params.dist_file << " ..." << endl;
-    } else if (params.compute_jc_dist) {
+    }
+    else if (params.compute_jc_dist) {
         cout << "Computing Jukes-Cantor distances..." << endl;
-    } else if (params.compute_obs_dist) {
+    }
+    else if (params.compute_obs_dist) {
         cout << "Computing observed distances..." << endl;
     }
     if (params.compute_jc_dist || params.compute_obs_dist || params.partition_file) {
@@ -1695,15 +1831,13 @@ void computeInitialDist(Params &params, IQTree &iqtree) {
     }
 }
 
-void initializeParams(Params &params, IQTree &iqtree)
-{
-//    iqtree.setCurScore(-DBL_MAX);
+void initializeParams(Params &params, IQTree &iqtree) {
+    //    iqtree.setCurScore(-DBL_MAX);
     bool ok_tree = iqtree.root;
     if (iqtree.isSuperTreeUnlinked()) {
-        ok_tree = ((PhyloSuperTree*)&iqtree)->front()->root;
+        ok_tree = ((PhyloSuperTree *)&iqtree)->front()->root;
     }
-    if (!ok_tree)
-    {
+    if (!ok_tree) {
         // compute initial tree
         if (!params.compute_ml_tree_only) {
             iqtree.computeInitialTree(params.SSE);
@@ -1720,19 +1854,17 @@ void initializeParams(Params &params, IQTree &iqtree)
             outError("Weiss & von Haeseler test of model homogeneity only works for DNA");
         iqtree.aln->model_name = "GTR+G";
     }
-    if (params.gbo_replicates)
-    {
+    if (params.gbo_replicates) {
         params.speed_conf = 1.0;
     }
 
     // TODO: check if necessary
-//    if (iqtree.isSuperTree())
-//        ((PhyloSuperTree*) &iqtree)->mapTrees();
+    //    if (iqtree.isSuperTree())
+    //        ((PhyloSuperTree*) &iqtree)->mapTrees();
 
     // set parameter for the current tree
-//    iqtree.setParams(params);
+    //    iqtree.setParams(params);
 }
-
 
 void pruneTaxa(Params &params, IQTree &iqtree, double *pattern_lh, NodeVector &pruned_taxa, StrVector &linked_name) {
     int num_low_support;
@@ -1742,10 +1874,10 @@ void pruneTaxa(Params &params, IQTree &iqtree, double *pattern_lh, NodeVector &p
         mytime = getCPUTime();
         cout << "Testing tree branches by SH-like aLRT with " << params.aLRT_replicates << " replicates..." << endl;
         iqtree.setRootNode(params.root);
-        double curScore =  iqtree.getCurScore();
+        double curScore = iqtree.getCurScore();
         iqtree.computePatternLikelihood(pattern_lh, &curScore);
         num_low_support = iqtree.testAllBranches(params.aLRT_threshold, curScore,
-                pattern_lh, params.aLRT_replicates, params.localbp_replicates, params.aLRT_test, params.aBayes_test);
+                                                 pattern_lh, params.aLRT_replicates, params.localbp_replicates, params.aLRT_test, params.aBayes_test);
         iqtree.printResultTree();
         cout << "  " << getCPUTime() - mytime << " sec." << endl;
         cout << num_low_support << " branches show low support values (<= " << params.aLRT_threshold << "%)" << endl;
@@ -1758,17 +1890,16 @@ void pruneTaxa(Params &params, IQTree &iqtree, double *pattern_lh, NodeVector &p
 
     if (!pruned_taxa.empty()) {
         cout << "Pruned alignment contains " << iqtree.aln->getNSeq()
-                << " sequences and " << iqtree.aln->getNSite() << " sites and "
-                << iqtree.aln->getNPattern() << " patterns" << endl;
+             << " sequences and " << iqtree.aln->getNSite() << " sites and "
+             << iqtree.aln->getNPattern() << " patterns" << endl;
         iqtree.initializeAllPartialLh();
         iqtree.clearAllPartialLH();
         iqtree.setCurScore(iqtree.optimizeAllBranches());
         //cout << "Log-likelihood    after reoptimizing model parameters: " << tree.curScore << endl;
         iqtree.optimizeNNI(true, "");
         cout << "Log-likelihood after optimizing partial tree: "
-                << iqtree.getCurScore() << endl;
+             << iqtree.getCurScore() << endl;
     }
-
 }
 
 void restoreTaxa(IQTree &iqtree, double *saved_dist_mat, NodeVector &pruned_taxa, StrVector &linked_name) {
@@ -1785,12 +1916,12 @@ void restoreTaxa(IQTree &iqtree, double *saved_dist_mat, NodeVector &pruned_taxa
         nniInfo = iqtree.optimizeNNI(true, "");
         cout << "Log-likelihood    after reoptimizing full tree: " << iqtree.getCurScore() << endl;
         //iqtree.setBestScore(iqtree.getModelFactory()->optimizeParameters(params.fixed_branch_length, true, params.model_eps));
-
     }
 }
 void runApproximateBranchLengths(Params &params, IQTree &iqtree) {
     if (!params.fixed_branch_length && params.leastSquareBranch) {
-        cout << endl << "Computing Least Square branch lengths..." << endl;
+        cout << endl
+             << "Computing Least Square branch lengths..." << endl;
         iqtree.optimizeAllBranchesLS();
         iqtree.clearAllPartialLH();
         iqtree.setCurScore(iqtree.computeLikelihood());
@@ -1816,7 +1947,8 @@ void runApproximateBranchLengths(Params &params, IQTree &iqtree) {
     }
 
     if (params.pars_branch_length) {
-        cout << endl << "Computing parsimony branch lengths..." << endl;
+        cout << endl
+             << "Computing parsimony branch lengths..." << endl;
         iqtree.fixNegativeBranch(true);
         iqtree.clearAllPartialLH();
         iqtree.setCurScore(iqtree.computeLikelihood());
@@ -1835,11 +1967,11 @@ void runApproximateBranchLengths(Params &params, IQTree &iqtree) {
             cout << "MP Branch lengths written to " << filename << endl;
         }
         cout << "Total MP tree length: " << iqtree.treeLength() << endl;
-
     }
 
     if (params.bayes_branch_length) {
-        cout << endl << "Computing Bayesian branch lengths..." << endl;
+        cout << endl
+             << "Computing Bayesian branch lengths..." << endl;
         iqtree.computeAllBayesianBranchLengths();
         iqtree.clearAllPartialLH();
         iqtree.setCurScore(iqtree.computeLikelihood());
@@ -1858,9 +1990,7 @@ void runApproximateBranchLengths(Params &params, IQTree &iqtree) {
             cout << "Bayesian Branch lengths written to " << filename << endl;
         }
         cout << "Total Bayesian tree length: " << iqtree.treeLength() << endl;
-
     }
-
 }
 
 void printSiteRates(IQTree &iqtree, const char *rate_file, bool bayes) {
@@ -1870,18 +2000,19 @@ void printSiteRates(IQTree &iqtree, const char *rate_file, bool bayes) {
         out.open(rate_file);
         out << "# Site-specific subtitution rates determined by ";
         if (bayes)
-            out<< "empirical Bayesian method" << endl;
+            out << "empirical Bayesian method" << endl;
         else
-            out<< "maximum likelihood" << endl;
+            out << "maximum likelihood" << endl;
         out << "# This file can be read in MS Excel or in R with command:" << endl
-        << "#   tab=read.table('" <<  rate_file << "',header=TRUE)" << endl
-        << "# Columns are tab-separated with following meaning:" << endl;
+            << "#   tab=read.table('" << rate_file << "',header=TRUE)" << endl
+            << "# Columns are tab-separated with following meaning:" << endl;
         if (iqtree.isSuperTree()) {
-            out << "#   Part:   Partition ID (1=" << ((PhyloSuperTree*)&iqtree)->front()->aln->name << ", etc)" << endl
-            << "#   Site:   Site ID within partition (starting from 1 for each partition)" << endl;
-        } else
+            out << "#   Part:   Partition ID (1=" << ((PhyloSuperTree *)&iqtree)->front()->aln->name << ", etc)" << endl
+                << "#   Site:   Site ID within partition (starting from 1 for each partition)" << endl;
+        }
+        else
             out << "#   Site:   Alignment site ID" << endl;
-        
+
         if (bayes)
             out << "#   Rate:   Posterior mean site rate weighted by posterior probability" << endl
                 << "#   Cat:    Category with highest posterior (0=invariable, 1=slow, etc)" << endl
@@ -1897,7 +2028,8 @@ void printSiteRates(IQTree &iqtree, const char *rate_file, bool bayes) {
             out << endl;
         iqtree.writeSiteRates(out, bayes);
         out.close();
-    } catch (ios::failure) {
+    }
+    catch (ios::failure) {
         outError(ERR_WRITE_OUTPUT, rate_file);
     }
     cout << "Site rates printed to " << rate_file << endl;
@@ -1925,11 +2057,11 @@ void printMiscInfo(Params &params, IQTree &iqtree, double *pattern_lh) {
     if (params.print_site_prob && !params.pll) {
         printSiteProbCategory(((string)params.out_prefix + ".siteprob").c_str(), &iqtree, params.print_site_prob);
     }
-    
+
     if (params.print_ancestral_sequence) {
         printAncestralSequences(params.out_prefix.c_str(), &iqtree, params.print_ancestral_sequence);
     }
-    
+
     if (params.print_site_state_freq != WSF_NONE && !params.site_freq_file && !params.tree_freq_file) {
         string site_freq_file = params.out_prefix;
         site_freq_file += ".sitesf";
@@ -1961,10 +2093,10 @@ void printMiscInfo(Params &params, IQTree &iqtree, double *pattern_lh) {
 
         int c;
         for (ptn = 0; ptn < iqtree.ptn_cat_mask.size(); ptn++) {
-            int num_cat = popcount_lauradoux((unsigned*)&iqtree.ptn_cat_mask[ptn], 2);
+            int num_cat = popcount_lauradoux((unsigned *)&iqtree.ptn_cat_mask[ptn], 2);
             out << ptn << "\t" << (int)iqtree.ptn_freq[ptn] << "\t" << num_cat << "\t";
             for (c = 0; c < ncat; c++)
-                if (iqtree.ptn_cat_mask[ptn] & ((uint64_t)1<<c))
+                if (iqtree.ptn_cat_mask[ptn] & ((uint64_t)1 << c))
                     out << "1";
                 else
                     out << "0";
@@ -1995,33 +2127,35 @@ void printMiscInfo(Params &params, IQTree &iqtree, double *pattern_lh) {
         out.close();
         cout << "Branch lengths written to " << filename << endl;
     }
-    
+
     if (params.print_conaln && iqtree.isSuperTree()) {
         string str = params.out_prefix;
         str = params.out_prefix;
         str += ".conaln";
         iqtree.aln->printAlignment(params.aln_output_format, str.c_str());
     }
-    
+
     if (params.print_partition_info && iqtree.isSuperTree()) {
         ASSERT(params.print_conaln);
         string aln_file = (string)params.out_prefix + ".conaln";
         string partition_info = params.out_prefix;
         partition_info += ".partinfo.nex";
-        ((SuperAlignment*)(iqtree.aln))->printPartition(partition_info.c_str(), aln_file.c_str());
+        ((SuperAlignment *)(iqtree.aln))->printPartition(partition_info.c_str(), aln_file.c_str());
         partition_info = (string)params.out_prefix + ".partitions";
-        ((SuperAlignment*)(iqtree.aln))->printPartitionRaxml(partition_info.c_str());
+        ((SuperAlignment *)(iqtree.aln))->printPartitionRaxml(partition_info.c_str());
     }
 
     if (params.mvh_site_rate) {
         RateMeyerHaeseler *rate_mvh = new RateMeyerHaeseler(params.rate_file,
-                &iqtree, params.rate_mh_type);
-        cout << endl << "Computing site-specific rates by "
-                << rate_mvh->full_name << "..." << endl;
+                                                            &iqtree, params.rate_mh_type);
+        cout << endl
+             << "Computing site-specific rates by "
+             << rate_mvh->full_name << "..." << endl;
         rate_mvh->runIterativeProc(params, iqtree);
-        cout 	<< endl << "BEST SCORE FOUND : "
-        		<< (params.mpboot2 ? int(-iqtree.getBestScore()) : iqtree.getBestScore())
-				<< endl;
+        cout << endl
+             << "BEST SCORE FOUND : "
+             << (params.mpboot2 ? int(-iqtree.getBestScore()) : iqtree.getBestScore())
+             << endl;
         string mhrate_file = params.out_prefix;
         mhrate_file += ".mhrate";
         try {
@@ -2030,7 +2164,8 @@ void printMiscInfo(Params &params, IQTree &iqtree, double *pattern_lh) {
             out.open(mhrate_file.c_str());
             iqtree.writeSiteRates(out, true);
             out.close();
-        } catch (ios::failure) {
+        }
+        catch (ios::failure) {
             outError(ERR_WRITE_OUTPUT, mhrate_file);
         }
 
@@ -2058,44 +2193,41 @@ void printMiscInfo(Params &params, IQTree &iqtree, double *pattern_lh) {
         iqtree.printTreeLengthScaling(filename.c_str());
         cout << "Scaled tree length and model parameters printed to " << filename << endl;
     }
-
 }
 
 void printFinalSearchInfo(Params &params, IQTree &iqtree, double search_cpu_time, double search_real_time) {
     cout << "Total tree length: " << iqtree.treeLength() << endl;
 
     if (iqtree.isSuperTree() && verbose_mode >= VB_MAX) {
-        PhyloSuperTree *stree = (PhyloSuperTree*) &iqtree;
-        cout << stree->evalNNIs << " NNIs evaluated from " << stree->totalNNIs << " all possible NNIs ( " <<
-                (int)(((stree->evalNNIs+1.0)/(stree->totalNNIs+1.0))*100.0) << " %)" << endl;
-        cout<<"Details for subtrees:"<<endl;
+        PhyloSuperTree *stree = (PhyloSuperTree *)&iqtree;
+        cout << stree->evalNNIs << " NNIs evaluated from " << stree->totalNNIs << " all possible NNIs ( " << (int)(((stree->evalNNIs + 1.0) / (stree->totalNNIs + 1.0)) * 100.0) << " %)" << endl;
+        cout << "Details for subtrees:" << endl;
         int part = 0;
-        for(auto it = stree->begin(); it != stree->end(); it++,part++){
-            cout << part+1 << ". " << (*it)->aln->name << ": " << stree->part_info[part].evalNNIs<<" ( "
-                << (int)(((stree->part_info[part].evalNNIs+1.0)/((stree->totalNNIs+1.0) / stree->size()))*100.0)
-                << " %)" << endl;
+        for (auto it = stree->begin(); it != stree->end(); it++, part++) {
+            cout << part + 1 << ". " << (*it)->aln->name << ": " << stree->part_info[part].evalNNIs << " ( "
+                 << (int)(((stree->part_info[part].evalNNIs + 1.0) / ((stree->totalNNIs + 1.0) / stree->size())) * 100.0)
+                 << " %)" << endl;
         }
     }
 
     params.run_time = (getCPUTime() - params.startCPUTime);
     cout << endl;
     cout << "Total number of iterations: " << iqtree.stop_rule.getCurIt() << endl;
-//    cout << "Total number of partial likelihood vector computations: " << iqtree.num_partial_lh_computations << endl;
+    //    cout << "Total number of partial likelihood vector computations: " << iqtree.num_partial_lh_computations << endl;
     cout << "CPU time used for tree search: " << search_cpu_time
-            << " sec (" << convert_time(search_cpu_time) << ")" << endl;
+         << " sec (" << convert_time(search_cpu_time) << ")" << endl;
     cout << "Wall-clock time used for tree search: " << search_real_time
-            << " sec (" << convert_time(search_real_time) << ")" << endl;
-    cout << "Total CPU time used: " << (double) params.run_time << " sec ("
-            << convert_time((double) params.run_time) << ")" << endl;
+         << " sec (" << convert_time(search_real_time) << ")" << endl;
+    cout << "Total CPU time used: " << (double)params.run_time << " sec ("
+         << convert_time((double)params.run_time) << ")" << endl;
     cout << "Total wall-clock time used: "
-            << getRealTime() - params.start_real_time << " sec ("
-            << convert_time(getRealTime() - params.start_real_time) << ")" << endl;
-
+         << getRealTime() - params.start_real_time << " sec ("
+         << convert_time(getRealTime() - params.start_real_time) << ")" << endl;
 }
 
 void printTrees(vector<string> trees, Params &params, string suffix) {
     ofstream treesOut((string(params.out_prefix) + suffix).c_str(),
-            ofstream::out);
+                      ofstream::out);
     for (vector<string>::iterator it = trees.begin(); it != trees.end(); it++) {
         treesOut << (*it);
         treesOut << endl;
@@ -2107,7 +2239,7 @@ void printTrees(vector<string> trees, Params &params, string suffix) {
  *  MAIN TREE RECONSTRUCTION
  ***********************************************************/
 
-void startTreeReconstruction(Params &params, IQTree* &iqtree, ModelCheckpoint &model_info) {
+void startTreeReconstruction(Params &params, IQTree *&iqtree, ModelCheckpoint &model_info) {
     if (params.root) {
         StrVector outgroup_names;
         convert_string_vec(params.root, outgroup_names);
@@ -2116,56 +2248,59 @@ void startTreeReconstruction(Params &params, IQTree* &iqtree, ModelCheckpoint &m
                 outError("Alignment does not have specified outgroup taxon ", *it);
     }
 
-//    if (params.count_trees && pllTreeCounter == NULL)
-//        pllTreeCounter = new StringIntMap;
+    //    if (params.count_trees && pllTreeCounter == NULL)
+    //        pllTreeCounter = new StringIntMap;
 
     // Temporary fix since PLL only supports DNA/Protein: switch to IQ-TREE parsimony kernel
     if (params.start_tree == STT_PLL_PARSIMONY) {
         if (iqtree->isSuperTreeUnlinked()) {
             params.start_tree = STT_PARSIMONY;
-        } else if (iqtree->isSuperTree()) {
-            PhyloSuperTree *stree = (PhyloSuperTree*)iqtree;
+        }
+        else if (iqtree->isSuperTree()) {
+            PhyloSuperTree *stree = (PhyloSuperTree *)iqtree;
             for (PhyloSuperTree::iterator it = stree->begin(); it != stree->end(); it++)
                 if ((*it)->aln->seq_type != SEQ_DNA && (*it)->aln->seq_type != SEQ_PROTEIN)
                     params.start_tree = STT_PARSIMONY;
-        } else if (iqtree->aln->seq_type != SEQ_DNA && iqtree->aln->seq_type != SEQ_PROTEIN)
+        }
+        else if (iqtree->aln->seq_type != SEQ_DNA && iqtree->aln->seq_type != SEQ_PROTEIN)
             params.start_tree = STT_PARSIMONY;
     }
     iqtree->setParams(&params);
     iqtree->initializePLLIfNecessary();
-    
+
     /**
      * Diep: Parsimony computation does not need ML distances and ModelFinder stuffs
      */
-    if(params.mpboot2) return;
+    if (params.mpboot2)
+        return;
 
     /********************* Compute pairwise distances *******************/
     if (params.start_tree == STT_BIONJ || params.iqp || params.leastSquareBranch) {
         computeInitialDist(params, *iqtree);
     }
-    
+
     /*************** SET UP PARAMETERS and model testing ****************/
-       // FOR TUNG: swapping the order cause bug for -m TESTLINK
-//    iqtree.initSettings(params);
+    // FOR TUNG: swapping the order cause bug for -m TESTLINK
+    //    iqtree.initSettings(params);
 
     runModelFinder(params, *iqtree, model_info);
 }
-        
+
 /**
  optimize branch lengths of consensus tree
  */
 void optimizeConTree(Params &params, IQTree *tree) {
     string contree_file = string(params.out_prefix) + ".contree";
-    
+
     DoubleVector rfdist;
     tree->computeRFDist(contree_file.c_str(), rfdist);
     tree->contree_rfdist = (int)rfdist[0];
-    
+
     tree->readTreeFile(contree_file);
-    
+
     tree->initializeAllPartialLh();
     tree->fixNegativeBranch(false);
-    
+
     tree->boot_consense_logl = tree->optimizeAllBranches();
     cout << "Log-likelihood of consensus tree: " << tree->boot_consense_logl << endl;
     tree->setRootNode(params.root);
@@ -2179,30 +2314,31 @@ void handleGammaInvariantOptions(Params &params, IQTree &iqtree);
 
 void handleQuartetLikelihoodMapping(Params &params, IQTree &iqtree);
 
-void runTreeReconstruction(Params &params, IQTree* &iqtree) {
+void runTreeReconstruction(Params &params, IQTree *&iqtree) {
 
     //    string dist_file;
     params.startCPUTime = getCPUTime();
     params.start_real_time = getRealTime();
-    
+
     int absent_states = 0;
     if (iqtree->isSuperTree()) {
-        PhyloSuperTree *stree = (PhyloSuperTree*)iqtree;
+        PhyloSuperTree *stree = (PhyloSuperTree *)iqtree;
         for (auto i = stree->begin(); i != stree->end(); i++)
             absent_states += (*i)->aln->checkAbsentStates("partition " + (*i)->aln->name);
-    } else {
+    }
+    else {
         absent_states = iqtree->aln->checkAbsentStates("alignment");
     }
     if (absent_states > 0) {
         cout << "NOTE: " << absent_states << " states (see above) are not present and thus removed from Markov process to prevent numerical problems" << endl;
     }
-    
+
     // Make sure that no partial likelihood of IQ-TREE is initialized when PLL is used to save memory
     if (params.pll) {
         iqtree->deleteAllPartialLhAndParsimony();
-    }    
+    }
     iqtree->initializePLLIfNecessary();
-    
+
     /********************* Compute pairwise distances *******************/
     if ((params.start_tree == STT_BIONJ || params.iqp || params.leastSquareBranch) && !iqtree->root) {
         computeInitialDist(params, *iqtree);
@@ -2210,14 +2346,15 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
 
     /******************** Pass the parameter object params to IQTree *******************/
     iqtree->setParams(&params);
-    
+
     ModelsBlock *models_block = readModelsDefinition(params);
 
     initializeParams(params, *iqtree); // Diep: Who can guess initializeParams() also initialize tree!
+    optimizeAlignment(iqtree, params);
 
     if (posRateHeterotachy(iqtree->aln->model_name) != string::npos && !iqtree->isMixlen()) {
         // create a new instance
-        IQTree* iqtree_new = new PhyloTreeMixlen(iqtree->aln, 0);
+        IQTree *iqtree_new = new PhyloTreeMixlen(iqtree->aln, 0);
         iqtree_new->setCheckpoint(iqtree->getCheckpoint());
         if (!iqtree->constraintTree.empty())
             iqtree_new->constraintTree.readConstraint(iqtree->constraintTree);
@@ -2236,24 +2373,23 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         iqtree->setRootNode(params.root);
     }
 
-//
-//    // Diep: test begin
-//    cout << "$$$$$$$" << iqtree->getTreeString() << endl;
-//    exit(-1);
-//    // Diep: test end
-//
+    //
+    //    // Diep: test begin
+    //    cout << "$$$$$$$" << iqtree->getTreeString() << endl;
+    //    exit(-1);
+    //    // Diep: test end
+    //
 
     iqtree->restoreCheckpoint();
 
     if (params.online_bootstrap && params.gbo_replicates > 0) {
         cout << "Generating " << params.gbo_replicates << " samples for ultrafast "
-        << RESAMPLE_NAME << " (seed: " << params.ran_seed << ")..." << endl;
+             << RESAMPLE_NAME << " (seed: " << params.ran_seed << ")..." << endl;
     }
 
     iqtree->initSettings(params);
 
     /*********************** INITIAL MODEL OPTIMIZATION *****************/
-
 
     if (!iqtree->getModelFactory()) {
         iqtree->initializeModel(params, iqtree->aln->model_name, models_block);
@@ -2261,13 +2397,12 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
     if (iqtree->getRate()->isHeterotachy() && !iqtree->isMixlen()) {
         ASSERT(0 && "Heterotachy tree not properly created");
     }
-//    iqtree.restoreCheckpoint();
+    //    iqtree.restoreCheckpoint();
 
     delete models_block;
 
     // UpperBounds analysis. Here, to analyse the initial tree without any tree search or optimization
-    /*
-    if (params.upper_bound) {
+    /* {
         iqtree.setCurScore(iqtree.computeLikelihood());
         cout<<iqtree.getCurScore()<<endl;
         UpperBounds(&params, iqtree.aln, iqtree);
@@ -2291,14 +2426,14 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
 
         uint64_t mem_required = iqtree->getMemoryRequired();
 
-        if (mem_required >= total_mem*0.95 && !iqtree->isSuperTree()) {
+        if (mem_required >= total_mem * 0.95 && !iqtree->isSuperTree()) {
             // switch to memory saving mode
             if (params.lh_mem_save != LM_MEM_SAVE) {
-                params.max_mem_size = (total_mem*0.95)/mem_required;
+                params.max_mem_size = (total_mem * 0.95) / mem_required;
                 params.lh_mem_save = LM_MEM_SAVE;
                 mem_required = iqtree->getMemoryRequired();
                 cout << "NOTE: Switching to memory saving mode using " << (mem_required / 1073741824.0) << " GB ("
-                    <<  (mem_required*100/total_mem) << "% of normal mode)" << endl;
+                     << (mem_required * 100 / total_mem) << "% of normal mode)" << endl;
                 cout << "NOTE: Use -mem option if you want to restrict RAM usage further" << endl;
             }
             if (mem_required >= total_mem) {
@@ -2312,11 +2447,11 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
             outError("Memory saving mode cannot work, switch to another computer!!!");
         }
 
-//#if defined __APPLE__ || defined __MACH__
+        //#if defined __APPLE__ || defined __MACH__
         cout << "NOTE: " << (mem_required / 1048576) << " MB RAM (" << (mem_required / 1073741824) << " GB) is required!" << endl;
-//#else
-//        cout << "NOTE: " << ((double) mem_size / 1000.0) / 1000 << " MB RAM is required!" << endl;
-//#endif
+        //#else
+        //        cout << "NOTE: " << ((double) mem_size / 1000.0) / 1000 << " MB RAM is required!" << endl;
+        //#endif
         if (params.memCheck)
             exit(0);
 #ifdef BINARY32
@@ -2326,183 +2461,186 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
 #endif
         int max_procs = countPhysicalCPUCores();
         if (mem_required * max_procs > total_mem * iqtree->num_threads && iqtree->num_threads > 0) {
-            outWarning("Memory required per CPU-core (" + convertDoubleToString((double)mem_required/iqtree->num_threads/1024/1024/1024)+
-            " GB) is higher than your computer RAM per CPU-core ("+convertIntToString(static_cast<int>(total_mem/max_procs/1024/1024/1024))+
-            " GB), thus multiple runs may exceed RAM!");
+            outWarning("Memory required per CPU-core (" + convertDoubleToString((double)mem_required / iqtree->num_threads / 1024 / 1024 / 1024) +
+                       " GB) is higher than your computer RAM per CPU-core (" + convertIntToString(static_cast<int>(total_mem / max_procs / 1024 / 1024 / 1024)) +
+                       " GB), thus multiple runs may exceed RAM!");
         }
     }
 
     double cputime_search_start;
     double realtime_search_start;
-	NodeVector pruned_taxa;
-	StrVector linked_name;
-	double *saved_dist_mat = nullptr;
-	double *pattern_lh = nullptr;
+    NodeVector pruned_taxa;
+    StrVector linked_name;
+    double *saved_dist_mat = nullptr;
+    double *pattern_lh = nullptr;
 
     /**
      * Diep:
      * I'm excluding the subsequent block from --mpboot2
      * because I believe it is to refine settings for likelihood computation only.
      */
-    if(!params.mpboot2){
-		bool   finishedInitTree = false;
-		double initEpsilon = params.min_iterations == 0 ? params.modelEps : (params.modelEps*10);
-		string initTree;
-		iqtree->prepareToComputeDistances();
-		//None of his will work until there are actually taxa tree
-		//(we cannot do it until we *have* that).
-		if (!params.compute_ml_tree_only) {
-			iqtree->ensureNumberOfThreadsIsSet(&params, false);
-			iqtree->initializeAllPartialLh();
-			handleGammaInvariantOptions(params, *iqtree);
+    if (!params.mpboot2) {
+        bool finishedInitTree = false;
+        double initEpsilon = params.min_iterations == 0 ? params.modelEps : (params.modelEps * 10);
+        string initTree;
+        iqtree->prepareToComputeDistances();
+        //None of his will work until there are actually taxa tree
+        //(we cannot do it until we *have* that).
+        if (!params.compute_ml_tree_only) {
+            iqtree->ensureNumberOfThreadsIsSet(&params, false);
+            iqtree->initializeAllPartialLh();
+            handleGammaInvariantOptions(params, *iqtree);
 
-			// Optimize model parameters and branch lengths using ML for the initial tree
-			iqtree->clearAllPartialLH();
-			initTree = iqtree->ensureModelParametersAreSet(initEpsilon);
-			handleQuartetLikelihoodMapping(params, *iqtree);
-			finishedInitTree = iqtree->getCheckpoint()->getBool("finishedInitTree");
+            // Optimize model parameters and branch lengths using ML for the initial tree
+            iqtree->clearAllPartialLH();
+            initTree = iqtree->ensureModelParametersAreSet(initEpsilon);
+            handleQuartetLikelihoodMapping(params, *iqtree);
+            finishedInitTree = iqtree->getCheckpoint()->getBool("finishedInitTree");
 
-			// now overwrite with random tree
-			if (params.start_tree == STT_RANDOM_TREE && !finishedInitTree) {
-				cout << "Generate random initial Yule-Harding tree..." << endl;
-				iqtree->generateRandomTree(YULE_HARDING);
-				iqtree->wrapperFixNegativeBranch(true);
-				iqtree->initializeAllPartialLh();
-				initTree = iqtree->optimizeBranches(params.brlen_num_traversal);
-				cout << "Log-likelihood of random tree: " << iqtree->getCurScore() << endl;
-			}
+            // now overwrite with random tree
+            if (params.start_tree == STT_RANDOM_TREE && !finishedInitTree) {
+                cout << "Generate random initial Yule-Harding tree..." << endl;
+                iqtree->generateRandomTree(YULE_HARDING);
+                iqtree->wrapperFixNegativeBranch(true);
+                iqtree->initializeAllPartialLh();
+                initTree = iqtree->optimizeBranches(params.brlen_num_traversal);
+                cout << "Log-likelihood of random tree: " << iqtree->getCurScore() << endl;
+            }
 
-			/****************** NOW PERFORM MAXIMUM LIKELIHOOD TREE RECONSTRUCTION ******************/
+            /****************** NOW PERFORM MAXIMUM LIKELIHOOD TREE RECONSTRUCTION ******************/
 
-			// Update best tree
-			if (!finishedInitTree) {
-				iqtree->addTreeToCandidateSet(initTree, iqtree->getCurScore(), false, MPIHelper::getInstance().getProcessID());
-				iqtree->printResultTree();
-				iqtree->intermediateTrees.update(iqtree->getTreeString(), iqtree->getCurScore());
-				if (iqtree->isSuperTreeUnlinked()) {
-					PhyloSuperTree* stree = (PhyloSuperTree*)iqtree;
-					for (auto it = stree->begin(); it != stree->end(); it++)
-						((IQTree*)(*it))->addTreeToCandidateSet((*it)->getTreeString(),
-																(*it)->getCurScore(), false, MPIHelper::getInstance().getProcessID());
-				}
-			}
+            // Update best tree
+            if (!finishedInitTree) {
+                iqtree->addTreeToCandidateSet(initTree, iqtree->getCurScore(), false, MPIHelper::getInstance().getProcessID());
+                iqtree->printResultTree();
+                iqtree->intermediateTrees.update(iqtree->getTreeString(), iqtree->getCurScore());
+                if (iqtree->isSuperTreeUnlinked()) {
+                    PhyloSuperTree *stree = (PhyloSuperTree *)iqtree;
+                    for (auto it = stree->begin(); it != stree->end(); it++)
+                        ((IQTree *)(*it))->addTreeToCandidateSet((*it)->getTreeString(), (*it)->getCurScore(), false, MPIHelper::getInstance().getProcessID());
+                }
+            }
 
-			if (params.min_iterations && !iqtree->isBifurcating()) {
-				outError("Tree search does not work with initial multifurcating tree. Please specify `-n 0` to avoid this.");
-			}
+            if (params.min_iterations && !iqtree->isBifurcating()) {
+                outError("Tree search does not work with initial multifurcating tree. Please specify `-n 0` to avoid this.");
+            }
 
-			// Compute maximum likelihood distance
-			// ML distance is only needed for NNI/IQP
+            // Compute maximum likelihood distance
+            // ML distance is only needed for NNI/IQP
 
-			if ((params.min_iterations <= 1 || params.numInitTrees <= 1) && params.start_tree != STT_BIONJ) {
-				params.compute_ml_dist = false;
-			}
-			if ((!params.user_file.empty() || params.start_tree == STT_RANDOM_TREE) && params.snni && !params.iqp) {
-				params.compute_ml_dist = false;
-			}
-			if (params.constraint_tree_file) {
-				params.compute_ml_dist = false;
-			}
-			if (iqtree->isSuperTreeUnlinked()) {
-				params.compute_ml_dist = false;
-			}
-			std::string distFilePath =  iqtree->getDistanceFileWritten();
-			if (!distFilePath.empty()) {
-				cout << "Wrote distance file to... "
-					<< iqtree->getDistanceFileWritten() << endl;
-			}
-		}
-		bool wantMLDistances = MPIHelper::getInstance().isMaster() && !iqtree->getCheckpoint()->getBool("finishedCandidateSet");
-		if (wantMLDistances) {
-			wantMLDistances = !finishedInitTree && ((!params.dist_file && params.compute_ml_dist) || params.leastSquareBranch);
-		}
+            if ((params.min_iterations <= 1 || params.numInitTrees <= 1) && params.start_tree != STT_BIONJ) {
+                params.compute_ml_dist = false;
+            }
+            if ((!params.user_file.empty() || params.start_tree == STT_RANDOM_TREE) && params.snni && !params.iqp) {
+                params.compute_ml_dist = false;
+            }
+            if (params.constraint_tree_file) {
+                params.compute_ml_dist = false;
+            }
+            if (iqtree->isSuperTreeUnlinked()) {
+                params.compute_ml_dist = false;
+            }
+            std::string distFilePath = iqtree->getDistanceFileWritten();
+            if (!distFilePath.empty()) {
+                cout << "Wrote distance file to... "
+                     << iqtree->getDistanceFileWritten() << endl;
+            }
+        }
+        bool wantMLDistances = MPIHelper::getInstance().isMaster() && !iqtree->getCheckpoint()->getBool("finishedCandidateSet");
+        if (wantMLDistances) {
+            wantMLDistances = !finishedInitTree && ((!params.dist_file && params.compute_ml_dist) || params.leastSquareBranch);
+        }
 
-		//Compute ML distances, and generate BIONJ tree from those
-		if (wantMLDistances || params.compute_ml_tree_only) {
-			computeMLDist(params, *iqtree, getRealTime(), getCPUTime());
-			bool wasMLDistanceWrittenToFile = false;
-			if (params.user_file.empty()) {
-				if (params.start_tree != STT_RANDOM_TREE) {
-					if (!params.compute_ml_tree_only) {
-						iqtree->resetCurScore();
-					}
-					double start_bionj = getRealTime();
-					iqtree->computeBioNJ(params);
-					if (verbose_mode >= VB_MED) {
-						cout << "Wall-clock time spent creating initial tree was "
-						<< getRealTime() - start_bionj << " seconds" << endl;
-					}
-					if (params.optimize_ml_tree_with_parsimony) {
-						iqtree->optimizeConstructedTree();
-					}
-					wasMLDistanceWrittenToFile  = !params.dist_file;
-					if (params.compute_ml_tree_only) {
-						iqtree->initializeAllPartialPars();
-						iqtree->clearAllPartialLH();
-						iqtree->fixNegativeBranch(iqtree->isSuperTree());
-						//Because wrapperFixNegativeBranch resets the score,
-						//and that complains if the number of threads isn't set.
-						//(but... if you set the number of threads first, it
-						//complains about the negative path lengths).
+        //Compute ML distances, and generate BIONJ tree from those
+        if (wantMLDistances || params.compute_ml_tree_only) {
+            computeMLDist(params, *iqtree, getRealTime(), getCPUTime());
+            bool wasMLDistanceWrittenToFile = false;
+            if (params.user_file.empty()) {
+                if (params.start_tree != STT_RANDOM_TREE) {
+                    if (!params.compute_ml_tree_only) {
+                        iqtree->resetCurScore();
+                    }
+                    double start_bionj = getRealTime();
+                    iqtree->computeBioNJ(params);
+                    if (verbose_mode >= VB_MED) {
+                        cout << "Wall-clock time spent creating initial tree was "
+                             << getRealTime() - start_bionj << " seconds" << endl;
+                    }
+                    if (params.optimize_ml_tree_with_parsimony) {
+                        iqtree->optimizeConstructedTree();
+                    }
+                    wasMLDistanceWrittenToFile = !params.dist_file;
+                    if (params.compute_ml_tree_only) {
+                        iqtree->initializeAllPartialPars();
+                        iqtree->clearAllPartialLH();
+                        iqtree->fixNegativeBranch(iqtree->isSuperTree());
+                        //Because wrapperFixNegativeBranch resets the score,
+                        //and that complains if the number of threads isn't set.
+                        //(but... if you set the number of threads first, it
+                        //complains about the negative path lengths).
 
-						//This fails if there are any lengths <=0 (so it has to
-						//go after the fix-up for negative branch lengths).
-						iqtree->ensureNumberOfThreadsIsSet(&params, false);
-						iqtree->initializeAllPartialLh();
-						handleGammaInvariantOptions(params, *iqtree);
-						initTree = iqtree->ensureModelParametersAreSet(initEpsilon);
-						handleQuartetLikelihoodMapping(params, *iqtree);
-					} else {
-						iqtree->wrapperFixNegativeBranch(iqtree->isSuperTree());
-						iqtree->initializeAllPartialLh();
-						if (params.start_tree == STT_BIONJ) {
-							initTree = iqtree->optimizeModelParameters(params.min_iterations==0, initEpsilon);
-						} else {
-							initTree = iqtree->optimizeBranches();
-						}
-					}
-					cout << "Log-likelihood of " << params.start_tree_subtype_name
-						<< " tree: " << iqtree->getCurScore() << endl;
-					iqtree->candidateTrees.update(initTree, iqtree->getCurScore());
-				}
-			}
-			if (!wasMLDistanceWrittenToFile && !params.dist_file) {
-				double write_begin_time = getRealTime();
-				iqtree->printDistanceFile();
-				if (verbose_mode >= VB_MED) {
-					#ifdef _OPENMP
-					#pragma omp critical (io)
-					#endif
-					cout << "Time taken to write distance file ( " << iqtree->dist_file << ") : "
-					<< getRealTime() - write_begin_time << " seconds " << endl;
-				}
-			}
-		}
-		//iqtree->saveCheckpoint();
+                        //This fails if there are any lengths <=0 (so it has to
+                        //go after the fix-up for negative branch lengths).
+                        iqtree->ensureNumberOfThreadsIsSet(&params, false);
+                        iqtree->initializeAllPartialLh();
+                        handleGammaInvariantOptions(params, *iqtree);
+                        initTree = iqtree->ensureModelParametersAreSet(initEpsilon);
+                        handleQuartetLikelihoodMapping(params, *iqtree);
+                    }
+                    else {
+                        iqtree->wrapperFixNegativeBranch(iqtree->isSuperTree());
+                        iqtree->initializeAllPartialLh();
+                        if (params.start_tree == STT_BIONJ) {
+                            initTree = iqtree->optimizeModelParameters(params.min_iterations == 0, initEpsilon);
+                        }
+                        else {
+                            initTree = iqtree->optimizeBranches();
+                        }
+                    }
+                    cout << "Log-likelihood of " << params.start_tree_subtype_name
+                         << " tree: " << iqtree->getCurScore() << endl;
+                    iqtree->candidateTrees.update(initTree, iqtree->getCurScore());
+                }
+            }
+            if (!wasMLDistanceWrittenToFile && !params.dist_file) {
+                double write_begin_time = getRealTime();
+                iqtree->printDistanceFile();
+                if (verbose_mode >= VB_MED) {
+#ifdef _OPENMP
+#pragma omp critical(io)
+#endif
+                    cout << "Time taken to write distance file ( " << iqtree->dist_file << ") : "
+                         << getRealTime() - write_begin_time << " seconds " << endl;
+                }
+            }
+        }
+        //iqtree->saveCheckpoint();
 
-		cputime_search_start = getCPUTime();
-		realtime_search_start = getRealTime();
+        cputime_search_start = getCPUTime();
+        realtime_search_start = getRealTime();
 
-		if (params.leastSquareNNI) {
-			iqtree->computeSubtreeDists();
-		}
-		if (params.model_name == "WHTEST") {
-			cout << endl << "Testing model homogeneity by Weiss & von Haeseler (2003)..." << endl;
-			WHTest(params, *iqtree);
-		}
+        if (params.leastSquareNNI) {
+            iqtree->computeSubtreeDists();
+        }
+        if (params.model_name == "WHTEST") {
+            cout << endl
+                 << "Testing model homogeneity by Weiss & von Haeseler (2003)..." << endl;
+            WHTest(params, *iqtree);
+        }
 
-		saved_dist_mat = iqtree->dist_matrix;
-		pattern_lh = new double[iqtree->getAlnNPattern()];
+        saved_dist_mat = iqtree->dist_matrix;
+        pattern_lh = new double[iqtree->getAlnNPattern()];
 
-		// prune stable taxa
-		iqtree->doneComputingDistances();
-		pruneTaxa(params, *iqtree, pattern_lh, pruned_taxa, linked_name);
-    }else{
-		iqtree->initializeAllPartialPars();
-		iqtree->clearAllPartialLH();
-		iqtree->setCurScore(-iqtree->computeParsimony());
-		cputime_search_start = getCPUTime();
-		realtime_search_start = getRealTime();
+        // prune stable taxa
+        iqtree->doneComputingDistances();
+        pruneTaxa(params, *iqtree, pattern_lh, pruned_taxa, linked_name);
+    }
+    else {
+        iqtree->initializeAllPartialPars();
+        iqtree->clearAllPartialLH();
+        iqtree->setCurScore(-iqtree->computeParsimony());
+        cputime_search_start = getCPUTime();
+        realtime_search_start = getRealTime();
     }
 
     /***************************************** DO STOCHASTIC TREE SEARCH *******************************************/
@@ -2511,7 +2649,8 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         iqtree->doTreeSearch();
         iqtree->doneComputingDistances();
         iqtree->setAlignment(iqtree->aln);
-    } else {
+    }
+    else {
         iqtree->candidateTrees.saveCheckpoint();
         /* do SPR with likelihood function */
         if (params.tree_spr) {
@@ -2528,7 +2667,8 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         }
     }
     // restore pruned taxa
-    if(!params.mpboot2) restoreTaxa(*iqtree, saved_dist_mat, pruned_taxa, linked_name);
+    if (!params.mpboot2)
+        restoreTaxa(*iqtree, saved_dist_mat, pruned_taxa, linked_name);
 
     double search_cpu_time = getCPUTime() - cputime_search_start;
     double search_real_time = getRealTime() - realtime_search_start;
@@ -2544,7 +2684,8 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
     }
     if (!params.final_model_opt) {
         iqtree->setCurScore(iqtree->computeLikelihood());
-    } else if (params.min_iterations) {
+    }
+    else if (params.min_iterations) {
         iqtree->readTreeString(iqtree->getBestTrees()[0]);
         iqtree->initializeAllPartialLh();
         iqtree->clearAllPartialLH();
@@ -2555,19 +2696,22 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         if (iqtree->getCheckpoint()->getBool("finishedModelFinal")) {
             iqtree->setCurScore(iqtree->computeLikelihood());
             cout << "CHECKPOINT: Final model parameters restored" << endl;
-        } else {
-            if(!params.mpboot2) cout << "Performs final model parameters optimization" << endl;
+        }
+        else {
+            if (!params.mpboot2)
+                cout << "Performs final model parameters optimization" << endl;
             string tree;
             Params::getInstance().fixStableSplits = false;
             Params::getInstance().tabu = false;
-            if(params.mpboot2){ // Diep: consider remove this.
-        		iqtree->initializeAllPartialPars();
-        		iqtree->clearAllPartialLH();
-        		iqtree->setCurScore(-iqtree->computeParsimony());
-            	tree = iqtree->getTreeString();
+            if (params.mpboot2)
+            { // Diep: consider remove this.
+                iqtree->initializeAllPartialPars();
+                iqtree->clearAllPartialLH();
+                iqtree->setCurScore(-iqtree->computeParsimony());
+                tree = iqtree->getTreeString();
             }
             else
-            	tree = iqtree->optimizeModelParameters(true);
+                tree = iqtree->optimizeModelParameters(true);
             iqtree->addTreeToCandidateSet(tree, iqtree->getCurScore(), false, MPIHelper::getInstance().getProcessID());
             iqtree->getCheckpoint()->putBool("finishedModelFinal", true);
             iqtree->saveCheckpoint();
@@ -2575,18 +2719,18 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
     }
 
     if (iqtree->isSuperTree()) {
-        ((PhyloSuperTree*) iqtree)->computeBranchLengths();
-        ((PhyloSuperTree*) iqtree)->printBestPartitionParams((string(params.out_prefix) + ".best_model.nex").c_str());
+        ((PhyloSuperTree *)iqtree)->computeBranchLengths();
+        ((PhyloSuperTree *)iqtree)->printBestPartitionParams((string(params.out_prefix) + ".best_model.nex").c_str());
     }
 
-    if(params.mpboot2){
-    	cout.precision(0);
-    	cout.setf(ios_base::fixed);
-    	cout << "BEST SCORE FOUND : " << int(-iqtree->getCurScore()) << endl;
-    }else{
-    	cout << "BEST SCORE FOUND : " << iqtree->getCurScore() << endl;
+    if (params.mpboot2) {
+        cout.precision(0);
+        cout.setf(ios_base::fixed);
+        cout << "BEST SCORE FOUND : " << int(-iqtree->getCurScore()) << endl;
     }
-
+    else {
+        cout << "BEST SCORE FOUND : " << iqtree->getCurScore() << endl;
+    }
 
     if (params.write_candidate_trees) {
         printTrees(iqtree->getBestTrees(), params, ".imd_trees");
@@ -2597,10 +2741,9 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
 
     /* root the tree at the first sequence */
     // BQM: WHY SETTING THIS ROOT NODE????
-//    iqtree->root = iqtree->findLeafName(iqtree->aln->getSeqName(0));
-//    assert(iqtree->root);
+    //    iqtree->root = iqtree->findLeafName(iqtree->aln->getSeqName(0));
+    //    assert(iqtree->root);
     iqtree->setRootNode(params.root);
-
 
     if ((!params.pll) && (!params.mpboot2)) {
         iqtree->computeLikelihood(pattern_lh);
@@ -2614,7 +2757,7 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         cout << "Testing root positions..." << endl;
         iqtree->testRootPosition(true, params.loglh_epsilon);
     }
-    
+
     /****** perform SH-aLRT test ******************/
     if ((params.aLRT_replicates > 0 || params.localbp_replicates > 0 || params.aLRT_test || params.aBayes_test) && !params.pll) {
         double mytime = getRealTime();
@@ -2622,7 +2765,7 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         cout << endl;
         if (params.aLRT_replicates > 0)
             cout << "Testing tree branches by SH-like aLRT with "
-                << params.aLRT_replicates << " replicates..." << endl;
+                 << params.aLRT_replicates << " replicates..." << endl;
         if (params.localbp_replicates)
             cout << "Testing tree branches by local-BP test with " << params.localbp_replicates << " replicates..." << endl;
         if (params.aLRT_test)
@@ -2632,9 +2775,10 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         iqtree->setRootNode(params.root);
         if (iqtree->isBifurcating()) {
             iqtree->testAllBranches(params.aLRT_threshold, iqtree->getCurScore(),
-                    pattern_lh, params.aLRT_replicates, params.localbp_replicates, params.aLRT_test, params.aBayes_test);
+                                    pattern_lh, params.aLRT_replicates, params.localbp_replicates, params.aLRT_test, params.aBayes_test);
             cout << getRealTime() - mytime << " sec." << endl;
-        } else {
+        }
+        else {
             outWarning("Tree is multifurcating and such test is not applicable");
             params.aLRT_replicates = params.localbp_replicates = params.aLRT_test = params.aBayes_test = 0;
         }
@@ -2644,14 +2788,14 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         cout << "Creating " << RESAMPLE_NAME << " support values..." << endl;
         if (!params.online_bootstrap)
             outError("Obsolete feature");
-//            runGuidedBootstrap(params, iqtree->aln, iqtree);
+        //            runGuidedBootstrap(params, iqtree->aln, iqtree);
         else
             iqtree->summarizeBootstrap(params);
     }
 
     if (params.collapse_zero_branch) {
         cout << "Collapsing near-zero internal branches... ";
-        cout << iqtree->collapseInternalBranches(NULL, NULL, params.min_branch_length*4);
+        cout << iqtree->collapseInternalBranches(NULL, NULL, params.min_branch_length * 4);
         cout << " collapsed" << endl;
     }
 
@@ -2661,11 +2805,12 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         iqtree->writeUFBootTrees(params);
 
     if (params.gbo_replicates && params.online_bootstrap && !iqtree->isSuperTreeUnlinked()) {
-        
-        cout << endl << "Computing " << RESAMPLE_NAME << " consensus tree..." << endl;
+
+        cout << endl
+             << "Computing " << RESAMPLE_NAME << " consensus tree..." << endl;
         string splitsfile = params.out_prefix;
         splitsfile += ".splits.nex";
-        double weight_threshold = (params.split_threshold<1) ? params.split_threshold : (params.gbo_replicates-1.0)/params.gbo_replicates;
+        double weight_threshold = (params.split_threshold < 1) ? params.split_threshold : (params.gbo_replicates - 1.0) / params.gbo_replicates;
         weight_threshold *= 100.0;
         computeConsensusTree(splitsfile.c_str(), 0, 1000000, -1,
                              weight_threshold, nullptr,
@@ -2681,7 +2826,7 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         cout << "Recomputing the log-likelihood of the intermediate trees ... " << endl;
         iqtree->intermediateTrees.recomputeLoglOfAllTrees(*iqtree);
     }
-    
+
     // BUG FIX: readTreeString(bestTreeString) not needed before this line
     iqtree->printResultTree();
     iqtree->saveCheckpoint();
@@ -2691,9 +2836,9 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
         out_file_UB += ".UB.NNI.main";
         ofstream out_UB;
         out_UB.exceptions(ios::failbit | ios::badbit);
-        out_UB.open((char *) out_file_UB.c_str(), std::ofstream::out | std::ofstream::app);
+        out_UB.open((char *)out_file_UB.c_str(), std::ofstream::out | std::ofstream::app);
         out_UB << iqtree->leafNum << "\t" << iqtree->aln->getNSite() << "\t" << iqtree->params->upper_bound_frac << "\t"
-        << iqtree->skippedNNIub << "\t" << iqtree->totalNNIub << "\t" << iqtree->getBestScore() << endl;
+               << iqtree->skippedNNIub << "\t" << iqtree->totalNNIub << "\t" << iqtree->getBestScore() << endl;
         //iqtree->minUB << "\t" << iqtree->meanUB/iqtree->skippedNNIub << "\t" << iqtree->maxUB << endl;
         out_UB.close();
     }
@@ -2708,7 +2853,8 @@ void runTreeReconstruction(Params &params, IQTree* &iqtree) {
 
 void handleGammaInvariantOptions(Params &params, IQTree &iqtree) {
     if (iqtree.getRate()->name.find("+I+G") != string::npos) {
-        if (params.alpha_invar_file != NULL) { // COMPUTE TREE LIKELIHOOD BASED ON THE INPUT ALPHA AND P_INVAR VALUE
+        if (params.alpha_invar_file != NULL)
+        { // COMPUTE TREE LIKELIHOOD BASED ON THE INPUT ALPHA AND P_INVAR VALUE
             computeLoglFromUserInputGAMMAInvar(params, iqtree);
             exit(0);
         }
@@ -2721,7 +2867,8 @@ void handleGammaInvariantOptions(Params &params, IQTree &iqtree) {
 
 void handleQuartetLikelihoodMapping(Params &params, IQTree &iqtree) {
     if (params.lmap_num_quartets >= 0) {
-        cout << endl << "Performing likelihood mapping with ";
+        cout << endl
+             << "Performing likelihood mapping with ";
         if (params.lmap_num_quartets > 0)
             cout << params.lmap_num_quartets;
         else
@@ -2729,7 +2876,8 @@ void handleQuartetLikelihoodMapping(Params &params, IQTree &iqtree) {
         cout << " quartets..." << endl;
         double lkmap_time = getRealTime();
         iqtree.doLikelihoodMapping();
-        cout << "Likelihood mapping needed " << getRealTime()-lkmap_time << " seconds" << endl << endl;
+        cout << "Likelihood mapping needed " << getRealTime() - lkmap_time << " seconds" << endl
+             << endl;
     }
 }
 
@@ -2738,7 +2886,7 @@ void handleQuartetLikelihoodMapping(Params &params, IQTree &iqtree) {
  ***********************************************************/
 void runMultipleTreeReconstruction(Params &params, Alignment *alignment, IQTree *tree) {
     ModelCheckpoint *model_info = new ModelCheckpoint;
-    
+
     if (params.suppress_output_flags & OUT_TREEFILE)
         outError("Suppress .treefile not allowed with -runs option");
     string treefile_name = params.out_prefix;
@@ -2746,24 +2894,27 @@ void runMultipleTreeReconstruction(Params &params, Alignment *alignment, IQTree 
     string runtrees_name = params.out_prefix;
     runtrees_name += ".runtrees";
     DoubleVector runLnL;
-    
+
     if (tree->getCheckpoint()->getVector("runLnL", runLnL)) {
-        cout << endl << "CHECKPOINT: " << runLnL.size() << " independent run(s) restored" << endl;
-    } else if (MPIHelper::getInstance().isMaster()) {
+        cout << endl
+             << "CHECKPOINT: " << runLnL.size() << " independent run(s) restored" << endl;
+    }
+    else if (MPIHelper::getInstance().isMaster()) {
         // first empty the runtrees file
         try {
             ofstream tree_out;
             tree_out.exceptions(ios::failbit | ios::badbit);
             tree_out.open(runtrees_name.c_str());
             tree_out.close();
-        } catch (ios::failure) {
+        }
+        catch (ios::failure) {
             outError(ERR_WRITE_OUTPUT, runtrees_name);
         }
     }
-    
+
     double start_time = getCPUTime();
     double start_real_time = getRealTime();
-    
+
     int orig_seed = params.ran_seed;
     int run;
     int best_run = 0;
@@ -2774,46 +2925,51 @@ void runMultipleTreeReconstruction(Params &params, Alignment *alignment, IQTree 
     // do multiple tree reconstruction
     for (run = static_cast<int>(runLnL.size()); run < params.num_runs; run++) {
 
-        tree->getCheckpoint()->startStruct("run" + convertIntToString(run+1));
-        
-        params.ran_seed = orig_seed + run*1000 + MPIHelper::getInstance().getProcessID();
-        
-        cout << endl << "---> START RUN NUMBER " << run + 1 << " (seed: " << params.ran_seed << ")" << endl;
-        
+        tree->getCheckpoint()->startStruct("run" + convertIntToString(run + 1));
+
+        params.ran_seed = orig_seed + run * 1000 + MPIHelper::getInstance().getProcessID();
+
+        cout << endl
+             << "---> START RUN NUMBER " << run + 1 << " (seed: " << params.ran_seed << ")" << endl;
+
         tree->getCheckpoint()->put("seed", params.ran_seed);
-        
+
         // initialize random stream for replicating the run
-        
+
         int *saved_randstream = randstream;
         init_random(params.ran_seed);
-        
+
         IQTree *iqtree;
-        if (alignment->isSuperAlignment()){
-            if(params.partition_type != BRLEN_OPTIMIZE){
-                iqtree = new PhyloSuperTreePlen((SuperAlignment*) alignment, (PhyloSuperTree*) tree);
-            } else {
-                iqtree = new PhyloSuperTree((SuperAlignment*) alignment, (PhyloSuperTree*) tree);
+        if (alignment->isSuperAlignment()) {
+            if (params.partition_type != BRLEN_OPTIMIZE) {
+                iqtree = new PhyloSuperTreePlen((SuperAlignment *)alignment, (PhyloSuperTree *)tree);
             }
-        } else {
+            else {
+                iqtree = new PhyloSuperTree((SuperAlignment *)alignment, (PhyloSuperTree *)tree);
+            }
+        }
+        else {
             // allocate heterotachy tree if neccessary
             auto pos = posRateHeterotachy(alignment->model_name);
-            
+
             if (params.num_mixlen > 1) {
                 iqtree = new PhyloTreeMixlen(alignment, params.num_mixlen);
-            } else if (pos != string::npos) {
+            }
+            else if (pos != string::npos) {
                 iqtree = new PhyloTreeMixlen(alignment, 0);
-            } else
+            }
+            else
                 iqtree = new IQTree(alignment);
         }
-        
+
         if (!tree->constraintTree.empty()) {
             iqtree->constraintTree.readConstraint(tree->constraintTree);
         }
-        
+
         // set checkpoint
         iqtree->setCheckpoint(tree->getCheckpoint());
         iqtree->num_precision = tree->num_precision;
-        
+
         runTreeReconstruction(params, iqtree);
         // read in the output tree file
         stringstream ss;
@@ -2827,13 +2983,14 @@ void runMultipleTreeReconstruction(Params &params, Alignment *alignment, IQTree 
                 tree_out << "[ lh=" << iqtree->getBestScore() << " ]";
                 tree_out << ss.str() << endl;
                 tree_out.close();
-            } catch (ios::failure) {
+            }
+            catch (ios::failure) {
                 outError(ERR_WRITE_OUTPUT, runtrees_name);
             }
         // fix bug: set the model for original tree after testing
-        if ((params.model_name.substr(0,4) == "TEST" || params.model_name.substr(0,2) == "MF") && tree->isSuperTree()) {
-            PhyloSuperTree *stree = ((PhyloSuperTree*)tree);
-            stree->part_info =  ((PhyloSuperTree*)iqtree)->part_info;
+        if ((params.model_name.substr(0, 4) == "TEST" || params.model_name.substr(0, 2) == "MF") && tree->isSuperTree()) {
+            PhyloSuperTree *stree = ((PhyloSuperTree *)tree);
+            stree->part_info = ((PhyloSuperTree *)iqtree)->part_info;
         }
         runLnL.push_back(iqtree->getBestScore());
 
@@ -2851,25 +3008,27 @@ void runMultipleTreeReconstruction(Params &params, Alignment *alignment, IQTree 
         }
         if (iqtree->getBestScore() > runLnL[best_run])
             best_run = run;
-            
+
         if (params.num_runs == 1)
             reportPhyloAnalysis(params, *iqtree, *model_info);
         delete iqtree;
-        
+
         tree->getCheckpoint()->endStruct();
         // clear all checkpointed information
-//        tree->getCheckpoint()->keepKeyPrefix("iqtree");
+        //        tree->getCheckpoint()->keepKeyPrefix("iqtree");
         tree->getCheckpoint()->putVector("runLnL", runLnL);
-//        tree->getCheckpoint()->putBool("finished", false);
+        //        tree->getCheckpoint()->putBool("finished", false);
         tree->getCheckpoint()->dump(true);
         // restore randstream
         finish_random();
         randstream = saved_randstream;
     }
-    
-    cout << endl << "---> SUMMARIZE RESULTS FROM " << runLnL.size() << " RUNS" << endl << endl;
-    
-    cout << "Run " << best_run+1 <<  " gave best log-likelihood: " << runLnL[best_run] << endl;
+
+    cout << endl
+         << "---> SUMMARIZE RESULTS FROM " << runLnL.size() << " RUNS" << endl
+         << endl;
+
+    cout << "Run " << best_run + 1 << " gave best log-likelihood: " << runLnL[best_run] << endl;
 
     // initialize tree and model structure
     ModelsBlock *models_block = readModelsDefinition(params);
@@ -2884,12 +3043,12 @@ void runMultipleTreeReconstruction(Params &params, Alignment *alignment, IQTree 
     delete models_block;
 
     // restore the tree and model from the best run
-    tree->getCheckpoint()->startStruct("run" + convertIntToString(best_run+1));
+    tree->getCheckpoint()->startStruct("run" + convertIntToString(best_run + 1));
     tree->restoreCheckpoint();
     tree->getModelFactory()->restoreCheckpoint();
     tree->setCurScore(runLnL[best_run]);
     if (params.gbo_replicates && !tree->isSuperTreeUnlinked()) {
-        
+
         string out_file = (string)params.out_prefix + ".splits";
         if (params.print_splits_file) {
             tree->boot_splits.back()->saveFile(out_file.c_str(), IN_OTHER, true);
@@ -2920,13 +3079,14 @@ void runMultipleTreeReconstruction(Params &params, Alignment *alignment, IQTree 
         cout << "Consensus tree written to " << contree_file << endl;
     }
     tree->getCheckpoint()->endStruct();
-    
+
     // overwrite .treefile
     tree->printResultTree();
 
     if (MPIHelper::getInstance().isMaster()) {
         cout << "Total CPU time for " << params.num_runs << " runs: " << (getCPUTime() - start_time) << " seconds." << endl;
-        cout << "Total wall-clock time for " << params.num_runs << " runs: " << (getRealTime() - start_real_time) << " seconds." << endl << endl;
+        cout << "Total wall-clock time for " << params.num_runs << " runs: " << (getRealTime() - start_real_time) << " seconds." << endl
+             << endl;
     }
     delete model_info;
 }
@@ -2945,9 +3105,9 @@ void computeLoglFromUserInputGAMMAInvar(Params &params, IQTree &iqtree) {
             p_invars.push_back(p_invar);
         }
         aiFile.close();
-        cout << "Computing tree logl based on the alpha and p_invar values in " << params.alpha_invar_file << " ..." <<
-        endl;
-    } else {
+        cout << "Computing tree logl based on the alpha and p_invar values in " << params.alpha_invar_file << " ..." << endl;
+    }
+    else {
         stringstream errMsg;
         errMsg << "Could not find file: " << params.alpha_invar_file;
         outError(errMsg.str().c_str());
@@ -2979,16 +3139,17 @@ void searchGAMMAInvarByRestarting(IQTree &iqtree) {
         iqtree.setCurScore(iqtree.optimizeAllBranches(1));
     else
         iqtree.setCurScore(iqtree.computeLikelihood());
-    RateHeterogeneity* site_rates = (iqtree.getRate());
-    double values[] = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 };
+    RateHeterogeneity *site_rates = (iqtree.getRate());
+    double values[] = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
     vector<double> initAlphas;
     if (Params::getInstance().randomAlpha) {
         while (initAlphas.size() < 10) {
             double initAlpha = random_double();
-            initAlphas.push_back(initAlpha + iqtree.params->min_gamma_shape*2);
+            initAlphas.push_back(initAlpha + iqtree.params->min_gamma_shape * 2);
         }
-    } else {
-        initAlphas.assign(values, values+10);
+    }
+    else {
+        initAlphas.assign(values, values + 10);
     }
     double bestLogl = iqtree.getCurScore();
     double bestAlpha = 0.0;
@@ -3006,15 +3167,15 @@ void searchGAMMAInvarByRestarting(IQTree &iqtree) {
     int numStates = iqtree.aln->num_states;
     double *state_freqs = new double[numStates];
     iqtree.getModel()->getStateFrequency(state_freqs);
-    double *bestStateFreqs =  new double[numStates];
+    double *bestStateFreqs = new double[numStates];
 
     for (int i = 0; i < 10; i++) {
         cout << endl;
         cout << "Testing alpha: " << initAlphas[i] << endl;
         // Initialize model parameters
         iqtree.restoreBranchLengths(lenvec);
-        ((ModelMarkov*) iqtree.getModel())->setRateMatrix(rates);
-        ((ModelMarkov*) iqtree.getModel())->setStateFrequency(state_freqs);
+        ((ModelMarkov *)iqtree.getModel())->setRateMatrix(rates);
+        ((ModelMarkov *)iqtree.getModel())->setStateFrequency(state_freqs);
         iqtree.getModel()->decomposeRateMatrix();
         site_rates->setGammaShape(initAlphas[i]);
         site_rates->setPInvar(initPInvar);
@@ -3024,7 +3185,7 @@ void searchGAMMAInvarByRestarting(IQTree &iqtree) {
         double estPInv = iqtree.getRate()->getPInvar();
         double logl = iqtree.getCurScore();
         cout << "Est. alpha: " << estAlpha << " / Est. pinv: " << estPInv
-        << " / Logl: " << logl << endl;
+             << " / Logl: " << logl << endl;
 
         if (iqtree.getCurScore() > bestLogl) {
             bestLogl = logl;
@@ -3040,8 +3201,8 @@ void searchGAMMAInvarByRestarting(IQTree &iqtree) {
     site_rates->setFixGammaShape(false);
     site_rates->setPInvar(bestPInvar);
     site_rates->setFixPInvar(false);
-    ((ModelMarkov*) iqtree.getModel())->setRateMatrix(bestRates);
-    ((ModelMarkov*) iqtree.getModel())->setStateFrequency(bestStateFreqs);
+    ((ModelMarkov *)iqtree.getModel())->setRateMatrix(bestRates);
+    ((ModelMarkov *)iqtree.getModel())->setStateFrequency(bestStateFreqs);
     iqtree.restoreBranchLengths(bestLens);
     iqtree.getModel()->decomposeRateMatrix();
     iqtree.clearAllPartialLH();
@@ -3050,10 +3211,10 @@ void searchGAMMAInvarByRestarting(IQTree &iqtree) {
     cout << "Best initial alpha: " << bestAlpha << " / initial pinv: " << bestPInvar << " / ";
     cout << "Logl: " << iqtree.getCurScore() << endl;
 
-    delete [] rates;
-    delete [] state_freqs;
-    delete [] bestRates;
-    delete [] bestStateFreqs;
+    delete[] rates;
+    delete[] state_freqs;
+    delete[] bestRates;
+    delete[] bestStateFreqs;
 }
 
 // Test alpha fom 0.1 to 15 and p_invar from 0.1 to 0.99, stepsize = 0.01
@@ -3062,21 +3223,23 @@ void exhaustiveSearchGAMMAInvar(Params &params, IQTree &iqtree) {
     double alphaMax = 10.00;
     double p_invarMin = 0.01;
     double p_invarMax = 1.00;
-//    double p_invarMax = iqtree.aln->frac_const_sites;
+    //    double p_invarMax = iqtree.aln->frac_const_sites;
     double stepSize = 0.01;
-    int numAlpha = (int) floor((alphaMax - alphaMin)/stepSize);
-    int numInvar = (int) floor((p_invarMax - p_invarMin)/stepSize);
+    int numAlpha = (int)floor((alphaMax - alphaMin) / stepSize);
+    int numInvar = (int)floor((p_invarMax - p_invarMin) / stepSize);
 
-    cout << "EVALUATING " << numAlpha*numInvar << " COMBINATIONS OF " << " alpha=" << alphaMin << ".." << alphaMax
-         << " AND " << " p-invar=" << p_invarMin << ".." << p_invarMax
+    cout << "EVALUATING " << numAlpha * numInvar << " COMBINATIONS OF "
+         << " alpha=" << alphaMin << ".." << alphaMax
+         << " AND "
+         << " p-invar=" << p_invarMin << ".." << p_invarMax
          << " (epsilon: " << params.modelEps << ")" << endl;
 
-//    vector<string> results;
-//    results.reserve((unsigned long) (numAlpha * numInvar));
+    //    vector<string> results;
+    //    results.reserve((unsigned long) (numAlpha * numInvar));
     DoubleVector lenvec;
     iqtree.saveBranchLengths(lenvec);
 
-    RateHeterogeneity* site_rates = (iqtree.getRate());
+    RateHeterogeneity *site_rates = (iqtree.getRate());
     site_rates->setFixPInvar(true);
     site_rates->setFixGammaShape(true);
 
@@ -3094,17 +3257,17 @@ void exhaustiveSearchGAMMAInvar(Params &params, IQTree &iqtree) {
             site_rates->setPInvar(p_invar);
             iqtree.clearAllPartialLH();
             double lh = iqtree.getModelFactory()->optimizeParameters(params.fixed_branch_length, false, params.modelEps);
-//            stringstream ss;
-//            ss << fixed << setprecision(2) << alpha << " " << p_invar << " " << lh << " " << iqtree.treeLength();
+            //            stringstream ss;
+            //            ss << fixed << setprecision(2) << alpha << " " << p_invar << " " << lh << " " << iqtree.treeLength();
             aiFileResults << alpha << " " << p_invar << " " << lh << " " << iqtree.treeLength() << endl;
             //cout << ss.str() << endl;
-//            results.push_back(ss.str());
+            //            results.push_back(ss.str());
             iqtree.restoreBranchLengths(lenvec);
         }
     }
-//    for (vector<string>::iterator it = results.begin(); it != results.end(); it++) {
-//                aiFileResults << (*it) << endl;
-//            }
+    //    for (vector<string>::iterator it = results.begin(); it != results.end(); it++) {
+    //                aiFileResults << (*it) << endl;
+    //            }
     aiFileResults.close();
     cout << "Results were written to: " << aiResultsFileName << endl;
     cout << "Wall clock time used: " << getRealTime() - params.start_real_time << endl;
@@ -3126,7 +3289,7 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
     params.localbp_replicates = 0;
     params.aLRT_test = false;
     params.aBayes_test = false;
-    
+
     if (params.suppress_output_flags & OUT_TREEFILE)
         outError("Suppress .treefile not allowed for standard bootstrap");
     string treefile_name = params.out_prefix;
@@ -3140,49 +3303,54 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
     int bootSample = 0;
     if (tree->getCheckpoint()->get("bootSample", bootSample)) {
         cout << "CHECKPOINT: " << bootSample << " bootstrap analyses restored" << endl;
-    } else if (MPIHelper::getInstance().isMaster()) {
+    }
+    else if (MPIHelper::getInstance().isMaster()) {
         // first empty the boottrees file
         try {
             ofstream tree_out;
             tree_out.exceptions(ios::failbit | ios::badbit);
             tree_out.open(boottrees_name.c_str());
             tree_out.close();
-        } catch (ios::failure) {
+        }
+        catch (ios::failure) {
             outError(ERR_WRITE_OUTPUT, boottrees_name);
         }
 
         // empty the bootaln file
         if (params.print_bootaln)
-        try {
-            ofstream tree_out;
-            tree_out.exceptions(ios::failbit | ios::badbit);
-            tree_out.open(bootaln_name.c_str());
-            tree_out.close();
-        } catch (ios::failure) {
-            outError(ERR_WRITE_OUTPUT, bootaln_name);
-        }
+            try {
+                ofstream tree_out;
+                tree_out.exceptions(ios::failbit | ios::badbit);
+                tree_out.open(bootaln_name.c_str());
+                tree_out.close();
+            }
+            catch (ios::failure) {
+                outError(ERR_WRITE_OUTPUT, bootaln_name);
+            }
     }
 
     double start_time = getCPUTime();
     double start_real_time = getRealTime();
 
     startTreeReconstruction(params, tree, *model_info);
-    
+
     // 2018-06-21: bug fix: alignment might be changed by -m ...MERGE
     alignment = tree->aln;
-    
+
     // do bootstrap analysis
     for (int sample = bootSample; sample < params.num_bootstrap_samples; sample++) {
-        cout << endl << "===> START " << RESAMPLE_NAME_UPPER << " REPLICATE NUMBER "
-                << sample + 1 << endl << endl;
+        cout << endl
+             << "===> START " << RESAMPLE_NAME_UPPER << " REPLICATE NUMBER "
+             << sample + 1 << endl
+             << endl;
 
         // 2015-12-17: initialize random stream for creating bootstrap samples
         // mainly so that checkpointing does not need to save bootstrap samples
         int *saved_randstream = randstream;
         init_random(params.ran_seed + sample);
 
-        Alignment* bootstrap_alignment;
-        cout << "Creating " << RESAMPLE_NAME << " alignment (seed: " << params.ran_seed+sample << ")..." << endl;
+        Alignment *bootstrap_alignment;
+        cout << "Creating " << RESAMPLE_NAME << " alignment (seed: " << params.ran_seed + sample << ")..." << endl;
 
         if (alignment->isSuperAlignment())
             bootstrap_alignment = new SuperAlignment;
@@ -3206,21 +3374,25 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
             boot_lh.close();
         }
         IQTree *boot_tree;
-        if (alignment->isSuperAlignment()){
-            if(params.partition_type != BRLEN_OPTIMIZE){
-                boot_tree = new PhyloSuperTreePlen((SuperAlignment*) bootstrap_alignment, (PhyloSuperTree*) tree);
-            } else {
-                boot_tree = new PhyloSuperTree((SuperAlignment*) bootstrap_alignment, (PhyloSuperTree*) tree);
+        if (alignment->isSuperAlignment()) {
+            if (params.partition_type != BRLEN_OPTIMIZE) {
+                boot_tree = new PhyloSuperTreePlen((SuperAlignment *)bootstrap_alignment, (PhyloSuperTree *)tree);
             }
-        } else {
+            else {
+                boot_tree = new PhyloSuperTree((SuperAlignment *)bootstrap_alignment, (PhyloSuperTree *)tree);
+            }
+        }
+        else {
             // allocate heterotachy tree if neccessary
             auto pos = posRateHeterotachy(alignment->model_name);
-            
+
             if (params.num_mixlen > 1) {
                 boot_tree = new PhyloTreeMixlen(bootstrap_alignment, params.num_mixlen);
-            } else if (pos != string::npos) {
+            }
+            else if (pos != string::npos) {
                 boot_tree = new PhyloTreeMixlen(bootstrap_alignment, 0);
-            } else
+            }
+            else
                 boot_tree = new IQTree(bootstrap_alignment);
         }
         if (params.print_bootaln && MPIHelper::getInstance().isMaster()) {
@@ -3228,8 +3400,8 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
         }
 
         if (params.print_boot_site_freq && MPIHelper::getInstance().isMaster()) {
-            printSiteStateFreq((((string)params.out_prefix)+"."+convertIntToString(sample)+".bootsitefreq").c_str(), bootstrap_alignment);
-                bootstrap_alignment->printAlignment(params.aln_output_format, (((string)params.out_prefix)+"."+convertIntToString(sample)+".bootaln").c_str());
+            printSiteStateFreq((((string)params.out_prefix) + "." + convertIntToString(sample) + ".bootsitefreq").c_str(), bootstrap_alignment);
+            bootstrap_alignment->printAlignment(params.aln_output_format, (((string)params.out_prefix) + "." + convertIntToString(sample) + ".bootaln").c_str());
         }
 
         if (!tree->constraintTree.empty()) {
@@ -3244,31 +3416,32 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
         // read in the output tree file
         stringstream ss;
         boot_tree->printTree(ss);
-//        try {
-//            ifstream tree_in;
-//            tree_in.exceptions(ios::failbit | ios::badbit);
-//            tree_in.open(treefile_name.c_str());
-//            tree_in >> tree_str;
-//            tree_in.close();
-//        } catch (ios::failure) {
-//            outError(ERR_READ_INPUT, treefile_name);
-//        }
+        //        try {
+        //            ifstream tree_in;
+        //            tree_in.exceptions(ios::failbit | ios::badbit);
+        //            tree_in.open(treefile_name.c_str());
+        //            tree_in >> tree_str;
+        //            tree_in.close();
+        //        } catch (ios::failure) {
+        //            outError(ERR_READ_INPUT, treefile_name);
+        //        }
         // write the tree into .boottrees file
         if (MPIHelper::getInstance().isMaster())
-        try {
-            ofstream tree_out;
-            tree_out.exceptions(ios::failbit | ios::badbit);
-            tree_out.open(boottrees_name.c_str(), ios_base::out | ios_base::app);
-            tree_out << ss.str() << endl;
-            tree_out.close();
-        } catch (ios::failure) {
-            outError(ERR_WRITE_OUTPUT, boottrees_name);
-        }
+            try {
+                ofstream tree_out;
+                tree_out.exceptions(ios::failbit | ios::badbit);
+                tree_out.open(boottrees_name.c_str(), ios_base::out | ios_base::app);
+                tree_out << ss.str() << endl;
+                tree_out.close();
+            }
+            catch (ios::failure) {
+                outError(ERR_WRITE_OUTPUT, boottrees_name);
+            }
         // OBSOLETE fix bug: set the model for original tree after testing
-//        if ((params.model_name.substr(0,4) == "TEST" || params.model_name.substr(0,2) == "MF") && tree->isSuperTree()) {
-//            PhyloSuperTree *stree = ((PhyloSuperTree*)tree);
-//            stree->part_info =  ((PhyloSuperTree*)boot_tree)->part_info;
-//        }
+        //        if ((params.model_name.substr(0,4) == "TEST" || params.model_name.substr(0,2) == "MF") && tree->isSuperTree()) {
+        //            PhyloSuperTree *stree = ((PhyloSuperTree*)tree);
+        //            stree->part_info =  ((PhyloSuperTree*)boot_tree)->part_info;
+        //        }
         if (params.num_bootstrap_samples == 1)
             reportPhyloAnalysis(params, *boot_tree, *model_info);
         // WHY was the following line missing, which caused memory leak?
@@ -3279,18 +3452,19 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
 
         // clear all checkpointed information
         tree->getCheckpoint()->keepKeyPrefix("iqtree");
-        tree->getCheckpoint()->put("bootSample", sample+1);
+        tree->getCheckpoint()->put("bootSample", sample + 1);
         tree->getCheckpoint()->putBool("finished", false);
         tree->getCheckpoint()->dump(true);
     }
 
-
     if (params.consensus_type == CT_CONSENSUS_TREE && MPIHelper::getInstance().isMaster()) {
 
-        cout << endl << "===> COMPUTE CONSENSUS TREE FROM " << params.num_bootstrap_samples
-            << RESAMPLE_NAME_UPPER << " TREES" << endl << endl;
+        cout << endl
+             << "===> COMPUTE CONSENSUS TREE FROM " << params.num_bootstrap_samples
+             << RESAMPLE_NAME_UPPER << " TREES" << endl
+             << endl;
         string root_name = (params.root) ? params.root : alignment->getSeqName(0);
-        const char* saved_root = params.root;
+        const char *saved_root = params.root;
         params.root = root_name.c_str();
         computeConsensusTree(boottrees_name.c_str(), 0, 1000000, -1.0,
                              params.split_threshold, nullptr,
@@ -3299,7 +3473,9 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
     }
 
     if (params.compute_ml_tree) {
-        cout << endl << "===> START ANALYSIS ON THE ORIGINAL ALIGNMENT" << endl << endl;
+        cout << endl
+             << "===> START ANALYSIS ON THE ORIGINAL ALIGNMENT" << endl
+             << endl;
         // restore branch tests
         params.aLRT_replicates = saved_aLRT_replicates;
         params.localbp_replicates = saved_localbp_replicates;
@@ -3317,8 +3493,10 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
                 optimizeConTree(params, tree);
             }
 
-            cout << endl << "===> ASSIGN " << RESAMPLE_NAME_UPPER
-                << " SUPPORTS TO THE TREE FROM ORIGINAL ALIGNMENT" << endl << endl;
+            cout << endl
+                 << "===> ASSIGN " << RESAMPLE_NAME_UPPER
+                 << " SUPPORTS TO THE TREE FROM ORIGINAL ALIGNMENT" << endl
+                 << endl;
             MExtTree ext_tree;
             assignBootstrapSupport(boottrees_name.c_str(), 0, 1000000,
                                    treefile_name.c_str(), false, treefile_name.c_str(),
@@ -3326,7 +3504,8 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
             tree->copyTree(&ext_tree);
             reportPhyloAnalysis(params, *tree, *model_info);
         }
-    } else if (params.consensus_type == CT_CONSENSUS_TREE && MPIHelper::getInstance().isMaster()) {
+    }
+    else if (params.consensus_type == CT_CONSENSUS_TREE && MPIHelper::getInstance().isMaster()) {
         int mi = params.min_iterations;
         STOP_CONDITION sc = params.stop_condition;
         params.min_iterations = 0;
@@ -3337,7 +3516,8 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
         tree->stop_rule.initialize(params);
         optimizeConTree(params, tree);
         reportPhyloAnalysis(params, *tree, *model_info);
-    } else
+    }
+    else
         cout << endl;
 
 #ifdef USE_BOOSTER
@@ -3350,7 +3530,7 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
         string out_raw_tree = (string)params.out_prefix + ".tbe.rawtree";
         string stat_out = (string)params.out_prefix + ".tbe.stat";
         main_booster(input_tree.c_str(), boot_trees.c_str(), out_tree.c_str(),
-                     (params.transfer_bootstrap==2) ? out_raw_tree.c_str() : NULL,
+                     (params.transfer_bootstrap == 2) ? out_raw_tree.c_str() : NULL,
                      stat_out.c_str(), (verbose_mode >= VB_MED) ? 0 : 1);
         cout << "TBE tree written to " << out_tree << endl;
         if (params.transfer_bootstrap == 2)
@@ -3359,17 +3539,18 @@ void runStandardBootstrap(Params &params, Alignment *alignment, IQTree *tree) {
         cout << endl;
     }
 #endif
-    
+
     if (MPIHelper::getInstance().isMaster()) {
         cout << "Total CPU time for " << RESAMPLE_NAME << ": " << (getCPUTime() - start_time) << " seconds." << endl;
-    cout << "Total wall-clock time for " << RESAMPLE_NAME << ": " << (getRealTime() - start_real_time) << " seconds." << endl << endl;
-    cout << "Non-parametric " << RESAMPLE_NAME << " results written to:" << endl;
-    if (params.print_bootaln)
-        cout << RESAMPLE_NAME_I << " alignments:     " << params.out_prefix << ".bootaln" << endl;
-    cout << RESAMPLE_NAME_I << " trees:          " << params.out_prefix << ".boottrees" << endl;
-    if (params.consensus_type == CT_CONSENSUS_TREE)
-        cout << "  Consensus tree:           " << params.out_prefix << ".contree" << endl;
-    cout << endl;
+        cout << "Total wall-clock time for " << RESAMPLE_NAME << ": " << (getRealTime() - start_real_time) << " seconds." << endl
+             << endl;
+        cout << "Non-parametric " << RESAMPLE_NAME << " results written to:" << endl;
+        if (params.print_bootaln)
+            cout << RESAMPLE_NAME_I << " alignments:     " << params.out_prefix << ".bootaln" << endl;
+        cout << RESAMPLE_NAME_I << " trees:          " << params.out_prefix << ".boottrees" << endl;
+        if (params.consensus_type == CT_CONSENSUS_TREE)
+            cout << "  Consensus tree:           " << params.out_prefix << ".contree" << endl;
+        cout << endl;
     }
     delete model_info;
 }
@@ -3378,7 +3559,7 @@ void convertAlignment(Params &params, IQTree *iqtree) {
     Alignment *alignment = iqtree->aln;
     if (params.num_bootstrap_samples || params.print_bootaln) {
         // create bootstrap alignment
-        Alignment* bootstrap_alignment;
+        Alignment *bootstrap_alignment;
         cout << "Creating " << RESAMPLE_NAME << " alignment..." << endl;
         if (alignment->isSuperAlignment())
             bootstrap_alignment = new SuperAlignment;
@@ -3400,25 +3581,27 @@ void convertAlignment(Params &params, IQTree *iqtree) {
         alignment->printAlignment(params.aln_output_format, params.aln_output, false, params.aln_site_list,
                                   exclude_sites, params.ref_seq_name);
         if (params.print_subaln)
-            ((SuperAlignment*)alignment)->printSubAlignments(params);
+            ((SuperAlignment *)alignment)->printSubAlignments(params);
         if (params.aln_output_format != IN_NEXUS) {
             string partition_info = string(params.aln_output) + ".nex";
-            ((SuperAlignment*)alignment)->printPartition(partition_info.c_str(), params.aln_output);
+            ((SuperAlignment *)alignment)->printPartition(partition_info.c_str(), params.aln_output);
             partition_info = (string)params.aln_output + ".partitions";
-            ((SuperAlignment*)alignment)->printPartitionRaxml(partition_info.c_str());
+            ((SuperAlignment *)alignment)->printPartitionRaxml(partition_info.c_str());
         }
-    } else if (params.gap_masked_aln) {
+    }
+    else if (params.gap_masked_aln) {
         Alignment out_aln;
         Alignment masked_aln(params.gap_masked_aln, params.sequence_type, params.intype, params.model_name);
         out_aln.createGapMaskedAlignment(&masked_aln, alignment);
         out_aln.printAlignment(params.aln_output_format, params.aln_output, false, params.aln_site_list,
-                exclude_sites, params.ref_seq_name);
+                               exclude_sites, params.ref_seq_name);
         string str = params.gap_masked_aln;
         str += ".sitegaps";
         out_aln.printSiteGaps(str.c_str());
-    } else  {
+    }
+    else {
         alignment->printAlignment(params.aln_output_format, params.aln_output, false, params.aln_site_list,
-                exclude_sites, params.ref_seq_name);
+                                  exclude_sites, params.ref_seq_name);
     }
 }
 
@@ -3427,7 +3610,8 @@ void convertAlignment(Params &params, IQTree *iqtree) {
 */
 void computeSiteFrequencyModel(Params &params, Alignment *alignment) {
 
-    cout << endl << "===> COMPUTING SITE FREQUENCY MODEL BASED ON TREE FILE " << params.tree_freq_file << endl;
+    cout << endl
+         << "===> COMPUTING SITE FREQUENCY MODEL BASED ON TREE FILE " << params.tree_freq_file << endl;
     ASSERT(params.tree_freq_file);
     PhyloTree *tree = new PhyloTree(alignment);
     tree->setParams(&params);
@@ -3435,7 +3619,7 @@ void computeSiteFrequencyModel(Params &params, Alignment *alignment) {
     tree->readTree(params.tree_freq_file, myrooted);
     tree->setAlignment(alignment);
     tree->setRootNode(params.root);
-    
+
     ModelsBlock *models_block = readModelsDefinition(params);
     tree->setModelFactory(new ModelFactory(params, alignment->model_name, tree, models_block));
     delete models_block;
@@ -3443,7 +3627,7 @@ void computeSiteFrequencyModel(Params &params, Alignment *alignment) {
     tree->setRate(tree->getModelFactory()->site_rate);
     tree->setLikelihoodKernel(params.SSE);
     tree->setNumThreads(params.num_threads);
-    
+
     if (!tree->getModel()->isMixture())
         outError("No mixture model was specified!");
     uint64_t mem_size = tree->getMemoryRequired();
@@ -3462,28 +3646,28 @@ void computeSiteFrequencyModel(Params &params, Alignment *alignment) {
 
     tree->initializeAllPartialLh();
     // 2017-12-07: Increase espilon ten times (0.01 -> 0.1) to speedup PMSF computation
-    tree->getModelFactory()->optimizeParameters(params.fixed_branch_length, true, params.modelEps*10);
+    tree->getModelFactory()->optimizeParameters(params.fixed_branch_length, true, params.modelEps * 10);
 
-    intptr_t nptn    = alignment->getNPattern();
+    intptr_t nptn = alignment->getNPattern();
     intptr_t nstates = alignment->num_states;
-    double *ptn_state_freq = new double[nptn*nstates];
+    double *ptn_state_freq = new double[nptn * nstates];
     tree->computePatternStateFreq(ptn_state_freq);
     alignment->site_state_freq.resize(nptn);
     for (intptr_t ptn = 0; ptn < nptn; ptn++) {
         double *f = new double[nstates];
-        memcpy(f, ptn_state_freq+ptn*nstates, sizeof(double)*nstates);
+        memcpy(f, ptn_state_freq + ptn * nstates, sizeof(double) * nstates);
         alignment->site_state_freq[ptn] = f;
     }
     alignment->getSitePatternIndex(alignment->site_model);
-    printSiteStateFreq(((string)params.out_prefix+".sitefreq").c_str(), tree, ptn_state_freq);
+    printSiteStateFreq(((string)params.out_prefix + ".sitefreq").c_str(), tree, ptn_state_freq);
     params.print_site_state_freq = WSF_NONE;
-    
-    delete [] ptn_state_freq;
-    delete tree;
-    
-    cout << endl << "===> CONTINUE ANALYSIS USING THE INFERRED SITE FREQUENCY MODEL" << endl;
-}
 
+    delete[] ptn_state_freq;
+    delete tree;
+
+    cout << endl
+         << "===> CONTINUE ANALYSIS USING THE INFERRED SITE FREQUENCY MODEL" << endl;
+}
 
 /**********************************************************
  * TOP-LEVEL FUNCTION
@@ -3493,28 +3677,32 @@ IQTree *newIQTree(Params &params, Alignment *alignment) {
     IQTree *tree;
     if (alignment->isSuperAlignment()) {
         if (params.partition_type == TOPO_UNLINKED) {
-            tree = new PhyloSuperTreeUnlinked((SuperAlignment*)alignment);
-        } else if(params.partition_type != BRLEN_OPTIMIZE){
+            tree = new PhyloSuperTreeUnlinked((SuperAlignment *)alignment);
+        }
+        else if (params.partition_type != BRLEN_OPTIMIZE) {
             // initialize supertree - Proportional Edges case
-            tree = new PhyloSuperTreePlen((SuperAlignment*)alignment, params.partition_type);
-        } else {
+            tree = new PhyloSuperTreePlen((SuperAlignment *)alignment, params.partition_type);
+        }
+        else {
             // initialize supertree stuff if user specifies partition file with -sp option
-            tree = new PhyloSuperTree((SuperAlignment*)alignment);
+            tree = new PhyloSuperTree((SuperAlignment *)alignment);
         }
         // this alignment will actually be of type SuperAlignment
         //        alignment = tree->aln;
-        if (((PhyloSuperTree*)tree)->rescale_codon_brlen)
+        if (((PhyloSuperTree *)tree)->rescale_codon_brlen)
             cout << "NOTE: Mixed codon and other data, branch lengths of codon partitions are rescaled by 3!" << endl;
-        
-    } else {
+    }
+    else {
         // allocate heterotachy tree if neccessary
         auto pos = posRateHeterotachy(alignment->model_name);
-        
+
         if (params.num_mixlen > 1) {
             tree = new PhyloTreeMixlen(alignment, params.num_mixlen);
-        } else if (pos != string::npos) {
+        }
+        else if (pos != string::npos) {
             tree = new PhyloTreeMixlen(alignment, 0);
-        } else
+        }
+        else
             tree = new IQTree(alignment);
     }
 
@@ -3526,34 +3714,35 @@ void getSymTestID(vector<SymTestResult> &res, set<int> &id, bool bad_res) {
     if (bad_res) {
         // get significant test ID
         switch (Params::getInstance().symtest) {
-            case SYMTEST_BINOM:
-                for (auto i = res.begin(); i != res.end(); i++)
-                    if (i->pvalue_binom < Params::getInstance().symtest_pcutoff)
-                        id.insert(static_cast<int>(i - res.begin()));
-                break;
-            case SYMTEST_MAXDIV:
-                for (auto i = res.begin(); i != res.end(); i++)
-                    if (i->pvalue_maxdiv < Params::getInstance().symtest_pcutoff)
-                        id.insert(static_cast<int>(i - res.begin()));
-                break;
-            default:
-                break;
+        case SYMTEST_BINOM:
+            for (auto i = res.begin(); i != res.end(); i++)
+                if (i->pvalue_binom < Params::getInstance().symtest_pcutoff)
+                    id.insert(static_cast<int>(i - res.begin()));
+            break;
+        case SYMTEST_MAXDIV:
+            for (auto i = res.begin(); i != res.end(); i++)
+                if (i->pvalue_maxdiv < Params::getInstance().symtest_pcutoff)
+                    id.insert(static_cast<int>(i - res.begin()));
+            break;
+        default:
+            break;
         }
-    } else {
+    }
+    else {
         // get non-significant test ID
         switch (Params::getInstance().symtest) {
-            case SYMTEST_BINOM:
-                for (auto i = res.begin(); i != res.end(); i++)
-                    if (i->pvalue_binom >= Params::getInstance().symtest_pcutoff)
-                        id.insert(static_cast<int>(i - res.begin()));
-                break;
-            case SYMTEST_MAXDIV:
-                for (auto i = res.begin(); i != res.end(); i++)
-                    if (i->pvalue_maxdiv >= Params::getInstance().symtest_pcutoff)
-                        id.insert(static_cast<int>(i - res.begin()));
-                break;
-            default:
-                break;
+        case SYMTEST_BINOM:
+            for (auto i = res.begin(); i != res.end(); i++)
+                if (i->pvalue_binom >= Params::getInstance().symtest_pcutoff)
+                    id.insert(static_cast<int>(i - res.begin()));
+            break;
+        case SYMTEST_MAXDIV:
+            for (auto i = res.begin(); i != res.end(); i++)
+                if (i->pvalue_maxdiv >= Params::getInstance().symtest_pcutoff)
+                    id.insert(static_cast<int>(i - res.begin()));
+            break;
+        default:
+            break;
         }
     }
 }
@@ -3564,8 +3753,7 @@ double computePValueSMax(vector<SymTestResult> &sym, int start, int step) {
     for (size_t i = start; i < sym.size(); i += step, num++)
         if (sym[i].max_stat >= orig_max)
             count++;
-    return double(count)/num;
-    
+    return double(count) / num;
 }
 
 void doSymTest(Alignment *alignment, Params &params) {
@@ -3575,60 +3763,59 @@ void doSymTest(Alignment *alignment, Params &params) {
 
     int num_parts = 1;
     if (alignment->isSuperAlignment()) {
-        num_parts = static_cast<int>(((SuperAlignment*)alignment)->partitions.size());
-    }    
+        num_parts = static_cast<int>(((SuperAlignment *)alignment)->partitions.size());
+    }
     string filename_stat = string(params.out_prefix) + ".symstat.csv";
     ofstream *out_stat = NULL;
     if (params.symtest_stat) {
         out_stat = new ofstream;
         out_stat->open(filename_stat);
         *out_stat
-        << "# Statistic values for matched-pair tests of symmetry" << endl
-        << "# This file can be read in MS Excel or in R with command:" << endl
-        << "#    dat=read.csv('" <<  filename_stat << "',comment.char='#')" << endl
-        << "# Columns are comma-separated with following meanings:" << endl
-        << "#    ID:     Partition ID" << endl
-        << "#    Seq1:   ID of sequence 1 within partition" << endl
-        << "#    Seq1:   ID of sequence 2 within partition" << endl
-        << "#    Sym:    Statistic for test of symmetry" << endl
-        << "#    SymChi: Chi-square p-value for test of symmetry" << endl
-        << "#    Mar:    Statistic for test of marginal symmetry" << endl
-        << "#    MarChi: Chi-square p-value for marginal test of symmetry" << endl
-        << "#    Int:    Statistic for test of internal symmetry" << endl
-        << "#    MarChi: Chi-square p-value for internal test of symmetry" << endl
-        << "ID,Seq1,Seq2,Sym,SymChi,Mar,MarChi,Int,IntChi" << endl;
-        
+            << "# Statistic values for matched-pair tests of symmetry" << endl
+            << "# This file can be read in MS Excel or in R with command:" << endl
+            << "#    dat=read.csv('" << filename_stat << "',comment.char='#')" << endl
+            << "# Columns are comma-separated with following meanings:" << endl
+            << "#    ID:     Partition ID" << endl
+            << "#    Seq1:   ID of sequence 1 within partition" << endl
+            << "#    Seq1:   ID of sequence 2 within partition" << endl
+            << "#    Sym:    Statistic for test of symmetry" << endl
+            << "#    SymChi: Chi-square p-value for test of symmetry" << endl
+            << "#    Mar:    Statistic for test of marginal symmetry" << endl
+            << "#    MarChi: Chi-square p-value for marginal test of symmetry" << endl
+            << "#    Int:    Statistic for test of internal symmetry" << endl
+            << "#    MarChi: Chi-square p-value for internal test of symmetry" << endl
+            << "ID,Seq1,Seq2,Sym,SymChi,Mar,MarChi,Int,IntChi" << endl;
     }
 
-    sym.resize(num_parts*params.symtest_shuffle);
-    marsym.resize(num_parts*params.symtest_shuffle);
-    intsym.resize(num_parts*params.symtest_shuffle);
+    sym.resize(num_parts * params.symtest_shuffle);
+    marsym.resize(num_parts * params.symtest_shuffle);
+    intsym.resize(num_parts * params.symtest_shuffle);
 
     for (int i = 0; i < params.symtest_shuffle; i++) {
         vector<SymTestStat> *stats = NULL;
         if (params.symtest_stat)
             stats = new vector<SymTestStat>;
         if (i == 0) // original alignment
-            alignment->doSymTest(i*num_parts, sym, marsym, intsym, NULL, stats);
+            alignment->doSymTest(i * num_parts, sym, marsym, intsym, NULL, stats);
         else {
             int *rstream;
-            init_random(params.ran_seed+i+1, false, &rstream);
-            alignment->doSymTest(i*num_parts, sym, marsym, intsym, rstream, stats);
+            init_random(params.ran_seed + i + 1, false, &rstream);
+            alignment->doSymTest(i * num_parts, sym, marsym, intsym, rstream, stats);
             finish_random(rstream);
         }
-        if ((i+1)*10 % params.symtest_shuffle == 0) {
-            cout << " " << (i+1)*100 / params.symtest_shuffle << "%";
+        if ((i + 1) * 10 % params.symtest_shuffle == 0) {
+            cout << " " << (i + 1) * 100 / params.symtest_shuffle << "%";
             cout.flush();
         }
-        if (stats==nullptr) {
+        if (stats == nullptr) {
             continue;
         }
-        if (out_stat!=nullptr) {
+        if (out_stat != nullptr) {
             for (auto it = stats->begin(); it != stats->end(); it++) {
                 *out_stat << it->part << ',' << it->seq1 << ',' << it->seq2 << ','
-                << it->chi2_sym << ',' << it->pval_sym << ','
-                << it->chi2_marsym << ',' << it->pval_marsym << ','
-                << it->chi2_intsym << ',' << it->pval_intsym << endl;
+                          << it->chi2_sym << ',' << it->pval_sym << ','
+                          << it->chi2_marsym << ',' << it->pval_marsym << ','
+                          << it->chi2_intsym << ',' << it->pval_intsym << endl;
             }
         }
         delete stats;
@@ -3638,7 +3825,7 @@ void doSymTest(Alignment *alignment, Params &params) {
         out_stat->close();
         delete out_stat;
     }
-    
+
     if (params.symtest_shuffle > 1) {
         // compute p-value for s-max approach
         for (int part = 0; part < num_parts; part++) {
@@ -3652,58 +3839,59 @@ void doSymTest(Alignment *alignment, Params &params) {
     ofstream out;
     out.open(filename);
     out << "# Matched-pair tests of symmetry" << endl
-    << "# This file can be read in MS Excel or in R with command:" << endl
-    << "#    dat=read.csv('" <<  filename << "',comment.char='#')" << endl
-    << "# Columns are comma-separated with following meanings:" << endl
-    << "#    Name:    Partition name" << endl
-    << "#    SymSig:  Number of significant sequence pairs by test of symmetry" << endl
-    << "#    SymNon:  Number of non-significant sequence pairs by test of symmetry" << endl
-    << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "#    SymBi:   P-value for binomial test of symmetry" : "#    SymPval: P-value for maximum test of symmetry") << endl;
+        << "# This file can be read in MS Excel or in R with command:" << endl
+        << "#    dat=read.csv('" << filename << "',comment.char='#')" << endl
+        << "# Columns are comma-separated with following meanings:" << endl
+        << "#    Name:    Partition name" << endl
+        << "#    SymSig:  Number of significant sequence pairs by test of symmetry" << endl
+        << "#    SymNon:  Number of non-significant sequence pairs by test of symmetry" << endl
+        << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "#    SymBi:   P-value for binomial test of symmetry" : "#    SymPval: P-value for maximum test of symmetry") << endl;
     if (params.symtest_shuffle > 1)
         out << "#    SymMax:  Maximum of pair statistics by test of symmetry" << endl
             << "#    SymPerm: P-value for permutation test of symmetry" << endl;
-    
+
     out << "#    MarSig:  Number of significant sequence pairs by test of marginal symmetry" << endl
-    << "#    MarNon:  Number of non-significant sequence pairs by test of marginal symmetry" << endl
-    << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "#    MarBi:   P-value for binomial test of marginal symmetry" : "#    MarPval: P-value for maximum test of marginal symmetry") << endl;
+        << "#    MarNon:  Number of non-significant sequence pairs by test of marginal symmetry" << endl
+        << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "#    MarBi:   P-value for binomial test of marginal symmetry" : "#    MarPval: P-value for maximum test of marginal symmetry") << endl;
     if (params.symtest_shuffle > 1)
         out << "#    MarMax:  Maximum of pair statistics by test of marginal symmetry" << endl
             << "#    MarPerm: P-value for permutation test of marginal symmetry" << endl;
     out << "#    IntSig:  Number of significant sequence pairs by test of internal symmetry" << endl
-    << "#    IntNon:  Number of non-significant sequence pairs by test of internal symmetry" << endl
-    << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "#    IntBi:   P-value for binomial test of symmetry" : "#    IntPval: P-value for maximum test of internal symmetry") << endl;
+        << "#    IntNon:  Number of non-significant sequence pairs by test of internal symmetry" << endl
+        << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "#    IntBi:   P-value for binomial test of symmetry" : "#    IntPval: P-value for maximum test of internal symmetry") << endl;
     if (params.symtest_shuffle > 1)
         out << "#    IntMax:  Maximum of pair statistics by test of internal symmetry" << endl
-        << "#    IntPerm: P-value for permutation test of internal symmetry" << endl;
-    
+            << "#    IntPerm: P-value for permutation test of internal symmetry" << endl;
+
     out << "Name,SymSig,SymNon," << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "SymBi" : "SymPval")
         << ((params.symtest_shuffle > 1) ? ",SymMax,SymPerm" : "")
         << ",MarSig,MarNon," << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "MarBi" : "MarPval")
         << ((params.symtest_shuffle > 1) ? ",MarMax,MarPerm" : "")
         << ",IntSig,IntNon," << ((Params::getInstance().symtest == SYMTEST_BINOM) ? "IntBi" : "IntPval")
         << ((params.symtest_shuffle > 1) ? ",IntMax,IntPerm" : "") << endl;
-    
+
     if (alignment->isSuperAlignment()) {
-        SuperAlignment *saln = (SuperAlignment*)alignment;
+        SuperAlignment *saln = (SuperAlignment *)alignment;
         for (int part = 0; part < saln->partitions.size(); part++)
             out << saln->partitions[part]->name << ','
-                << sym[part] << ',' << marsym[part] << ','  << intsym[part] << endl;
-    } else {
-        out << alignment->name << ',' << sym[0] << ',' << marsym[0] << ','  << intsym[0] << endl;
+                << sym[part] << ',' << marsym[part] << ',' << intsym[part] << endl;
+    }
+    else {
+        out << alignment->name << ',' << sym[0] << ',' << marsym[0] << ',' << intsym[0] << endl;
     }
 
     if (params.symtest_shuffle > 1) {
         for (int part = num_parts; part < static_cast<int>(sym.size()); ++part) {
             sym[part].pvalue_perm = marsym[part].pvalue_perm = intsym[part].pvalue_perm = -1.0;
             out << part % num_parts << ','
-            << sym[part] << ',' << marsym[part] << ','  << intsym[part] << endl;
+                << sym[part] << ',' << marsym[part] << ',' << intsym[part] << endl;
         }
         // erase the rest
-        sym.erase(sym.begin()+num_parts, sym.end());
-        marsym.erase(marsym.begin()+num_parts, marsym.end());
-        intsym.erase(intsym.begin()+num_parts, intsym.end());
+        sym.erase(sym.begin() + num_parts, sym.end());
+        marsym.erase(marsym.begin() + num_parts, marsym.end());
+        intsym.erase(intsym.begin() + num_parts, intsym.end());
     }
-    
+
     out.close();
     cout << " " << getRealTime() - start_time << " seconds" << endl;
     if (params.symtest_stat)
@@ -3721,7 +3909,8 @@ void doSymTest(Alignment *alignment, Params &params) {
                 getSymTestID(marsym, part_id, true);
             else
                 getSymTestID(intsym, part_id, true);
-        } else if (params.symtest_remove == 2) {
+        }
+        else if (params.symtest_remove == 2) {
             // remove good loci
             if (params.symtest_type == 0)
                 getSymTestID(sym, part_id, false);
@@ -3731,21 +3920,22 @@ void doSymTest(Alignment *alignment, Params &params) {
                 getSymTestID(intsym, part_id, false);
         }
         if (!part_id.empty()) {
-            SuperAlignment *saln = (SuperAlignment*)alignment;
+            SuperAlignment *saln = (SuperAlignment *)alignment;
             cout << "Removing " << part_id.size()
-            << ((params.symtest_remove == 1)? " bad" : " good") << " partitions (pvalue cutoff = "
-            << params.symtest_pcutoff << ")..." << endl;
+                 << ((params.symtest_remove == 1) ? " bad" : " good") << " partitions (pvalue cutoff = "
+                 << params.symtest_pcutoff << ")..." << endl;
             if (part_id.size() < alignment->getNSite())
                 saln->removePartitions(part_id);
             else
                 outError("Can't remove all partitions");
             if (params.aln_output_format == IN_NEXUS) {
-                string aln_file = (string)params.out_prefix + ((params.symtest_remove == 1)? ".good.nex" : ".bad.nex");
+                string aln_file = (string)params.out_prefix + ((params.symtest_remove == 1) ? ".good.nex" : ".bad.nex");
                 alignment->printAlignment(params.aln_output_format, aln_file.c_str());
-            } else {
-                string aln_file = (string)params.out_prefix + ((params.symtest_remove == 1)? ".good.phy" : ".bad.phy");
+            }
+            else {
+                string aln_file = (string)params.out_prefix + ((params.symtest_remove == 1) ? ".good.phy" : ".bad.phy");
                 alignment->printAlignment(params.aln_output_format, aln_file.c_str());
-                string nexus_filename = (string)params.out_prefix + ((params.symtest_remove == 2)? ".good.nex" : ".bad.nex");
+                string nexus_filename = (string)params.out_prefix + ((params.symtest_remove == 2) ? ".good.nex" : ".bad.nex");
                 saln->printPartition(nexus_filename.c_str(), aln_file.c_str());
             }
         }
@@ -3767,31 +3957,34 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
             alignment = new SuperAlignmentUnlinked(params);
         else
             alignment = new SuperAlignment(params);
-    } else {
+    }
+    else {
         alignment = createAlignment(params.aln_file, params.sequence_type, params.intype, params.model_name);
 
-        if(!params.mpboot2){ // Diep: I think that site-frequency model has nothing to do w. parsimony.
-			if (params.freq_const_patterns) {
-				auto orig_nsite = alignment->getNSite();
-				alignment->addConstPatterns(params.freq_const_patterns);
-				cout << "INFO: " << alignment->getNSite() - orig_nsite << " const sites added into alignment" << endl;
-			}
+        if (!params.mpboot2)
+        { // Diep: I think that site-frequency model has nothing to do w. parsimony.
+            if (params.freq_const_patterns) {
+                auto orig_nsite = alignment->getNSite();
+                alignment->addConstPatterns(params.freq_const_patterns);
+                cout << "INFO: " << alignment->getNSite() - orig_nsite << " const sites added into alignment" << endl;
+            }
 
-			// Initialize site-frequency model
-			if (params.tree_freq_file) {
-				if (checkpoint->getBool("finishedSiteFreqFile")) {
-					alignment->readSiteStateFreq(((string)params.out_prefix + ".sitefreq").c_str());
-					params.print_site_state_freq = WSF_NONE;
-					cout << "CHECKPOINT: Site frequency model restored" << endl;
-				} else {
-					computeSiteFrequencyModel(params, alignment);
-					checkpoint->putBool("finishedSiteFreqFile", true);
-					checkpoint->dump();
-				}
-			}
-			if (params.site_freq_file) {
-				alignment->readSiteStateFreq(params.site_freq_file);
-			}
+            // Initialize site-frequency model
+            if (params.tree_freq_file) {
+                if (checkpoint->getBool("finishedSiteFreqFile")) {
+                    alignment->readSiteStateFreq(((string)params.out_prefix + ".sitefreq").c_str());
+                    params.print_site_state_freq = WSF_NONE;
+                    cout << "CHECKPOINT: Site frequency model restored" << endl;
+                }
+                else {
+                    computeSiteFrequencyModel(params, alignment);
+                    checkpoint->putBool("finishedSiteFreqFile", true);
+                    checkpoint->dump();
+                }
+            }
+            if (params.site_freq_file) {
+                alignment->readSiteStateFreq(params.site_freq_file);
+            }
         }
     }
 
@@ -3807,13 +4000,13 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
 
     /*************** initialize tree ********************/
     IQTree *tree = newIQTree(params, alignment);
-    
+
     tree->setCheckpoint(checkpoint);
     if (params.min_branch_length <= 0.0) {
         params.min_branch_length = 1e-6;
         if (!tree->isSuperTree() && tree->getAlnNSite() >= 100000) {
             params.min_branch_length = 0.1 / (tree->getAlnNSite());
-            tree->num_precision = max((int)ceil(-log10(Params::getInstance().min_branch_length))+1, 6);
+            tree->num_precision = max((int)ceil(-log10(Params::getInstance().min_branch_length)) + 1, 6);
             cout.precision(12);
             cout << "NOTE: minimal branch length is reduced to " << params.min_branch_length << " for long alignment" << endl;
             cout.precision(3);
@@ -3833,7 +4026,6 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
         cout << "NOTE: maximal branch length is increased to " << params.max_branch_length << " because PoMo infers number of mutations and frequency shifts" << endl;
         cout.precision(3);
     }
-
 
     if (params.concatenate_aln) {
         Alignment aln(params.concatenate_aln, params.sequence_type, params.intype, params.model_name);
@@ -3869,23 +4061,28 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
         string out_tree = (string)params.out_prefix + ".seqident_tree";
         tree->printTree(out_tree.c_str());
         cout << "Tree with sequence identity printed to " << out_tree << endl;
-    } else if (params.aln_output) {
+    }
+    else if (params.aln_output) {
         /************ convert alignment to other format and write to output file *************/
         convertAlignment(params, tree);
-    } else if (params.gbo_replicates > 0 && !params.user_file.empty() && params.second_tree) {
+    }
+    else if (params.gbo_replicates > 0 && !params.user_file.empty() && params.second_tree) {
         // run one of the UFBoot analysis
-//        runGuidedBootstrap(params, alignment, *tree);
+        //        runGuidedBootstrap(params, alignment, *tree);
         outError("Obsolete feature");
-    } else if (params.avh_test) {
+    }
+    else if (params.avh_test) {
         // run one of the wondering test for Arndt
-//        runAvHTest(params, alignment, *tree);
+        //        runAvHTest(params, alignment, *tree);
         outError("Obsolete feature");
-    } else if (params.bootlh_test) {
+    }
+    else if (params.bootlh_test) {
         // run Arndt's plot of tree likelihoods against bootstrap alignments
-//        runBootLhTest(params, alignment, *tree);
+        //        runBootLhTest(params, alignment, *tree);
         outError("Obsolete feature");
-    } else if (params.num_bootstrap_samples == 0) {
-    /********************************************************************************
+    }
+    else if (params.num_bootstrap_samples == 0) {
+        /********************************************************************************
                     THE MAIN MAXIMUM LIKELIHOOD TREE RECONSTRUCTION
      ********************************************************************************/
         ModelCheckpoint *model_info = new ModelCheckpoint;
@@ -3897,7 +4094,8 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
             if (tree->removed_seqs.size() > 0 && MPIHelper::getInstance().isMaster() && (params.suppress_output_flags & OUT_UNIQUESEQ) == 0) {
                 string filename = (string)params.out_prefix + ".uniqueseq.phy";
                 tree->aln->printAlignment(params.aln_output_format, filename.c_str());
-                cout << endl << "For your convenience alignment with unique sequences printed to " << filename << endl;
+                cout << endl
+                     << "For your convenience alignment with unique sequences printed to " << filename << endl;
             }
         }
         alignment = NULL; // from now on use tree->aln instead
@@ -3908,7 +4106,7 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
             runTreeReconstruction(params, tree);
         else
             runMultipleTreeReconstruction(params, tree->aln, tree);
-        
+
         if (MPIHelper::getInstance().isMaster()) {
             reportPhyloAnalysis(params, *tree, *model_info);
         }
@@ -3920,27 +4118,27 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
             tree->printResultTree();
         }
         delete model_info;
-        
+
         if (params.dating_method != "") {
             doTimeTree(tree);
         }
-
-    } else {
+    }
+    else {
         // the classical non-parameter bootstrap (SBS)
-//        if (params.model_name.find("LINK") != string::npos || params.model_name.find("MERGE") != string::npos)
-//            outError("-m TESTMERGE is not allowed when doing standard bootstrap. Please first\nfind partition scheme on the original alignment and use it for bootstrap analysis");
+        //        if (params.model_name.find("LINK") != string::npos || params.model_name.find("MERGE") != string::npos)
+        //            outError("-m TESTMERGE is not allowed when doing standard bootstrap. Please first\nfind partition scheme on the original alignment and use it for bootstrap analysis");
         if (alignment->getNSeq() < 4)
             outError("It makes no sense to perform bootstrap with less than 4 sequences.");
         runStandardBootstrap(params, alignment, tree);
     }
 
-//    if (params.upper_bound) {
-//            UpperBounds(&params, alignment, tree);
-//    }
+    //    if (params.upper_bound) {
+    //            UpperBounds(&params, alignment, tree);
+    //    }
 
-    if(verbose_mode >= VB_MED){
-        if(tree->isSuperTree() && params.partition_type != BRLEN_OPTIMIZE){
-            ((PhyloSuperTreePlen*) tree)->printNNIcasesNUM();
+    if (verbose_mode >= VB_MED) {
+        if (tree->isSuperTree() && params.partition_type != BRLEN_OPTIMIZE) {
+            ((PhyloSuperTreePlen *)tree)->printNNIcasesNUM();
         }
     }
     // 2015-09-22: bug fix, move this line to before deleting tree
@@ -3948,7 +4146,7 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
     delete tree;
     // BUG FIX: alignment can be changed, should delete tree->aln instead
     // 2015-09-22: THIS IS STUPID: after deleting tree, one cannot access tree->aln anymore
-//    alignment = tree->aln;
+    //    alignment = tree->aln;
     delete alignment;
 
     checkpoint->putBool("finished", true);
@@ -3961,18 +4159,18 @@ void runPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
  */
 void runUnlinkedPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
     SuperAlignment *super_aln;
-    
+
     ASSERT(params.partition_file);
-    
+
     /****************** read in alignment **********************/
     // Partition model analysis
     super_aln = new SuperAlignmentUnlinked(params);
     PhyloSuperTree *super_tree = new PhyloSuperTree(super_aln);
- 
+
     /**** do separate tree reconstruction for each partition ***/
-    
+
     MTreeSet part_trees;
-    
+
     if (!params.user_file.empty()) {
         // reading user tree file for all partitions
         bool is_rooted = false;
@@ -3987,24 +4185,27 @@ void runUnlinkedPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
     ModelCheckpoint *model_info = new ModelCheckpoint;
     int part = 0;
     for (auto alnit = super_aln->partitions.begin(); alnit != super_aln->partitions.end(); alnit++, part++) {
-        
+
         checkpoint->startStruct((*alnit)->name);
 
         // allocate heterotachy tree if neccessary
         auto pos = posRateHeterotachy((*alnit)->model_name);
         IQTree *tree;
-        
+
         if (params.num_mixlen > 1) {
             tree = new PhyloTreeMixlen((*alnit), params.num_mixlen);
-        } else if (pos != string::npos) {
+        }
+        else if (pos != string::npos) {
             tree = new PhyloTreeMixlen((*alnit), 0);
-        } else
+        }
+        else
             tree = new IQTree((*alnit));
 
         tree->setCheckpoint(checkpoint);
         if (checkpoint->getBool("finished")) {
             tree->restoreCheckpoint();
-        } else {
+        }
+        else {
             if (!part_trees.empty())
                 tree->copyTree(part_trees[part]);
 
@@ -4019,11 +4220,11 @@ void runUnlinkedPhyloAnalysis(Params &params, Checkpoint *checkpoint) {
         }
 
         super_tree->at(part)->copyTree(tree);
-        
+
         delete tree;
         checkpoint->endStruct();
     }
-    
+
     IQTree *iqtree = super_tree;
     super_tree->setCheckpoint(checkpoint);
     startTreeReconstruction(params, iqtree, *model_info);
@@ -4051,12 +4252,14 @@ void assignBranchSupportNew(Params &params) {
         if (params.partition_file) {
             params.compute_seq_composition = false;
             aln = new SuperAlignment(params);
-            tree = new PhyloSuperTree((SuperAlignment*)aln);
-        } else {
+            tree = new PhyloSuperTree((SuperAlignment *)aln);
+        }
+        else {
             aln = createAlignment(params.aln_file, params.sequence_type, params.intype, params.model_name);
             tree = new PhyloTree;
         }
-    } else {
+    }
+    else {
         tree = new PhyloTree;
     }
     tree->setParams(&params);
@@ -4065,15 +4268,15 @@ void assignBranchSupportNew(Params &params) {
     bool rooted = params.is_rooted;
     tree->readTree(params.user_file.c_str(), rooted);
     cout << ((tree->rooted) ? "rooted" : "un-rooted") << " tree with "
-        << tree->leafNum - tree->rooted << " taxa and " << tree->branchNum << " branches" << endl;
+         << tree->leafNum - tree->rooted << " taxa and " << tree->branchNum << " branches" << endl;
 
     // 2018-12-13: move initialisation to fix rooted vs unrooted tree
     if (params.site_concordance) {
         tree->setAlignment(aln);
         if (tree->isSuperTree())
-            ((PhyloSuperTree*)tree)->mapTrees();
+            ((PhyloSuperTree *)tree)->mapTrees();
     }
-    
+
     BranchVector branches;
     tree->getInnerBranches(branches);
     BranchVector::iterator brit;
@@ -4083,9 +4286,9 @@ void assignBranchSupportNew(Params &params) {
         if (!label.empty())
             PUT_ATTR(branch, label);
     }
-    
-    map<string,string> meanings;
-    
+
+    map<string, string> meanings;
+
     if (!params.treeset_file.empty()) {
         MTreeSet trees(params.treeset_file.c_str(), rooted, params.tree_burnin, params.tree_max_count);
         double start_time = getRealTime();
@@ -4103,14 +4306,14 @@ void assignBranchSupportNew(Params &params) {
         delete aln;
     }
     string prefix = (params.out_prefix.empty())
-                  ? params.user_file : params.out_prefix;
-    string str    = prefix + ".cf.tree";
+                        ? params.user_file
+                        : params.out_prefix;
+    string str = prefix + ".cf.tree";
     tree->printTree(str.c_str());
     cout << "Tree with concordance factors written to " << str << endl;
     str = prefix + ".cf.tree.nex";
     string filename = prefix + ".cf.stat";
-    tree->printNexus(str, WT_BR_LEN, "See " + filename + " for branch annotation meanings." +
-                     " This file is best viewed in FigTree.");
+    tree->printNexus(str, WT_BR_LEN, "See " + filename + " for branch annotation meanings." + " This file is best viewed in FigTree.");
     cout << "Annotated tree (best viewed in FigTree) written to " << str << endl;
     if (verbose_mode >= VB_DEBUG)
         tree->drawTree(cout);
@@ -4121,10 +4324,10 @@ void assignBranchSupportNew(Params &params) {
     out.open(filename.c_str());
     out << "# Concordance factor statistics" << endl
         << "# This file can be read in MS Excel or in R with command:" << endl
-        << "#   tab=read.table('" <<  filename << "',header=TRUE)" << endl
+        << "#   tab=read.table('" << filename << "',header=TRUE)" << endl
         << "# Columns are tab-separated with following meaning:" << endl
         << "#   ID: Branch ID" << endl;
-    map<string,string>::iterator mit;
+    map<string, string>::iterator mit;
     for (mit = meanings.begin(); mit != meanings.end(); mit++)
         if (mit->first[0] != '*')
             out << "#   " << mit->first << ": " << mit->second << endl;
@@ -4159,13 +4362,13 @@ void assignBranchSupportNew(Params &params) {
     }
     out.close();
     cout << "Concordance factors per branch printed to " << filename << endl;
-    
+
     if (params.print_cf_quartets) {
         filename = prefix + ".cf.quartet";
         out.open(filename);
         out << "# Site concordance factor for all resampled quartets (with replacement)" << endl
             << "# This file can be read in MS Excel or in R with command:" << endl
-            << "#   tab=read.table('" <<  filename << "',header=TRUE)" << endl
+            << "#   tab=read.table('" << filename << "',header=TRUE)" << endl
             << "# Columns are tab-separated with following meaning:" << endl
             << "#   ID: Branch ID" << endl
             << "#   QuartID: Quartet ID" << endl
@@ -4184,38 +4387,38 @@ void assignBranchSupportNew(Params &params) {
         for (brit = branches.begin(); brit != branches.end(); brit++) {
             Neighbor *branch = brit->second->findNeighbor(brit->first);
             int ID = brit->second->id;
-            for (int qid = 0; ; qid++) {
+            for (int qid = 0;; qid++) {
                 string qstr;
                 if (branch->attributes.find("q" + convertIntToString(qid)) == branch->attributes.end())
                     break;
-                out << ID << '\t' << qid+1 << '\t' << branch->attributes["q" + convertIntToString(qid)] << endl;
+                out << ID << '\t' << qid + 1 << '\t' << branch->attributes["q" + convertIntToString(qid)] << endl;
             }
         }
         out.close();
         cout << "Site concordance factors for quartets printed to " << filename << endl;
     }
-    
+
     if (!params.site_concordance_partition)
         return;
-    
+
     // print concordant/discordant gene trees
     filename = prefix + ".cf.stat_tree";
     out.open(filename);
     out << "# Concordance factor statistics for decisive trees" << endl
-    << "# This file can be read in MS Excel or in R with command:" << endl
-    << "#   tab2=read.table('" <<  filename << "',header=TRUE)" << endl
-    << "# Columns are tab-separated with following meaning:" << endl
-    << "#   ID: Branch ID" << endl
-    << "#   TreeID: Tree ID" << endl
-    << "#   gC: 1/0 if tree is concordant/discordant with branch" << endl
-    << "#   gD1: 1/0 if NNI-1 tree is concordant/discordant with branch" << endl
-    << "#   gD2: 1/0 if NNI-2 tree is concordant/discordant with branch" << endl
-    << "# NOTE: NA means that tree is not decisive for branch" << endl
-    << "ID\tTreeID\tgC\tgD1\tgD2" << endl;
+        << "# This file can be read in MS Excel or in R with command:" << endl
+        << "#   tab2=read.table('" << filename << "',header=TRUE)" << endl
+        << "# Columns are tab-separated with following meaning:" << endl
+        << "#   ID: Branch ID" << endl
+        << "#   TreeID: Tree ID" << endl
+        << "#   gC: 1/0 if tree is concordant/discordant with branch" << endl
+        << "#   gD1: 1/0 if NNI-1 tree is concordant/discordant with branch" << endl
+        << "#   gD2: 1/0 if NNI-2 tree is concordant/discordant with branch" << endl
+        << "# NOTE: NA means that tree is not decisive for branch" << endl
+        << "ID\tTreeID\tgC\tgD1\tgD2" << endl;
     for (brit = branches.begin(); brit != branches.end(); brit++) {
         Neighbor *branch = brit->second->findNeighbor(brit->first);
         int ID = brit->second->id;
-        for (int part = 1; ; part++) {
+        for (int part = 1;; part++) {
             string gC, gD1, gD2;
             if (!branch->getAttr("gC" + convertIntToString(part), gC))
                 break;
@@ -4226,27 +4429,27 @@ void assignBranchSupportNew(Params &params) {
     }
     out.close();
     cout << "Concordance factors per branch and tree printed to " << filename << endl;
-    
+
     if (!params.site_concordance_partition || !tree->isSuperTree())
         return;
     // print partition-wise concordant/discordant sites
     filename = prefix + ".cf.stat_loci";
     out.open(filename);
     out << "# Concordance factor statistics for loci" << endl
-    << "# This file can be read in MS Excel or in R with command:" << endl
-    << "#   tab2=read.table('" <<  filename << "',header=TRUE)" << endl
-    << "# Columns are tab-separated with following meaning:" << endl
-    << "#   ID: Branch ID" << endl
-    << "#   PartID: Locus ID" << endl
-    << "#   sC: Number of concordant sites averaged over " << params.site_concordance << " quartets" << endl
-    << "#   sD1: Number of discordant sites for alternative quartet 1" << endl
-    << "#   sD2: Number of discordant sites for alternative quartet 2" << endl
-    << "# NOTE: NA means that locus is not decisive for branch" << endl
-    << "ID\tPartID\tsC\tsD1\tsD2" << endl;
+        << "# This file can be read in MS Excel or in R with command:" << endl
+        << "#   tab2=read.table('" << filename << "',header=TRUE)" << endl
+        << "# Columns are tab-separated with following meaning:" << endl
+        << "#   ID: Branch ID" << endl
+        << "#   PartID: Locus ID" << endl
+        << "#   sC: Number of concordant sites averaged over " << params.site_concordance << " quartets" << endl
+        << "#   sD1: Number of discordant sites for alternative quartet 1" << endl
+        << "#   sD2: Number of discordant sites for alternative quartet 2" << endl
+        << "# NOTE: NA means that locus is not decisive for branch" << endl
+        << "ID\tPartID\tsC\tsD1\tsD2" << endl;
     for (brit = branches.begin(); brit != branches.end(); brit++) {
         Neighbor *branch = brit->second->findNeighbor(brit->first);
         int ID = brit->second->id;
-        for (int part = 1; ; part++) {
+        for (int part = 1;; part++) {
             string sC, sD1, sD2;
             if (!branch->getAttr("sC" + convertIntToString(part), sC))
                 break;
@@ -4260,8 +4463,6 @@ void assignBranchSupportNew(Params &params) {
     out.close();
     cout << "Concordance factors per branch and locus printed to " << filename << endl;
 }
-
-
 
 /**
  * assign split occurence frequencies from a set of input trees onto a target tree
@@ -4278,9 +4479,9 @@ void assignBranchSupportNew(Params &params) {
  * @param params program parameters
  */
 void assignBootstrapSupport(const char *input_trees, int burnin, int max_count,
-        const char *target_tree, bool rooted, const char *output_tree,
-        const char *out_prefix, MExtTree &mytree, const char* tree_weight_file,
-        Params *params) {
+                            const char *target_tree, bool rooted, const char *output_tree,
+                            const char *out_prefix, MExtTree &mytree, const char *tree_weight_file,
+                            Params *params) {
     bool myrooted = rooted;
     // read the tree file
     cout << "Reading tree " << target_tree << " ..." << endl;
@@ -4325,9 +4526,9 @@ void assignBootstrapSupport(const char *input_trees, int burnin, int max_count,
         sg.getTaxaName(sgtaxname);
         i = 0;
         for (StrVector::iterator sit = sgtaxname.begin();
-                sit != sgtaxname.end(); sit++, i++) {
+             sit != sgtaxname.end(); sit++, i++) {
             Node *leaf = mytree.findLeafName(*sit);
-            if (leaf==nullptr) {
+            if (leaf == nullptr) {
                 outError("Tree does not contain taxon ", *sit);
             }
             else {
@@ -4335,7 +4536,8 @@ void assignBootstrapSupport(const char *input_trees, int burnin, int max_count,
             }
         }
         scale /= sg.maxWeight();
-    } else {
+    }
+    else {
         myrooted = rooted;
         boot_trees.init(input_trees, myrooted, burnin, max_count,
                         tree_weight_file);
@@ -4369,7 +4571,7 @@ void assignBootstrapSupport(const char *input_trees, int burnin, int max_count,
         DoubleVector rfdist;
         mytree.computeRFDist(input_trees, rfdist, 1);
     }
-    
+
     //mytree.scaleLength(100.0/boot_trees.size(), true);
     string out_file;
     if (output_tree)
@@ -4384,7 +4586,7 @@ void assignBootstrapSupport(const char *input_trees, int burnin, int max_count,
 
     mytree.printTree(out_file.c_str());
     cout << "Tree with assigned support written to " << out_file
-            << endl;
+         << endl;
     /*
     if (out_prefix)
         out_file = out_prefix;
@@ -4398,8 +4600,8 @@ void assignBootstrapSupport(const char *input_trees, int burnin, int max_count,
 }
 
 void computeConsensusTree(const char *input_trees, int burnin, int max_count,
-        double cutoff, double weight_threshold, const char *output_tree,
-        const char *out_prefix, const char *tree_weight_file, Params *params) {
+                          double cutoff, double weight_threshold, const char *output_tree,
+                          const char *out_prefix, const char *tree_weight_file, Params *params) {
     bool rooted = false;
 
     // read the bootstrap tree file
@@ -4436,9 +4638,10 @@ void computeConsensusTree(const char *input_trees, int burnin, int max_count,
             if ((*it)->getWeight() > weight_threshold) {
                 hash_ss.insertSplit((*it), static_cast<int>((*it)->getWeight()));
                 it++;
-            } else {
+            }
+            else {
                 // delete the split
-                if (it != sg.end()-1) {
+                if (it != sg.end() - 1) {
                     *(*it) = (*sg.back());
                 }
                 delete sg.back();
@@ -4446,16 +4649,16 @@ void computeConsensusTree(const char *input_trees, int burnin, int max_count,
             }
         /*        StrVector sgtaxname;
          sg.getTaxaName(sgtaxname);
-         i = 0;
-         for (StrVector::iterator sit = sgtaxname.begin(); sit != sgtaxname.end(); sit++, i++) {
+         i = 0; {
          Node *leaf = mytree.findLeafName(*sit);
          if (!leaf) outError("Tree does not contain taxon ", *sit);
          leaf->id = i;
          }*/
         scale /= sg.maxWeight();
-    } else {
+    }
+    else {
         boot_trees.init(input_trees, rooted, burnin, max_count,
-                tree_weight_file);
+                        tree_weight_file);
         boot_trees.convertSplits(sg, cutoff, SW_COUNT, weight_threshold);
         scale /= boot_trees.sumTreeWeights();
         cout << sg.size() << " splits found" << endl;
@@ -4468,8 +4671,6 @@ void computeConsensusTree(const char *input_trees, int burnin, int max_count,
     else {
         sg.scaleWeight(scale, false, params->numeric_precision);
     }
-
-
 
     //cout << "Creating greedy consensus tree..." << endl;
     MTree mytree;
@@ -4508,8 +4709,8 @@ void computeConsensusTree(const char *input_trees, int burnin, int max_count,
         out_file += ".contree";
     }
 
-//    if (removed_seqs.size() > 0)
-//        mytree.insertTaxa(removed_seqs, twin_seqs);
+    //    if (removed_seqs.size() > 0)
+    //        mytree.insertTaxa(removed_seqs, twin_seqs);
 
     mytree.printTree(out_file.c_str(), WT_BR_CLADE);
     cout << "Consensus tree written to " << out_file << endl;
@@ -4529,17 +4730,16 @@ void computeConsensusTree(const char *input_trees, int burnin, int max_count,
         sg.saveFile(out_file.c_str(), IN_OTHER, true);
         cout << "Non-trivial split supports printed to star-dot file " << out_file << endl;
     }
-
 }
 
 void computeConsensusNetwork(const char *input_trees, int burnin, int max_count,
-        double cutoff, int weight_summary, double weight_threshold, const char *output_tree,
-        const char *out_prefix, const char* tree_weight_file) {
+                             double cutoff, int weight_summary, double weight_threshold, const char *output_tree,
+                             const char *out_prefix, const char *tree_weight_file) {
     bool rooted = false;
 
     // read the bootstrap tree file
     MTreeSet boot_trees(input_trees, rooted, burnin, max_count,
-            tree_weight_file);
+                        tree_weight_file);
 
     SplitGraph sg;
     //SplitIntMap hash_ss;
@@ -4574,5 +4774,78 @@ void computeConsensusNetwork(const char *input_trees, int burnin, int max_count,
         sg.saveFile(out_file.c_str(), IN_OTHER, true);
         cout << "Non-trivial split supports printed to star-dot file " << out_file << endl;
     }
+}
 
+void optimizeAlignment(IQTree *&tree, Params &params) {
+    //	if(checkDuplicatePattern(tree))
+    //		cout << "FIRST CHECK: Alignment patterns are not created properly!" << endl;
+
+    double start = getCPUTime();
+    //tree->params = &params; // Diep: 2020-08-17, there are two variables with identical name as 'params'
+
+    //	tree->initTopologyByPLLRandomAdition(params); // this pll version needs further sync to work with the rest
+    //tree->computeParsimonyTree(params.out_prefix, tree->aln); // this iqtree version plays nicely with the rest
+    // extract the vector of pattern pars of the initialized tree
+    tree->initializeAllPartialPars();
+    tree->clearAllPartialLH();
+
+    tree->computeParsimonyPatternScore();
+    //	tree->fixNegativeBranch(true);
+    int pars_before = tree->computeParsimony();
+
+    tree->setCurScore(pars_before);
+
+    for (int i = 0; i < tree->aln->size(); ++i) {
+        tree->aln->ordered_pattern.at(i).ras_pars_score = tree->pattern_pars[i];
+    }
+
+    // cout << "Time for parsimony tree construction: " << getCPUTime() - start << " seconds" << endl;
+    // cout << "Parsimony score: " << pars_before << endl;
+    // BootValTypePars * tmpPatternPars = tree->getPatternPars();
+    // for(int i = 0; i < tree->getAlnNPattern(); i++){
+    // 	(tree->aln)->at(i).ras_pars_score = tmpPatternPars[i];
+    // }
+
+    // if(params.sort_alignment){
+    // 	cout << "Reordering patterns in alignment by decreasing order of pattern parsimony... ";
+    //     start = getCPUTime();
+    // 	// reordering patterns
+    // 	PatternComp pcomp;
+    // 	sort(tree->aln->begin(), tree->aln->end(), pcomp);
+    // 	tree->aln->updateSitePatternAfterOptimized();
+
+    // 	tree->initializeAllPartialPars();
+    // 	tree->clearAllPartialLH();
+    // 	int pars_after = tree->computeParsimony();
+    // 	if(pars_after != pars_before) outError("Reordering alignment has bug.");
+    // 	cout << getCPUTime() - start << " seconds" << endl;
+    // }else{
+    // 	tree->aln->updateSitePatternAfterOptimized();
+    // }
+
+    // tree->doSegmenting();
+
+    //	if(checkDuplicatePattern(tree))
+    //		cout << "SECOND CHECK: Sorted alignment patterns are duplicate!" << endl;
+    //	exit(0);
+
+    //	for(int i = 0; i < tree->getAlnNPattern(); i++){
+    //		if(i == 253 || i == 254)
+    //			cout << "i = " << i << ", score = " << (tree->aln)->at(i).ras_pars_score << endl;
+    //	}
+    //	exit(0);
+
+    //	string tree_after = tree->getTreeString();
+    //	cout << "TREE BEFORE: " << tree_before << endl;
+    //	cout << "TREE AFTER: " << tree_after << endl;
+    //	Alignment * sortedAln = new Alignment;
+    //	*sortedAln = *(tree->aln);
+    //	delete tree;
+    //	tree = new IQTree(sortedAln);
+    //
+    //	tree->aln->printPhylip("temp.phy", false);
+    //	Alignment * alignment = new Alignment("temp.phy", params.sequence_type, params.intype);
+    ////	tree->setAlignment(alignment);
+    //	IQTree * tree1 = new IQTree(alignment);
+    //	tree = tree1;
 }

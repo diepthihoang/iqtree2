@@ -714,29 +714,27 @@ bool Alignment::isStandardGeneticCode() {
 	return (genetic_code == genetic_code1 || genetic_code == genetic_code11);
 }
 
-/*
-void Alignment::buildSeqStates(vector<vector<int> > &seq_states, bool add_unobs_const) {
-	vector<StateType> unobs_const;
-    if (add_unobs_const) {
-        unobs_const.resize(num_states);
-        for (StateType state = 0; state < num_states; state++)
-            unobs_const[state] = state;
-    }
+
+void Alignment::buildSeqStates(bool add_unobs_const) {
+	string unobs_const;
+	// if (add_unobs_const) unobs_const = getUnobservedConstPatterns();
 	seq_states.clear();
 	seq_states.resize(getNSeq());
+
 	for (int seq = 0; seq < getNSeq(); seq++) {
-		BoolVector has_state(STATE_UNKNOWN+1, false);
-		for (int site = 0; site < getNPattern(); site++)
+		vector<bool> has_state;
+		has_state.resize(STATE_UNKNOWN+1, false);
+		for (int site = 0; site < getNPattern(); site++) {
 			has_state[at(site)[seq]] = true;
-        for (StateType it : unobs_const)
-			has_state[it] = true;
-        seq_states[seq].clear();
+        }
+		for (string::iterator it = unobs_const.begin(); it != unobs_const.end(); it++)
+			has_state[*it] = true;
 		for (int state = 0; state < STATE_UNKNOWN; state++)
 			if (has_state[state])
 				seq_states[seq].push_back(state);
 	}
 }
-*/
+
 
 int Alignment::readNexus(const char *filename) {
     NxsTaxaBlock *taxa_block;
@@ -1761,6 +1759,63 @@ SeqType Alignment::getSeqType(const char *sequence_type) {
         user_seq_type = SEQ_CODON;
     }
     return user_seq_type;
+}
+
+void Alignment::initRatechetVector() {
+    for(int i = 0; i < ordered_pattern.size(); ++i) {
+        for(int j = 0; j < ordered_pattern[i].ras_pars_score; ++j) {
+            ratchet_vector.push_back(i);
+        }
+    }
+}
+
+void Alignment::createPerturbAlignment(Alignment *aln, int percentage, int weight, bool sort_aln) {
+    if (aln->ratchet_vector.empty()) {
+        aln->initRatechetVector();
+    }
+    
+    int site, nsite = aln->getNSite();
+    seq_names.insert(seq_names.begin(), aln->seq_names.begin(), aln->seq_names.end());
+    num_states = aln->num_states;
+    seq_type = aln->seq_type;
+    STATE_UNKNOWN = aln->STATE_UNKNOWN;
+    site_pattern.resize(nsite, -1);
+    clear();
+    pattern_index.clear();
+    VerboseMode save_mode = verbose_mode;
+    verbose_mode = min(verbose_mode, VB_MIN);
+    
+    /* Init the perturbed alignment */
+    int nptn = aln->getNPattern();
+    site = 0;
+    for(int p = 0; p < nptn; ++p) {
+        Pattern pat = aln-> at(p);
+        for(int i = 0; i < aln->at(p).frequency; i++){
+			addPattern(pat, site);
+			site++;
+		}
+		at(p).ras_pars_score = aln->at(p).ras_pars_score;
+    }
+    ordered_pattern = aln->ordered_pattern;
+    
+    /* Please add ratchet here */
+
+    int times = ordered_pattern.size() * percentage / 100;
+    for(int i = 0; i < times; ++i) {
+        int j = random_int(aln->ratchet_vector.size());
+        ordered_pattern[aln->ratchet_vector[j]].frequency += weight;
+    }
+
+    /* End of ratchet */
+    
+    num_parsimony_sites = 0;
+    for(int i = 0; i < ordered_pattern.size(); ++i) {
+        num_parsimony_sites += ordered_pattern[i].frequency;
+    }
+    verbose_mode = save_mode;
+
+    buildSeqStates();
+    num_variant_sites = max(num_parsimony_sites, aln->num_variant_sites);
 }
 
 bool Alignment::buildPattern(StrVector &sequences, const char *sequence_type, int nseq, int nsite) {
@@ -4284,6 +4339,8 @@ void Alignment::countConstSite() {
     }
     frac_const_sites = ((double)num_const_sites) / getNSite();
     frac_invariant_sites = ((double)num_invariant_sites) / getNSite();
+
+    cout << num_const_sites << " " << num_parsimony_sites << " " << num_invariant_sites << endl;
 }
 
 /**
@@ -5912,4 +5969,27 @@ bool Alignment::readSiteStateFreq(const char* site_freq_file)
 
 void Alignment::showNoProgress() {
     isShowingProgressDisabled = true;
+}
+
+void Alignment::updateSitePatternAfterOptimized(){
+	frac_const_sites = 0.0;
+	int nsite = getNSite();
+	int nptn = getNPattern();
+    site_pattern.resize(nsite);
+    pattern_index.clear();
+	n_informative_patterns = 0;
+	n_informative_sites = 0;
+    int site = 0;
+    for(int i = 0; i < nptn; ++i) {
+    	for(int j = 0; j < at(i).frequency; ++j){
+    		site_pattern[site] = i;
+    		site++;
+    	}
+    	pattern_index[at(i)] = i;
+		if(at(i).ras_pars_score != 0){
+			n_informative_patterns++;
+			n_informative_sites += at(i).frequency;
+		}
+    }
+	countConstSite();
 }

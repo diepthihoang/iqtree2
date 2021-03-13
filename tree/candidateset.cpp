@@ -270,6 +270,45 @@ int CandidateSet::update(string newTree, double newScore) {
     return treePos;
 }
 
+int CandidateSet::updateRandom(string newTree, double newScore) {
+    auto front = begin();
+    if ( random() % 3 != 0 ) {
+        return -2;
+    }
+    CandidateTree candidate;
+    candidate.score    = newScore;
+    candidate.topology = convertTreeString(newTree);
+    candidate.tree     = newTree;
+
+    int treePos;
+    CandidateSet::iterator candidateTreeIt;
+
+    if (treeTopologyExist(candidate.topology)) {
+        // update new score if it is better the old score
+        double oldScore = topologies[candidate.topology];
+        if (oldScore < newScore) {
+            removeCandidateTree(candidate.topology);
+            insert(CandidateSet::value_type(newScore, candidate));
+            topologies[candidate.topology] = newScore;
+        }
+        ASSERT(topologies.size() == size());
+        return -1;
+    }
+    candidateTreeIt = insert(CandidateSet::value_type(newScore, candidate));
+    topologies[candidate.topology] = newScore;
+
+    if (size() > maxSize) {
+        auto it = begin();
+        int rnd = rand() % size();
+        for(int j = 0; j < rnd; ++j) it++;
+        topologies.erase(it->second.topology);
+        erase(it);
+    }
+    ASSERT(topologies.size() == size());
+    treePos = static_cast<int>(distance(candidateTreeIt, end()));
+    return treePos;
+}
+
 vector<double> CandidateSet::getBestScores(int numBestScore) {
     if (numBestScore == 0) {
         numBestScore = static_cast<int>(size());
