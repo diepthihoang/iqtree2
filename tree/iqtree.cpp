@@ -2706,12 +2706,7 @@ double IQTree::doTreeSearch() {
 			 *---------------------------------------*/
             if (rand()%2 < 1) doSPRSearch();
             else doParsimonySPR();
-
             curScore = -computeParsimony("Determining two-way parsimony", true, true );
-            initializeAllPartialLh();
-
-            pair<int, int> nniInfos; // <num_NNIs, num_steps>
-            nniInfos = doNNISearch(true, "");
         }
 
         curTree = getTreeString();

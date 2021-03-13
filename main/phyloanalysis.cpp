@@ -4795,7 +4795,7 @@ void optimizeAlignment(IQTree *&tree, Params &params) {
 
     tree->setCurScore(pars_before);
 
-    for (int i = 0; i < tree->aln->size(); ++i) {
+    for (int i = 0; i < tree->aln->ordered_pattern.size(); ++i) {
         tree->aln->ordered_pattern.at(i).ras_pars_score = tree->pattern_pars[i];
     }
 
