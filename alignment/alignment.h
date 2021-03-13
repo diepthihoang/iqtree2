@@ -100,7 +100,7 @@ class Alignment : public vector<Pattern>, public CharSet, public StateSpace {
     friend class SuperAlignmentUnlinked;
 
 public:
-    void createPerturbAlignment(Alignment *aln, int percentage, int weight, bool sort_aln);
+    void createPerturbAlignment(Alignment *aln, int percentage, int weight, bool sort_aln, bool probability_ratchet);
     void initRatechetVector();
     vector<int> ratchet_vector;
 

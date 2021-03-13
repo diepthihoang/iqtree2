@@ -2354,6 +2354,9 @@ public:
     int ratchet_percent;
     int ratchet_wgt;
     int sort_alignment;
+
+    bool probability_ratchet;
+    int random_spr_iter;
 };
 
 /**

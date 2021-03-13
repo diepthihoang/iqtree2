@@ -990,6 +990,8 @@ void parseArg(int argc, char *argv[], Params &params) {
     params.aLRT_threshold = 101;
     params.aLRT_replicates = 0;
     params.aLRT_test = false;
+    params.probability_ratchet = false;
+    
     params.aBayes_test = false;
     params.localbp_replicates = 0;
 #ifdef __AVX512KNL
@@ -4388,6 +4390,11 @@ void parseArg(int argc, char *argv[], Params &params) {
 
             if (strcmp(argv[cnt], "--suppress-duplicate-sequence") == 0) {
                 params.suppress_duplicate_sequence_warnings = true;
+                continue;
+            }
+
+            if (strcmp(argv[cnt], "--ratchet-probability") == 0) {
+                params.probability_ratchet = true;
                 continue;
             }
 

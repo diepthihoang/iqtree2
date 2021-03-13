@@ -2646,7 +2646,7 @@ double IQTree::doTreeSearch() {
 
             /// do fix this
             Alignment* perturb_alignment = new Alignment();
-            perturb_alignment->createPerturbAlignment(aln, params->ratchet_percent, params->ratchet_wgt, params->sort_alignment);
+            perturb_alignment->createPerturbAlignment(aln, params->ratchet_percent, params->ratchet_wgt, params->sort_alignment, params->probability_ratchet);
             saved_aln_on_ratchet_iter = aln;
 
 
@@ -2690,6 +2690,7 @@ double IQTree::doTreeSearch() {
 
         if (on_ratchet_hclimb1) {
             // cout << "cham hoi??" << endl;
+
             // cout << aln << endl;
             // assert(aln);
             

@@ -1769,7 +1769,7 @@ void Alignment::initRatechetVector() {
     }
 }
 
-void Alignment::createPerturbAlignment(Alignment *aln, int percentage, int weight, bool sort_aln) {
+void Alignment::createPerturbAlignment(Alignment *aln, int percentage, int weight, bool sort_aln, bool probability_ratchet) {
     if (aln->ratchet_vector.empty()) {
         aln->initRatechetVector();
     }
@@ -1786,6 +1786,8 @@ void Alignment::createPerturbAlignment(Alignment *aln, int percentage, int weigh
     verbose_mode = min(verbose_mode, VB_MIN);
     
     /* Init the perturbed alignment */
+
+
     int nptn = aln->getNPattern();
     site = 0;
     for(int p = 0; p < nptn; ++p) {
@@ -1801,9 +1803,18 @@ void Alignment::createPerturbAlignment(Alignment *aln, int percentage, int weigh
     /* Please add ratchet here */
 
     int times = ordered_pattern.size() * percentage / 100;
-    for(int i = 0; i < times; ++i) {
-        int j = random_int(aln->ratchet_vector.size());
-        ordered_pattern[aln->ratchet_vector[j]].frequency += weight;
+    
+    if (probability_ratchet){
+        for(int i = 0; i < times; ++i) {
+            int j = random_int(aln->ratchet_vector.size());
+            ordered_pattern[aln->ratchet_vector[j]].frequency += weight;
+        }
+    }
+    else {
+        vector<int> to_select;
+        for(int i = 0; i < ordered_pattern.size(); ++i) to_select.push_back(i);
+        random_shuffle(to_select.begin(), to_select.end());
+        for(int j = 0; j < times; ++j) ordered_pattern[to_select[j]].frequency += weight;
     }
 
     /* End of ratchet */
