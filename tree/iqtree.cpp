@@ -756,7 +756,6 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
             cout.flush();
         }
     }
-    double startTime = getRealTime();
 //    int numDupPars = 0;
 //    bool orig_rooted = rooted;
 //    rooted = false;
@@ -790,10 +789,11 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
             whatAmIDoingHere = "Loading user tree";
             break;
     }
+    double startTime = getRealTime();
     if (0<nParTrees) {
         initProgress(nParTrees, whatAmIDoingHere, verb, "tree");
         for (int treeNr = 1; treeNr <= nParTrees; ++treeNr) {
-            int parRandSeed = Params::getInstance().ran_seed + processID * nParTrees + treeNr;
+            int parRandSeed = params->ran_seed + treeNr * 12345;
             string curParsTree;
             
             /********* Create parsimony tree using PLL *********/
@@ -806,7 +806,7 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
                                 PLL_FALSE, PLL_FALSE, PLL_SUMMARIZE_LH, PLL_FALSE, PLL_FALSE);
                 curParsTree = string(pllInst->tree_string);
                 PhyloTree::readTreeStringSeqName(curParsTree);
-                wrapperFixNegativeBranch(true);
+                // wrapperFixNegativeBranch(true);
             } else if (params->start_tree == STT_RANDOM_TREE) {
                 generateRandomTree(YULE_HARDING);
                 wrapperFixNegativeBranch(true);
@@ -815,6 +815,8 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
                     convertToRooted();
                 }
             } else if (params->start_tree == STT_PARSIMONY) {
+                cout << "YWEQS>" << endl;
+                exit(0);
                 int *rstream;
                 init_random(parRandSeed, false, &rstream);
                 PhyloTree tree;
@@ -852,19 +854,19 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
             int pos = addTreeToCandidateSet(curParsTree, tmpScore, false, MPIHelper::getInstance().getProcessID());
             // if a duplicated tree is generated, then randomize the tree
             if (pos == -1) {
-                readTreeString(curParsTree);
-                doRandomNNIs();
-                wrapperFixNegativeBranch(true);
-                string randTree = getTreeString();
-                if(params->mpboot2){
-					this->initializeAllPartialPars();
-					this->clearAllPartialLH();
-					tmpScore = -this->computeParsimony();
-                }else
-                	tmpScore = -DBL_MAX;
+//                 readTreeString(curParsTree);
+//                 doRandomNNIs();
+//                 wrapperFixNegativeBranch(true);
+//                 string randTree = getTreeString();
+//                 if(params->mpboot2){
+// 					this->initializeAllPartialPars();
+// 					this->clearAllPartialLH();
+// 					tmpScore = -this->computeParsimony();
+//                 }else
+//                 	tmpScore = -DBL_MAX;
 
-//                addTreeToCandidateSet(randTree, -DBL_MAX, false, MPIHelper::getInstance().getProcessID());
-                addTreeToCandidateSet(randTree, tmpScore, false, MPIHelper::getInstance().getProcessID());
+// //                addTreeToCandidateSet(randTree, -DBL_MAX, false, MPIHelper::getInstance().getProcessID());
+//                 addTreeToCandidateSet(randTree, tmpScore, false, MPIHelper::getInstance().getProcessID());
             }
             trackProgress(1);
         }
@@ -2543,7 +2545,6 @@ double IQTree::doTreeSearch() {
 
     /* Initialize candidate tree set */
     if (!getCheckpoint()->getBool("finishedCandidateSet")) {
-        cout << "WEQRQEWR" << endl;
         initCandidateTreeSet(treesPerProc, params->numNNITrees);
         // write best tree to disk
         printBestCandidateTree();
@@ -2668,7 +2669,8 @@ double IQTree::doTreeSearch() {
         // if (rand()%2 < 1) doSPRSearch();
         // else doParsimonySPR();
 
-        doParsimonySPR();
+        if(params->random_spr_iter > 0 && search_iterations % params->random_spr_iter == 0) doSPRSearch();
+        else doParsimonySPR();
 
         curScore = -computeParsimony("Determining two-way parsimony", true, true );
 
@@ -2694,7 +2696,7 @@ double IQTree::doTreeSearch() {
             // cout << aln << endl;
             // assert(aln);
             
-            // delete aln;
+            delete aln;
             setAlignment(saved_aln_on_ratchet_iter, true);
             on_ratchet_hclimb1 = false;
 

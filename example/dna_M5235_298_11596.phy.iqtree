@@ -1,8 +1,8 @@
-IQ-TREE 2.1.2 COVID-edition built Mar 11 2021
+IQ-TREE 2.1.2 COVID-edition built Mar 14 2021
 
 Input file name: ../iqtree2/example/dna_M5235_298_11596.phy
 Type of analysis: ModelFinder + tree reconstruction
-Random seed number: 2
+Random seed number: 101255
 
 REFERENCES
 ----------
@@ -64,612 +64,612 @@ Model of rate heterogeneity: Uniform
 MAXIMUM LIKELIHOOD TREE
 -----------------------
 
-Parsimony score of the tree: 7675NOTE: Tree is UNROOTED although outgroup taxon 'Amphipogon' is drawn at root
+Parsimony score of the tree: 7673NOTE: Tree is UNROOTED although outgroup taxon 'Amphipogon' is drawn at root
 
-+--------Amphipogon
++-----Amphipogon
 |
-|             +--Andropogon
-|        +----|
-|        |    +--Setaria
+|           +--Andropogon
+|        +--|
+|        |  +--Setaria
 |     +--|
-|     |  |        +------Hordeum
-|     |  +--------|
-|     |           +--Micraira
+|     |  |  +--Hordeum
+|     |  +--|
+|     |     +--Micraira
 |  +--|
-|  |  |    +---Aristida
-|  |  +----|
-|  |       +---Stipagrostis
+|  |  |  +--Aristida
+|  |  +--|
+|  |     +---Stipagrostis
 +--|
-|  |                                                                    +--Austrodanthonia_alpicola_AMH102
-|  |                                                                 +--|
-|  |                                                                 |  |  +--Rytidosperma_nivicolum_MDP419
-|  |                                                                 |  +--|
-|  |                                                                 |     +--Rytidosperma_vestitum_JM132
-|  |                                                              +--|
-|  |                                                              |  |  +--Rytidosperma_oreoboloides_MWC8877
-|  |                                                              |  +--|
-|  |                                                              |     +--Rytidosperma_vickeryae_MDP422
-|  |                                                           +**|
-|  |                                                           |  |                          +--Austrodanthonia_auriculata_AMH36
-|  |                                                           |  |                       +--|
-|  |                                                           |  |                       |  +--Austrodanthonia_eriantha_AMH43
-|  |                                                           |  |                    +--|
-|  |                                                           |  |                    |  |  +--Austrodanthonia_carphoides_HPL5568
-|  |                                                           |  |                    |  +--|
-|  |                                                           |  |                    |     +--Austrodanthonia_eriantha_AMH95
-|  |                                                           |  |                 +--|
-|  |                                                           |  |                 |  +--Austrodanthonia_monticola_MDP319
-|  |                                                           |  |              +--|
-|  |                                                           |  |              |  +--Austrodanthonia_pilosa_AMH44
-|  |                                                           |  |           +--|
-|  |                                                           |  |           |  +--Rytidosperma_dimidiatum_MDP292
-|  |                                                           |  |        +--|
-|  |                                                           |  |        |  |     +**Austrodanthonia_geniculata_AMH39
-|  |                                                           |  |        |  |  +--|
-|  |                                                           |  |        |  |  |  +--Austrodanthonia_induta_NGW6375
-|  |                                                           |  |        |  +--|
-|  |                                                           |  |        |     +--Joycea_lepidopoda_MDP285
-|  |                                                           |  |     +--|
-|  |                                                           |  |     |  |     +--Rytidosperma_buchananii_AMH120
-|  |                                                           |  |     |  |  +--|
-|  |                                                           |  |     |  |  |  +**Rytidosperma_thomsonii_AMH118
-|  |                                                           |  |     |  +--|
-|  |                                                           |  |     |     |        +**Rytidosperma_maculatum_AMH117
-|  |                                                           |  |     |     |     +**|
-|  |                                                           |  |     |     |     |  +--Rytidosperma_pumilum_NGW
-|  |                                                           |  |     |     |  +**|
-|  |                                                           |  |     |     |  |  +--Rytidosperma_telmaticum_AMH151
-|  |                                                           |  |     |     +--|
-|  |                                                           |  |     |        +--Rytidosperma_pumilum_HPL5747
-|  |                                                           |  |  +**|
-|  |                                                           |  |  |  |                 +--Austrodanthonia_caespitosa_AMH25
-|  |                                                           |  |  |  |              +--|
-|  |                                                           |  |  |  |              |  |     +**Austrodanthonia_racemosa_AMH6
-|  |                                                           |  |  |  |              |  |  +--|
-|  |                                                           |  |  |  |              |  |  |  +--Rytidosperma_quirihuense_MDP338
-|  |                                                           |  |  |  |              |  +--|
-|  |                                                           |  |  |  |              |     +--Rytidosperma_paschale_CULT
-|  |                                                           |  |  |  |           +--|
-|  |                                                           |  |  |  |           |  |     +--Austrodanthonia_clavata_MDP454
-|  |                                                           |  |  |  |           |  |  +--|
-|  |                                                           |  |  |  |           |  |  |  +--Austrodanthonia_penicillata_AMH99
-|  |                                                           |  |  |  |           |  +--|
-|  |                                                           |  |  |  |           |     +--Austrodanthonia_mera_AMH125
-|  |                                                           |  |  |  |        +**|
-|  |                                                           |  |  |  |        |  |  +--Austrodanthonia_caespitosa_AMH92
-|  |                                                           |  |  |  |        |  +--|
-|  |                                                           |  |  |  |        |     +--Austrodanthonia_setacea_AMH20
-|  |                                                           |  |  |  |     +--|
-|  |                                                           |  |  |  |     |  |     +--Austrodanthonia_duttoniana_MDP302
-|  |                                                           |  |  |  |     |  |  +--|
-|  |                                                           |  |  |  |     |  |  |  +--Rytidosperma_nitens_MDP380
-|  |                                                           |  |  |  |     |  +--|
-|  |                                                           |  |  |  |     |     +--Austrodanthonia_richardsonii_PI
-|  |                                                           |  |  |  |  +--|
-|  |                                                           |  |  |  |  |  |           +--Austrodanthonia_fulva_AMH38
-|  |                                                           |  |  |  |  |  |        +--|
-|  |                                                           |  |  |  |  |  |        |  |  +--Austrodanthonia_oreophila_MDP404
-|  |                                                           |  |  |  |  |  |        |  +--|
-|  |                                                           |  |  |  |  |  |        |     |  +--Austrodanthonia_tenuior_AMH70
-|  |                                                           |  |  |  |  |  |        |     +--|
-|  |                                                           |  |  |  |  |  |        |        |     +**Joycea_pallida_HPL5564
-|  |                                                           |  |  |  |  |  |        |        |  +--|
-|  |                                                           |  |  |  |  |  |        |        |  |  +--Joycea_sp_AMH104
-|  |                                                           |  |  |  |  |  |        |        +--|
-|  |                                                           |  |  |  |  |  |        |           +--Notodanthonia_longifolia_MDP305
-|  |                                                           |  |  |  |  |  |     +--|
-|  |                                                           |  |  |  |  |  |     |  +--Austrodanthonia_popinensis_AMH94
-|  |                                                           |  |  |  |  |  |  +--|
-|  |                                                           |  |  |  |  |  |  |  |  +--Rytidosperma_australe_AMH145
-|  |                                                           |  |  |  |  |  |  |  +--|
-|  |                                                           |  |  |  |  |  |  |     +--Rytidosperma_exiguum_HPL5746
-|  |                                                           |  |  |  |  |  +--|
-|  |                                                           |  |  |  |  |     |  +--Joycea_clelandii_MDP250
-|  |                                                           |  |  |  |  |     +--|
-|  |                                                           |  |  |  |  |        +--Notodanthonia_semiannularis_MDP303
-|  |                                                           |  |  |  +--|
-|  |                                                           |  |  |     |        +--Notodanthonia_gracilis_AMH148
-|  |                                                           |  |  |     |     +--|
-|  |                                                           |  |  |     |     |  |  +--Notodanthonia_gracilis_HPL5683
-|  |                                                           |  |  |     |     |  +--|
-|  |                                                           |  |  |     |     |     +--Notodanthonia_unarede_AMH108
-|  |                                                           |  |  |     |  +--|
-|  |                                                           |  |  |     |  |  |     +--Rytidosperma_australe_MDP418
-|  |                                                           |  |  |     |  |  |  +--|
-|  |                                                           |  |  |     |  |  |  |  +--Rytidosperma_pulchrum_AMH143
-|  |                                                           |  |  |     |  |  +--|
-|  |                                                           |  |  |     |  |     +--Rytidosperma_setifolium_AMH121
-|  |                                                           |  |  |     +--|
-|  |                                                           |  |  |        |  +--Rytidosperma_lechleri_CMB4256
-|  |                                                           |  |  |        +--|
-|  |                                                           |  |  |           |     +--Rytidosperma_pictum_MDP355
-|  |                                                           |  |  |           |  +--|
-|  |                                                           |  |  |           |  |  +--Rytidosperma_violaceum_MDP356
-|  |                                                           |  |  |           +--|
-|  |                                                           |  |  |              +--Rytidosperma_virescens_MDP331
-|  |                                                           |  +--|
-|  |                                                           |     |  +--Rytidosperma_fortunae-hibernae_AMH73
-|  |                                                           |     +--|
-|  |                                                           |        +--Rytidosperma_pauciflorum_HPL5688
-|  |                                                        +**|
-|  |                                                        |  +--Austrodanthonia_bipartita_MDP290
-|  |                                                     +--|
-|  |                                                     |  +--Austrodanthonia_laevis_LWsn
+|  |                                                     +--Austrodanthonia_alpicola_AMH102
 |  |                                                  +--|
-|  |                                                  |  +--Rytidosperma_nudiflorum_HPL5693
+|  |                                                  |  +--Rytidosperma_vestitum_JM132
 |  |                                               +--|
-|  |                                               |  |              +--Karroochloa_curva_GAV604
-|  |                                               |  |           +--|
-|  |                                               |  |           |  +--Tribolium_obtusifolium_GAV597
-|  |                                               |  |        +--|
-|  |                                               |  |        |  |        +--Schismus_pleuropogon_GAV628
-|  |                                               |  |        |  |     +--|
-|  |                                               |  |        |  |     |  +--Tribolium_obliterum_GAV598
-|  |                                               |  |        |  |  +--|
-|  |                                               |  |        |  |  |  +--Tribolium_acutiflorum_GAV504
-|  |                                               |  |        |  +--|
-|  |                                               |  |        |     +--Tribolium_pusillum_GAV554
-|  |                                               |  |     +--|
-|  |                                               |  |     |  +--Karroochloa_tenella_GAV587
-|  |                                               |  |  +--|
-|  |                                               |  |  |  |              +--Tribolium_ciliare_GAV596
-|  |                                               |  |  |  |           +--|
-|  |                                               |  |  |  |           |  +--Tribolium_echinatum_GAV576
-|  |                                               |  |  |  |        +--|
-|  |                                               |  |  |  |        |  |  +--Tribolium_ciliare_GAV596_ITS
-|  |                                               |  |  |  |        |  +--|
-|  |                                               |  |  |  |        |     +**Tribolium_echinatum_GAV601
-|  |                                               |  |  |  |     +--|
-|  |                                               |  |  |  |     |  +--Tribolium_pusillum_GAV554_ITS
-|  |                                               |  |  |  |  +--|
-|  |                                               |  |  |  |  |  +--Tribolium_hispidum_GAV532
-|  |                                               |  |  |  +--|
-|  |                                               |  |  |     +--Tribolium_utriculosum_GAV568
-|  |                                               |  +--|
-|  |                                               |     |    +--Tribolium_brachystachyum_GAV593
-|  |                                               |     +----|
-|  |                                               |          +--Tribolium_uniolae_GAV531
-|  |                                          +----|
-|  |                                          |    |    +--Karroochloa_schismoides_GAV562
-|  |                                          |    +----|
-|  |                                          |         |  +--Schismus_arabicus_Willissn
-|  |                                          |         +--|
-|  |                                          |            |  +--Schismus_barbatus_GAV503
-|  |                                          |            +--|
-|  |                                          |               +--Schismus_scaberrimus_GAV573
-|  |                                      +---|
-|  |                                      |   |           +--Danthonia_schneideri_Soreng5638
-|  |                                      |   |     +-----|
-|  |                                      |   |     |     +--Danthonia_subulata_HPL7669
-|  |                                      |   |  +--|
-|  |                                      |   |  |  |      +--Merxmuellera_aureocephala_NPB
-|  |                                      |   |  |  |   +--|
-|  |                                      |   |  |  |   |  +--Merxmuellera_stricta_TvN15
-|  |                                      |   |  |  +---|
-|  |                                      |   |  |      +--Merxmuellera_dura_NPB983
-|  |                                      |   +--|
-|  |                                      |      +--------Merxmuellera_disticha_NPB1002
+|  |                                               |  +--Rytidosperma_nivicolum_MDP419
+|  |                                            +--|
+|  |                                            |  |  +--Rytidosperma_oreoboloides_MWC8877
+|  |                                            |  +--|
+|  |                                            |     +--Rytidosperma_vickeryae_MDP422
+|  |                                         +--|
+|  |                                         |  +--Rytidosperma_nudiflorum_HPL5693
+|  |                                      +--|
+|  |                                      |  |                             +--Austrodanthonia_auriculata_AMH36
+|  |                                      |  |                          +--|
+|  |                                      |  |                          |  +--Austrodanthonia_eriantha_AMH43
+|  |                                      |  |                       +--|
+|  |                                      |  |                       |  +--Austrodanthonia_monticola_MDP319
+|  |                                      |  |                    +--|
+|  |                                      |  |                    |  |  +--Austrodanthonia_carphoides_HPL5568
+|  |                                      |  |                    |  +--|
+|  |                                      |  |                    |     +--Austrodanthonia_eriantha_AMH95
+|  |                                      |  |                 +--|
+|  |                                      |  |                 |  +--Austrodanthonia_pilosa_AMH44
+|  |                                      |  |              +--|
+|  |                                      |  |              |  +--Rytidosperma_dimidiatum_MDP292
+|  |                                      |  |           +--|
+|  |                                      |  |           |  |        +**Austrodanthonia_geniculata_AMH39
+|  |                                      |  |           |  |     +--|
+|  |                                      |  |           |  |     |  +--Austrodanthonia_induta_NGW6375
+|  |                                      |  |           |  |  +--|
+|  |                                      |  |           |  |  |  +--Joycea_lepidopoda_MDP285
+|  |                                      |  |           |  +--|
+|  |                                      |  |           |     |  +--Rytidosperma_fortunae-hibernae_AMH73
+|  |                                      |  |           |     +--|
+|  |                                      |  |           |        +--Rytidosperma_pauciflorum_HPL5688
+|  |                                      |  |        +--|
+|  |                                      |  |        |  |     +--Rytidosperma_buchananii_AMH120
+|  |                                      |  |        |  |  +--|
+|  |                                      |  |        |  |  |  +**Rytidosperma_thomsonii_AMH118
+|  |                                      |  |        |  +--|
+|  |                                      |  |        |     |        +--Rytidosperma_maculatum_AMH117
+|  |                                      |  |        |     |     +--|
+|  |                                      |  |        |     |     |  +--Rytidosperma_telmaticum_AMH151
+|  |                                      |  |        |     |  +--|
+|  |                                      |  |        |     |  |  +--Rytidosperma_pumilum_NGW
+|  |                                      |  |        |     +--|
+|  |                                      |  |        |        +--Rytidosperma_pumilum_HPL5747
+|  |                                      |  |     +--|
+|  |                                      |  |     |  |              +--Austrodanthonia_caespitosa_AMH25
+|  |                                      |  |     |  |           +--|
+|  |                                      |  |     |  |           |  |     +**Austrodanthonia_racemosa_AMH6
+|  |                                      |  |     |  |           |  |  +--|
+|  |                                      |  |     |  |           |  |  |  +--Rytidosperma_quirihuense_MDP338
+|  |                                      |  |     |  |           |  +--|
+|  |                                      |  |     |  |           |     +--Rytidosperma_paschale_CULT
+|  |                                      |  |     |  |        +--|
+|  |                                      |  |     |  |        |  |     +--Austrodanthonia_clavata_MDP454
+|  |                                      |  |     |  |        |  |  +--|
+|  |                                      |  |     |  |        |  |  |  +--Austrodanthonia_penicillata_AMH99
+|  |                                      |  |     |  |        |  +--|
+|  |                                      |  |     |  |        |     +--Austrodanthonia_mera_AMH125
+|  |                                      |  |     |  |     +--|
+|  |                                      |  |     |  |     |  +--Rytidosperma_exiguum_HPL5746
+|  |                                      |  |     |  |  +--|
+|  |                                      |  |     |  |  |  |        +--Austrodanthonia_fulva_AMH38
+|  |                                      |  |     |  |  |  |     +--|
+|  |                                      |  |     |  |  |  |     |  |  +--Austrodanthonia_oreophila_MDP404
+|  |                                      |  |     |  |  |  |     |  +--|
+|  |                                      |  |     |  |  |  |     |     |  +--Austrodanthonia_tenuior_AMH70
+|  |                                      |  |     |  |  |  |     |     +--|
+|  |                                      |  |     |  |  |  |     |        |     +**Joycea_pallida_HPL5564
+|  |                                      |  |     |  |  |  |     |        |  +--|
+|  |                                      |  |     |  |  |  |     |        |  |  +--Joycea_sp_AMH104
+|  |                                      |  |     |  |  |  |     |        +--|
+|  |                                      |  |     |  |  |  |     |           +--Notodanthonia_longifolia_MDP305
+|  |                                      |  |     |  |  |  |  +--|
+|  |                                      |  |     |  |  |  |  |  +--Austrodanthonia_popinensis_AMH94
+|  |                                      |  |     |  |  |  +--|
+|  |                                      |  |     |  |  |     |  +--Joycea_clelandii_MDP250
+|  |                                      |  |     |  |  |     +--|
+|  |                                      |  |     |  |  |        +--Notodanthonia_semiannularis_MDP303
+|  |                                      |  |     |  +--|
+|  |                                      |  |     |     |           +--Notodanthonia_gracilis_AMH148
+|  |                                      |  |     |     |        +--|
+|  |                                      |  |     |     |        |  |     +--Notodanthonia_gracilis_HPL5683
+|  |                                      |  |     |     |        |  |  +--|
+|  |                                      |  |     |     |        |  |  |  +--Notodanthonia_unarede_AMH108
+|  |                                      |  |     |     |        |  +--|
+|  |                                      |  |     |     |        |     +--Rytidosperma_australe_AMH145
+|  |                                      |  |     |     |     +--|
+|  |                                      |  |     |     |     |  |  +--Rytidosperma_australe_MDP418
+|  |                                      |  |     |     |     |  +--|
+|  |                                      |  |     |     |     |     +--Rytidosperma_pulchrum_AMH143
+|  |                                      |  |     |     |  +--|
+|  |                                      |  |     |     |  |  +--Rytidosperma_setifolium_AMH121
+|  |                                      |  |     |     +--|
+|  |                                      |  |     |        |  +--Rytidosperma_lechleri_CMB4256
+|  |                                      |  |     |        +--|
+|  |                                      |  |     |           |     +--Rytidosperma_pictum_MDP355
+|  |                                      |  |     |           |  +--|
+|  |                                      |  |     |           |  |  +**Rytidosperma_violaceum_MDP356
+|  |                                      |  |     |           +--|
+|  |                                      |  |     |              +--Rytidosperma_virescens_MDP331
+|  |                                      |  |  +--|
+|  |                                      |  |  |  +--Austrodanthonia_laevis_LWsn
+|  |                                      |  +--|
+|  |                                      |     +--Austrodanthonia_bipartita_MDP290
 |  |                                   +--|
-|  |                                   |  |                    +--Cortaderia_araucana_ITS
-|  |                                   |  |                 +**|
-|  |                                   |  |                 |  +**Cortaderia_jubata_ITS
-|  |                                   |  |              +--|
-|  |                                   |  |              |  +--Cortaderia_rudiuscula_ITS
-|  |                                   |  |           +--|
-|  |                                   |  |           |  +--Lamprothyrsus_hieronymi_ITS
-|  |                                   |  |        +--|
-|  |                                   |  |        |  |  +--Cortaderia_boliviensis_ITS
-|  |                                   |  |        |  +--|
-|  |                                   |  |        |     +--Lamprothyrsus_peruvianus_ITS
-|  |                                   |  |     +--|
-|  |                                   |  |     |  |           +--Cortaderia_archboldii_JM115
-|  |                                   |  |     |  |        +--|
-|  |                                   |  |     |  |        |  |  +**Notochloe_microdon_AMH66
-|  |                                   |  |     |  |        |  +--|
-|  |                                   |  |     |  |        |     +**Notochloe_microdon_MDP326
-|  |                                   |  |     |  |     +--|
-|  |                                   |  |     |  |     |  +--Notochloe_microdon_Watson_sn
-|  |                                   |  |     |  |  +--|
-|  |                                   |  |     |  |  |  |     +**Cortaderia_pilosa_3
-|  |                                   |  |     |  |  |  |  +--|
-|  |                                   |  |     |  |  |  |  |  +--Cortaderia_pilosa_4a
-|  |                                   |  |     |  |  |  +--|
-|  |                                   |  |     |  |  |     +--Cortaderia_pilosa_MDP345
-|  |                                   |  |     |  +--|
-|  |                                   |  |     |     |              +**Danthonia_alpina_480_ITS
-|  |                                   |  |     |     |           +--|
-|  |                                   |  |     |     |           |  +**Danthonia_decumbens_MDP312
-|  |                                   |  |     |     |        +--|
-|  |                                   |  |     |     |        |  |  +**Danthonia_alpina_MDP480
-|  |                                   |  |     |     |        |  +--|
-|  |                                   |  |     |     |        |     +**Danthonia_alpina_MDP481
-|  |                                   |  |     |     |     +--|
-|  |                                   |  |     |     |     |  |  +--Danthonia_domingensis_AA373
-|  |                                   |  |     |     |     |  +--|
-|  |                                   |  |     |     |     |     |  +**Danthonia_intermedia_Hermannsn
-|  |                                   |  |     |     |     |     +--|
-|  |                                   |  |     |     |     |        +--Danthonia_sericea_DBW7180
-|  |                                   |  |     |     |  +--|
-|  |                                   |  |     |     |  |  |  +--Danthonia_compressa_Radford44899
-|  |                                   |  |     |     |  |  +--|
-|  |                                   |  |     |     |  |     |     +**Danthonia_parryi_CWM813
-|  |                                   |  |     |     |  |     |  +--|
-|  |                                   |  |     |     |  |     |  |  +**Danthonia_spicata_WDT95_30
-|  |                                   |  |     |     |  |     +--|
-|  |                                   |  |     |     |  |        +--Danthonia_unispicata_JTH52406
-|  |                                   |  |     |     +--|
-|  |                                   |  |     |        |     +--Danthonia_annableae_DMP1833
-|  |                                   |  |     |        |  +--|
-|  |                                   |  |     |        |  |  +**Danthonia_secundiflora_ML1617
-|  |                                   |  |     |        +--|
-|  |                                   |  |     |           |              +--Danthonia_araucana_MDP337
-|  |                                   |  |     |           |           +--|
-|  |                                   |  |     |           |           |  +**Danthonia_chilensis_var._aureofulva_MDP340
-|  |                                   |  |     |           |        +--|
-|  |                                   |  |     |           |        |  +--Danthonia_californica_americana_MDP330
-|  |                                   |  |     |           |     +--|
-|  |                                   |  |     |           |     |  +--Danthonia_chilensis_var._chilensis_MDP342
-|  |                                   |  |     |           |  +--|
-|  |                                   |  |     |           |  |  +--Danthonia_malacantha_MDP339
-|  |                                   |  |     |           +--|
-|  |                                   |  |     |              +--Danthonia_filifolia_MJM34
+|  |                                   |  |     +--Austrodanthonia_caespitosa_AMH92
 |  |                                   |  |  +--|
-|  |                                   |  |  |  |        +--Cortaderia_bifida_ITS
-|  |                                   |  |  |  |     +--|
-|  |                                   |  |  |  |     |  +--Cortaderia_nitida_ITS
-|  |                                   |  |  |  |  +--|
-|  |                                   |  |  |  |  |  +--Cortaderia_sericantha_ITS
-|  |                                   |  |  |  +--|
-|  |                                   |  |  |     |  +--Cortaderia_columbiana_ITS
-|  |                                   |  |  |     +--|
-|  |                                   |  |  |        +--Cortaderia_hapalotricha_ITS
+|  |                                   |  |  |  +--Austrodanthonia_setacea_AMH20
 |  |                                   |  +--|
-|  |                                   |     |              +--Cortaderia_fulvida_G5088
-|  |                                   |     |           +--|
-|  |                                   |     |           |  +--Cortaderia_toetoe_G5042
-|  |                                   |     |        +**|
-|  |                                   |     |        |  +--Cortaderia_richardii_G3816
-|  |                                   |     |     +--|
-|  |                                   |     |     |  +--Cortaderia_turbaria_G17358
+|  |                                   |     |     +--Austrodanthonia_duttoniana_MDP302
 |  |                                   |     |  +--|
-|  |                                   |     |  |  +--Cortaderia_splendens_G10872
+|  |                                   |     |  |  +--Rytidosperma_nitens_MDP380
 |  |                                   |     +--|
-|  |                                   |        |           +--Notochloe_microdon_AMH66_ITS
-|  |                                   |        |        +--|
-|  |                                   |        |        |  +--Notochloe_microdon_MDP326_ITS
-|  |                                   |        |     +--|
-|  |                                   |        |     |  +--Notochloe_microdon_ITS
-|  |                                   |        |  +--|
-|  |                                   |        |  |  |  +--Plinthanthesis_paradoxa_HPL5638
-|  |                                   |        |  |  +--|
-|  |                                   |        |  |     +--Plinthanthesis_rodwayi_MDP415
-|  |                                   |        +--|
-|  |                                   |           +--Plinthanthesis_urvillei_MC4003
+|  |                                   |        +--Austrodanthonia_richardsonii_PI
 |  |                                +--|
-|  |                                |  |                 +--Cortaderia_araucana_G7162
-|  |                                |  |              +--|
-|  |                                |  |              |  |     +--Cortaderia_jubata_ML1515
-|  |                                |  |              |  |  +**|
-|  |                                |  |              |  |  |  +--Cortaderia_selloana_Robinson
-|  |                                |  |              |  +--|
-|  |                                |  |              |     +**Cortaderia_rudiuscula_G11157
+|  |                                |  |              +--Karroochloa_curva_GAV604
 |  |                                |  |           +--|
-|  |                                |  |           |  +--Cortaderia_nitida_ML1434
-|  |                                |  |        +**|
-|  |                                |  |        |  |  +--Cortaderia_boliviensis_ML672
+|  |                                |  |           |  +--Tribolium_obtusifolium_GAV597
+|  |                                |  |        +--|
+|  |                                |  |        |  |        +--Schismus_pleuropogon_GAV628
+|  |                                |  |        |  |     +--|
+|  |                                |  |        |  |     |  +--Tribolium_obliterum_GAV598
+|  |                                |  |        |  |  +--|
+|  |                                |  |        |  |  |  +--Tribolium_acutiflorum_GAV504
 |  |                                |  |        |  +--|
-|  |                                |  |        |     +--Lamprothyrsus_hieronymi_OM3534
+|  |                                |  |        |     +--Tribolium_pusillum_GAV554
 |  |                                |  |     +--|
-|  |                                |  |     |  +--Lamprothyrsus_peruvianus_G11154
+|  |                                |  |     |  +--Karroochloa_tenella_GAV587
 |  |                                |  |  +--|
-|  |                                |  |  |  |  +--Cortaderia_bifida_ML1497
+|  |                                |  |  |  |              +--Tribolium_ciliare_GAV596
+|  |                                |  |  |  |           +--|
+|  |                                |  |  |  |           |  +--Tribolium_echinatum_GAV576
+|  |                                |  |  |  |        +--|
+|  |                                |  |  |  |        |  |  +--Tribolium_ciliare_GAV596_ITS
+|  |                                |  |  |  |        |  +--|
+|  |                                |  |  |  |        |     +**Tribolium_echinatum_GAV601
+|  |                                |  |  |  |     +--|
+|  |                                |  |  |  |     |  +--Tribolium_pusillum_GAV554_ITS
+|  |                                |  |  |  |  +--|
+|  |                                |  |  |  |  |  +--Tribolium_hispidum_GAV532
 |  |                                |  |  |  +--|
-|  |                                |  |  |     +--Cortaderia_sericantha_ML1128
+|  |                                |  |  |     +--Tribolium_utriculosum_GAV568
 |  |                                |  +--|
-|  |                                |     |  +--Cortaderia_columbiana_ML920
+|  |                                |     |  +--Tribolium_brachystachyum_GAV593
 |  |                                |     +--|
-|  |                                |        +--Cortaderia_hapalotricha_ML1525
-|  |                           +----|
-|  |                           |    |                 +--Chaetobromus_involucratus_dregeanus_NPB978
-|  |                           |    |         +-------|
-|  |                           |    |         |       +--Chaetobromus_involucratus_involucratus_NPB1715
-|  |                           |    +---------|
-|  |                           |              |      +**Pseudopentameris_brachyphylla_NPB1669
-|  |                           |              |   +--|
-|  |                           |              |   |  +--Pseudopentameris_macrantha_HPL5470
-|  |                           |              +---|
-|  |                           |                  +--Pseudopentameris_caespitosa_NPB1670
-|  |                      +----|
-|  |                      |    |                    +--Chionochloa_acicularis_OTA57601
-|  |                      |    |                 +**|
-|  |                      |    |                 |  +--Chionochloa_teretifolia_OTA57598
-|  |                      |    |              +**|
-|  |                      |    |              |  |  +--Chionochloa_crassiuscula_crassiuscula_OTA57968
-|  |                      |    |              |  +--|
-|  |                      |    |              |     +--Chionochloa_lanea_KML041
-|  |                      |    |           +**|
-|  |                      |    |           |  +--Chionochloa_antarctica_OTA57955
-|  |                      |    |        +--|
-|  |                      |    |        |  +--Chionochloa_ovata_OTA57593
-|  |                      |    |     +--|
-|  |                      |    |     |  |                    +--Chionochloa_australis_OTA57584
-|  |                      |    |     |  |                 +--|
-|  |                      |    |     |  |                 |  +--Chionochloa_defracta_OTA57937
-|  |                      |    |     |  |              +**|
-|  |                      |    |     |  |              |  |  +--Chionochloa_cheesemanii_OTA57934
-|  |                      |    |     |  |              |  +--|
-|  |                      |    |     |  |              |     +--Chionochloa_conspicua_conspicua_OTA
-|  |                      |    |     |  |           +**|
-|  |                      |    |     |  |           |  +--Chionochloa_flavicans_OTA57947
-|  |                      |    |     |  |        +--|
-|  |                      |    |     |  |        |  +--Chionochloa_beddiei_OTA57969
-|  |                      |    |     |  |     +--|
-|  |                      |    |     |  |     |  +--Chionochloa_nivifera_KML063
-|  |                      |    |     |  |  +--|
-|  |                      |    |     |  |  |  |  +--Chionochloa_frigida_MDP417
-|  |                      |    |     |  |  |  +--|
-|  |                      |    |     |  |  |     +**Chionochloa_vireta_OTA57585
-|  |                      |    |     |  +--|
-|  |                      |    |     |     |              +--Chionochloa_flavescens_CHR475418
-|  |                      |    |     |     |           +**|
-|  |                      |    |     |     |           |  +--Chionochloa_rigida_HPL5750
-|  |                      |    |     |     |        +**|
-|  |                      |    |     |     |        |  +--Chionochloa_oreophila_CHR475277
-|  |                      |    |     |     |     +**|
-|  |                      |    |     |     |     |  +--Chionochloa_spiralis_OTA57949
-|  |                      |    |     |     |  +--|
-|  |                      |    |     |     |  |  +--Chionochloa_pallens_CHR475279
-|  |                      |    |     |     +--|
-|  |                      |    |     |        +--Chionochloa_macra_CHR475278
-|  |                      |    |  +--|
-|  |                      |    |  |  |  +**Chionochloa_juncea_OTA57967
-|  |                      |    |  |  +--|
-|  |                      |    |  |     +--Chionochloa_rubra_OTA57960
-|  |                      |    +--|
-|  |                      |       +--Chionochloa_australis_OTA57584_ITS
-|  |                   +--|
-|  |                   |  |                   +--Pentameris_distichophylla_HPL5447
-|  |                   |  |                +--|
-|  |                   |  |                |  |              +--Pentameris_glacialis_HPL5458
-|  |                   |  |                |  |           +--|
-|  |                   |  |                |  |           |  +--Pentameris_swartbergensis_HPL5490
-|  |                   |  |                |  |        +--|
-|  |                   |  |                |  |        |  |     +--Pentameris_macrocalycina_GAV203
-|  |                   |  |                |  |        |  |  +--|
-|  |                   |  |                |  |        |  |  |  +--Pentameris_oreophila_HPL7802
-|  |                   |  |                |  |        |  +--|
-|  |                   |  |                |  |        |     +--Pentameris_thuarii_HPL5456
-|  |                   |  |                |  |     +**|
-|  |                   |  |                |  |     |  +--Pentameris_hirtiglumis_HPL7789
-|  |                   |  |                |  |  +--|
-|  |                   |  |                |  |  |  +--Pentameris_longiglumis_CG536
-|  |                   |  |                |  +--|
-|  |                   |  |                |     +---Pseudopentameris_obtusifolia_NPB1668
-|  |                   |  |             +--|
-|  |                   |  |             |  |  +--Pentaschistis_praecox_MDP490
-|  |                   |  |             |  +--|
-|  |                   |  |             |     +--Pentaschistis_tysonii_HPL6812
-|  |                   |  +-------------|
-|  |                   |                |                                   +--Pentaschistis_acinosa_TvN1
-|  |                   |                |                                +--|
-|  |                   |                |                                |  |        +--Pentaschistis_caulescens_CG376
-|  |                   |                |                                |  |     +--|
-|  |                   |                |                                |  |     |  +--Pentaschistis_curvifolia_TvN52
-|  |                   |                |                                |  |  +--|
-|  |                   |                |                                |  |  |  +--Pentaschistis_scandens_CG334
-|  |                   |                |                                |  +--|
-|  |                   |                |                                |     |  +--Pentaschistis_horrida_TvN20_ITS
-|  |                   |                |                                |     +--|
-|  |                   |                |                                |        +--Pentaschistis_malouinensis_GAV218_ITS
-|  |                   |                |                             +--|
-|  |                   |                |                             |  |     +--Pentaschistis_argentea_GAV254
-|  |                   |                |                             |  |  +--|
-|  |                   |                |                             |  |  |  |        +--Pentaschistis_eriostoma_P6
-|  |                   |                |                             |  |  |  |     +--|
-|  |                   |                |                             |  |  |  |     |  +--Pentaschistis_pyrophila_GAV229
-|  |                   |                |                             |  |  |  |  +--|
-|  |                   |                |                             |  |  |  |  |  +--Pentaschistis_pungens_CG333
-|  |                   |                |                             |  |  |  +--|
-|  |                   |                |                             |  |  |     +--Pentaschistis_malouinensis_GAV218
-|  |                   |                |                             |  +--|
-|  |                   |                |                             |     +--Pentaschistis_capensis_HPL6825
-|  |                   |                |                          +--|
-|  |                   |                |                          |  +--Pentaschistis_exserta_CG51
-|  |                   |                |                       +--|
-|  |                   |                |                       |  |                                +**Pentaschistis_airoides_airoides_HPL6971
-|  |                   |                |                       |  |                             +--|
-|  |                   |                |                       |  |                             |  +--Pentaschistis_insularis
-|  |                   |                |                       |  |                          +--|
-|  |                   |                |                       |  |                          |  |           +--Pentaschistis_airoides_jugorum_CG81
-|  |                   |                |                       |  |                          |  |        +--|
-|  |                   |                |                       |  |                          |  |        |  |  +--Pentaschistis_capillaris_CG322
-|  |                   |                |                       |  |                          |  |        |  +--|
-|  |                   |                |                       |  |                          |  |        |     |  +--Pentaschistis_pseudopallescens_GAV224
-|  |                   |                |                       |  |                          |  |        |     +--|
-|  |                   |                |                       |  |                          |  |        |        +--Pentaschistis_veneta_CG576
-|  |                   |                |                       |  |                          |  |     +--|
-|  |                   |                |                       |  |                          |  |     |  |     +--Pentaschistis_borussicaE_HPL7661
-|  |                   |                |                       |  |                          |  |     |  |  +**|
-|  |                   |                |                       |  |                          |  |     |  |  |  |  +--Pentaschistis_pictigluma_mannii_CG267
-|  |                   |                |                       |  |                          |  |     |  |  |  +--|
-|  |                   |                |                       |  |                          |  |     |  |  |     +--Pentaschistis_pictigluma_minor_HPL7671
-|  |                   |                |                       |  |                          |  |     |  +--|
-|  |                   |                |                       |  |                          |  |     |     |              +--Pentaschistis_borussicaK_CG230
-|  |                   |                |                       |  |                          |  |     |     |           +--|
-|  |                   |                |                       |  |                          |  |     |     |           |  +--Pentaschistis_pictigluma_gracilis_HPL7676
-|  |                   |                |                       |  |                          |  |     |     |        +--|
-|  |                   |                |                       |  |                          |  |     |     |        |  +--Pentaschistis_pictigluma_pictigluma_HPL7670
-|  |                   |                |                       |  |                          |  |     |     |     +**|
-|  |                   |                |                       |  |                          |  |     |     |     |  |  +--Pentaschistis_pictigluma_mannii_CG267_ITS
-|  |                   |                |                       |  |                          |  |     |     |     |  +--|
-|  |                   |                |                       |  |                          |  |     |     |     |     +**Pentaschistis_pictigluma_minor_CG270
-|  |                   |                |                       |  |                          |  |     |     |  +--|
-|  |                   |                |                       |  |                          |  |     |     |  |  +--Pentaschistis_pictigluma_gracilis_MN1358
-|  |                   |                |                       |  |                          |  |     |     +--|
-|  |                   |                |                       |  |                          |  |     |        +--Pentaschistis_borussicaT_MN1353
-|  |                   |                |                       |  |                          |  |  +--|
-|  |                   |                |                       |  |                          |  |  |  +--Pentaschistis_galpinii_CG42
-|  |                   |                |                       |  |                          |  +--|
-|  |                   |                |                       |  |                          |     |  +--Pentaschistis_aristifolia_CG388
-|  |                   |                |                       |  |                          |     +--|
-|  |                   |                |                       |  |                          |        |  +--Pentaschistis_lima_HPL6972
-|  |                   |                |                       |  |                          |        +--|
-|  |                   |                |                       |  |                          |           +--Pentaschistis_tomentella_CG318
-|  |                   |                |                       |  |                       +--|
-|  |                   |                |                       |  |                       |  |  +--Pentaschistis_aristidoides_TvN37_ITS
-|  |                   |                |                       |  |                       |  +--|
-|  |                   |                |                       |  |                       |     |     +--Pentaschistis_chippindalliae_CG96_ITS
-|  |                   |                |                       |  |                       |     |  +--|
-|  |                   |                |                       |  |                       |     |  |  |  +--Pentaschistis_reflexa_CG324_ITS
-|  |                   |                |                       |  |                       |     |  |  +--|
-|  |                   |                |                       |  |                       |     |  |     +--Pentaschistis_setifolia_CG45
-|  |                   |                |                       |  |                       |     +--|
-|  |                   |                |                       |  |                       |        |  +--Pentaschistis_microphylla_CG76
-|  |                   |                |                       |  |                       |        +--|
-|  |                   |                |                       |  |                       |           +--Pentaschistis_montana_CG574
-|  |                   |                |                       |  |                    +--|
-|  |                   |                |                       |  |                    |  |  +--Pentaschistis_glandulosa_HPL6814
-|  |                   |                |                       |  |                    |  +--|
-|  |                   |                |                       |  |                    |     +--Pentaschistis_oreodoxa_CG32
-|  |                   |                |                       |  |                 +--|
-|  |                   |                |                       |  |                 |  +--Pentaschistis_natalensisSA_CG95
-|  |                   |                |                       |  |              +--|
-|  |                   |                |                       |  |              |  |              +--Pentaschistis_aspera_NPB1164
-|  |                   |                |                       |  |              |  |           +--|
-|  |                   |                |                       |  |              |  |           |  |        +--Pentaschistis_barbata_GAV219
-|  |                   |                |                       |  |              |  |           |  |     +--|
-|  |                   |                |                       |  |              |  |           |  |     |  |  +**Pentaschistis_longipes_HPL5018
-|  |                   |                |                       |  |              |  |           |  |     |  +--|
-|  |                   |                |                       |  |              |  |           |  |     |     +--Pentaschistis_patula_CG317
-|  |                   |                |                       |  |              |  |           |  |  +--|
-|  |                   |                |                       |  |              |  |           |  |  |  +--Pentaschistis_pseudopallescens_GAV224_ITS
-|  |                   |                |                       |  |              |  |           |  +--|
-|  |                   |                |                       |  |              |  |           |     |        +--Pentaschistis_cirrhulosa_CG548
-|  |                   |                |                       |  |              |  |           |     |     +--|
-|  |                   |                |                       |  |              |  |           |     |     |  +**Pentaschistis_papillosa_GAV209
-|  |                   |                |                       |  |              |  |           |     |  +--|
-|  |                   |                |                       |  |              |  |           |     |  |  +--Pentaschistis_pallida_CG547
-|  |                   |                |                       |  |              |  |           |     +--|
-|  |                   |                |                       |  |              |  |           |        |  +--Pentaschistis_reflexa_CG324
-|  |                   |                |                       |  |              |  |           |        +--|
-|  |                   |                |                       |  |              |  |           |           +--Pentaschistis_rupestris_GAV251
-|  |                   |                |                       |  |              |  |        +**|
-|  |                   |                |                       |  |              |  |        |  +--Pentaschistis_densifolia_GAV225_ITS
-|  |                   |                |                       |  |              |  |     +--|
-|  |                   |                |                       |  |              |  |     |  +--Pentaschistis_ecklonii_HPL6136
-|  |                   |                |                       |  |              |  |  +--|
-|  |                   |                |                       |  |              |  |  |  +--Pentaschistis_heptamera_CG356
-|  |                   |                |                       |  |              |  +--|
-|  |                   |                |                       |  |              |     |  +--Pentaschistis_calcicola_calcicola_CG338
-|  |                   |                |                       |  |              |     +--|
-|  |                   |                |                       |  |              |        +--Pentaschistis_calcicola_hirsuta_CG339
-|  |                   |                |                       |  |           +--|
-|  |                   |                |                       |  |           |  +--Pentaschistis_velutina_CG389
-|  |                   |                |                       |  |        +--|
-|  |                   |                |                       |  |        |  |  +--Pentaschistis_chippindalliae_CG96
-|  |                   |                |                       |  |        |  +--|
-|  |                   |                |                       |  |        |     +--Pentaschistis_densifolia_GAV225
-|  |                   |                |                       |  |     +--|
-|  |                   |                |                       |  |     |  +---Pentaschistis_triseta_HPL6962
-|  |                   |                |                       |  |  +--|
-|  |                   |                |                       |  |  |  +--Pentaschistis_trifida_CG577
-|  |                   |                |                       |  +--|
-|  |                   |                |                       |     |           +**Pentaschistis_aristidoides_TvN37
-|  |                   |                |                       |     |        +--|
-|  |                   |                |                       |     |        |  +**Pentaschistis_pallida_TvN32
-|  |                   |                |                       |     |     +--|
-|  |                   |                |                       |     |     |  |  +--Pentaschistis_pallescens_GAV216
-|  |                   |                |                       |     |     |  +--|
-|  |                   |                |                       |     |     |     +--Pentaschistis_velutina_CG389_ITS
-|  |                   |                |                       |     |  +--|
-|  |                   |                |                       |     |  |  |  +--Pentaschistis_horrida_TvN20
-|  |                   |                |                       |     |  |  +--|
-|  |                   |                |                       |     |  |     |  +**Pentaschistis_rosea_purpurascens_CG378
-|  |                   |                |                       |     |  |     +--|
-|  |                   |                |                       |     |  |        +--Pentaschistis_rosea_rosea_GAV222
-|  |                   |                |                       |     +--|
-|  |                   |                |                       |        |  +--Prionanthium_dentatum_HPL5430
-|  |                   |                |                       |        +--|
-|  |                   |                |                       |           +--Prionanthium_pholiuroides_HPL5402
-|  |                   |                |                    +--|
-|  |                   |                |                    |  |  +--Pentaschistis_ampla_GAV197
-|  |                   |                |                    |  +--|
-|  |                   |                |                    |     |  +--Pentaschistis_aurea_aurea_HPL6813
-|  |                   |                |                    |     +--|
-|  |                   |                |                    |        +--Pentaschistis_aurea_pilosogluma_CG47
-|  |                   |                |                 +--|
-|  |                   |                |                 |  +--Pentaschistis_pusilla_GAV206
-|  |                   |                |              +--|
-|  |                   |                |              |  +--Pentaschistis_viscidula_HPL7787
-|  |                   |                |           +--|
-|  |                   |                |           |  +--Pentaschistis_andringitrensis_CG595
-|  |                   |                |        +--|
-|  |                   |                |        |  |        +--Pentaschistis_alticola_CG377
-|  |                   |                |        |  |     +--|
-|  |                   |                |        |  |     |  |        +--Pentaschistis_clavata_HPL6893
-|  |                   |                |        |  |     |  |     +--|
-|  |                   |                |        |  |     |  |     |  +--Pentaschistis_tortuosa_GAV250
-|  |                   |                |        |  |     |  |  +--|
-|  |                   |                |        |  |     |  |  |  +--Pentaschistis_colorata_CG538
-|  |                   |                |        |  |     |  +--|
-|  |                   |                |        |  |     |     |  +**Pentaschistis_colorata_CG343
-|  |                   |                |        |  |     |     +--|
-|  |                   |                |        |  |     |        +--Pentaschistis_rigidissima_GAV227
-|  |                   |                |        |  |  +--|
-|  |                   |                |        |  |  |  +--Pentaschistis_elegans_CG336
-|  |                   |                |        |  +--|
-|  |                   |                |        |     +--Pentaschistis_basutorum_CG44
-|  |                   |                +--------|
-|  |                   |                         |  +**Pentaschistis_basutorum_CG44_ITS
-|  |                   |                         +--|
-|  |                   |                            +--Pentaschistis_juncifolia_CG341
-|  |                +--|
-|  |                |  |           +--Merxmuellera_arundinacea_NPB1017_ITS
-|  |                |  |        +--|
-|  |                |  |        |  +--Merxmuellera_arundinacea_NPB1742_ITS
-|  |                |  |     +--|
-|  |                |  |     |  +--Merxmuellera_setacea_NPB987
-|  |                |  |  +--|
-|  |                |  |  |  |  +--Merxmuellera_cincta_NPB1160
-|  |                |  |  |  +--|
-|  |                |  |  |     +--Merxmuellera_cincta_sericea_NPB1545
-|  |                |  +--|
-|  |                |     |  +--Merxmuellera_decora_NPB1168
-|  |                |     +--|
-|  |                |        |  +--Merxmuellera_lupulina_HPL7004
-|  |                |        +--|
-|  |                |           +--Merxmuellera_rufa_TvN11
-|  |         +------|
-|  |         |      |  +--Merxmuellera_arundinacea_NPB1017
-|  |         |      +--|
-|  |         |         +--Merxmuellera_arundinacea_NPB1742
-|  |  +------|
-|  |  |      |    +--Merxmuellera_davyi_NPB942
-|  |  |      +----|
-|  |  |           |     +**Merxmuellera_drakensbergensis_PM4
-|  |  |           |  +--|
-|  |  |           |  |  +--Merxmuellera_stereophylla_PM3
-|  |  |           +--|
-|  |  |              +--Merxmuellera_macowanii_NPB1008
+|  |                                |        +--Tribolium_uniolae_GAV531
+|  |                             +--|
+|  |                             |  |  +--Karroochloa_schismoides_GAV562
+|  |                             |  +--|
+|  |                             |     |  +--Schismus_arabicus_Willissn
+|  |                             |     +--|
+|  |                             |        |  +--Schismus_barbatus_GAV503
+|  |                             |        +--|
+|  |                             |           +--Schismus_scaberrimus_GAV573
+|  |                          +--|
+|  |                          |  |        +--Danthonia_schneideri_Soreng5638
+|  |                          |  |     +--|
+|  |                          |  |     |  +--Danthonia_subulata_HPL7669
+|  |                          |  |  +--|
+|  |                          |  |  |  |     +--Merxmuellera_aureocephala_NPB
+|  |                          |  |  |  |  +--|
+|  |                          |  |  |  |  |  +--Merxmuellera_stricta_TvN15
+|  |                          |  |  |  +--|
+|  |                          |  |  |     +--Merxmuellera_dura_NPB983
+|  |                          |  +--|
+|  |                          |     +--Merxmuellera_disticha_NPB1002
+|  |                       +--|
+|  |                       |  |                       +--Cortaderia_araucana_ITS
+|  |                       |  |                    +**|
+|  |                       |  |                    |  +--Cortaderia_rudiuscula_ITS
+|  |                       |  |                 +--|
+|  |                       |  |                 |  +**Cortaderia_jubata_ITS
+|  |                       |  |              +--|
+|  |                       |  |              |  +--Lamprothyrsus_hieronymi_ITS
+|  |                       |  |           +--|
+|  |                       |  |           |  +--Lamprothyrsus_peruvianus_ITS
+|  |                       |  |        +--|
+|  |                       |  |        |  +--Cortaderia_boliviensis_ITS
+|  |                       |  |     +--|
+|  |                       |  |     |  |     +--Cortaderia_archboldii_JM115
+|  |                       |  |     |  |  +--|
+|  |                       |  |     |  |  |  |              +**Danthonia_alpina_480_ITS
+|  |                       |  |     |  |  |  |           +--|
+|  |                       |  |     |  |  |  |           |  +--Danthonia_decumbens_MDP312
+|  |                       |  |     |  |  |  |        +--|
+|  |                       |  |     |  |  |  |        |  |  +--Danthonia_alpina_MDP480
+|  |                       |  |     |  |  |  |        |  +--|
+|  |                       |  |     |  |  |  |        |     +**Danthonia_alpina_MDP481
+|  |                       |  |     |  |  |  |     +--|
+|  |                       |  |     |  |  |  |     |  |  +--Danthonia_domingensis_AA373
+|  |                       |  |     |  |  |  |     |  +--|
+|  |                       |  |     |  |  |  |     |     |  +--Danthonia_intermedia_Hermannsn
+|  |                       |  |     |  |  |  |     |     +--|
+|  |                       |  |     |  |  |  |     |        +**Danthonia_sericea_DBW7180
+|  |                       |  |     |  |  |  |  +--|
+|  |                       |  |     |  |  |  |  |  |  +--Danthonia_compressa_Radford44899
+|  |                       |  |     |  |  |  |  |  +--|
+|  |                       |  |     |  |  |  |  |     |     +**Danthonia_parryi_CWM813
+|  |                       |  |     |  |  |  |  |     |  +**|
+|  |                       |  |     |  |  |  |  |     |  |  +**Danthonia_unispicata_JTH52406
+|  |                       |  |     |  |  |  |  |     +--|
+|  |                       |  |     |  |  |  |  |        +--Danthonia_spicata_WDT95_30
+|  |                       |  |     |  |  |  +--|
+|  |                       |  |     |  |  |     |     +--Danthonia_annableae_DMP1833
+|  |                       |  |     |  |  |     |  +--|
+|  |                       |  |     |  |  |     |  |  +--Danthonia_secundiflora_ML1617
+|  |                       |  |     |  |  |     +--|
+|  |                       |  |     |  |  |        |              +--Danthonia_araucana_MDP337
+|  |                       |  |     |  |  |        |           +--|
+|  |                       |  |     |  |  |        |           |  +**Danthonia_chilensis_var._aureofulva_MDP340
+|  |                       |  |     |  |  |        |        +--|
+|  |                       |  |     |  |  |        |        |  +--Danthonia_californica_americana_MDP330
+|  |                       |  |     |  |  |        |     +--|
+|  |                       |  |     |  |  |        |     |  +--Danthonia_chilensis_var._chilensis_MDP342
+|  |                       |  |     |  |  |        |  +--|
+|  |                       |  |     |  |  |        |  |  +--Danthonia_malacantha_MDP339
+|  |                       |  |     |  |  |        +--|
+|  |                       |  |     |  |  |           +--Danthonia_filifolia_MJM34
+|  |                       |  |     |  +--|
+|  |                       |  |     |     |        +**Cortaderia_pilosa_3
+|  |                       |  |     |     |     +--|
+|  |                       |  |     |     |     |  +--Cortaderia_pilosa_4a
+|  |                       |  |     |     |  +--|
+|  |                       |  |     |     |  |  +--Cortaderia_pilosa_MDP345
+|  |                       |  |     |     +--|
+|  |                       |  |     |        |     +**Notochloe_microdon_AMH66
+|  |                       |  |     |        |  +--|
+|  |                       |  |     |        |  |  +**Notochloe_microdon_MDP326
+|  |                       |  |     |        +--|
+|  |                       |  |     |           +--Notochloe_microdon_Watson_sn
+|  |                       |  |  +--|
+|  |                       |  |  |  |        +**Cortaderia_bifida_ITS
+|  |                       |  |  |  |     +**|
+|  |                       |  |  |  |     |  +--Cortaderia_nitida_ITS
+|  |                       |  |  |  |  +--|
+|  |                       |  |  |  |  |  +---Cortaderia_sericantha_ITS
+|  |                       |  |  |  +--|
+|  |                       |  |  |     |  +--Cortaderia_columbiana_ITS
+|  |                       |  |  |     +--|
+|  |                       |  |  |        +--Cortaderia_hapalotricha_ITS
+|  |                       |  +--|
+|  |                       |     |           +--Cortaderia_fulvida_G5088
+|  |                       |     |        +--|
+|  |                       |     |        |  +--Cortaderia_toetoe_G5042
+|  |                       |     |     +--|
+|  |                       |     |     |  |  +--Cortaderia_richardii_G3816
+|  |                       |     |     |  +--|
+|  |                       |     |     |     +--Cortaderia_turbaria_G17358
+|  |                       |     |  +--|
+|  |                       |     |  |  +--Cortaderia_splendens_G10872
+|  |                       |     +--|
+|  |                       |        |        +--Notochloe_microdon_AMH66_ITS
+|  |                       |        |     +--|
+|  |                       |        |     |  +--Notochloe_microdon_MDP326_ITS
+|  |                       |        |  +--|
+|  |                       |        |  |  +--Notochloe_microdon_ITS
+|  |                       |        +--|
+|  |                       |           |     +--Plinthanthesis_paradoxa_HPL5638
+|  |                       |           |  +--|
+|  |                       |           |  |  +--Plinthanthesis_rodwayi_MDP415
+|  |                       |           +--|
+|  |                       |              +--Plinthanthesis_urvillei_MC4003
+|  |                    +--|
+|  |                    |  |              +--Cortaderia_araucana_G7162
+|  |                    |  |           +--|
+|  |                    |  |           |  |     +**Cortaderia_jubata_ML1515
+|  |                    |  |           |  |  +--|
+|  |                    |  |           |  |  |  |  +**Cortaderia_rudiuscula_G11157
+|  |                    |  |           |  |  |  +--|
+|  |                    |  |           |  |  |     +--Cortaderia_selloana_Robinson
+|  |                    |  |           |  +--|
+|  |                    |  |           |     +--Cortaderia_nitida_ML1434
+|  |                    |  |        +--|
+|  |                    |  |        |  +--Lamprothyrsus_peruvianus_G11154
+|  |                    |  |     +--|
+|  |                    |  |     |  |  +--Cortaderia_boliviensis_ML672
+|  |                    |  |     |  +**|
+|  |                    |  |     |     +--Lamprothyrsus_hieronymi_OM3534
+|  |                    |  |  +--|
+|  |                    |  |  |  |  +--Cortaderia_bifida_ML1497
+|  |                    |  |  |  +--|
+|  |                    |  |  |     +--Cortaderia_sericantha_ML1128
+|  |                    |  +--|
+|  |                    |     |  +--Cortaderia_columbiana_ML920
+|  |                    |     +--|
+|  |                    |        +--Cortaderia_hapalotricha_ML1525
+|  |                 +--|
+|  |                 |  |     +--Chaetobromus_involucratus_dregeanus_NPB978
+|  |                 |  |  +--|
+|  |                 |  |  |  +--Chaetobromus_involucratus_involucratus_NPB1715
+|  |                 |  +--|
+|  |                 |     |     +**Pseudopentameris_brachyphylla_NPB1669
+|  |                 |     |  +--|
+|  |                 |     |  |  +--Pseudopentameris_macrantha_HPL5470
+|  |                 |     +--|
+|  |                 |        +--Pseudopentameris_caespitosa_NPB1670
+|  |              +--|
+|  |              |  |                 +**Chionochloa_acicularis_OTA57601
+|  |              |  |              +--|
+|  |              |  |              |  |  +--Chionochloa_antarctica_OTA57955
+|  |              |  |              |  +--|
+|  |              |  |              |     |  +--Chionochloa_crassiuscula_crassiuscula_OTA57968
+|  |              |  |              |     +--|
+|  |              |  |              |        +--Chionochloa_lanea_KML041
+|  |              |  |           +--|
+|  |              |  |           |  +**Chionochloa_ovata_OTA57593
+|  |              |  |        +--|
+|  |              |  |        |  +--Chionochloa_teretifolia_OTA57598
+|  |              |  |     +--|
+|  |              |  |     |  |                 +--Chionochloa_australis_OTA57584
+|  |              |  |     |  |              +--|
+|  |              |  |     |  |              |  |  +--Chionochloa_beddiei_OTA57969
+|  |              |  |     |  |              |  +**|
+|  |              |  |     |  |              |     +--Chionochloa_defracta_OTA57937
+|  |              |  |     |  |           +**|
+|  |              |  |     |  |           |  +--Chionochloa_cheesemanii_OTA57934
+|  |              |  |     |  |        +--|
+|  |              |  |     |  |        |  |  +--Chionochloa_conspicua_conspicua_OTA
+|  |              |  |     |  |        |  +--|
+|  |              |  |     |  |        |     +--Chionochloa_flavicans_OTA57947
+|  |              |  |     |  |     +--|
+|  |              |  |     |  |     |  +--Chionochloa_nivifera_KML063
+|  |              |  |     |  |  +--|
+|  |              |  |     |  |  |  |  +--Chionochloa_frigida_MDP417
+|  |              |  |     |  |  |  +--|
+|  |              |  |     |  |  |     +**Chionochloa_vireta_OTA57585
+|  |              |  |     |  +--|
+|  |              |  |     |     |              +--Chionochloa_flavescens_CHR475418
+|  |              |  |     |     |           +--|
+|  |              |  |     |     |           |  +**Chionochloa_rigida_HPL5750
+|  |              |  |     |     |        +--|
+|  |              |  |     |     |        |  +--Chionochloa_spiralis_OTA57949
+|  |              |  |     |     |     +--|
+|  |              |  |     |     |     |  +--Chionochloa_macra_CHR475278
+|  |              |  |     |     |  +--|
+|  |              |  |     |     |  |  +--Chionochloa_pallens_CHR475279
+|  |              |  |     |     +--|
+|  |              |  |     |        +**Chionochloa_oreophila_CHR475277
+|  |              |  |  +--|
+|  |              |  |  |  |  +**Chionochloa_juncea_OTA57967
+|  |              |  |  |  +--|
+|  |              |  |  |     +--Chionochloa_rubra_OTA57960
+|  |              |  +--|
+|  |              |     +--Chionochloa_australis_OTA57584_ITS
+|  |           +--|
+|  |           |  |          +--Pentameris_distichophylla_HPL5447
+|  |           |  |       +--|
+|  |           |  |       |  |        +--Pentameris_glacialis_HPL5458
+|  |           |  |       |  |     +--|
+|  |           |  |       |  |     |  +--Pentameris_swartbergensis_HPL5490
+|  |           |  |       |  |  +--|
+|  |           |  |       |  |  |  |        +--Pentameris_hirtiglumis_HPL7789
+|  |           |  |       |  |  |  |     +--|
+|  |           |  |       |  |  |  |     |  +--Pentameris_thuarii_HPL5456
+|  |           |  |       |  |  |  |  +--|
+|  |           |  |       |  |  |  |  |  +--Pentameris_longiglumis_CG536
+|  |           |  |       |  |  |  +--|
+|  |           |  |       |  |  |     |  +--Pentameris_macrocalycina_GAV203
+|  |           |  |       |  |  |     +--|
+|  |           |  |       |  |  |        +--Pentameris_oreophila_HPL7802
+|  |           |  |       |  +--|
+|  |           |  |       |     +--Pseudopentameris_obtusifolia_NPB1668
+|  |           |  |    +--|
+|  |           |  |    |  |  +--Pentaschistis_praecox_MDP490
+|  |           |  |    |  +--|
+|  |           |  |    |     +--Pentaschistis_tysonii_HPL6812
+|  |           |  +----|
+|  |           |       |                             +--Pentaschistis_acinosa_TvN1
+|  |           |       |                          +--|
+|  |           |       |                          |  |        +--Pentaschistis_caulescens_CG376
+|  |           |       |                          |  |     +--|
+|  |           |       |                          |  |     |  +--Pentaschistis_scandens_CG334
+|  |           |       |                          |  |  +--|
+|  |           |       |                          |  |  |  |  +**Pentaschistis_horrida_TvN20_ITS
+|  |           |       |                          |  |  |  +--|
+|  |           |       |                          |  |  |     +--Pentaschistis_malouinensis_GAV218_ITS
+|  |           |       |                          |  +--|
+|  |           |       |                          |     +--Pentaschistis_curvifolia_TvN52
+|  |           |       |                       +--|
+|  |           |       |                       |  |     +--Pentaschistis_argentea_GAV254
+|  |           |       |                       |  |  +--|
+|  |           |       |                       |  |  |  |        +--Pentaschistis_eriostoma_P6
+|  |           |       |                       |  |  |  |     +--|
+|  |           |       |                       |  |  |  |     |  +--Pentaschistis_pyrophila_GAV229
+|  |           |       |                       |  |  |  |  +--|
+|  |           |       |                       |  |  |  |  |  +--Pentaschistis_pungens_CG333
+|  |           |       |                       |  |  |  +--|
+|  |           |       |                       |  |  |     +--Pentaschistis_malouinensis_GAV218
+|  |           |       |                       |  +--|
+|  |           |       |                       |     +--Pentaschistis_capensis_HPL6825
+|  |           |       |                    +--|
+|  |           |       |                    |  +--Pentaschistis_exserta_CG51
+|  |           |       |                 +--|
+|  |           |       |                 |  |                             +**Pentaschistis_airoides_airoides_HPL6971
+|  |           |       |                 |  |                          +--|
+|  |           |       |                 |  |                          |  +--Pentaschistis_insularis
+|  |           |       |                 |  |                       +--|
+|  |           |       |                 |  |                       |  |           +--Pentaschistis_airoides_jugorum_CG81
+|  |           |       |                 |  |                       |  |        +--|
+|  |           |       |                 |  |                       |  |        |  |  +--Pentaschistis_capillaris_CG322
+|  |           |       |                 |  |                       |  |        |  +--|
+|  |           |       |                 |  |                       |  |        |     |  +**Pentaschistis_pseudopallescens_GAV224
+|  |           |       |                 |  |                       |  |        |     +--|
+|  |           |       |                 |  |                       |  |        |        +--Pentaschistis_veneta_CG576
+|  |           |       |                 |  |                       |  |     +--|
+|  |           |       |                 |  |                       |  |     |  |  +--Pentaschistis_borussicaE_HPL7661
+|  |           |       |                 |  |                       |  |     |  +--|
+|  |           |       |                 |  |                       |  |     |     |              +--Pentaschistis_borussicaK_CG230
+|  |           |       |                 |  |                       |  |     |     |           +--|
+|  |           |       |                 |  |                       |  |     |     |           |  +--Pentaschistis_pictigluma_gracilis_HPL7676
+|  |           |       |                 |  |                       |  |     |     |        +--|
+|  |           |       |                 |  |                       |  |     |     |        |  +--Pentaschistis_pictigluma_pictigluma_HPL7670
+|  |           |       |                 |  |                       |  |     |     |     +--|
+|  |           |       |                 |  |                       |  |     |     |     |  |     +--Pentaschistis_pictigluma_gracilis_MN1358
+|  |           |       |                 |  |                       |  |     |     |     |  |  +--|
+|  |           |       |                 |  |                       |  |     |     |     |  |  |  +**Pentaschistis_pictigluma_minor_CG270
+|  |           |       |                 |  |                       |  |     |     |     |  +--|
+|  |           |       |                 |  |                       |  |     |     |     |     +--Pentaschistis_pictigluma_mannii_CG267_ITS
+|  |           |       |                 |  |                       |  |     |     |  +--|
+|  |           |       |                 |  |                       |  |     |     |  |  +--Pentaschistis_borussicaT_MN1353
+|  |           |       |                 |  |                       |  |     |     +--|
+|  |           |       |                 |  |                       |  |     |        |  +--Pentaschistis_pictigluma_mannii_CG267
+|  |           |       |                 |  |                       |  |     |        +--|
+|  |           |       |                 |  |                       |  |     |           +--Pentaschistis_pictigluma_minor_HPL7671
+|  |           |       |                 |  |                       |  |  +--|
+|  |           |       |                 |  |                       |  |  |  +--Pentaschistis_galpinii_CG42
+|  |           |       |                 |  |                       |  +--|
+|  |           |       |                 |  |                       |     |  +--Pentaschistis_aristifolia_CG388
+|  |           |       |                 |  |                       |     +--|
+|  |           |       |                 |  |                       |        |  +--Pentaschistis_lima_HPL6972
+|  |           |       |                 |  |                       |        +--|
+|  |           |       |                 |  |                       |           +--Pentaschistis_tomentella_CG318
+|  |           |       |                 |  |                    +--|
+|  |           |       |                 |  |                    |  |     +--Pentaschistis_aristidoides_TvN37_ITS
+|  |           |       |                 |  |                    |  |  +--|
+|  |           |       |                 |  |                    |  |  |  |           +--Pentaschistis_glandulosa_HPL6814
+|  |           |       |                 |  |                    |  |  |  |        +--|
+|  |           |       |                 |  |                    |  |  |  |        |  +--Pentaschistis_oreodoxa_CG32
+|  |           |       |                 |  |                    |  |  |  |     +--|
+|  |           |       |                 |  |                    |  |  |  |     |  +--Pentaschistis_reflexa_CG324_ITS
+|  |           |       |                 |  |                    |  |  |  |  +--|
+|  |           |       |                 |  |                    |  |  |  |  |  +--Pentaschistis_setifolia_CG45
+|  |           |       |                 |  |                    |  |  |  +--|
+|  |           |       |                 |  |                    |  |  |     |  +--Pentaschistis_microphylla_CG76
+|  |           |       |                 |  |                    |  |  |     +--|
+|  |           |       |                 |  |                    |  |  |        +--Pentaschistis_montana_CG574
+|  |           |       |                 |  |                    |  +--|
+|  |           |       |                 |  |                    |     +--Pentaschistis_chippindalliae_CG96_ITS
+|  |           |       |                 |  |                 +--|
+|  |           |       |                 |  |                 |  +--Pentaschistis_natalensisSA_CG95
+|  |           |       |                 |  |              +--|
+|  |           |       |                 |  |              |  |        +--Pentaschistis_aspera_NPB1164
+|  |           |       |                 |  |              |  |     +--|
+|  |           |       |                 |  |              |  |     |  |     +--Pentaschistis_barbata_GAV219
+|  |           |       |                 |  |              |  |     |  |  +--|
+|  |           |       |                 |  |              |  |     |  |  |  |  +**Pentaschistis_longipes_HPL5018
+|  |           |       |                 |  |              |  |     |  |  |  +--|
+|  |           |       |                 |  |              |  |     |  |  |     +--Pentaschistis_patula_CG317
+|  |           |       |                 |  |              |  |     |  +--|
+|  |           |       |                 |  |              |  |     |     |        +--Pentaschistis_cirrhulosa_CG548
+|  |           |       |                 |  |              |  |     |     |     +--|
+|  |           |       |                 |  |              |  |     |     |     |  +**Pentaschistis_papillosa_GAV209
+|  |           |       |                 |  |              |  |     |     |  +--|
+|  |           |       |                 |  |              |  |     |     |  |  +--Pentaschistis_pallida_CG547
+|  |           |       |                 |  |              |  |     |     +--|
+|  |           |       |                 |  |              |  |     |        |     +--Pentaschistis_pseudopallescens_GAV224_ITS
+|  |           |       |                 |  |              |  |     |        |  +--|
+|  |           |       |                 |  |              |  |     |        |  |  +--Pentaschistis_rupestris_GAV251
+|  |           |       |                 |  |              |  |     |        +--|
+|  |           |       |                 |  |              |  |     |           +--Pentaschistis_reflexa_CG324
+|  |           |       |                 |  |              |  |  +--|
+|  |           |       |                 |  |              |  |  |  +--Pentaschistis_densifolia_GAV225_ITS
+|  |           |       |                 |  |              |  +--|
+|  |           |       |                 |  |              |     |     +--Pentaschistis_calcicola_calcicola_CG338
+|  |           |       |                 |  |              |     |  +--|
+|  |           |       |                 |  |              |     |  |  +--Pentaschistis_calcicola_hirsuta_CG339
+|  |           |       |                 |  |              |     +--|
+|  |           |       |                 |  |              |        |  +--Pentaschistis_ecklonii_HPL6136
+|  |           |       |                 |  |              |        +--|
+|  |           |       |                 |  |              |           +--Pentaschistis_heptamera_CG356
+|  |           |       |                 |  |           +--|
+|  |           |       |                 |  |           |  +--Pentaschistis_velutina_CG389
+|  |           |       |                 |  |        +--|
+|  |           |       |                 |  |        |  |  +--Pentaschistis_chippindalliae_CG96
+|  |           |       |                 |  |        |  +--|
+|  |           |       |                 |  |        |     +--Pentaschistis_densifolia_GAV225
+|  |           |       |                 |  |     +--|
+|  |           |       |                 |  |     |  +--Pentaschistis_triseta_HPL6962
+|  |           |       |                 |  |  +--|
+|  |           |       |                 |  |  |  +--Pentaschistis_trifida_CG577
+|  |           |       |                 |  +--|
+|  |           |       |                 |     |           +**Pentaschistis_aristidoides_TvN37
+|  |           |       |                 |     |        +--|
+|  |           |       |                 |     |        |  +**Pentaschistis_pallida_TvN32
+|  |           |       |                 |     |     +--|
+|  |           |       |                 |     |     |  |  +--Pentaschistis_pallescens_GAV216
+|  |           |       |                 |     |     |  +--|
+|  |           |       |                 |     |     |     +--Pentaschistis_velutina_CG389_ITS
+|  |           |       |                 |     |  +--|
+|  |           |       |                 |     |  |  |  +--Pentaschistis_horrida_TvN20
+|  |           |       |                 |     |  |  +--|
+|  |           |       |                 |     |  |     |  +**Pentaschistis_rosea_purpurascens_CG378
+|  |           |       |                 |     |  |     +--|
+|  |           |       |                 |     |  |        +--Pentaschistis_rosea_rosea_GAV222
+|  |           |       |                 |     +--|
+|  |           |       |                 |        |  +--Prionanthium_dentatum_HPL5430
+|  |           |       |                 |        +--|
+|  |           |       |                 |           +--Prionanthium_pholiuroides_HPL5402
+|  |           |       |              +--|
+|  |           |       |              |  |  +--Pentaschistis_ampla_GAV197
+|  |           |       |              |  +--|
+|  |           |       |              |     |  +--Pentaschistis_aurea_aurea_HPL6813
+|  |           |       |              |     +--|
+|  |           |       |              |        +--Pentaschistis_aurea_pilosogluma_CG47
+|  |           |       |           +--|
+|  |           |       |           |  +--Pentaschistis_pusilla_GAV206
+|  |           |       |        +--|
+|  |           |       |        |  +--Pentaschistis_viscidula_HPL7787
+|  |           |       |     +--|
+|  |           |       |     |  +--Pentaschistis_andringitrensis_CG595
+|  |           |       |  +--|
+|  |           |       |  |  |        +--Pentaschistis_alticola_CG377
+|  |           |       |  |  |     +--|
+|  |           |       |  |  |     |  |        +--Pentaschistis_clavata_HPL6893
+|  |           |       |  |  |     |  |     +--|
+|  |           |       |  |  |     |  |     |  +--Pentaschistis_tortuosa_GAV250
+|  |           |       |  |  |     |  |  +--|
+|  |           |       |  |  |     |  |  |  +**Pentaschistis_colorata_CG538
+|  |           |       |  |  |     |  +--|
+|  |           |       |  |  |     |     |  +**Pentaschistis_colorata_CG343
+|  |           |       |  |  |     |     +--|
+|  |           |       |  |  |     |        +--Pentaschistis_rigidissima_GAV227
+|  |           |       |  |  |  +--|
+|  |           |       |  |  |  |  +--Pentaschistis_elegans_CG336
+|  |           |       |  |  +--|
+|  |           |       |  |     +--Pentaschistis_basutorum_CG44
+|  |           |       +--|
+|  |           |          |  +**Pentaschistis_basutorum_CG44_ITS
+|  |           |          +--|
+|  |           |             +--Pentaschistis_juncifolia_CG341
+|  |        +--|
+|  |        |  |           +--Merxmuellera_arundinacea_NPB1017_ITS
+|  |        |  |        +--|
+|  |        |  |        |  +--Merxmuellera_arundinacea_NPB1742_ITS
+|  |        |  |     +--|
+|  |        |  |     |  +--Merxmuellera_setacea_NPB987
+|  |        |  |  +--|
+|  |        |  |  |  |  +--Merxmuellera_cincta_NPB1160
+|  |        |  |  |  +--|
+|  |        |  |  |     +--Merxmuellera_cincta_sericea_NPB1545
+|  |        |  +--|
+|  |        |     |     +--Merxmuellera_decora_NPB1168
+|  |        |     |  +--|
+|  |        |     |  |  +--Merxmuellera_rufa_TvN11
+|  |        |     +--|
+|  |        |        +--Merxmuellera_lupulina_HPL7004
+|  |     +--|
+|  |     |  |  +--Merxmuellera_arundinacea_NPB1017
+|  |     |  +--|
+|  |     |     +--Merxmuellera_arundinacea_NPB1742
+|  |  +--|
+|  |  |  |  +--Merxmuellera_davyi_NPB942
+|  |  |  +--|
+|  |  |     |     +--Merxmuellera_drakensbergensis_PM4
+|  |  |     |  +--|
+|  |  |     |  |  +--Merxmuellera_stereophylla_PM3
+|  |  |     +--|
+|  |  |        +--Merxmuellera_macowanii_NPB1008
 |  +--|
-|     |                 +--Centropodia_glauca
-|     |        +--------|
-|     |        |        +--Centropodia_mossamedensis_Ward10862
-|     +--------|
-|              |      +--Merxmuellera_papposa_NPB1759
-|              +------|
-|                     +--Merxmuellera_rangei_NPB960
+|     |     +--Centropodia_glauca
+|     |  +--|
+|     |  |  +--Centropodia_mossamedensis_Ward10862
+|     +--|
+|        |  +--Merxmuellera_papposa_NPB1759
+|        +--|
+|           +--Merxmuellera_rangei_NPB960
 |
 +--Arundo
 
 Tree in newick format:
 
-(Amphipogon:0.0112096478,((((Andropogon:0.0044980526,Setaria:0.0044112912):0.0058007043,(Hordeum:0.0083257355,Micraira:0.0029379145):0.0105094769):0.0016403267,(Aristida:0.0052793663,Stipagrostis:0.0049320131):0.0058007043):0.0012946901,((((((((((((((((((Austrodanthonia_alpicola_AMH102:0.0007765401,(Rytidosperma_nivicolum_MDP419:0.0006039047,Rytidosperma_vestitum_JM132:0.0002587555):0.0005176022):0.0001724935,(Rytidosperma_oreoboloides_MWC8877:0.0009492162,Rytidosperma_vickeryae_MDP422:0.0005176022):0.0007765401):0.0001724935,(((((((((Austrodanthonia_auriculata_AMH36:0.0002587555,Austrodanthonia_eriantha_AMH43:0.0000862417):0.0011219328,(Austrodanthonia_carphoides_HPL5568:0.0004313098,Austrodanthonia_eriantha_AMH95:0.0018132060):0.0008628731):0.0001724935,Austrodanthonia_monticola_MDP319:0.0001724935):0.0003450276,Austrodanthonia_pilosa_AMH44:0.0009492162):0.0001724935,Rytidosperma_dimidiatum_MDP292:0.0011219328):0.0016403267,((Austrodanthonia_geniculata_AMH39:0.0000010000,Austrodanthonia_induta_NGW6375:0.0004313098):0.0008628731,Joycea_lepidopoda_MDP285:0.0014674881):0.0007765401):0.0011219328,((Rytidosperma_buchananii_AMH120:0.0003450276,Rytidosperma_thomsonii_AMH118:0.0000010000):0.0006902173,(((Rytidosperma_maculatum_AMH117:0.0000010000,Rytidosperma_pumilum_NGW:0.0004313098):0.0000010000,Rytidosperma_telmaticum_AMH151:0.0009492162):0.0000010000,Rytidosperma_pumilum_HPL5747:0.0001724935):0.0010355694):0.0012083064):0.0004313098,((((((Austrodanthonia_caespitosa_AMH25:0.0006039047,((Austrodanthonia_racemosa_AMH6:0.0000010000,Rytidosperma_quirihuense_MDP338:0.0009492162):0.0003450276,Rytidosperma_paschale_CULT:0.0007765401):0.0003450276):0.0005176022,((Austrodanthonia_clavata_MDP454:0.0008628731,Austrodanthonia_penicillata_AMH99:0.0002587555):0.0001724935,Austrodanthonia_mera_AMH125:0.0003450276):0.0001724935):0.0003450276,(Austrodanthonia_caespitosa_AMH92:0.0006902173,Austrodanthonia_setacea_AMH20:0.0002587555):0.0003450276):0.0000010000,((Austrodanthonia_duttoniana_MDP302:0.0009492162,Rytidosperma_nitens_MDP380:0.0006902173):0.0000862417,Austrodanthonia_richardsonii_PI:0.0007765401):0.0002587555):0.0005176022,((((Austrodanthonia_fulva_AMH38:0.0010355694,(Austrodanthonia_oreophila_MDP404:0.0009492162,(Austrodanthonia_tenuior_AMH70:0.0006039047,((Joycea_pallida_HPL5564:0.0000010000,Joycea_sp_AMH104:0.0013810840):0.0008628731,Notodanthonia_longifolia_MDP305:0.0006039047):0.0000862417):0.0000862417):0.0000862417):0.0001724935,Austrodanthonia_popinensis_AMH94:0.0003450276):0.0000862417,(Rytidosperma_australe_AMH145:0.0006902173,Rytidosperma_exiguum_HPL5746:0.0003450276):0.0002587555):0.0000862417,(Joycea_clelandii_MDP250:0.0009492162,Notodanthonia_semiannularis_MDP303:0.0001724935):0.0006902173):0.0008628731):0.0020726013,(((Notodanthonia_gracilis_AMH148:0.0002587555,(Notodanthonia_gracilis_HPL5683:0.0000862417,Notodanthonia_unarede_AMH108:0.0004313098):0.0003450276):0.0004313098,((Rytidosperma_australe_MDP418:0.0010355694,Rytidosperma_pulchrum_AMH143:0.0004313098):0.0001724935,Rytidosperma_setifolium_AMH121:0.0007765401):0.0005176022):0.0018132060,(Rytidosperma_lechleri_CMB4256:0.0012083064,((Rytidosperma_pictum_MDP355:0.0002587555,Rytidosperma_violaceum_MDP356:0.0000862417):0.0003450276,Rytidosperma_virescens_MDP331:0.0000862417):0.0006902173):0.0007765401):0.0005176022):0.0010355694):0.0000010000,(Rytidosperma_fortunae-hibernae_AMH73:0.0009492162,Rytidosperma_pauciflorum_HPL5688:0.0004313098):0.0002587555):0.0001724935):0.0000010000,Austrodanthonia_bipartita_MDP290:0.0005176022):0.0000010000,Austrodanthonia_laevis_LWsn:0.0007765401):0.0001724935,Rytidosperma_nudiflorum_HPL5693:0.0008628731):0.0022455824,(((((Karroochloa_curva_GAV604:0.0012083064,Tribolium_obtusifolium_GAV597:0.0003450276):0.0031977075,(((Schismus_pleuropogon_GAV628:0.0011219328,Tribolium_obliterum_GAV598:0.0008628731):0.0000862417,Tribolium_acutiflorum_GAV504:0.0008628731):0.0007765401,Tribolium_pusillum_GAV554:0.0010355694):0.0035442411):0.0010355694,Karroochloa_tenella_GAV587:0.0026782135):0.0013810840,(((((Tribolium_ciliare_GAV596:0.0001724935,Tribolium_echinatum_GAV576:0.0000862417):0.0010355694,(Tribolium_ciliare_GAV596_ITS:0.0003450276,Tribolium_echinatum_GAV601:0.0000010000):0.0012946901):0.0000862417,Tribolium_pusillum_GAV554_ITS:0.0009492162):0.0003450276,Tribolium_hispidum_GAV532:0.0010355694):0.0006902173,Tribolium_utriculosum_GAV568:0.0007765401):0.0017267612):0.0036309001,(Tribolium_brachystachyum_GAV593:0.0004313098,Tribolium_uniolae_GAV531:0.0006902173):0.0061484687):0.0018132060):0.0023320882,(Karroochloa_schismoides_GAV562:0.0043245401,(Schismus_arabicus_Willissn:0.0006039047,(Schismus_barbatus_GAV503:0.0011219328,Schismus_scaberrimus_GAV573:0.0014674881):0.0000862417):0.0035442411):0.0067574530):0.0065834060,(((Danthonia_schneideri_Soreng5638:0.0018132060,Danthonia_subulata_HPL7669:0.0018132060):0.0076283076,((Merxmuellera_aureocephala_NPB:0.0011219328,Merxmuellera_stricta_TvN15:0.0003450276):0.0036309001,Merxmuellera_dura_NPB983:0.0031110996):0.0056268839):0.0040643483,Merxmuellera_disticha_NPB1002:0.0105969617):0.0017267612):0.0047583981,(((((((Cortaderia_araucana_ITS:0.0000862417,Cortaderia_jubata_ITS:0.0000010000):0.0000010000,Cortaderia_rudiuscula_ITS:0.0002587555):0.0009492162,Lamprothyrsus_hieronymi_ITS:0.0004313098):0.0000862417,(Cortaderia_boliviensis_ITS:0.0001724935,Lamprothyrsus_peruvianus_ITS:0.0001724935):0.0000862417):0.0001724935,((((Cortaderia_archboldii_JM115:0.0003450276,(Notochloe_microdon_AMH66:0.0000010000,Notochloe_microdon_MDP326:0.0000010000):0.0000862417):0.0001724935,Notochloe_microdon_Watson_sn:0.0005176022):0.0018996609,((Cortaderia_pilosa_3:0.0000010000,Cortaderia_pilosa_4a:0.0001724935):0.0002587555,Cortaderia_pilosa_MDP345:0.0003450276):0.0018996609):0.0009492162,(((((Danthonia_alpina_480_ITS:0.0000010000,Danthonia_decumbens_MDP312:0.0000010000):0.0007765401,(Danthonia_alpina_MDP480:0.0000010000,Danthonia_alpina_MDP481:0.0000010000):0.0006902173):0.0006039047,(Danthonia_domingensis_AA373:0.0012083064,(Danthonia_intermedia_Hermannsn:0.0000010000,Danthonia_sericea_DBW7180:0.0000862417):0.0012083064):0.0008628731):0.0003450276,(Danthonia_compressa_Radford44899:0.0001724935,((Danthonia_parryi_CWM813:0.0000010000,Danthonia_spicata_WDT95_30:0.0000010000):0.0000862417,Danthonia_unispicata_JTH52406:0.0000862417):0.0001724935):0.0025916669):0.0006902173,((Danthonia_annableae_DMP1833:0.0003450276,Danthonia_secundiflora_ML1617:0.0000010000):0.0006039047,(((((Danthonia_araucana_MDP337:0.0005176022,Danthonia_chilensis_var._aureofulva_MDP340:0.0000010000):0.0001724935,Danthonia_californica_americana_MDP330:0.0001724935):0.0000862417,Danthonia_chilensis_var._chilensis_MDP342:0.0002587555):0.0002587555,Danthonia_malacantha_MDP339:0.0003450276):0.0006039047,Danthonia_filifolia_MJM34:0.0003450276):0.0012083064):0.0015539023):0.0028513373):0.0005176022):0.0004313098,(((Cortaderia_bifida_ITS:0.0000862417,Cortaderia_nitida_ITS:0.0004313098):0.0000862417,Cortaderia_sericantha_ITS:0.0008628731):0.0001724935,(Cortaderia_columbiana_ITS:0.0003450276,Cortaderia_hapalotricha_ITS:0.0004313098):0.0007765401):0.0006039047):0.0037175692,(((((Cortaderia_fulvida_G5088:0.0008628731,Cortaderia_toetoe_G5042:0.0004313098):0.0001724935,Cortaderia_richardii_G3816:0.0004313098):0.0000010000,Cortaderia_turbaria_G17358:0.0001724935):0.0000862417,Cortaderia_splendens_G10872:0.0002587555):0.0041510687,((((Notochloe_microdon_AMH66_ITS:0.0001724935,Notochloe_microdon_MDP326_ITS:0.0001724935):0.0006039047,Notochloe_microdon_ITS:0.0002587555):0.0002587555,(Plinthanthesis_paradoxa_HPL5638:0.0009492162,Plinthanthesis_rodwayi_MDP415:0.0015539023):0.0001724935):0.0002587555,Plinthanthesis_urvillei_MC4003:0.0006902173):0.0036309001):0.0024186042):0.0023320882):0.0013810840,((((((Cortaderia_araucana_G7162:0.0003450276,((Cortaderia_jubata_ML1515:0.0001724935,Cortaderia_selloana_Robinson:0.0003450276):0.0000010000,Cortaderia_rudiuscula_G11157:0.0000010000):0.0000862417):0.0000862417,Cortaderia_nitida_ML1434:0.0003450276):0.0000862417,(Cortaderia_boliviensis_ML672:0.0002587555,Lamprothyrsus_hieronymi_OM3534:0.0000862417):0.0000862417):0.0000010000,Lamprothyrsus_peruvianus_G11154:0.0003450276):0.0001724935,(Cortaderia_bifida_ML1497:0.0006902173,Cortaderia_sericantha_ML1128:0.0006039047):0.0001724935):0.0012083064,(Cortaderia_columbiana_ML920:0.0005176022,Cortaderia_hapalotricha_ML1525:0.0010355694):0.0031977075):0.0017267612):0.0013810840,((Chaetobromus_involucratus_dregeanus_NPB978:0.0016403267,Chaetobromus_involucratus_involucratus_NPB1715:0.0018132060):0.0095478305,((Pseudopentameris_brachyphylla_NPB1669:0.0000010000,Pseudopentameris_macrantha_HPL5470:0.0005176022):0.0011219328,Pseudopentameris_caespitosa_NPB1670:0.0014674881):0.0051056692):0.0119104870):0.0063224127,(((((((Chionochloa_acicularis_OTA57601:0.0000862417,Chionochloa_teretifolia_OTA57598:0.0001724935):0.0000010000,(Chionochloa_crassiuscula_crassiuscula_OTA57968:0.0000862417,Chionochloa_lanea_KML041:0.0001724935):0.0003450276):0.0000010000,Chionochloa_antarctica_OTA57955:0.0001724935):0.0000010000,Chionochloa_ovata_OTA57593:0.0000862417):0.0015539023,(((((((Chionochloa_australis_OTA57584:0.0001724935,Chionochloa_defracta_OTA57937:0.0001724935):0.0000862417,(Chionochloa_cheesemanii_OTA57934:0.0005176022,Chionochloa_conspicua_conspicua_OTA:0.0005176022):0.0000862417):0.0000010000,Chionochloa_flavicans_OTA57947:0.0006902173):0.0000010000,Chionochloa_beddiei_OTA57969:0.0005176022):0.0001724935,Chionochloa_nivifera_KML063:0.0002587555):0.0004313098,(Chionochloa_frigida_MDP417:0.0005176022,Chionochloa_vireta_OTA57585:0.0000010000):0.0001724935):0.0015539023,(((((Chionochloa_flavescens_CHR475418:0.0002587555,Chionochloa_rigida_HPL5750:0.0000862417):0.0000010000,Chionochloa_oreophila_CHR475277:0.0000862417):0.0000010000,Chionochloa_spiralis_OTA57949:0.0002587555):0.0000010000,Chionochloa_pallens_CHR475279:0.0001724935):0.0006902173,Chionochloa_macra_CHR475278:0.0001724935):0.0014674881):0.0006902173):0.0012083064,(Chionochloa_juncea_OTA57967:0.0000010000,Chionochloa_rubra_OTA57960:0.0002587555):0.0027647703):0.0003450276,Chionochloa_australis_OTA57584_ITS:0.0004313098):0.0033709538):0.0058876300,(((Pentameris_distichophylla_HPL5447:0.0018132060,(((((Pentameris_glacialis_HPL5458:0.0006039047,Pentameris_swartbergensis_HPL5490:0.0001724935):0.0011219328,((Pentameris_macrocalycina_GAV203:0.0007765401,Pentameris_oreophila_HPL7802:0.0004313098):0.0026782135,Pentameris_thuarii_HPL5456:0.0021590867):0.0000862417):0.0001724935,Pentameris_hirtiglumis_HPL7789:0.0004313098):0.0000010000,Pentameris_longiglumis_CG536:0.0008628731):0.0013810840,Pseudopentameris_obtusifolia_NPB1668:0.0045848242):0.0002587555):0.0013810840,(Pentaschistis_praecox_MDP490:0.0015539023,Pentaschistis_tysonii_HPL6812:0.0010355694):0.0029379145):0.0039776382,((((((((((Pentaschistis_acinosa_TvN1:0.0019861260,(((Pentaschistis_caulescens_CG376:0.0008628731,Pentaschistis_curvifolia_TvN52:0.0011219328):0.0011219328,Pentaschistis_scandens_CG334:0.0022455824):0.0002587555,(Pentaschistis_horrida_TvN20_ITS:0.0000862417,Pentaschistis_malouinensis_GAV218_ITS:0.0001724935):0.0001724935):0.0001724935):0.0005176022,((Pentaschistis_argentea_GAV254:0.0010355694,(((Pentaschistis_eriostoma_P6:0.0009492162,Pentaschistis_pyrophila_GAV229:0.0003450276):0.0002587555,Pentaschistis_pungens_CG333:0.0016403267):0.0003450276,Pentaschistis_malouinensis_GAV218:0.0009492162):0.0003450276):0.0003450276,Pentaschistis_capensis_HPL6825:0.0012946901):0.0005176022):0.0004313098,Pentaschistis_exserta_CG51:0.0038042487):0.0004313098,(((((((((((Pentaschistis_airoides_airoides_HPL6971:0.0000010000,Pentaschistis_insularis:0.0006039047):0.0009492162,((((Pentaschistis_airoides_jugorum_CG81:0.0008628731,(Pentaschistis_capillaris_CG322:0.0006039047,(Pentaschistis_pseudopallescens_GAV224:0.0000862417,Pentaschistis_veneta_CG576:0.0001724935):0.0006039047):0.0017267612):0.0002587555,((Pentaschistis_borussicaE_HPL7661:0.0007765401,(Pentaschistis_pictigluma_mannii_CG267:0.0001724935,Pentaschistis_pictigluma_minor_HPL7671:0.0000862417):0.0000862417):0.0000010000,(((((Pentaschistis_borussicaK_CG230:0.0002587555,Pentaschistis_pictigluma_gracilis_HPL7676:0.0001724935):0.0001724935,Pentaschistis_pictigluma_pictigluma_HPL7670:0.0003450276):0.0000862417,(Pentaschistis_pictigluma_mannii_CG267_ITS:0.0001724935,Pentaschistis_pictigluma_minor_CG270:0.0000010000):0.0004313098):0.0000010000,Pentaschistis_pictigluma_gracilis_MN1358:0.0004313098):0.0000862417,Pentaschistis_borussicaT_MN1353:0.0003450276):0.0001724935):0.0005176022):0.0004313098,Pentaschistis_galpinii_CG42:0.0007765401):0.0003450276,(Pentaschistis_aristifolia_CG388:0.0009492162,(Pentaschistis_lima_HPL6972:0.0006039047,Pentaschistis_tomentella_CG318:0.0004313098):0.0010355694):0.0016403267):0.0009492162):0.0005176022,(Pentaschistis_aristidoides_TvN37_ITS:0.0004313098,((Pentaschistis_chippindalliae_CG96_ITS:0.0006039047,(Pentaschistis_reflexa_CG324_ITS:0.0003450276,Pentaschistis_setifolia_CG45:0.0019861260):0.0000862417):0.0010355694,(Pentaschistis_microphylla_CG76:0.0003450276,Pentaschistis_montana_CG574:0.0014674881):0.0005176022):0.0000862417):0.0007765401):0.0002587555,(Pentaschistis_glandulosa_HPL6814:0.0005176022,Pentaschistis_oreodoxa_CG32:0.0002587555):0.0003450276):0.0000862417,Pentaschistis_natalensisSA_CG95:0.0012946901):0.0004313098,(((((Pentaschistis_aspera_NPB1164:0.0002587555,(((Pentaschistis_barbata_GAV219:0.0006902173,(Pentaschistis_longipes_HPL5018:0.0000010000,Pentaschistis_patula_CG317:0.0001724935):0.0001724935):0.0000862417,Pentaschistis_pseudopallescens_GAV224_ITS:0.0004313098):0.0015539023,(((Pentaschistis_cirrhulosa_CG548:0.0011219328,Pentaschistis_papillosa_GAV209:0.0000010000):0.0003450276,Pentaschistis_pallida_CG547:0.0004313098):0.0006039047,(Pentaschistis_reflexa_CG324:0.0006902173,Pentaschistis_rupestris_GAV251:0.0005176022):0.0002587555):0.0004313098):0.0000862417):0.0002587555,Pentaschistis_densifolia_GAV225_ITS:0.0008628731):0.0000010000,Pentaschistis_ecklonii_HPL6136:0.0005176022):0.0000862417,Pentaschistis_heptamera_CG356:0.0010355694):0.0007765401,(Pentaschistis_calcicola_calcicola_CG338:0.0004313098,Pentaschistis_calcicola_hirsuta_CG339:0.0008628731):0.0012946901):0.0011219328):0.0007765401,Pentaschistis_velutina_CG389:0.0019861260):0.0002587555,(Pentaschistis_chippindalliae_CG96:0.0013810840,Pentaschistis_densifolia_GAV225:0.0013810840):0.0005176022):0.0010355694,Pentaschistis_triseta_HPL6962:0.0050188360):0.0005176022,Pentaschistis_trifida_CG577:0.0031977075):0.0043245401,((((Pentaschistis_aristidoides_TvN37:0.0000010000,Pentaschistis_pallida_TvN32:0.0000010000):0.0018132060,(Pentaschistis_pallescens_GAV216:0.0000862417,Pentaschistis_velutina_CG389_ITS:0.0004313098):0.0013810840):0.0006039047,(Pentaschistis_horrida_TvN20:0.0005176022,(Pentaschistis_rosea_purpurascens_CG378:0.0000010000,Pentaschistis_rosea_rosea_GAV222:0.0000862417):0.0002587555):0.0006902173):0.0014674881,(Prionanthium_dentatum_HPL5430:0.0012946901,Prionanthium_pholiuroides_HPL5402:0.0013810840):0.0028513373):0.0038042487):0.0006039047):0.0025916669,(Pentaschistis_ampla_GAV197:0.0017267612,(Pentaschistis_aurea_aurea_HPL6813:0.0003450276,Pentaschistis_aurea_pilosogluma_CG47:0.0003450276):0.0017267612):0.0024186042):0.0003450276,Pentaschistis_pusilla_GAV206:0.0026782135):0.0003450276,Pentaschistis_viscidula_HPL7787:0.0007765401):0.0007765401,Pentaschistis_andringitrensis_CG595:0.0016403267):0.0006039047,(((Pentaschistis_alticola_CG377:0.0007765401,(((Pentaschistis_clavata_HPL6893:0.0022455824,Pentaschistis_tortuosa_GAV250:0.0005176022):0.0000862417,Pentaschistis_colorata_CG538:0.0000862417):0.0003450276,(Pentaschistis_colorata_CG343:0.0000010000,Pentaschistis_rigidissima_GAV227:0.0006039047):0.0000862417):0.0002587555):0.0002587555,Pentaschistis_elegans_CG336:0.0013810840):0.0007765401,Pentaschistis_basutorum_CG44:0.0013810840):0.0003450276):0.0002587555,(Pentaschistis_basutorum_CG44_ITS:0.0000010000,Pentaschistis_juncifolia_CG341:0.0001724935):0.0016403267):0.0105094769):0.0165705172):0.0033709538,((((Merxmuellera_arundinacea_NPB1017_ITS:0.0002587555,Merxmuellera_arundinacea_NPB1742_ITS:0.0000862417):0.0001724935,Merxmuellera_setacea_NPB987:0.0003450276):0.0020726013,(Merxmuellera_cincta_NPB1160:0.0005176022,Merxmuellera_cincta_sericea_NPB1545:0.0007765401):0.0018996609):0.0037175692,(Merxmuellera_decora_NPB1168:0.0015539023,(Merxmuellera_lupulina_HPL7004:0.0002587555,Merxmuellera_rufa_TvN11:0.0003450276):0.0006902173):0.0025051304):0.0014674881):0.0006039047,(Merxmuellera_arundinacea_NPB1017:0.0000862417,Merxmuellera_arundinacea_NPB1742:0.0001724935):0.0023320882):0.0080641224,(Merxmuellera_davyi_NPB942:0.0005176022,((Merxmuellera_drakensbergensis_PM4:0.0000010000,Merxmuellera_stereophylla_PM3:0.0001724935):0.0013810840,Merxmuellera_macowanii_NPB1008:0.0018132060):0.0000862417):0.0058876300):0.0081513164,((Centropodia_glauca:0.0023320882,Centropodia_mossamedensis_Ward10862:0.0025916669):0.0111220899,(Merxmuellera_papposa_NPB1759:0.0033709538,Merxmuellera_rangei_NPB960:0.0027647703):0.0082385208):0.0104220024):0.0009492162):0.0019861260,Arundo:0.0044980526);
+(Amphipogon:0.0259731104,((((Andropogon:0.0156104457,Setaria:0.0156321078):0.0065539841,(Hordeum:0.0164711970,Micraira:0.0056053812):0.0113832356):0.0018972059,(Aristida:0.0162298594,Stipagrostis:0.0191447002):0.0067264574):0.0016384960,((((((((((((((((((Austrodanthonia_alpicola_AMH102:0.0028754805,Rytidosperma_vestitum_JM132:0.0016095684):0.0004412453,Rytidosperma_nivicolum_MDP419:0.0036229439):0.0002587099,(Rytidosperma_oreoboloides_MWC8877:0.0037527819,Rytidosperma_vickeryae_MDP422:0.0038483817):0.0006156837):0.0001724733,Rytidosperma_nudiflorum_HPL5693:0.0022421525):0.0018972059,((((((((((Austrodanthonia_auriculata_AMH36:0.0002587099,Austrodanthonia_eriantha_AMH43:0.0011210762):0.0012073129,Austrodanthonia_monticola_MDP319:0.0003449465):0.0007761297,(Austrodanthonia_carphoides_HPL5568:0.0021559158,Austrodanthonia_eriantha_AMH95:0.0018109693):0.0022421525):0.0018109693,Austrodanthonia_pilosa_AMH44:0.0010348396):0.0017247327,Rytidosperma_dimidiatum_MDP292:0.0011210762):0.0020696792,(((Austrodanthonia_geniculata_AMH39:0.0000010000,Austrodanthonia_induta_NGW6375:0.0015522594):0.0012935495,Joycea_lepidopoda_MDP285:0.0025870990):0.0017247327,(Rytidosperma_fortunae-hibernae_AMH73:0.0011210762,Rytidosperma_pauciflorum_HPL5688:0.0015682674):0.0002587099):0.0012073129):0.0016384960,((Rytidosperma_buchananii_AMH120:0.0014423893,Rytidosperma_thomsonii_AMH118:0.0000010000):0.0007761297,(((Rytidosperma_maculatum_AMH117:0.0011210762,Rytidosperma_telmaticum_AMH151:0.0009486030):0.0012935495,Rytidosperma_pumilum_NGW:0.0012073129):0.0021559158,Rytidosperma_pumilum_HPL5747:0.0001724733):0.0022421525):0.0023283891):0.0019834426,(((((Austrodanthonia_caespitosa_AMH25:0.0007761297,((Austrodanthonia_racemosa_AMH6:0.0000010000,Rytidosperma_quirihuense_MDP338:0.0034995874):0.0009299299,Rytidosperma_paschale_CULT:0.0031005972):0.0006036564):0.0005174198,((Austrodanthonia_clavata_MDP454:0.0021559158,Austrodanthonia_penicillata_AMH99:0.0002587099):0.0015522594,Austrodanthonia_mera_AMH125:0.0016384960):0.0029320455):0.0029320455,Rytidosperma_exiguum_HPL5746:0.0009310844):0.0029320455,(((Austrodanthonia_fulva_AMH38:0.0010348396,(Austrodanthonia_oreophila_MDP404:0.0009486030,(Austrodanthonia_tenuior_AMH70:0.0006898931,((Joycea_pallida_HPL5564:0.0000010000,Joycea_sp_AMH104:0.0059202875):0.0008623663,Notodanthonia_longifolia_MDP305:0.0013797861):0.0007761297):0.0008623663):0.0007761297):0.0008623663,Austrodanthonia_popinensis_AMH94:0.0003449465):0.0008623663,(Joycea_clelandii_MDP250:0.0035010991,Notodanthonia_semiannularis_MDP303:0.0007615415):0.0007761297):0.0009486030):0.0029320455,((((Notodanthonia_gracilis_AMH148:0.0022421525,((Notodanthonia_gracilis_HPL5683:0.0006791988,Notodanthonia_unarede_AMH108:0.0014560991):0.0004311832,Rytidosperma_australe_AMH145:0.0008623663):0.0004311832):0.0022421525,(Rytidosperma_australe_MDP418:0.0028525073,Rytidosperma_pulchrum_AMH143:0.0005174198):0.0006898931):0.0020696792,Rytidosperma_setifolium_AMH121:0.0008623663):0.0022421525,(Rytidosperma_lechleri_CMB4256:0.0014660228,((Rytidosperma_pictum_MDP355:0.0010348396,Rytidosperma_violaceum_MDP356:0.0000862366):0.0012073129,Rytidosperma_virescens_MDP331:0.0001724733):0.0011210762):0.0011210762):0.0008623663):0.0013797861):0.0029320455,Austrodanthonia_laevis_LWsn:0.0007761297):0.0029320455,Austrodanthonia_bipartita_MDP290:0.0005174198):0.0029320455):0.0047430148,((Austrodanthonia_caespitosa_AMH92:0.0022286344,Austrodanthonia_setacea_AMH20:0.0012583090):0.0003449465,((Austrodanthonia_duttoniana_MDP302:0.0036882334,Rytidosperma_nitens_MDP380:0.0022968186):0.0003084061,Austrodanthonia_richardsonii_PI:0.0041394379):0.0006274327):0.0003449465):0.0056053812,(((((Karroochloa_curva_GAV604:0.0041393584,Tribolium_obtusifolium_GAV597:0.0007761297):0.0037944119,(((Schismus_pleuropogon_GAV628:0.0018972059,Tribolium_obliterum_GAV598:0.0009486030):0.0008623663,Tribolium_acutiflorum_GAV504:0.0009486030):0.0016384960,Tribolium_pusillum_GAV554:0.0051741980):0.0060365643):0.0058640911,Karroochloa_tenella_GAV587:0.0030182822):0.0053466713,(((((Tribolium_ciliare_GAV596:0.0012935495,Tribolium_echinatum_GAV576:0.0002587099):0.0015522594,(Tribolium_ciliare_GAV596_ITS:0.0003449465,Tribolium_echinatum_GAV601:0.0000010000):0.0012935495):0.0008623663,Tribolium_pusillum_GAV554_ITS:0.0011210762):0.0010348396,Tribolium_hispidum_GAV532:0.0016384960):0.0016384960,Tribolium_utriculosum_GAV568:0.0012935495):0.0028458089):0.0059503277,(Tribolium_brachystachyum_GAV593:0.0015387291,Tribolium_uniolae_GAV531:0.0036280816):0.0071576406):0.0036219386):0.0069851673,(Karroochloa_schismoides_GAV562:0.0063815109,(Schismus_arabicus_Willissn:0.0006036564,(Schismus_barbatus_GAV503:0.0039668851,Schismus_scaberrimus_GAV573:0.0015522594):0.0048292515):0.0048292515):0.0075025871):0.0105208693,(((Danthonia_schneideri_Soreng5638:0.0105208693,Danthonia_subulata_HPL7669:0.0018972059):0.0097447396,((Merxmuellera_aureocephala_NPB:0.0040531218,Merxmuellera_stricta_TvN15:0.0019834426):0.0062090376,Merxmuellera_dura_NPB983:0.0061228010):0.0066402208):0.0056916178,Merxmuellera_disticha_NPB1002:0.0117281821):0.0031907554):0.0098309762,((((((((Cortaderia_araucana_ITS:0.0016127782,Cortaderia_rudiuscula_ITS:0.0048499479):0.0000010000,Cortaderia_jubata_ITS:0.0000010000):0.0009486030,Lamprothyrsus_hieronymi_ITS:0.0081230061):0.0001724733,Lamprothyrsus_peruvianus_ITS:0.0004311832):0.0004311832,Cortaderia_boliviensis_ITS:0.0001724733):0.0003449465,((Cortaderia_archboldii_JM115:0.0008623663,(((((Danthonia_alpina_480_ITS:0.0000010000,Danthonia_decumbens_MDP312:0.0010348396):0.0011210762,(Danthonia_alpina_MDP480:0.0006036564,Danthonia_alpina_MDP481:0.0000023318):0.0007761297):0.0010348396,(Danthonia_domingensis_AA373:0.0013797861,(Danthonia_intermedia_Hermannsn:0.0014660228,Danthonia_sericea_DBW7180:0.0000862366):0.0018109693):0.0009486030):0.0009486030,(Danthonia_compressa_Radford44899:0.0002587099,((Danthonia_parryi_CWM813:0.0000010000,Danthonia_unispicata_JTH52406:0.0000862366):0.0000862366,Danthonia_spicata_WDT95_30:0.0027595723):0.0027595723):0.0028458089):0.0011210762,((Danthonia_annableae_DMP1833:0.0003449465,Danthonia_secundiflora_ML1617:0.0010348396):0.0010348396,(((((Danthonia_araucana_MDP337:0.0025752571,Danthonia_chilensis_var._aureofulva_MDP340:0.0000010000):0.0003449465,Danthonia_californica_americana_MDP330:0.0016384960):0.0018972059,Danthonia_chilensis_var._chilensis_MDP342:0.0002587099):0.0020696792,Danthonia_malacantha_MDP339:0.0007761297):0.0026733356,Danthonia_filifolia_MJM34:0.0005174198):0.0027595723):0.0031045188):0.0040531218):0.0039668851,(((Cortaderia_pilosa_3:0.0000862366,Cortaderia_pilosa_4a:0.0006621467):0.0004311832,Cortaderia_pilosa_MDP345:0.0018109693):0.0029320455,((Notochloe_microdon_AMH66:0.0000862366,Notochloe_microdon_MDP326:0.0000010000):0.0001724733,Notochloe_microdon_Watson_sn:0.0018972059):0.0018972059):0.0021559158):0.0045705416):0.0043980683,(((Cortaderia_bifida_ITS:0.0000023318,Cortaderia_nitida_ITS:0.0005174198):0.0000862366,Cortaderia_sericantha_ITS:0.0179232359):0.0001724733,(Cortaderia_columbiana_ITS:0.0035818170,Cortaderia_hapalotricha_ITS:0.0081439155):0.0016384960):0.0009486030):0.0055191445,((((Cortaderia_fulvida_G5088:0.0012073129,Cortaderia_toetoe_G5042:0.0004311832):0.0023283891,(Cortaderia_richardii_G3816:0.0007761297,Cortaderia_turbaria_G17358:0.0007513379):0.0003449465):0.0028458089,Cortaderia_splendens_G10872:0.0002587099):0.0049154881,(((Notochloe_microdon_AMH66_ITS:0.0022362409,Notochloe_microdon_MDP326_ITS:0.0042701512):0.0006898931,Notochloe_microdon_ITS:0.0019932799):0.0004311832,((Plinthanthesis_paradoxa_HPL5638:0.0032769921,Plinthanthesis_rodwayi_MDP415:0.0018109693):0.0034494653,Plinthanthesis_urvillei_MC4003:0.0018972059):0.0045705416):0.0050017247):0.0038806485):0.0048292515):0.0081062435,(((((Cortaderia_araucana_G7162:0.0005174198,((Cortaderia_jubata_ML1515:0.0000862366,(Cortaderia_rudiuscula_G11157:0.0000010000,Cortaderia_selloana_Robinson:0.0023251765):0.0001724733):0.0002587099,Cortaderia_nitida_ML1434:0.0003449465):0.0001724733):0.0003449465,Lamprothyrsus_peruvianus_G11154:0.0013797861):0.0012935495,(Cortaderia_boliviensis_ML672:0.0038968440,Lamprothyrsus_hieronymi_OM3534:0.0005129487):0.0000862366):0.0014660228,(Cortaderia_bifida_ML1497:0.0007761297,Cortaderia_sericantha_ML1128:0.0039319593):0.0002587099):0.0016384960,(Cortaderia_columbiana_ML920:0.0031039153,Cortaderia_hapalotricha_ML1525:0.0063864369):0.0034494653):0.0019834426):0.0075888237,((Chaetobromus_involucratus_dregeanus_NPB978:0.0019834426,Chaetobromus_involucratus_involucratus_NPB1715:0.0107795792):0.0124180752,((Pseudopentameris_brachyphylla_NPB1669:0.0000010000,Pseudopentameris_macrantha_HPL5470:0.0068989307):0.0075888237,Pseudopentameris_caespitosa_NPB1670:0.0020696792):0.0102621594):0.0147464643):0.0140565712,((((((Chionochloa_acicularis_OTA57601:0.0000862366,(Chionochloa_antarctica_OTA57955:0.0015522594,(Chionochloa_crassiuscula_crassiuscula_OTA57968:0.0002950387,Chionochloa_lanea_KML041:0.0008227885):0.0003449465):0.0013797861):0.0013797861,Chionochloa_ovata_OTA57593:0.0000862366):0.0014660228,Chionochloa_teretifolia_OTA57598:0.0001724733):0.0018109693,((((((Chionochloa_australis_OTA57584:0.0002587099,(Chionochloa_beddiei_OTA57969:0.0005174198,Chionochloa_defracta_OTA57937:0.0005500794):0.0000010000):0.0001724733,Chionochloa_cheesemanii_OTA57934:0.0006036564):0.0000862366,(Chionochloa_conspicua_conspicua_OTA:0.0006898931,Chionochloa_flavicans_OTA57947:0.0006036564):0.0002587099):0.0004311832,Chionochloa_nivifera_KML063:0.0009893898):0.0008623663,(Chionochloa_frigida_MDP417:0.0019834426,Chionochloa_vireta_OTA57585:0.0000862366):0.0016384960):0.0023283891,(((((Chionochloa_flavescens_CHR475418:0.0011210762,Chionochloa_rigida_HPL5750:0.0000862366):0.0008623663,Chionochloa_spiralis_OTA57949:0.0002587099):0.0008623663,Chionochloa_macra_CHR475278:0.0005174198):0.0012935495,Chionochloa_pallens_CHR475279:0.0001724733):0.0012935495,Chionochloa_oreophila_CHR475277:0.0000862366):0.0017247327):0.0012935495):0.0018109693,(Chionochloa_juncea_OTA57967:0.0000010000,Chionochloa_rubra_OTA57960:0.0010849721):0.0030182822):0.0036219386,Chionochloa_australis_OTA57584_ITS:0.0005174198):0.0040531218):0.0093997930,(((Pentameris_distichophylla_HPL5447:0.0020696792,(((Pentameris_glacialis_HPL5458:0.0018972059,Pentameris_swartbergensis_HPL5490:0.0001724733):0.0014660228,(((Pentameris_hirtiglumis_HPL7789:0.0004311832,Pentameris_thuarii_HPL5456:0.0031907554):0.0023283891,Pentameris_longiglumis_CG536:0.0012073129):0.0027595723,(Pentameris_macrocalycina_GAV203:0.0030605193,Pentameris_oreophila_HPL7802:0.0034824653):0.0026733356):0.0025008624):0.0035357020,Pseudopentameris_obtusifolia_NPB1668:0.0058640911):0.0043980683):0.0045705416,(Pentaschistis_praecox_MDP490:0.0024651785,Pentaschistis_tysonii_HPL6812:0.0015856706):0.0044843049):0.0079337703,((((((((((Pentaschistis_acinosa_TvN1:0.0019834426,(((Pentaschistis_caulescens_CG376:0.0020696792,Pentaschistis_scandens_CG334:0.0025008624):0.0006036564,(Pentaschistis_horrida_TvN20_ITS:0.0000862366,Pentaschistis_malouinensis_GAV218_ITS:0.0034095951):0.0003449465):0.0005174198,Pentaschistis_curvifolia_TvN52:0.0012935495):0.0006036564):0.0011210762,((Pentaschistis_argentea_GAV254:0.0011210762,(((Pentaschistis_eriostoma_P6:0.0010348396,Pentaschistis_pyrophila_GAV229:0.0013507265):0.0006898931,Pentaschistis_pungens_CG333:0.0024146257):0.0014660228,Pentaschistis_malouinensis_GAV218:0.0009486030):0.0013797861):0.0013797861,Pentaschistis_capensis_HPL6825:0.0018109693):0.0017247327):0.0019834426,Pentaschistis_exserta_CG51:0.0039668851):0.0022421525,((((((((((Pentaschistis_airoides_airoides_HPL6971:0.0000010000,Pentaschistis_insularis:0.0040509738):0.0017320533,((((Pentaschistis_airoides_jugorum_CG81:0.0051741980,(Pentaschistis_capillaris_CG322:0.0008623663,(Pentaschistis_pseudopallescens_GAV224:0.0000862366,Pentaschistis_veneta_CG576:0.0018109693):0.0022421525):0.0020696792):0.0047430148,(Pentaschistis_borussicaE_HPL7661:0.0007761297,(((((Pentaschistis_borussicaK_CG230:0.0004311832,Pentaschistis_pictigluma_gracilis_HPL7676:0.0002587099):0.0001724733,Pentaschistis_pictigluma_pictigluma_HPL7670:0.0003449465):0.0002776024,((Pentaschistis_pictigluma_gracilis_MN1358:0.0004311832,Pentaschistis_pictigluma_minor_CG270:0.0000862366):0.0001724733,Pentaschistis_pictigluma_mannii_CG267_ITS:0.0002587099):0.0005174198):0.0002825369,Pentaschistis_borussicaT_MN1353:0.0013546958):0.0001724733,(Pentaschistis_pictigluma_mannii_CG267:0.0006854783,Pentaschistis_pictigluma_minor_HPL7671:0.0002777933):0.0001724733):0.0001724733):0.0006036564):0.0050017247,Pentaschistis_galpinii_CG42:0.0007761297):0.0047430148,(Pentaschistis_aristifolia_CG388:0.0031907554,(Pentaschistis_lima_HPL6972:0.0022533917,Pentaschistis_tomentella_CG318:0.0016004136):0.0027595723):0.0039668851):0.0068989307):0.0069851673,((Pentaschistis_aristidoides_TvN37_ITS:0.0005174198,((((Pentaschistis_glandulosa_HPL6814:0.0007761297,Pentaschistis_oreodoxa_CG32:0.0003449465):0.0005174198,Pentaschistis_reflexa_CG324_ITS:0.0003449465):0.0008623663,Pentaschistis_setifolia_CG45:0.0031045188):0.0009486030,(Pentaschistis_microphylla_CG76:0.0013737015,Pentaschistis_montana_CG574:0.0062971027):0.0010348396):0.0007761297):0.0008623663,Pentaschistis_chippindalliae_CG96_ITS:0.0006036564):0.0012935495):0.0067264574,Pentaschistis_natalensisSA_CG95:0.0013797861):0.0068989307,(((Pentaschistis_aspera_NPB1164:0.0003449465,((Pentaschistis_barbata_GAV219:0.0015522594,(Pentaschistis_longipes_HPL5018:0.0000862366,Pentaschistis_patula_CG317:0.0006036564):0.0006898931):0.0025870990,(((Pentaschistis_cirrhulosa_CG548:0.0016384960,Pentaschistis_papillosa_GAV209:0.0000862366):0.0008623663,Pentaschistis_pallida_CG547:0.0004311832):0.0006898931,((Pentaschistis_pseudopallescens_GAV224_ITS:0.0004311832,Pentaschistis_rupestris_GAV251:0.0009486030):0.0012073129,Pentaschistis_reflexa_CG324:0.0006898931):0.0007761297):0.0007761297):0.0011210762):0.0017247327,Pentaschistis_densifolia_GAV225_ITS:0.0008623663):0.0020696792,((Pentaschistis_calcicola_calcicola_CG338:0.0014150695,Pentaschistis_calcicola_hirsuta_CG339:0.0027611583):0.0014660228,(Pentaschistis_ecklonii_HPL6136:0.0005174198,Pentaschistis_heptamera_CG356:0.0010348396):0.0007761297):0.0008623663):0.0019834426):0.0082787168,Pentaschistis_velutina_CG389:0.0020696792):0.0075888237,(Pentaschistis_chippindalliae_CG96:0.0019834426,Pentaschistis_densifolia_GAV225:0.0016384960):0.0014660228):0.0082787168,Pentaschistis_triseta_HPL6962:0.0056916178):0.0083649534,Pentaschistis_trifida_CG577:0.0034494653):0.0085374267,((((Pentaschistis_aristidoides_TvN37:0.0000010000,Pentaschistis_pallida_TvN32:0.0000010000):0.0019834426,(Pentaschistis_pallescens_GAV216:0.0014660228,Pentaschistis_velutina_CG389_ITS:0.0005174198):0.0016384960):0.0008623663,(Pentaschistis_horrida_TvN20:0.0005174198,(Pentaschistis_rosea_purpurascens_CG378:0.0000862366,Pentaschistis_rosea_rosea_GAV222:0.0003449465):0.0006898931):0.0011210762):0.0021559158,(Prionanthium_dentatum_HPL5430:0.0074163505,Prionanthium_pholiuroides_HPL5402:0.0018109693):0.0088823732):0.0068126940):0.0082787168):0.0099172128,(Pentaschistis_ampla_GAV197:0.0017247327,(Pentaschistis_aurea_aurea_HPL6813:0.0003449465,Pentaschistis_aurea_pilosogluma_CG47:0.0026733356):0.0042255950):0.0028458089):0.0133666782,Pentaschistis_pusilla_GAV206:0.0028458089):0.0133666782,Pentaschistis_viscidula_HPL7787:0.0009486030):0.0139703346,Pentaschistis_andringitrensis_CG595:0.0066913257):0.0135391514,(((Pentaschistis_alticola_CG377:0.0007761297,(((Pentaschistis_clavata_HPL6893:0.0025008624,Pentaschistis_tortuosa_GAV250:0.0005174198):0.0004311832,Pentaschistis_colorata_CG538:0.0000862366):0.0004311832,(Pentaschistis_colorata_CG343:0.0000010000,Pentaschistis_rigidissima_GAV227:0.0019705432):0.0003200158):0.0006036564):0.0004311832,Pentaschistis_elegans_CG336:0.0015522594):0.0012073129,Pentaschistis_basutorum_CG44:0.0014660228):0.0006036564):0.0137978613,(Pentaschistis_basutorum_CG44_ITS:0.0000010000,Pentaschistis_juncifolia_CG341:0.0010791951):0.0017247327):0.0169023801):0.0219903415):0.0053466713,((((Merxmuellera_arundinacea_NPB1017_ITS:0.0015522594,Merxmuellera_arundinacea_NPB1742_ITS:0.0001724733):0.0014660228,Merxmuellera_setacea_NPB987:0.0011210762):0.0021559158,(Merxmuellera_cincta_NPB1160:0.0005174198,Merxmuellera_cincta_sericea_NPB1545:0.0051741980):0.0052604346):0.0039668851,((Merxmuellera_decora_NPB1168:0.0026733356,Merxmuellera_rufa_TvN11:0.0005174198):0.0019834426,Merxmuellera_lupulina_HPL7004:0.0010348396):0.0034494653):0.0024146257):0.0054329079,(Merxmuellera_arundinacea_NPB1017:0.0025008624,Merxmuellera_arundinacea_NPB1742:0.0001724733):0.0025870990):0.0108658158,(Merxmuellera_davyi_NPB942:0.0005174198,((Merxmuellera_drakensbergensis_PM4:0.0014660228,Merxmuellera_stereophylla_PM3:0.0001724733):0.0016384960,Merxmuellera_macowanii_NPB1008:0.0021559158):0.0063815109):0.0072438772):0.0153501207,((Centropodia_glauca:0.0133666782,Centropodia_mossamedensis_Ward10862:0.0043118317):0.0137978613,(Merxmuellera_papposa_NPB1759:0.0055647957,Merxmuellera_rangei_NPB960:0.0042873285):0.0146602277):0.0169023801):0.0017247327):0.0020696792,Arundo:0.0112067404);
 
 TIME STAMP
 ----------
 
-Date and time: Fri Mar 12 18:40:34 2021
-Total CPU time used: 141.911 seconds (0h:2m:21s)
-Total wall-clock time used: 66.2977 seconds (0h:1m:6s)
+Date and time: Sun Mar 14 10:54:44 2021
+Total CPU time used: 2792.55 seconds (0h:46m:32s)
+Total wall-clock time used: 778.55 seconds (0h:12m:58s)
 

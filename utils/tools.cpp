@@ -1163,9 +1163,10 @@ void parseArg(int argc, char *argv[], Params &params) {
     params.matrix_exp_technique = MET_EIGEN3LIB_DECOMPOSITION;
 
     params.ratchet_iter = -1;
-    params.ratchet_wgt = 1; // default if just specify -ratchet
-    params.ratchet_percent = 50; // default if just specify -ratchet
+    params.ratchet_wgt = 2; // default if just specify -ratchet
+    params.ratchet_percent = 30; // default if just specify -ratchet
     params.sort_alignment = true;
+    params.random_spr_iter = -1;
 
 	if (params.nni5) {
 	    params.nni_type = NNI5;
@@ -1529,6 +1530,15 @@ void parseArg(int argc, char *argv[], Params &params) {
 				params.sub_size = convert_int(argv[cnt]);
 				params.tree_gen = UNIFORM;
 				continue;
+			}
+
+            if (strcmp(argv[cnt], "-random-spr-iter") == 0) {
+				cnt++;
+				if (cnt >= argc)
+					throw "Use -random-spr-iter <numiter>";
+				params.random_spr_iter = convert_int(argv[cnt]);
+				
+                continue;
 			}
 			if (strcmp(argv[cnt], "-rcat") == 0) {
 				cnt++;
