@@ -89,6 +89,13 @@ public:
 
 //    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
+
+    /**
+     * Hill climb function for parsimony
+     */
+
+    void hill_climb();
+
     /**
             destructor
      */

@@ -2507,6 +2507,12 @@ void IQTree::doSPRSearch() {
 
 #undef Move
 
+void IQTree::hill_climb() {
+    if(params->random_spr_iter > 0 && search_iterations % params->random_spr_iter == 0) doSPRSearch();
+    else doParsimonySPR();
+    return;
+}
+
 double IQTree::doTreeSearch() {
     // ngfam: Added pattern score here. Currently the function returns the score sum (technically the score for the whole tree)
     // The pattern score is stored in pattern_pars
@@ -2675,22 +2681,23 @@ double IQTree::doTreeSearch() {
         // else doParsimonySPR();
 
         if (params->mpboot2 && params->hclimb_spr > 0) {
-            if(params->random_spr_iter > 0 && search_iterations % params->random_spr_iter == 0) doSPRSearch();
-            else doParsimonySPR();
 
+            hill_climb();
+        }
+        else {
+            pair<int, int> nniInfos; // <num_NNIs, num_steps>
+            nniInfos = doNNISearch(true, "");
         }
         
         curScore = -computeParsimony("Determining two-way parsimony", true, true );
 
         // initializeAllPartialLh();
 
-         pair<int, int> nniInfos; // <num_NNIs, num_steps>
-         nniInfos = doNNISearch(true, "");
-
+        
         // TODO: cannot check yet, need to somehow return treechanged
-//        if (nni_count == 0 && params->snni && numPerturb > 0 && treechanged) {
-//            assert(0 && "BUG: NNI could not improved perturbed tree");
-//        }
+    //    if (nni_count == 0 && params->snni && numPerturb > 0 && treechanged) {
+    //        assert(0 && "BUG: NNI could not improved perturbed tree");
+    //    }
 
 
         /*--------------------------------------------------------------------------
@@ -2699,11 +2706,6 @@ double IQTree::doTreeSearch() {
         
 
         if (params->mpboot2 && on_ratchet_hclimb1) {
-            // cout << "cham hoi??" << endl;
-
-            // cout << aln << endl;
-            // assert(aln);
-            
             delete aln;
             setAlignment(saved_aln_on_ratchet_iter, true);
             on_ratchet_hclimb1 = false;
@@ -2711,7 +2713,6 @@ double IQTree::doTreeSearch() {
             initializeAllPartialLh();
             clearAllPartialLH();
             curScore = optimizeAllBranches();
-
             /*----------------------------------------
 			 * Optimize tree with NNI & SPR
 			 *---------------------------------------*/
