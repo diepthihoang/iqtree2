@@ -992,6 +992,7 @@ void parseArg(int argc, char *argv[], Params &params) {
     params.aLRT_test = false;
     params.probability_ratchet = false;
     
+    params.hclimb_spr = 0;
     params.aBayes_test = false;
     params.localbp_replicates = 0;
 #ifdef __AVX512KNL
