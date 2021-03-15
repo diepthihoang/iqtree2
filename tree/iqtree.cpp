@@ -2669,9 +2669,12 @@ double IQTree::doTreeSearch() {
         // if (rand()%2 < 1) doSPRSearch();
         // else doParsimonySPR();
 
-        if(params->random_spr_iter > 0 && search_iterations % params->random_spr_iter == 0) doSPRSearch();
-        else doParsimonySPR();
+        if (params->mpboot2 && params->hclimb_spr > 0) {
+            if(params->random_spr_iter > 0 && search_iterations % params->random_spr_iter == 0) doSPRSearch();
+            else doParsimonySPR();
 
+        }
+        
         curScore = -computeParsimony("Determining two-way parsimony", true, true );
 
         // initializeAllPartialLh();
