@@ -1141,6 +1141,10 @@ void PhyloTree::readTreeStringSeqName(const string &tree_string) {
 }
 
 int PhyloTree::wrapperFixNegativeBranch(bool force_change) {
+	if(params->mpboot2){
+		// do nothing
+		return 0;
+	}
     // Initialize branch lengths for the parsimony tree
     initializeAllPartialPars();
     clearAllPartialLH();
@@ -3516,6 +3520,13 @@ void PhyloTree::optimizeOneBranch(PhyloNode *node1, PhyloNode *node2,
     ASSERT(current_it);
     ASSERT(current_it_back);
 
+	if(params->mpboot2){
+		current_it->partial_lh_computed = 0;
+		current_it_back->partial_lh_computed = 0;
+		curScore = -computeParsimonyBranch((PhyloNeighbor*) current_it, (PhyloNode*) node1);
+		return;
+	}
+
     double original_len = current_it->length;
     ASSERT(original_len >= 0.0);
     tree_buffers.theta_computed = false;
@@ -3606,6 +3617,11 @@ void PhyloTree::computeBestTraversal(NodeVector &nodes, NodeVector &nodes2) {
 
 double PhyloTree::optimizeAllBranches(int my_iterations, double tolerance,
                                       int maxNRStep, bool were_lengths_consistent) {
+	if(params->mpboot2){
+		clearAllPartialLH(); // Diep: (this is inherited from mpboot) TODO why call clearAllPartialLH here?
+		curScore = (double)(-computeParsimony());
+		return curScore;
+	}
     LOG_LINE(VB_MAX, "Optimizing branch lengths (max " << my_iterations << " loops)...");
     PhyloNodeVector nodes, nodes2;
     computeBestTraversal(nodes, nodes2);
