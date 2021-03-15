@@ -2514,7 +2514,7 @@ void IQTree::doSPRSearch() {
 
 #undef Move
 
-void IQTree::hill_climb() {
+void IQTree::hill_climb(int search_iterations) {
     if(params->random_spr_iter > 0 && search_iterations % params->random_spr_iter == 0) doSPRSearch();
     else doParsimonySPR();
     return;
@@ -2688,8 +2688,7 @@ double IQTree::doTreeSearch() {
         // else doParsimonySPR();
 
         if (params->mpboot2 && params->hclimb_spr > 0) {
-
-            hill_climb();
+            hill_climb(search_iterations);
         }
         else {
             pair<int, int> nniInfos; // <num_NNIs, num_steps>

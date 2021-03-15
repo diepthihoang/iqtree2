@@ -94,7 +94,7 @@ public:
      * Hill climb function for parsimony
      */
 
-    void hill_climb();
+    void hill_climb(int search_iterations=0);
 
     /**
             destructor
