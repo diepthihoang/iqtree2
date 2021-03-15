@@ -436,6 +436,10 @@ void IQTree::initSettings(Params &params) {
             outError("Invalid root state");
         }
     }
+
+    if (params.mpboot2) {
+        params.unsuccess_iteration = (aln->at(0).size() + 99) / 100 * 100;
+    }
 }
 
 IQTree::~IQTree() {
@@ -710,9 +714,6 @@ void IQTree::computeInitialTree(LikelihoodKernel kernel) {
         printTree(out_file.c_str(), WT_NEWLINE);
     }
 
-    if (params->mpboot2) {
-        params->unsuccess_iteration = (aln->at(0).size() + 99) / 100 * 100;
-    }
 }
 
 int IQTree::addTreeToCandidateSet(string treeString, double score, bool updateStopRule, int sourceProcID) {
@@ -2188,6 +2189,10 @@ double IQTree::perturb(int times) {
 extern pllUFBootData * pllUFBootDataPtr;
 
 string IQTree::optimizeModelParameters(bool printInfo, double logl_epsilon) {
+	if(params->mpboot2){
+		return getTreeString();
+	}
+
     prepareToComputeDistances();
     if (logl_epsilon == -1) {
         logl_epsilon = params->modelEps;
@@ -2641,7 +2646,7 @@ double IQTree::doTreeSearch() {
          * Perturb the tree
          *---------------------------------------*/
         
-        if (params->ratchet_iter > 0 && search_iterations % params->ratchet_iter == 0) {
+        if (params->mpboot2 && params->ratchet_iter > 0 && search_iterations % params->ratchet_iter == 0) {
             string candidateTree = candidateTrees.getNextCandTree();
             readTreeString(candidateTree);
 
@@ -2679,8 +2684,8 @@ double IQTree::doTreeSearch() {
 
         // initializeAllPartialLh();
 
-        // pair<int, int> nniInfos; // <num_NNIs, num_steps>
-        // nniInfos = doNNISearch(true, "");
+         pair<int, int> nniInfos; // <num_NNIs, num_steps>
+         nniInfos = doNNISearch(true, "");
 
         // TODO: cannot check yet, need to somehow return treechanged
 //        if (nni_count == 0 && params->snni && numPerturb > 0 && treechanged) {
@@ -2693,7 +2698,7 @@ double IQTree::doTreeSearch() {
          * -------------------------------------------------------------------------*/
         
 
-        if (on_ratchet_hclimb1) {
+        if (params->mpboot2 && on_ratchet_hclimb1) {
             // cout << "cham hoi??" << endl;
 
             // cout << aln << endl;
