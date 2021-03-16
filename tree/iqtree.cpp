@@ -252,6 +252,16 @@ void IQTree::initSettings(Params &params) {
             params.min_iterations = 100;
         }
     }
+
+    if (params.mpboot2) {
+    	if(params.max_iterations == 1) // if not specifying -nm
+			params.max_iterations = (params.max_iterations > (10 * aln->getNSeq32())) ?
+					params.max_iterations :
+					(10 * aln->getNSeq32());
+		if(params.unsuccess_iteration < 0) // if not specifying -nstop
+			params.unsuccess_iteration = (aln->at(0).size() + 99) / 100 * 100;
+    }
+
     if (!params.treeset_file.empty() && params.min_iterations == -1) {
         params.min_iterations = 1;
         params.stop_condition = SC_FIXED_ITERATION;
@@ -437,9 +447,6 @@ void IQTree::initSettings(Params &params) {
         }
     }
 
-    if (params.mpboot2) {
-        params.unsuccess_iteration = (aln->at(0).size() + 99) / 100 * 100;
-    }
 }
 
 IQTree::~IQTree() {
@@ -801,7 +808,7 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
             if (params->start_tree == STT_PLL_PARSIMONY) {
                 pllInst->randomNumberSeed = parRandSeed;
                 pllComputeRandomizedStepwiseAdditionParsimonyTree(pllInst, pllPartitions, params->sprDist);
-                resetBranches(pllInst);
+                //resetBranches(pllInst);
                 pllTreeToNewick(pllInst->tree_string, pllInst, pllPartitions,
                                 pllInst->start->back, PLL_FALSE, PLL_TRUE, PLL_FALSE,
                                 PLL_FALSE, PLL_FALSE, PLL_SUMMARIZE_LH, PLL_FALSE, PLL_FALSE);
@@ -816,8 +823,6 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
                     convertToRooted();
                 }
             } else if (params->start_tree == STT_PARSIMONY) {
-                cout << "YWEQS>" << endl;
-                exit(0);
                 int *rstream;
                 init_random(parRandSeed, false, &rstream);
                 PhyloTree tree;
@@ -3657,7 +3662,7 @@ void IQTree::filterNNIBranches(vector<NNIMove> &appliedNNIs, Branches &nniBranch
 double IQTree::pllOptimizeNNI(int &totalNNICount, int &nniSteps,
                               SearchInfo &searchinfo) {
     if((globalParams->online_bootstrap == PLL_TRUE)
-       && (globalParams->gbo_replicates > 0)) {
+       && (globalParams->gbo_replicates > 0) && (!globalParams->mpboot2)) {
         pllInitUFBootData();
     }
     searchinfo.numAppliedNNIs = 0;

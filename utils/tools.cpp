@@ -1099,7 +1099,7 @@ void parseArg(int argc, char *argv[], Params &params) {
     params.adaptPertubation = false;
     params.numSupportTrees = 20;
 //    params.sprDist = 20;
-    params.sprDist = 6;
+    params.sprDist = 1; // Diep: 2021-03-16 change the default for --mpboot2. I reset this params for likelihood after the for loop.
     params.sankoff_cost_file = NULL;
     params.numNNITrees = 20;
     params.avh_test = 0;
@@ -4519,6 +4519,10 @@ void parseArg(int argc, char *argv[], Params &params) {
 		else params.stop_condition = SC_UNSUCCESS_ITERATION;
 
 		params.print_ufboot_trees = 2; // 2017-09-25: fix bug regarding the order of -bb 1000 -bnni -wbt
+	}
+
+	if(!params.mpboot2){
+		params.sprDist = 6; // Diep, 2021-03-16: if not --mpboot2, set default to radius 6
 	}
 
     if (params.out_prefix.empty()) {
