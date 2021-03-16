@@ -808,13 +808,13 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
             if (params->start_tree == STT_PLL_PARSIMONY) {
                 pllInst->randomNumberSeed = parRandSeed;
                 pllComputeRandomizedStepwiseAdditionParsimonyTree(pllInst, pllPartitions, params->sprDist);
-                resetBranches(pllInst);
+                //resetBranches(pllInst);
                 pllTreeToNewick(pllInst->tree_string, pllInst, pllPartitions,
                                 pllInst->start->back, PLL_FALSE, PLL_TRUE, PLL_FALSE,
                                 PLL_FALSE, PLL_FALSE, PLL_SUMMARIZE_LH, PLL_FALSE, PLL_FALSE);
                 curParsTree = string(pllInst->tree_string);
                 PhyloTree::readTreeStringSeqName(curParsTree);
-                // wrapperFixNegativeBranch(true);
+                wrapperFixNegativeBranch(true);
             } else if (params->start_tree == STT_RANDOM_TREE) {
                 generateRandomTree(YULE_HARDING);
                 wrapperFixNegativeBranch(true);
@@ -823,8 +823,6 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
                     convertToRooted();
                 }
             } else if (params->start_tree == STT_PARSIMONY) {
-                cout << "YWEQS>" << endl;
-                exit(0);
                 int *rstream;
                 init_random(parRandSeed, false, &rstream);
                 PhyloTree tree;
