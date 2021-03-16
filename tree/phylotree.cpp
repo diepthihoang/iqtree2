@@ -3520,12 +3520,12 @@ void PhyloTree::optimizeOneBranch(PhyloNode *node1, PhyloNode *node2,
     ASSERT(current_it);
     ASSERT(current_it_back);
 
-	if(params->mpboot2){
-		current_it->partial_lh_computed = 0;
-		current_it_back->partial_lh_computed = 0;
-		curScore = -computeParsimonyBranch((PhyloNeighbor*) current_it, (PhyloNode*) node1);
-		return;
-	}
+	// if(params->mpboot2){
+	// 	current_it->partial_lh_computed = 0;
+	// 	current_it_back->partial_lh_computed = 0;
+	// 	curScore = -computeParsimonyBranch((PhyloNeighbor*) current_it, (PhyloNode*) node1);
+	// 	return;
+	// }
 
     double original_len = current_it->length;
     ASSERT(original_len >= 0.0);

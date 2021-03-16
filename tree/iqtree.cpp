@@ -807,7 +807,7 @@ void IQTree::initCandidateTreeSet(int nParTrees, int nNNITrees) {
                                 PLL_FALSE, PLL_FALSE, PLL_SUMMARIZE_LH, PLL_FALSE, PLL_FALSE);
                 curParsTree = string(pllInst->tree_string);
                 PhyloTree::readTreeStringSeqName(curParsTree);
-                // wrapperFixNegativeBranch(true);
+                wrapperFixNegativeBranch(true);
             } else if (params->start_tree == STT_RANDOM_TREE) {
                 generateRandomTree(YULE_HARDING);
                 wrapperFixNegativeBranch(true);
@@ -2508,8 +2508,16 @@ void IQTree::doSPRSearch() {
 #undef Move
 
 void IQTree::hill_climb(int search_iterations) {
-    if(params->random_spr_iter > 0 && search_iterations % params->random_spr_iter == 0) doSPRSearch();
-    else doParsimonySPR();
+    if (params->hclimb_spr > 0) {
+        if(params->random_spr_iter > 0 && search_iterations % params->random_spr_iter == 0) doSPRSearch();
+        else doParsimonySPR();
+    }
+    else {
+        initializeAllPartialLh();
+        initializeAllPartialPars();
+        pair<int, int> nniInfos; // <num_NNIs, num_steps>
+        nniInfos = doNNISearch(true, "");
+    }
     return;
 }
 
@@ -2660,12 +2668,8 @@ double IQTree::doTreeSearch() {
             Alignment* perturb_alignment = new Alignment();
             perturb_alignment->createPerturbAlignment(aln, params->ratchet_percent, params->ratchet_wgt, params->sort_alignment, params->probability_ratchet);
             saved_aln_on_ratchet_iter = aln;
-
-
             setAlignment(perturb_alignment, true);
             setRootNode(params->root);
-
-
             on_ratchet_hclimb1 = true;
             initializeAllPartialLh();
             clearAllPartialLH();
@@ -2680,10 +2684,11 @@ double IQTree::doTreeSearch() {
         // if (rand()%2 < 1) doSPRSearch();
         // else doParsimonySPR();
 
-        if (params->mpboot2 && params->hclimb_spr > 0) {
+        if (params->mpboot2) {
             hill_climb(search_iterations);
         }
         else {
+            cout << "YES?" << endl;
             pair<int, int> nniInfos; // <num_NNIs, num_steps>
             nniInfos = doNNISearch(true, "");
         }
@@ -2715,8 +2720,7 @@ double IQTree::doTreeSearch() {
             /*----------------------------------------
 			 * Optimize tree with NNI & SPR
 			 *---------------------------------------*/
-            if (rand()%2 < 1) doSPRSearch();
-            else doParsimonySPR();
+            hill_climb(search_iterations);
             curScore = -computeParsimony("Determining two-way parsimony", true, true );
         }
 

@@ -2014,7 +2014,6 @@ double PhyloTree::computePartialParsimonyOutOfTreeSIMD(const UINT* left_partial_
             z[2] |= w & (x[2] | y[2]);
             z[3] |= w & (x[3] | y[3]);
             score += fast_popcount(w);
-      
         }
         break;
             
