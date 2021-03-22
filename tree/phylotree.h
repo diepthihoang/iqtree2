@@ -2723,6 +2723,12 @@ protected:
     UINT *central_score_pars;
     UINT *central_state_pars;
 
+    /**     
+    * nni_partial_pars
+    */
+    UINT *nni_partial_pars;
+
+
     /**
             the main memory storing all scaling event numbers for all neighbors of the tree.
             The variable scale_num in PhyloNeighbor will be assigned to a region inside this variable.

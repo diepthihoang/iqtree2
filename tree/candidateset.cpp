@@ -38,6 +38,8 @@ void CandidateSet::saveCheckpoint() {
     checkpoint->startList(Params::getInstance().numNNITrees);
     for (reverse_iterator it = rbegin(); it != rend() && ntrees > 0; it++, ntrees--) {
         checkpoint->addListElement();
+        
+        
         stringstream ss;
         ss.precision(12);
         ss << it->second.score << " " << it->second.tree;
@@ -46,6 +48,8 @@ void CandidateSet::saveCheckpoint() {
 //        checkpoint->put("tree", it->second.tree);
         checkpoint->put("", ss.str());
     }
+
+
     checkpoint->endList();
     checkpoint->endStruct();
     CheckpointFactory::saveCheckpoint();

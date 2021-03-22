@@ -1993,6 +1993,7 @@ double PhyloTree::computePartialParsimonyOutOfTreeSIMD(const UINT* left_partial_
     const int VCSIZE     = VectorClass::size();
     int       entry_size = nstates * VCSIZE;
 
+
     switch (nstates) {
     case 4:
         #ifdef _OPENMP

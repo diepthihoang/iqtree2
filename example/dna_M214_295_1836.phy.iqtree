@@ -1,8 +1,8 @@
-IQ-TREE 2.1.2 COVID-edition built Mar 11 2021
+IQ-TREE 2.1.2 COVID-edition built Mar 17 2021
 
 Input file name: ../iqtree2/example/dna_M214_295_1836.phy
 Type of analysis: ModelFinder + tree reconstruction
-Random seed number: 2
+Random seed number: 1
 
 REFERENCES
 ----------
@@ -64,593 +64,593 @@ Model of rate heterogeneity: Uniform
 MAXIMUM LIKELIHOOD TREE
 -----------------------
 
-Parsimony score of the tree: 6662NOTE: Tree is UNROOTED although outgroup taxon 'Ajellomyces_capsulatum' is drawn at root
+Parsimony score of the tree: 6695NOTE: Tree is UNROOTED although outgroup taxon 'Ajellomyces_capsulatum' is drawn at root
 
-+**Ajellomyces_capsulatum
++--Ajellomyces_capsulatum
 |
 +--Ajellomyces_capsulatus
 |
-|                                                                       +**Aleuria_aurantia
-|                                                                    +--|
-|                                                                    |  +--Byssonectria_terrestris
-|                                                                 +--|
-|                                                                 |  |  +--Terichophaea_hybrida
-|                                                                 |  +--|
-|                                                                 |     +--Wilcoxina_mikolae
-|                                                              +--|
-|                                                              |  +--Scutellinia_scutellata
-|                                                           +--|
-|                                                           |  +--Pyronema_domesticum
-|                                                        +--|
-|                                                        |  +--Otidea_leporina
-|                                                     +--|
-|                                                     |  |     +--Cookeina_sulcipes
-|                                                     |  |  +--|
-|                                                     |  |  |  +--Sarcoscypha_austriaca
-|                                                     |  +--|
-|                                                     |     +--Microstoma_protracta
-|                                                  +--|
-|                                                  |  |     +--Ascodesmis_sphaerospora
-|                                                  |  |  +--|
-|                                                  |  |  |  +--Pulvinula_archeri
-|                                                  |  +--|
-|                                                  |     +--Glaziella_aurantiaca
-|                                               +--|
-|                                               |  |     +--Geopyxis_carbonaria
-|                                               |  |  +--|
-|                                               |  |  |  +--Paurocotylis_pila
-|                                               |  +--|
-|                                               |     +--Tarzetta_catinus
-|                                            +--|
-|                                            |  +--Desmazierella_acicola
-|                                         +--|
-|                                         |  |  +--Sarcosoma_globosum
-|                                         |  +--|
-|                                         |     +--Urnula_hiemalis
-|                                      +--|
-|                                      |  +--Rhizina_undulata
-|                                   +--|
-|                                   |  |                +--Balsamia_magnata
-|                                   |  |             +--|
-|                                   |  |             |  |  +--Balsamia_vulgaris
-|                                   |  |             |  +--|
-|                                   |  |             |     +--Barssia_oregonensis
-|                                   |  |        +----|
-|                                   |  |        |    |  +--Helvella_lacunosa
-|                                   |  |        |    +--|
-|                                   |  |        |       +--Wynnella_silvicolor
-|                                   |  |     +--|
-|                                   |  |     |  |              +--Choiromyces_meandriformis
-|                                   |  |     |  |           +--|
-|                                   |  |     |  |           |  +--Choiromyces_venosus
-|                                   |  |     |  |        +--|
-|                                   |  |     |  |        |  |  +--Tuber_excavatum
-|                                   |  |     |  |        |  +--|
-|                                   |  |     |  |        |     +--Tuber_panniferum
-|                                   |  |     |  |     +--|
-|                                   |  |     |  |     |  |        +--Tuber_borchii
-|                                   |  |     |  |     |  |     +--|
-|                                   |  |     |  |     |  |     |  +--Tuber_rapaeodorum
-|                                   |  |     |  |     |  |  +--|
-|                                   |  |     |  |     |  |  |  +--Tuber_gibbosum
-|                                   |  |     |  |     |  +**|
-|                                   |  |     |  |     |     +--Tuber_magnatum
-|                                   |  |     |  |  +--|
-|                                   |  |     |  |  |  |  +--Dingleya_verrucosa
-|                                   |  |     |  |  |  +--|
-|                                   |  |     |  |  |     |  +--Labyrinthomyces_varius
-|                                   |  |     |  |  |     +--|
-|                                   |  |     |  |  |        +--Reddellomyces_donkii
-|                                   |  |     |  +--|
-|                                   |  |     |     +--Underwoodia_columnaris
-|                                   |  |  +--|
-|                                   |  |  |  +--Caloscypha_fulgens
-|                                   |  +--|
-|                                   |     |        +--Discina_macrospora
-|                                   |     |     +--|
-|                                   |     |     |  +--Gyromitra_montana
-|                                   |     |  +--|
-|                                   |     |  |  |              +--Disciotis_venosa
-|                                   |     |  |  |           +--|
-|                                   |     |  |  |           |  |  +--Morchella_elata
-|                                   |     |  |  |           |  +--|
-|                                   |     |  |  |           |     +--Morchella_esculenta
-|                                   |     |  |  |        +--|
-|                                   |     |  |  |        |  |     +--Fischerula_subcaulis
-|                                   |     |  |  |        |  |  +--|
-|                                   |     |  |  |        |  |  |  +--Leucangium_carthusianum
-|                                   |     |  |  |        |  +--|
-|                                   |     |  |  |        |     |  +--Verpa_bohemica
-|                                   |     |  |  |        |     +--|
-|                                   |     |  |  |        |        +--Verpa_conica
-|                                   |     |  |  |     +--|
-|                                   |     |  |  |     |  +--Hydnotrya_tulasnei
-|                                   |     |  |  |  +--|
-|                                   |     |  |  |  |  |     +**Gyromitra_esculenta1
-|                                   |     |  |  |  |  |  +--|
-|                                   |     |  |  |  |  |  |  +--Gyromitra_esculenta2
-|                                   |     |  |  |  |  +--|
-|                                   |     |  |  |  |     +--Gyromitra_melaleucoides
-|                                   |     |  |  +--|
-|                                   |     |  |     +--Pseudorhizina_californica
-|                                   |     +--|
-|                                   |        +--Hydnotrya_cerebriformis
-|                                +--|
-|                                |  |                          +--Arthrobotrys_conoides
-|                                |  |                       +--|
-|                                |  |                       |  +--Duddingtonia_flagrans
-|                                |  |                    +--|
-|                                |  |                    |  +--Monacrosporium_gephyropaga
-|                                |  |                 +--|
-|                                |  |                 |  |  +--Arthrobotrys_dactyloides
-|                                |  |                 |  +--|
-|                                |  |                 |     +--Monacrosporium_haptotylum
-|                                |  |              +--|
-|                                |  |              |  +--Arthrobotrys_robusta
-|                                |  |           +--|
-|                                |  |           |  +--Monacrosporium_ellipsospora
-|                                |  |        +--|
-|                                |  |        |  +--Dactylella_rhopalota
-|                                |  |     +--|
-|                                |  |     |  +--Dactylella_oxyspora
-|                                |  |  +--|
-|                                |  |  |  +--Orbilia_delicatula
-|                                |  +--|
-|                                |     |   +-----Ascobolus_lineolatus
-|                                |     +---|
-|                                |         +---Thecotheus_holmskjoldii
-|                             +--|
-|                             |  |           +---Boudiera_acanthospora
-|                             |  |        +--|
-|                             |  |        |  +----Peziza_quelepidotia
-|                             |  |     +--|
-|                             |  |     |  |     +--Cazia_flexiascus
-|                             |  |     |  |  +--|
-|                             |  |     |  |  |  +--Terfezia_arenaria
-|                             |  |     |  +--|
-|                             |  |     |     |  +----Pachyphloeus_melanoxanthus
-|                             |  |     |     +--|
-|                             |  |     |        +--Peziza_succosa
-|                             |  |  +--|
-|                             |  |  |  +--Terfezia_terfezioides
-|                             |  +--|
-|                             |     +--Peziza_badia
-|                          +--|
-|                          |  |                     +----Ascovaginospora_stellipala
-|                          |  |                  +--|
-|                          |  |                  |  +--Camarops_microspora
-|                          |  |               +--|
-|                          |  |               |  |     +--Chaetomium_elatum
-|                          |  |               |  |  +--|
-|                          |  |               |  |  |  |  +--Neurospora_crassa
-|                          |  |               |  |  |  +--|
-|                          |  |               |  |  |     +--Sordaria_fimicola
-|                          |  |               |  +--|
-|                          |  |               |     +--Podospora_anserina
-|                          |  |            +--|
-|                          |  |            |  |  +----Kionochaeta_spissa
-|                          |  |            |  +--|
-|                          |  |            |     |       +----Meliola_juddiana
-|                          |  |            |     +-------|
-|                          |  |            |             +--Meliola_niessliana
-|                          |  |         +--|
-|                          |  |         |  |                 +--Balansieae_sp.
-|                          |  |         |  |              +--|
-|                          |  |         |  |              |  |     +--Hypocrea_lutea
-|                          |  |         |  |              |  |  +--|
-|                          |  |         |  |              |  |  |  +--Hypomyces_polyporinus
-|                          |  |         |  |              |  +--|
-|                          |  |         |  |              |     +--Hypomyces_chrysospermus
-|                          |  |         |  |           +--|
-|                          |  |         |  |           |  +--Chaetopsina_fulva
-|                          |  |         |  |        +--|
-|                          |  |         |  |        |  |                 +**Fusarium_cerealis
-|                          |  |         |  |        |  |              +--|
-|                          |  |         |  |        |  |              |  +**Gibberella_pulicaris
-|                          |  |         |  |        |  |           +--|
-|                          |  |         |  |        |  |           |  +--Fusarium_equiseti
-|                          |  |         |  |        |  |        +**|
-|                          |  |         |  |        |  |        |  +**Nectria_haematococca
-|                          |  |         |  |        |  |     +--|
-|                          |  |         |  |        |  |     |  |  +**Fusarium_culmorum
-|                          |  |         |  |        |  |     |  +**|
-|                          |  |         |  |        |  |     |     +**Fusarium_oxysporum
-|                          |  |         |  |        |  |  +--|
-|                          |  |         |  |        |  |  |  +--Nectria_cinnabarina
-|                          |  |         |  |        |  +--|
-|                          |  |         |  |        |     +--Fusarium_merismoides
-|                          |  |         |  |     +--|
-|                          |  |         |  |     |  |        +--Claviceps_purpurea
-|                          |  |         |  |     |  |     +--|
-|                          |  |         |  |     |  |     |  |     +--Epichloe_baconii
-|                          |  |         |  |     |  |     |  |  +--|
-|                          |  |         |  |     |  |     |  |  |  |  +--Metarhizium_anisopliae
-|                          |  |         |  |     |  |     |  |  |  +--|
-|                          |  |         |  |     |  |     |  |  |     +---Symbion_of_Hamiltonaphis_styrac
-|                          |  |         |  |     |  |     |  +--|
-|                          |  |         |  |     |  |     |     |  +--Paecilomyces_tenuipes_2
-|                          |  |         |  |     |  |     |     +--|
-|                          |  |         |  |     |  |     |        |  +--Verticillium_lecanii
-|                          |  |         |  |     |  |     |        +--|
-|                          |  |         |  |     |  |     |           +--Verticillium_psalliotae
-|                          |  |         |  |     |  |  +--|
-|                          |  |         |  |     |  |  |  +**Tolypocladium_cylindrosporum
-|                          |  |         |  |     |  +--|
-|                          |  |         |  |     |     +--Cordyceps_capitata
-|                          |  |         |  |  +--|
-|                          |  |         |  |  |  |     +--Geosmithia_lavendula
-|                          |  |         |  |  |  |  +--|
-|                          |  |         |  |  |  |  |  +--Geosmithia_putterillii
-|                          |  |         |  |  |  +--|
-|                          |  |         |  |  |     |  +--Spicellum_roseum
-|                          |  |         |  |  |     +--|
-|                          |  |         |  |  |        +--Trichothecium_roseum
-|                          |  |         |  +--|
-|                          |  |         |     |     +--Ceratocystis_fimbriata
-|                          |  |         |     |  +--|
-|                          |  |         |     |  |  |        +--Graphium_tectonae
-|                          |  |         |     |  |  |     +--|
-|                          |  |         |     |  |  |     |  |  +**Lomentospora_prolificans
-|                          |  |         |     |  |  |     |  +--|
-|                          |  |         |     |  |  |     |     +**Petriella_setifera
-|                          |  |         |     |  |  |  +--|
-|                          |  |         |     |  |  |  |  |  +**Pseudallescheria_boydii
-|                          |  |         |     |  |  |  |  +--|
-|                          |  |         |     |  |  |  |     +**Pseudallescheria_ellipsoidea
-|                          |  |         |     |  |  +--|
-|                          |  |         |     |  |     +--Microascus_cirrosus
-|                          |  |         |     +--|
-|                          |  |         |        |     +--Glomerella_cingulata
-|                          |  |         |        |  +--|
-|                          |  |         |        |  |  +--Glomerella_glycines
-|                          |  |         |        +--|
-|                          |  |         |           |    +**Verticillium_dahliae1
-|                          |  |         |           +----|
-|                          |  |         |                +--Verticillium_dahliae2
-|                          |  |      +--|
-|                          |  |      |  |              +**Cryphonectria_cubensis
-|                          |  |      |  |           +--|
-|                          |  |      |  |           |  +**Cryphonectria_havanensis
-|                          |  |      |  |        +--|
-|                          |  |      |  |        |  +--Endothia_gyrosa
-|                          |  |      |  |     +--|
-|                          |  |      |  |     |  +**Cryphonectria_parasitica
-|                          |  |      |  |  +--|
-|                          |  |      |  |  |  +--Valsa_leucostoma
-|                          |  |      |  +--|
-|                          |  |      |     |     +--Gaeumannomyces_graminis_var._gr
-|                          |  |      |     |  +--|
-|                          |  |      |     |  |  +--Magnaporthe_grisea
-|                          |  |      |     +--|
-|                          |  |      |        |     +--Ophiostoma_stenoceras
-|                          |  |      |        |  +--|
-|                          |  |      |        |  |  +--Sporothrix_schenckii
-|                          |  |      |        +--|
-|                          |  |      |           +--Ophiostoma_ulmi
-|                          |  |  +---|
-|                          |  |  |   |  +--Diatrype_disciformis
-|                          |  |  |   +--|
-|                          |  |  |      |     +--Hypoxylon_nummularium
-|                          |  |  |      |  +--|
-|                          |  |  |      |  |  +--Obolarina_dryophila
-|                          |  |  |      +--|
-|                          |  |  |         +--Xylaria_carpophila
-|                          |  +--|
-|                          |     |                   +--Candida_albicans
-|                          |     |                +--|
-|                          |     |                |  +---------Pichia_membranaefaciens
-|                          |     |           +----|
-|                          |     |           |    |  +------Endomyces_sp.
-|                          |     |           |    +--|
-|                          |     |           |       |      +--Eremothecium_gossypii
-|                          |     |           |       |   +--|
-|                          |     |           |       |   |  +--Holleya_sinecauda
-|                          |     |           |       +---|
-|                          |     |           |           +--Saccharomyces_barnettii
-|                          |     |       +---|
-|                          |     |       |   +----Dipodascopsis_uninucleata
-|                          |     |    +--|
-|                          |     |    |  |            +--Neolecta_irregularis
-|                          |     |    |  |        +---|
-|                          |     |    |  |        |   +--Neolecta_vitellina
-|                          |     |    |  |     +--|
-|                          |     |    |  |     |  +---Saitoella_complicata
-|                          |     |    |  |  +--|
-|                          |     |    |  |  |  |  +--Protomyces_inouyei
-|                          |     |    |  |  |  +--|
-|                          |     |    |  |  |     |  +**Taphrina_deformans
-|                          |     |    |  |  |     +--|
-|                          |     |    |  |  |        +**Taphrina_wiesneri
-|                          |     |    |  +--|
-|                          |     |    |     |  +------Pneumocystis_carinii
-|                          |     |    |     +--|
-|                          |     |    |        +------Schizosaccharomyces_japonicus
-|                          |     +----|
-|                          |          |             +---------------Cronartium_ribicola
-|                          |          |      +------|
-|                          |          |      |      +-------------Ustilago_maydis
-|                          |          +------|
-|                          |                 |   +------Taphrina_californica
-|                          |                 +---|
-|                          |                     +-----Xerocomus_chrysenteron
-|                       +--|
-|                       |  |              +--Amylocarpus_encephaloides
-|                       |  |           +--|
-|                       |  |           |  +-----Neobulgaria_premnophila
-|                       |  |        +--|
-|                       |  |        |  |  +--Blumeria_graminis
-|                       |  |        |  +--|
-|                       |  |        |     |  +--Erysiphe_orontii
-|                       |  |        |     +--|
-|                       |  |        |        +--Phyllactinia_guttata
-|                       |  |     +--|
-|                       |  |     |  |     +**Botrytis_cinerea
-|                       |  |     |  |  +--|
-|                       |  |     |  |  |  |  +--Monilinia_fructicola
-|                       |  |     |  |  |  +--|
-|                       |  |     |  |  |     +--Monilinia_laxa
-|                       |  |     |  +--|
-|                       |  |     |     +--Sclerotinia_sclerotiorum
-|                       |  |  +--|
-|                       |  |  |  |        +--Cudonia_confusa
-|                       |  |  |  |     +--|
-|                       |  |  |  |     |  +--Spathularia_flavida
-|                       |  |  |  |  +--|
-|                       |  |  |  |  |  +--Rhytisma_salicinum
-|                       |  |  |  +--|
-|                       |  |  |     +--Cyttaria_darwinii
-|                       |  +--|
-|                       |     |     +--Ascozonus_woolhopensis
-|                       |     |  +--|
-|                       |     |  |  +--Thelebolus_stercoreus
-|                       |     +--|
-|                       |        |  +--Leotia_lubrica
-|                       |        +--|
-|                       |           +--Microglossum_viride
-|                    +--|
-|                    |  |     +----Aliquandostipite_khaoyaiensis
-|                    |  |  +--|
-|                    |  |  |  |     +--Diploschistes_ocellatus
-|                    |  |  |  |  +--|
-|                    |  |  |  |  |  +----------Graphis_scripta
-|                    |  |  |  +--|
-|                    |  |  |     +----Siphula_ceratites
-|                    |  +--|
-|                    |     |                                                     +**Alternaria_alternata
-|                    |     |                                                  +--|
-|                    |     |                                                  |  +**Clathrospora_diplospora
-|                    |     |                                               +--|
-|                    |     |                                               |  +--Alternaria_brassicae
-|                    |     |                                            +--|
-|                    |     |                                            |  +**Alternaria_raphani
-|                    |     |                                         +--|
-|                    |     |                                         |  +**Alternaria_brassicicola
-|                    |     |                                      +--|
-|                    |     |                                      |  +**Pleospora_herbarum
-|                    |     |                                   +--|
-|                    |     |                                   |  |  +--Cochliobolus_sativus
-|                    |     |                                   |  +--|
-|                    |     |                                   |     |  +--Pyrenophora_trichostoma
-|                    |     |                                   |     +--|
-|                    |     |                                   |        +**Pyrenophora_tritici-repentis
-|                    |     |                                +--|
-|                    |     |                                |  +--Setosphaeria_rostrata
-|                    |     |                             +--|
-|                    |     |                             |  +--Pleospora_betae
-|                    |     |                          +--|
-|                    |     |                          |  +--Leptosphaeria_maculans
-|                    |     |                       +--|
-|                    |     |                       |  |  +--Cucurbitaria_berberidis
-|                    |     |                       |  +--|
-|                    |     |                       |     |        +--Cucurbitaria_elongata
-|                    |     |                       |     |     +--|
-|                    |     |                       |     |     |  |  +**Ophiobolus_herpotrichus
-|                    |     |                       |     |     |  +**|
-|                    |     |                       |     |     |     +**Phaeosphaeria_microscopica
-|                    |     |                       |     |  +--|
-|                    |     |                       |     |  |  +--Leptosphaeria_doliolum
-|                    |     |                       |     +--|
-|                    |     |                       |        +--Phaeosphaeria_nodorum
-|                    |     |                    +--|
-|                    |     |                    |  +--Pleospora_rudis
-|                    |     |                 +--|
-|                    |     |                 |  |  +--Cucurbidothis_pithyophila
-|                    |     |                 |  +--|
-|                    |     |                 |     |     +--Helminthosporium_solani
-|                    |     |                 |     |  +--|
-|                    |     |                 |     |  |  +--Helminthosporium_velutinum
-|                    |     |                 |     +--|
-|                    |     |                 |        +--Leptosphaeria_bicolor
-|                    |     |              +--|
-|                    |     |              |  |     +--Herpotrichia_juniperi
-|                    |     |              |  |  +--|
-|                    |     |              |  |  |  +--Herpotrichia_nigra
-|                    |     |              |  +--|
-|                    |     |              |     +**Mycosphaerella_mycopappi
-|                    |     |           +--|
-|                    |     |           |  +--Lophiostoma_crenatum
-|                    |     |        +--|
-|                    |     |        |  +--Kirschsteiniothelia_maritima
-|                    |     |     +--|
-|                    |     |     |  |     +--Monodictys_castaneae
-|                    |     |     |  |  +--|
-|                    |     |     |  |  |  +--Sporormia_lignicola
-|                    |     |     |  +--|
-|                    |     |     |     +--Westerdykella_dispersa
-|                    |     |  +--|
-|                    |     |  |  |     +---Dendrographa_leucophaea_f._mino
-|                    |     |  |  |  +--|
-|                    |     |  |  |  |  +--Diplodia_tumefaciens
-|                    |     |  |  +--|
-|                    |     |  |     +--Rhytidhysteron_rufulum
-|                    |     +--|
-|                    |        |              +**Aureobasidium_pullulans
-|                    |        |           +--|
-|                    |        |           |  +**Unidentified
-|                    |        |        +--|
-|                    |        |        |  |  +**Dothidea_hippophaeos
-|                    |        |        |  +--|
-|                    |        |        |     +**Dothidea_insculpta
-|                    |        |     +--|
-|                    |        |     |  |  +--Capnodium_dematum
-|                    |        |     |  +--|
-|                    |        |     |     +--Meliolina_sydowiana
-|                    |        |  +--|
-|                    |        |  |  |  +--Botryosphaeria_rhodina
-|                    |        |  |  +--|
-|                    |        |  |     +--Botryosphaeria_ribis
-|                    |        +--|
-|                    |           +--Phaeosclera_dematioides
-|                 +--|
-|                 |  |  +--Sarcinomyces_crustaceus
-|                 |  +--|
-|                 |     +--symbiont_of_Lasioderma_serricor
-|              +--|
-|              |  |                 +--Bunodophoron_scrobiculatum
-|              |  |              +--|
-|              |  |              |  +--Leifidium_tenerum
-|              |  |           +--|
-|              |  |           |  +--Sphaerophorus_globosus
-|              |  |        +--|
-|              |  |        |  |           +--Cladia_aggregata
-|              |  |        |  |        +--|
-|              |  |        |  |        |  +--Pilophorus_acicularis
-|              |  |        |  |     +--|
-|              |  |        |  |     |  +--Cladonia_bellidiflora
-|              |  |        |  |  +--|
-|              |  |        |  |  |  +--Stereocaulon_ramulosum
-|              |  |        |  +--|
-|              |  |        |     +---Lecanora_dispersa
-|              |  |     +--|
-|              |  |     |  |  +--Calicium_adspersum
-|              |  |     |  +--|
-|              |  |     |     |  +--Cyphelium_inquinans
-|              |  |     |     +--|
-|              |  |     |        |  +--Texosporium_sancti-jacobi
-|              |  |     |        +--|
-|              |  |     |           +--Thelomma_mammosum
-|              |  |  +--|
-|              |  |  |  +--Porpidia_crustulata
-|              |  +--|
-|              |     |  +--Nephroma_arcticum
-|              |     +--|
-|              |        |    +--Peltigera_neopolydactyla
-|              |        +----|
-|              |             +--Solorina_crocea
-|           +--|
-|           |  |        +--Chaenothecopsis_savonica
-|           |  |     +--|
-|           |  |     |  +--Stenocybe_pullatula
-|           |  |  +--|
-|           |  |  |  +--Mycocalicium_albonigrum
-|           |  +--|
-|           |     +--Sphinctrina_turbinata
+|                                                                     +--Aleuria_aurantia
+|                                                                  +--|
+|                                                                  |  +--Byssonectria_terrestris
+|                                                               +--|
+|                                                               |  |  +--Pyronema_domesticum
+|                                                               |  +--|
+|                                                               |     +--Scutellinia_scutellata
+|                                                            +--|
+|                                                            |  |  +--Terichophaea_hybrida
+|                                                            |  +--|
+|                                                            |     +--Wilcoxina_mikolae
+|                                                         +--|
+|                                                         |  +--Otidea_leporina
+|                                                      +--|
+|                                                      |  |  +---Glaziella_aurantiaca
+|                                                      |  +--|
+|                                                      |     +---Pulvinula_archeri
+|                                                   +--|
+|                                                   |  |     +---Geopyxis_carbonaria
+|                                                   |  |  +--|
+|                                                   |  |  |  +--Paurocotylis_pila
+|                                                   |  +--|
+|                                                   |     +---Tarzetta_catinus
+|                                                +--|
+|                                                |  +--Ascodesmis_sphaerospora
+|                                             +--|
+|                                             |  |        +--Cookeina_sulcipes
+|                                             |  |     +--|
+|                                             |  |     |  +--Sarcoscypha_austriaca
+|                                             |  |  +--|
+|                                             |  |  |  +--Microstoma_protracta
+|                                             |  +--|
+|                                             |     +--Desmazierella_acicola
+|                                          +--|
+|                                          |  |  +--Sarcosoma_globosum
+|                                          |  +--|
+|                                          |     +--Urnula_hiemalis
+|                                       +--|
+|                                       |  |                              +--Arthrobotrys_conoides
+|                                       |  |                           +--|
+|                                       |  |                           |  +--Duddingtonia_flagrans
+|                                       |  |                        +--|
+|                                       |  |                        |  +--Monacrosporium_gephyropaga
+|                                       |  |                     +--|
+|                                       |  |                     |  |  +--Arthrobotrys_robusta
+|                                       |  |                     |  +--|
+|                                       |  |                     |     +--Monacrosporium_ellipsospora
+|                                       |  |                  +--|
+|                                       |  |                  |  +--Monacrosporium_haptotylum
+|                                       |  |               +--|
+|                                       |  |               |  +--Arthrobotrys_dactyloides
+|                                       |  |            +--|
+|                                       |  |            |  +--Dactylella_rhopalota
+|                                       |  |         +--|
+|                                       |  |         |  +--Dactylella_oxyspora
+|                                       |  |     +---|
+|                                       |  |     |   +--Orbilia_delicatula
+|                                       |  |  +--|
+|                                       |  |  |  |                          +--Balsamia_magnata
+|                                       |  |  |  |                       +--|
+|                                       |  |  |  |                       |  |  +--Balsamia_vulgaris
+|                                       |  |  |  |                       |  +--|
+|                                       |  |  |  |                       |     +--Barssia_oregonensis
+|                                       |  |  |  |                 +-----|
+|                                       |  |  |  |                 |     |  +--Helvella_lacunosa
+|                                       |  |  |  |                 |     +--|
+|                                       |  |  |  |                 |        +---Wynnella_silvicolor
+|                                       |  |  |  |              +--|
+|                                       |  |  |  |              |  +--Underwoodia_columnaris
+|                                       |  |  |  |           +--|
+|                                       |  |  |  |           |  |  +--Tuber_excavatum
+|                                       |  |  |  |           |  +--|
+|                                       |  |  |  |           |     |  +--Tuber_magnatum
+|                                       |  |  |  |           |     +--|
+|                                       |  |  |  |           |        +--Tuber_panniferum
+|                                       |  |  |  |        +--|
+|                                       |  |  |  |        |  |     +--Choiromyces_meandriformis
+|                                       |  |  |  |        |  |  +--|
+|                                       |  |  |  |        |  |  |  +--Choiromyces_venosus
+|                                       |  |  |  |        |  +--|
+|                                       |  |  |  |        |     |     +--Tuber_borchii
+|                                       |  |  |  |        |     |  +--|
+|                                       |  |  |  |        |     |  |  +--Tuber_rapaeodorum
+|                                       |  |  |  |        |     +--|
+|                                       |  |  |  |        |        +--Tuber_gibbosum
+|                                       |  |  |  |     +--|
+|                                       |  |  |  |     |  |     +--Dingleya_verrucosa
+|                                       |  |  |  |     |  |  +--|
+|                                       |  |  |  |     |  |  |  +--Reddellomyces_donkii
+|                                       |  |  |  |     |  +--|
+|                                       |  |  |  |     |     +--Labyrinthomyces_varius
+|                                       |  |  |  |  +--|
+|                                       |  |  |  |  |  +--Caloscypha_fulgens
+|                                       |  |  |  +--|
+|                                       |  |  |     |           +--Discina_macrospora
+|                                       |  |  |     |        +--|
+|                                       |  |  |     |        |  +--Gyromitra_montana
+|                                       |  |  |     |     +--|
+|                                       |  |  |     |     |  |        +--Gyromitra_esculenta1
+|                                       |  |  |     |     |  |     +--|
+|                                       |  |  |     |     |  |     |  +--Gyromitra_esculenta2
+|                                       |  |  |     |     |  |  +--|
+|                                       |  |  |     |     |  |  |  +--Pseudorhizina_californica
+|                                       |  |  |     |     |  +**|
+|                                       |  |  |     |     |     +--Gyromitra_melaleucoides
+|                                       |  |  |     |  +--|
+|                                       |  |  |     |  |  |  +--Hydnotrya_cerebriformis
+|                                       |  |  |     |  |  +--|
+|                                       |  |  |     |  |     +--Hydnotrya_tulasnei
+|                                       |  |  |     +--|
+|                                       |  |  |        |  +--Disciotis_venosa
+|                                       |  |  |        +--|
+|                                       |  |  |           |        +--Fischerula_subcaulis
+|                                       |  |  |           |     +--|
+|                                       |  |  |           |     |  +--Leucangium_carthusianum
+|                                       |  |  |           |  +--|
+|                                       |  |  |           |  |  |  +--Verpa_bohemica
+|                                       |  |  |           |  |  +--|
+|                                       |  |  |           |  |     +--Verpa_conica
+|                                       |  |  |           +**|
+|                                       |  |  |              |  +--Morchella_elata
+|                                       |  |  |              +--|
+|                                       |  |  |                 +--Morchella_esculenta
+|                                       |  +--|
+|                                       |     +--Rhizina_undulata
+|                                    +--|
+|                                    |  |         +-------Ascobolus_lineolatus
+|                                    |  |     +---|
+|                                    |  |     |   +---Thecotheus_holmskjoldii
+|                                    |  |  +--|
+|                                    |  |  |  |                  +--Candida_albicans
+|                                    |  |  |  |               +--|
+|                                    |  |  |  |               |  +------------Pichia_membranaefaciens
+|                                    |  |  |  |          +----|
+|                                    |  |  |  |          |    |  +-------Endomyces_sp.
+|                                    |  |  |  |          |    +--|
+|                                    |  |  |  |          |       |      +--Eremothecium_gossypii
+|                                    |  |  |  |          |       |   +--|
+|                                    |  |  |  |          |       |   |  +--Holleya_sinecauda
+|                                    |  |  |  |          |       +---|
+|                                    |  |  |  |          |           +--Saccharomyces_barnettii
+|                                    |  |  |  |      +---|
+|                                    |  |  |  |      |   +----Dipodascopsis_uninucleata
+|                                    |  |  |  |   +--|
+|                                    |  |  |  |   |  |      +--Neolecta_irregularis
+|                                    |  |  |  |   |  |  +---|
+|                                    |  |  |  |   |  |  |   +--Neolecta_vitellina
+|                                    |  |  |  |   |  +--|
+|                                    |  |  |  |   |     |     +--------Pneumocystis_carinii
+|                                    |  |  |  |   |     |  +--|
+|                                    |  |  |  |   |     |  |  +-------Schizosaccharomyces_japonicus
+|                                    |  |  |  |   |     +--|
+|                                    |  |  |  |   |        |      +--Protomyces_inouyei
+|                                    |  |  |  |   |        |  +---|
+|                                    |  |  |  |   |        |  |   |  +**Taphrina_deformans
+|                                    |  |  |  |   |        |  |   +--|
+|                                    |  |  |  |   |        |  |      +--Taphrina_wiesneri
+|                                    |  |  |  |   |        +--|
+|                                    |  |  |  |   |           +----Saitoella_complicata
+|                                    |  |  |  +---|
+|                                    |  |  |      |             +-----------------Cronartium_ribicola
+|                                    |  |  |      |       +-----|
+|                                    |  |  |      |       |     +---------------Ustilago_maydis
+|                                    |  |  |      +-------|
+|                                    |  |  |              |  +-------Taphrina_californica
+|                                    |  |  |              +--|
+|                                    |  |  |                 +------Xerocomus_chrysenteron
+|                                    |  +--|
+|                                    |     |            +----Boudiera_acanthospora
+|                                    |     |         +--|
+|                                    |     |         |  +-----Peziza_quelepidotia
+|                                    |     |      +--|
+|                                    |     |      |  +--Terfezia_terfezioides
+|                                    |     |   +--|
+|                                    |     |   |  |        +--Cazia_flexiascus
+|                                    |     |   |  |     +--|
+|                                    |     |   |  |     |  +--Terfezia_arenaria
+|                                    |     |   |  |  +--|
+|                                    |     |   |  |  |  +--Peziza_succosa
+|                                    |     |   |  +--|
+|                                    |     |   |     +-----Pachyphloeus_melanoxanthus
+|                                    |     +---|
+|                                    |         +--Peziza_badia
+|                                 +--|
+|                                 |  |           +--Ascozonus_woolhopensis
+|                                 |  |        +--|
+|                                 |  |        |  +--Thelebolus_stercoreus
+|                                 |  |     +--|
+|                                 |  |     |  |     +--Cudonia_confusa
+|                                 |  |     |  |  +--|
+|                                 |  |     |  |  |  +--Spathularia_flavida
+|                                 |  |     |  +--|
+|                                 |  |     |     +--Rhytisma_salicinum
+|                                 |  |  +--|
+|                                 |  |  |  +--Botrytis_cinerea
+|                                 |  +--|
+|                                 |     |  +--Leotia_lubrica
+|                                 |     +--|
+|                                 |        +--Microglossum_viride
+|                              +--|
+|                              |  |           +--Amylocarpus_encephaloides
+|                              |  |        +--|
+|                              |  |        |  +-------Neobulgaria_premnophila
+|                              |  |     +--|
+|                              |  |     |  |  +--Blumeria_graminis
+|                              |  |     |  +--|
+|                              |  |     |     |  +--Erysiphe_orontii
+|                              |  |     |     +--|
+|                              |  |     |        +--Phyllactinia_guttata
+|                              |  |  +--|
+|                              |  |  |  |     +--Monilinia_fructicola
+|                              |  |  |  |  +--|
+|                              |  |  |  |  |  +--Monilinia_laxa
+|                              |  |  |  +--|
+|                              |  |  |     +--Sclerotinia_sclerotiorum
+|                              |  +--|
+|                              |     +--Cyttaria_darwinii
+|                           +--|
+|                           |  |     +-----Aliquandostipite_khaoyaiensis
+|                           |  |  +--|
+|                           |  |  |  |     +---Diploschistes_ocellatus
+|                           |  |  |  |  +--|
+|                           |  |  |  |  |  +--------------Graphis_scripta
+|                           |  |  |  +--|
+|                           |  |  |     +-----Siphula_ceratites
+|                           |  +--|
+|                           |     |                                             +--Alternaria_alternata
+|                           |     |                                          +--|
+|                           |     |                                          |  +--Clathrospora_diplospora
+|                           |     |                                       +--|
+|                           |     |                                       |  +--Alternaria_brassicae
+|                           |     |                                    +**|
+|                           |     |                                    |  +**Alternaria_brassicicola
+|                           |     |                                 +--|
+|                           |     |                                 |  +**Alternaria_raphani
+|                           |     |                              +--|
+|                           |     |                              |  +**Pleospora_herbarum
+|                           |     |                           +--|
+|                           |     |                           |  +**Cochliobolus_sativus
+|                           |     |                        +--|
+|                           |     |                        |  |  +--Pyrenophora_trichostoma
+|                           |     |                        |  +--|
+|                           |     |                        |     +**Pyrenophora_tritici-repentis
+|                           |     |                    +---|
+|                           |     |                    |   +--Setosphaeria_rostrata
+|                           |     |                 +--|
+|                           |     |                 |  +--Pleospora_betae
+|                           |     |              +--|
+|                           |     |              |  |  +--Cucurbitaria_berberidis
+|                           |     |              |  +**|
+|                           |     |              |     |        +--Cucurbitaria_elongata
+|                           |     |              |     |     +**|
+|                           |     |              |     |     |  |  +--Ophiobolus_herpotrichus
+|                           |     |              |     |     |  +--|
+|                           |     |              |     |     |     +**Phaeosphaeria_microscopica
+|                           |     |              |     |  +--|
+|                           |     |              |     |  |  +--Leptosphaeria_maculans
+|                           |     |              |     +--|
+|                           |     |              |        |  +--Leptosphaeria_doliolum
+|                           |     |              |        +--|
+|                           |     |              |           +--Phaeosphaeria_nodorum
+|                           |     |           +--|
+|                           |     |           |  +--Pleospora_rudis
+|                           |     |        +--|
+|                           |     |        |  |  +--Cucurbidothis_pithyophila
+|                           |     |        |  +--|
+|                           |     |        |     |     +--Helminthosporium_solani
+|                           |     |        |     |  +--|
+|                           |     |        |     |  |  +--Helminthosporium_velutinum
+|                           |     |        |     +--|
+|                           |     |        |        +--Leptosphaeria_bicolor
+|                           |     |     +--|
+|                           |     |     |  |        +--Herpotrichia_juniperi
+|                           |     |     |  |     +--|
+|                           |     |     |  |     |  +--Mycosphaerella_mycopappi
+|                           |     |     |  |  +--|
+|                           |     |     |  |  |  +--Herpotrichia_nigra
+|                           |     |     |  +--|
+|                           |     |     |     |     +--Kirschsteiniothelia_maritima
+|                           |     |     |     |  +--|
+|                           |     |     |     |  |  |  +--Monodictys_castaneae
+|                           |     |     |     |  |  +--|
+|                           |     |     |     |  |     |  +--Sporormia_lignicola
+|                           |     |     |     |  |     +--|
+|                           |     |     |     |  |        +--Westerdykella_dispersa
+|                           |     |     |     +--|
+|                           |     |     |        +--Lophiostoma_crenatum
+|                           |     |  +--|
+|                           |     |  |  |      +--Dendrographa_leucophaea_f._mino
+|                           |     |  |  |  +---|
+|                           |     |  |  |  |   +--Diplodia_tumefaciens
+|                           |     |  |  +--|
+|                           |     |  |     +--Rhytidhysteron_rufulum
+|                           |     +--|
+|                           |        |              +**Aureobasidium_pullulans
+|                           |        |           +--|
+|                           |        |           |  +**Unidentified
+|                           |        |        +--|
+|                           |        |        |  |  +**Dothidea_hippophaeos
+|                           |        |        |  +--|
+|                           |        |        |     +**Dothidea_insculpta
+|                           |        |     +--|
+|                           |        |     |  |  +---Capnodium_dematum
+|                           |        |     |  +--|
+|                           |        |     |     +--Meliolina_sydowiana
+|                           |        |  +--|
+|                           |        |  |  |  +--Botryosphaeria_rhodina
+|                           |        |  |  +--|
+|                           |        |  |     +--Botryosphaeria_ribis
+|                           |        +--|
+|                           |           +--Phaeosclera_dematioides
+|                        +--|
+|                        |  +--Sarcinomyces_crustaceus
+|                     +--|
+|                     |  |                      +-----Ascovaginospora_stellipala
+|                     |  |                   +--|
+|                     |  |                   |  +--Camarops_microspora
+|                     |  |                +--|
+|                     |  |                |  |     +--Chaetomium_elatum
+|                     |  |                |  |  +--|
+|                     |  |                |  |  |  |  +--Neurospora_crassa
+|                     |  |                |  |  |  +--|
+|                     |  |                |  |  |     +--Sordaria_fimicola
+|                     |  |                |  +--|
+|                     |  |                |     +--Podospora_anserina
+|                     |  |             +--|
+|                     |  |             |  |  +-----Kionochaeta_spissa
+|                     |  |             |  +--|
+|                     |  |             |     |         +------Meliola_juddiana
+|                     |  |             |     +---------|
+|                     |  |             |               +--Meliola_niessliana
+|                     |  |          +--|
+|                     |  |          |  |                 +--Balansieae_sp.
+|                     |  |          |  |              +--|
+|                     |  |          |  |              |  +--Metarhizium_anisopliae
+|                     |  |          |  |           +--|
+|                     |  |          |  |           |  |     +--Claviceps_purpurea
+|                     |  |          |  |           |  |  +--|
+|                     |  |          |  |           |  |  |  |  +--Epichloe_baconii
+|                     |  |          |  |           |  |  |  +--|
+|                     |  |          |  |           |  |  |     +---Symbion_of_Hamiltonaphis_styrac
+|                     |  |          |  |           |  +--|
+|                     |  |          |  |           |     |  +--Cordyceps_capitata
+|                     |  |          |  |           |     +**|
+|                     |  |          |  |           |        +--Tolypocladium_cylindrosporum
+|                     |  |          |  |        +--|
+|                     |  |          |  |        |  |  +--Paecilomyces_tenuipes_2
+|                     |  |          |  |        |  +--|
+|                     |  |          |  |        |     |  +--Verticillium_lecanii
+|                     |  |          |  |        |     +--|
+|                     |  |          |  |        |        +--Verticillium_psalliotae
+|                     |  |          |  |     +--|
+|                     |  |          |  |     |  |     +--Chaetopsina_fulva
+|                     |  |          |  |     |  |  +--|
+|                     |  |          |  |     |  |  |  |  +--Hypocrea_lutea
+|                     |  |          |  |     |  |  |  +--|
+|                     |  |          |  |     |  |  |     |  +--Hypomyces_chrysospermus
+|                     |  |          |  |     |  |  |     +--|
+|                     |  |          |  |     |  |  |        +--Hypomyces_polyporinus
+|                     |  |          |  |     |  +--|
+|                     |  |          |  |     |     |                    +--Fusarium_cerealis
+|                     |  |          |  |     |     |                 +--|
+|                     |  |          |  |     |     |                 |  +--Gibberella_pulicaris
+|                     |  |          |  |     |     |              +--|
+|                     |  |          |  |     |     |              |  +--Fusarium_equiseti
+|                     |  |          |  |     |     |           +**|
+|                     |  |          |  |     |     |           |  +**Fusarium_oxysporum
+|                     |  |          |  |     |     |        +**|
+|                     |  |          |  |     |     |        |  +--Nectria_haematococca
+|                     |  |          |  |     |     |     +--|
+|                     |  |          |  |     |     |     |  +**Fusarium_culmorum
+|                     |  |          |  |     |     |  +--|
+|                     |  |          |  |     |     |  |  +--Fusarium_merismoides
+|                     |  |          |  |     |     +--|
+|                     |  |          |  |     |        +--Nectria_cinnabarina
+|                     |  |          |  |  +--|
+|                     |  |          |  |  |  |     +--Geosmithia_lavendula
+|                     |  |          |  |  |  |  +--|
+|                     |  |          |  |  |  |  |  +--Geosmithia_putterillii
+|                     |  |          |  |  |  +--|
+|                     |  |          |  |  |     |  +--Spicellum_roseum
+|                     |  |          |  |  |     +--|
+|                     |  |          |  |  |        +--Trichothecium_roseum
+|                     |  |          |  +--|
+|                     |  |          |     |     +---Ceratocystis_fimbriata
+|                     |  |          |     |  +--|
+|                     |  |          |     |  |  |        +--Graphium_tectonae
+|                     |  |          |     |  |  |     +--|
+|                     |  |          |     |  |  |     |  |  +**Lomentospora_prolificans
+|                     |  |          |     |  |  |     |  +--|
+|                     |  |          |     |  |  |     |     +--Petriella_setifera
+|                     |  |          |     |  |  |  +--|
+|                     |  |          |     |  |  |  |  |  +**Pseudallescheria_boydii
+|                     |  |          |     |  |  |  |  +--|
+|                     |  |          |     |  |  |  |     +**Pseudallescheria_ellipsoidea
+|                     |  |          |     |  |  +--|
+|                     |  |          |     |  |     +--Microascus_cirrosus
+|                     |  |          |     +--|
+|                     |  |          |        |     +--Glomerella_cingulata
+|                     |  |          |        |  +--|
+|                     |  |          |        |  |  +--Glomerella_glycines
+|                     |  |          |        +--|
+|                     |  |          |           |       +**Verticillium_dahliae1
+|                     |  |          |           +-------|
+|                     |  |          |                   +--Verticillium_dahliae2
+|                     |  |       +--|
+|                     |  |       |  |               +**Cryphonectria_cubensis
+|                     |  |       |  |            +--|
+|                     |  |       |  |            |  +--Cryphonectria_havanensis
+|                     |  |       |  |         +--|
+|                     |  |       |  |         |  +--Endothia_gyrosa
+|                     |  |       |  |      +--|
+|                     |  |       |  |      |  +**Cryphonectria_parasitica
+|                     |  |       |  |  +---|
+|                     |  |       |  |  |   +--Valsa_leucostoma
+|                     |  |       |  +--|
+|                     |  |       |     |     +--Gaeumannomyces_graminis_var._gr
+|                     |  |       |     |  +--|
+|                     |  |       |     |  |  +--Magnaporthe_grisea
+|                     |  |       |     +--|
+|                     |  |       |        |     +--Ophiostoma_stenoceras
+|                     |  |       |        |  +--|
+|                     |  |       |        |  |  +**Sporothrix_schenckii
+|                     |  |       |        +--|
+|                     |  |       |           +--Ophiostoma_ulmi
+|                     |  |  +----|
+|                     |  |  |    |  +--Diatrype_disciformis
+|                     |  |  |    +--|
+|                     |  |  |       |     +--Hypoxylon_nummularium
+|                     |  |  |       |  +--|
+|                     |  |  |       |  |  +--Obolarina_dryophila
+|                     |  |  |       +--|
+|                     |  |  |          +--Xylaria_carpophila
+|                     |  +--|
+|                     |     +--symbiont_of_Lasioderma_serricor
+|                  +--|
+|                  |  |                 +--Bunodophoron_scrobiculatum
+|                  |  |              +--|
+|                  |  |              |  +--Leifidium_tenerum
+|                  |  |           +--|
+|                  |  |           |  +--Sphaerophorus_globosus
+|                  |  |        +--|
+|                  |  |        |  |        +--Cladia_aggregata
+|                  |  |        |  |     +--|
+|                  |  |        |  |     |  +--Pilophorus_acicularis
+|                  |  |        |  |  +--|
+|                  |  |        |  |  |  +--Cladonia_bellidiflora
+|                  |  |        |  +--|
+|                  |  |        |     +--Stereocaulon_ramulosum
+|                  |  |     +--|
+|                  |  |     |  |     +--Calicium_adspersum
+|                  |  |     |  |  +--|
+|                  |  |     |  |  |  |  +--Cyphelium_inquinans
+|                  |  |     |  |  |  +--|
+|                  |  |     |  |  |     |  +--Texosporium_sancti-jacobi
+|                  |  |     |  |  |     +--|
+|                  |  |     |  |  |        +--Thelomma_mammosum
+|                  |  |     |  +--|
+|                  |  |     |     +----Lecanora_dispersa
+|                  |  |  +--|
+|                  |  |  |  +--Porpidia_crustulata
+|                  |  +--|
+|                  |     |  +--Nephroma_arcticum
+|                  |     +--|
+|                  |        |   +--Peltigera_neopolydactyla
+|                  |        +---|
+|                  |            +--Solorina_crocea
+|               +--|
+|               |  |        +--Chaenothecopsis_savonica
+|               |  |     +--|
+|               |  |     |  +--Stenocybe_pullatula
+|               |  |  +--|
+|               |  |  |  +--Mycocalicium_albonigrum
+|               |  +--|
+|               |     +--Sphinctrina_turbinata
+|           +---|
+|           |   |                   +--Capronia_mansonii
+|           |   |                +**|
+|           |   |                |  +--Sarcinomyces_phaeomuriformis
+|           |   |             +--|
+|           |   |             |  +--Exophiala_dermatitidis
+|           |   |          +--|
+|           |   |          |  +---Capronia_pilosella
+|           |   |       +--|
+|           |   |       |  |     +--Exophiala_jeanselmei
+|           |   |       |  |  +--|
+|           |   |       |  |  |  +--Phaeococcomyces_exophialae
+|           |   |       |  +--|
+|           |   |       |     |  +--Nadsoniella_nigra
+|           |   |       |     +--|
+|           |   |       |        +--Phaeoannellomyces_elegans
+|           |   |    +--|
+|           |   |    |  +--Exophiala_mansonii
+|           |   +----|
+|           |        |  +--Coniosporium_apollinis
+|           |        +--|
+|           |           +--Coniosporium_perforans
 |        +--|
-|        |  |              +--Capronia_mansonii
+|        |  |                                         +--Aspergillus_avenaceus
+|        |  |                                      +--|
+|        |  |                                      |  +--Aspergillus_flavus
+|        |  |                                   +--|
+|        |  |                                   |  |  +--Aspergillus_fumigatus
+|        |  |                                   |  +--|
+|        |  |                                   |     +**Neosartorya_fischeri
+|        |  |                                +--|
+|        |  |                                |  |  +**Eurotium_herbariorum
+|        |  |                                |  +--|
+|        |  |                                |     +**Eurotium_rubrum
+|        |  |                             +**|
+|        |  |                             |  +--Chaetosartorya_cremea
+|        |  |                          +--|
+|        |  |                          |  |  +--Aspergillus_terreus
+|        |  |                          |  +--|
+|        |  |                          |     |  +--Emericella_nidulans
+|        |  |                          |     +--|
+|        |  |                          |        +--Fennellia_flavipes
+|        |  |                       +--|
+|        |  |                       |  |  +--Chromocleista_malachitea
+|        |  |                       |  +--|
+|        |  |                       |     |        +--Eupenicillium_crustaceum
+|        |  |                       |     |     +--|
+|        |  |                       |     |     |  +**Penicillium_chrysogenum
+|        |  |                       |     |  +--|
+|        |  |                       |     |  |  +--Geosmithia_namyslowskii
+|        |  |                       |     +**|
+|        |  |                       |        +**Eupenicillium_javanicum
+|        |  |                    +--|
+|        |  |                    |  |     +--Hamigera_avellanea
+|        |  |                    |  |  +--|
+|        |  |                    |  |  |  +**Merimbla_ingelheimense
+|        |  |                    |  +--|
+|        |  |                    |     +--Hemicarpenteles_ornatus
+|        |  |                 +--|
+|        |  |                 |  +--Monascus_purpureus
+|        |  |              +--|
+|        |  |              |  |  +--Talaromyces_bacillisporus
+|        |  |              |  +--|
+|        |  |              |     +--Talaromyces_flavus
 |        |  |           +--|
-|        |  |           |  +--Exophiala_dermatitidis
+|        |  |           |  +**Talaromyces_emersonii
 |        |  |        +--|
-|        |  |        |  +--Sarcinomyces_phaeomuriformis
+|        |  |        |  |  +--Geosmithia_cylindrospora
+|        |  |        |  +--|
+|        |  |        |     +--Talaromyces_eburneus
 |        |  |     +--|
-|        |  |     |  |  +--Capronia_pilosella
+|        |  |     |  |     +--Aspergillus_zonatus
+|        |  |     |  |  +--|
+|        |  |     |  |  |  +**Paecilomyces_variotii
 |        |  |     |  +--|
-|        |  |     |     +--Exophiala_mansonii
+|        |  |     |     +--Byssochlamys_nivea
 |        |  |  +--|
-|        |  |  |  |     +--Exophiala_jeanselmei
-|        |  |  |  |  +--|
-|        |  |  |  |  |  +--Phaeococcomyces_exophialae
-|        |  |  |  +--|
-|        |  |  |     |  +--Nadsoniella_nigra
-|        |  |  |     +--|
-|        |  |  |        +--Phaeoannellomyces_elegans
+|        |  |  |  +--Thermoascus_crustaceus
 |        |  +--|
-|        |     |  +--Coniosporium_apollinis
+|        |     |  +--Elaphomyces_aculeatus
 |        |     +--|
-|        |        +**Coniosporium_perforans
+|        |        |  +--Elaphomyces_leveillei
+|        |        +--|
+|        |           +--Elaphomyces_maculatus
 |     +--|
-|     |  |                                            +--Aspergillus_avenaceus
-|     |  |                                         +--|
-|     |  |                                         |  +--Aspergillus_flavus
-|     |  |                                      +--|
-|     |  |                                      |  |  +**Eurotium_herbariorum
-|     |  |                                      |  +--|
-|     |  |                                      |     +**Eurotium_rubrum
-|     |  |                                   +--|
-|     |  |                                   |  |  +--Aspergillus_fumigatus
-|     |  |                                   |  +--|
-|     |  |                                   |     +**Neosartorya_fischeri
-|     |  |                                +--|
-|     |  |                                |  |  +--Aspergillus_terreus
-|     |  |                                |  +--|
-|     |  |                                |     |  +--Emericella_nidulans
-|     |  |                                |     +--|
-|     |  |                                |        +--Fennellia_flavipes
-|     |  |                             +--|
-|     |  |                             |  +--Chaetosartorya_cremea
-|     |  |                          +--|
-|     |  |                          |  |        +--Chromocleista_malachitea
-|     |  |                          |  |     +--|
-|     |  |                          |  |     |  |     +--Eupenicillium_crustaceum
-|     |  |                          |  |     |  |  +--|
-|     |  |                          |  |     |  |  |  +--Penicillium_chrysogenum
-|     |  |                          |  |     |  +--|
-|     |  |                          |  |     |     +--Geosmithia_namyslowskii
-|     |  |                          |  |  +--|
-|     |  |                          |  |  |  +**Eupenicillium_javanicum
-|     |  |                          |  +--|
-|     |  |                          |     +--Monascus_purpureus
-|     |  |                       +--|
-|     |  |                       |  +--Hemicarpenteles_ornatus
-|     |  |                    +--|
-|     |  |                    |  |  +--Hamigera_avellanea
-|     |  |                    |  +--|
-|     |  |                    |     +**Merimbla_ingelheimense
-|     |  |                 +--|
-|     |  |                 |  +--Aspergillus_zonatus
-|     |  |              +--|
-|     |  |              |  +--Byssochlamys_nivea
-|     |  |           +--|
-|     |  |           |  +**Paecilomyces_variotii
-|     |  |        +--|
-|     |  |        |  +--Thermoascus_crustaceus
-|     |  |     +--|
-|     |  |     |  |     +--Geosmithia_cylindrospora
-|     |  |     |  |  +--|
-|     |  |     |  |  |  +--Talaromyces_eburneus
-|     |  |     |  +--|
-|     |  |     |     +--Talaromyces_emersonii
-|     |  |  +--|
-|     |  |  |  |  +--Talaromyces_bacillisporus
-|     |  |  |  +--|
-|     |  |  |     +--Talaromyces_flavus
+|     |  |  +---Ascosphaera_apis
 |     |  +--|
-|     |     |     +--Elaphomyces_aculeatus
-|     |     |  +--|
-|     |     |  |  +--Elaphomyces_maculatus
-|     |     +--|
-|     |        +--Elaphomyces_leveillei
+|     |     +--Eremascus_albus
 |  +--|
-|  |  |     +--Ascosphaera_apis
+|  |  |           +--Auxarthron_zuffianum
+|  |  |        +--|
+|  |  |        |  +--Renispora_flavissima
+|  |  |     +--|
+|  |  |     |  |     +**Coccidioides_immitis
+|  |  |     |  |  +--|
+|  |  |     |  |  |  +--Uncinocarpus_reesii
+|  |  |     |  +--|
+|  |  |     |     +--Onygena_equina
 |  |  |  +--|
-|  |  |  |  +--Eremascus_albus
+|  |  |  |  |  +--Ctenomyces_serratus
+|  |  |  |  +--|
+|  |  |  |     |  +--Microsporum_audouinii
+|  |  |  |     +--|
+|  |  |  |        +--Trichophyton_rubrum
 |  |  +--|
-|  |     |           +--Auxarthron_zuffianum
-|  |     |        +--|
-|  |     |        |  +--Renispora_flavissima
-|  |     |     +--|
-|  |     |     |  |     +**Coccidioides_immitis
-|  |     |     |  |  +--|
-|  |     |     |  |  |  +--Uncinocarpus_reesii
-|  |     |     |  +--|
-|  |     |     |     +--Onygena_equina
-|  |     |  +--|
-|  |     |  |  |  +--Ctenomyces_serratus
-|  |     |  |  +--|
-|  |     |  |     |  +**Microsporum_audouinii
-|  |     |  |     +--|
-|  |     |  |        +--Trichophyton_rubrum
-|  |     +--|
-|  |        +--Gymnoascoideus_petalosporus
+|  |     +--Gymnoascoideus_petalosporus
 +--|
    |  +--Blastomyces_dermatitidis
    +--|
@@ -658,12 +658,12 @@ Parsimony score of the tree: 6662NOTE: Tree is UNROOTED although outgroup taxon 
 
 Tree in newick format:
 
-(Ajellomyces_capsulatum:0.0005446623,Ajellomyces_capsulatus:0.0021786492,((((((((((((((((((((((((Aleuria_aurantia:0.0005446623,Byssonectria_terrestris:0.0081699346):0.0016339869,(Terichophaea_hybrida:0.0010893246,Wilcoxina_mikolae:0.0043572985):0.0032679739):0.0021786492,Scutellinia_scutellata:0.0070806100):0.0027233115,Pyronema_domesticum:0.0092592593):0.0065359477,Otidea_leporina:0.0157952070):0.0076252723,((Cookeina_sulcipes:0.0125272331,Sarcoscypha_austriaca:0.0114379085):0.0054466231,Microstoma_protracta:0.0114379085):0.0125272331):0.0049019608,((Ascodesmis_sphaerospora:0.0092592593,Pulvinula_archeri:0.0179738562):0.0016339869,Glaziella_aurantiaca:0.0201525054):0.0049019608):0.0059912854,((Geopyxis_carbonaria:0.0185185185,Paurocotylis_pila:0.0054466231):0.0054466231,Tarzetta_catinus:0.0196078431):0.0076252723):0.0043572985,Desmazierella_acicola:0.0076252723):0.0043572985,(Sarcosoma_globosum:0.0010893246,Urnula_hiemalis:0.0016339869):0.0049019608):0.0098039216,Rhizina_undulata:0.0054466231):0.0038126362,(((((Balsamia_magnata:0.0049019608,(Balsamia_vulgaris:0.0043572985,Barssia_oregonensis:0.0049019608):0.0021786492):0.0136165577,(Helvella_lacunosa:0.0152505447,Wynnella_silvicolor:0.0190631808):0.0141612200):0.0283224401,(((((Choiromyces_meandriformis:0.0021786492,Choiromyces_venosus:0.0027233115):0.0043572985,(Tuber_excavatum:0.0092592593,Tuber_panniferum:0.0114379085):0.0043572985):0.0043572985,(((Tuber_borchii:0.0054466231,Tuber_rapaeodorum:0.0010893246):0.0010893246,Tuber_gibbosum:0.0032679739):0.0038126362,Tuber_magnatum:0.0070806100):0.0000010000):0.0059912854,(Dingleya_verrucosa:0.0032679739,(Labyrinthomyces_varius:0.0027233115,Reddellomyces_donkii:0.0021786492):0.0005446623):0.0070806100):0.0054466231,Underwoodia_columnaris:0.0141612200):0.0065359477):0.0081699346,Caloscypha_fulgens:0.0174291939):0.0098039216,(((Discina_macrospora:0.0032679739,Gyromitra_montana:0.0027233115):0.0021786492,(((((Disciotis_venosa:0.0010893246,(Morchella_elata:0.0027233115,Morchella_esculenta:0.0081699346):0.0038126362):0.0005446623,((Fischerula_subcaulis:0.0098039216,Leucangium_carthusianum:0.0125272331):0.0038126362,(Verpa_bohemica:0.0010893246,Verpa_conica:0.0032679739):0.0005446623):0.0010893246):0.0049019608,Hydnotrya_tulasnei:0.0070806100):0.0027233115,((Gyromitra_esculenta1:0.0005446623,Gyromitra_esculenta2:0.0016339869):0.0038126362,Gyromitra_melaleucoides:0.0043572985):0.0005446623):0.0005446623,Pseudorhizina_californica:0.0027233115):0.0016339869):0.0038126362,Hydnotrya_cerebriformis:0.0076252723):0.0081699346):0.0087145970):0.0108932462,(((((((((Arthrobotrys_conoides:0.0016339869,Duddingtonia_flagrans:0.0076252723):0.0032679739,Monacrosporium_gephyropaga:0.0027233115):0.0032679739,(Arthrobotrys_dactyloides:0.0076252723,Monacrosporium_haptotylum:0.0065359477):0.0021786492):0.0010893246,Arthrobotrys_robusta:0.0049019608):0.0027233115,Monacrosporium_ellipsospora:0.0076252723):0.0032679739,Dactylella_rhopalota:0.0043572985):0.0032679739,Dactylella_oxyspora:0.0059912854):0.0092592593,Orbilia_delicatula:0.0108932462):0.0174291939,(Ascobolus_lineolatus:0.0332244009,Thecotheus_holmskjoldii:0.0250544662):0.0255991285):0.0065359477):0.0098039216,((((Boudiera_acanthospora:0.0223311547,Peziza_quelepidotia:0.0272331155):0.0098039216,((Cazia_flexiascus:0.0032679739,Terfezia_arenaria:0.0054466231):0.0059912854,(Pachyphloeus_melanoxanthus:0.0277777778,Peziza_succosa:0.0092592593):0.0059912854):0.0087145970):0.0070806100,Terfezia_terfezioides:0.0136165577):0.0114379085,Peziza_badia:0.0125272331):0.0201525055):0.0119825708,(((((((Ascovaginospora_stellipala:0.0305010893,Camarops_microspora:0.0136165577):0.0092592593,((Chaetomium_elatum:0.0070806100,(Neurospora_crassa:0.0108932462,Sordaria_fimicola:0.0043572985):0.0054466231):0.0038126362,Podospora_anserina:0.0163398693):0.0076252723):0.0098039216,(Kionochaeta_spissa:0.0321350763,(Meliola_juddiana:0.0294117647,Meliola_niessliana:0.0163398693):0.0452069717):0.0147058823):0.0119825708,((((((Balansieae_sp.:0.0130718954,((Hypocrea_lutea:0.0065359477,Hypomyces_polyporinus:0.0016339869):0.0021786492,Hypomyces_chrysospermus:0.0081699346):0.0070806100):0.0032679739,Chaetopsina_fulva:0.0070806100):0.0043572985,((((((Fusarium_cerealis:0.0005446623,Gibberella_pulicaris:0.0005446623):0.0005446623,Fusarium_equiseti:0.0021786492):0.0005446623,Nectria_haematococca:0.0005446623):0.0000010000,(Fusarium_culmorum:0.0000010000,Fusarium_oxysporum:0.0000010000):0.0000010000):0.0032679739,Nectria_cinnabarina:0.0032679739):0.0016339869,Fusarium_merismoides:0.0038126362):0.0027233115):0.0021786492,(((Claviceps_purpurea:0.0027233115,((Epichloe_baconii:0.0021786492,(Metarhizium_anisopliae:0.0152505447,Symbion_of_Hamiltonaphis_styrac:0.0255991285):0.0065359477):0.0054466231,(Paecilomyces_tenuipes_2:0.0059912854,(Verticillium_lecanii:0.0010893246,Verticillium_psalliotae:0.0043572985):0.0038126362):0.0038126362):0.0021786492):0.0021786492,Tolypocladium_cylindrosporum:0.0005446623):0.0005446623,Cordyceps_capitata:0.0021786492):0.0032679739):0.0032679739,((Geosmithia_lavendula:0.0016339869,Geosmithia_putterillii:0.0081699346):0.0054466231,(Spicellum_roseum:0.0038126362,Trichothecium_roseum:0.0108932462):0.0076252723):0.0027233115):0.0059912854,((Ceratocystis_fimbriata:0.0190631808,(((Graphium_tectonae:0.0016339869,(Lomentospora_prolificans:0.0000010000,Petriella_setifera:0.0005446623):0.0005446623):0.0038126362,(Pseudallescheria_boydii:0.0000010000,Pseudallescheria_ellipsoidea:0.0000010000):0.0016339869):0.0065359477,Microascus_cirrosus:0.0136165577):0.0103485839):0.0125272331,((Glomerella_cingulata:0.0136165577,Glomerella_glycines:0.0010893246):0.0076252723,(Verticillium_dahliae1:0.0000010000,Verticillium_dahliae2:0.0032679739):0.0326797386):0.0043572985):0.0065359477):0.0141612200):0.0081699346,(((((Cryphonectria_cubensis:0.0000010000,Cryphonectria_havanensis:0.0005446623):0.0005446623,Endothia_gyrosa:0.0010893246):0.0005446623,Cryphonectria_parasitica:0.0000010000):0.0010893246,Valsa_leucostoma:0.0098039216):0.0196078431,((Gaeumannomyces_graminis_var._gr:0.0087145969,Magnaporthe_grisea:0.0076252723):0.0196078431,((Ophiostoma_stenoceras:0.0010893246,Sporothrix_schenckii:0.0027233115):0.0038126362,Ophiostoma_ulmi:0.0147058824):0.0119825708):0.0087145970):0.0103485839):0.0103485839,(Diatrype_disciformis:0.0103485839,((Hypoxylon_nummularium:0.0092592593,Obolarina_dryophila:0.0038126362):0.0081699346,Xylaria_carpophila:0.0119825708):0.0087145970):0.0125272331):0.0228758170,(((((Candida_albicans:0.0212418301,Pichia_membranaefaciens:0.0561002179):0.0114379085,(Endomyces_sp.:0.0381263617,((Eremothecium_gossypii:0.0038126362,Holleya_sinecauda:0.0087145969):0.0136165577,Saccharomyces_barnettii:0.0157952070):0.0223311547):0.0174291939):0.0299564270,Dipodascopsis_uninucleata:0.0288671024):0.0250544662,((((Neolecta_irregularis:0.0054466231,Neolecta_vitellina:0.0049019608):0.0261437909,Saitoella_complicata:0.0250544662):0.0092592593,(Protomyces_inouyei:0.0054466231,(Taphrina_deformans:0.0005446623,Taphrina_wiesneri:0.0005446623):0.0092592593):0.0201525055):0.0125272331,(Pneumocystis_carinii:0.0408496732,Schizosaccharomyces_japonicus:0.0392156863):0.0119825708):0.0201525055):0.0217864924,((Cronartium_ribicola:0.0871459695,Ustilago_maydis:0.0778867102):0.0392156863,(Taphrina_californica:0.0408496732,Xerocomus_chrysenteron:0.0375816993):0.0228758170):0.0419389978):0.0305010893):0.0168845316):0.0152505447,(((((Amylocarpus_encephaloides:0.0076252723,Neobulgaria_premnophila:0.0364923747):0.0059912854,(Blumeria_graminis:0.0065359477,(Erysiphe_orontii:0.0049019608,Phyllactinia_guttata:0.0065359477):0.0032679739):0.0065359477):0.0038126362,((Botrytis_cinerea:0.0000010000,(Monilinia_fructicola:0.0010893246,Monilinia_laxa:0.0021786492):0.0010893246):0.0010893246,Sclerotinia_sclerotiorum:0.0010893246):0.0125272331):0.0054466231,(((Cudonia_confusa:0.0043572985,Spathularia_flavida:0.0032679739):0.0125272331,Rhytisma_salicinum:0.0108932462):0.0087145970,Cyttaria_darwinii:0.0147058824):0.0043572985):0.0038126362,((Ascozonus_woolhopensis:0.0065359477,Thelebolus_stercoreus:0.0136165577):0.0108932462,(Leotia_lubrica:0.0098039216,Microglossum_viride:0.0087145969):0.0065359477):0.0054466231):0.0032679739):0.0125272331,((Aliquandostipite_khaoyaiensis:0.0321350763,((Diploschistes_ocellatus:0.0201525054,Graphis_scripta:0.0648148148):0.0212418301,Siphula_ceratites:0.0310457516):0.0157952070):0.0098039216,((((((((((((((((((Alternaria_alternata:0.0005446623,Clathrospora_diplospora:0.0005446623):0.0010893246,Alternaria_brassicae:0.0027233115):0.0016339869,Alternaria_raphani:0.0000010000):0.0005446623,Alternaria_brassicicola:0.0000010000):0.0038126362,Pleospora_herbarum:0.0000010000):0.0021786492,(Cochliobolus_sativus:0.0021786492,(Pyrenophora_trichostoma:0.0043572985,Pyrenophora_tritici-repentis:0.0000010000):0.0021786492):0.0010893246):0.0016339869,Setosphaeria_rostrata:0.0032679739):0.0021786492,Pleospora_betae:0.0043572985):0.0016339869,Leptosphaeria_maculans:0.0010893246):0.0005446623,(Cucurbitaria_berberidis:0.0016339869,(((Cucurbitaria_elongata:0.0016339869,(Ophiobolus_herpotrichus:0.0005446623,Phaeosphaeria_microscopica:0.0000010000):0.0000010000):0.0005446623,Leptosphaeria_doliolum:0.0038126362):0.0005446623,Phaeosphaeria_nodorum:0.0010893246):0.0005446623):0.0038126362):0.0038126362,Pleospora_rudis:0.0059912854):0.0049019608,(Cucurbidothis_pithyophila:0.0087145969,((Helminthosporium_solani:0.0021786492,Helminthosporium_velutinum:0.0049019608):0.0043572985,Leptosphaeria_bicolor:0.0043572985):0.0043572985):0.0092592593):0.0065359477,((Herpotrichia_juniperi:0.0016339869,Herpotrichia_nigra:0.0081699346):0.0005446623,Mycosphaerella_mycopappi:0.0000010000):0.0076252723):0.0038126362,Lophiostoma_crenatum:0.0065359477):0.0049019608,Kirschsteiniothelia_maritima:0.0076252723):0.0016339869,((Monodictys_castaneae:0.0059912854,Sporormia_lignicola:0.0049019608):0.0021786492,Westerdykella_dispersa:0.0087145969):0.0021786492):0.0125272331,((Dendrographa_leucophaea_f._mino:0.0245098039,Diplodia_tumefaciens:0.0010893246):0.0190631808,Rhytidhysteron_rufulum:0.0092592593):0.0141612200):0.0098039216,(((((Aureobasidium_pullulans:0.0000010000,Unidentified:0.0000010000):0.0065359477,(Dothidea_hippophaeos:0.0000010000,Dothidea_insculpta:0.0000010000):0.0038126362):0.0010893246,(Capnodium_dematum:0.0174291939,Meliolina_sydowiana:0.0098039216):0.0065359477):0.0021786492,(Botryosphaeria_rhodina:0.0076252723,Botryosphaeria_ribis:0.0016339869):0.0070806100):0.0087145970,Phaeosclera_dematioides:0.0065359477):0.0049019608):0.0043572985):0.0054466231):0.0103485839,(Sarcinomyces_crustaceus:0.0130718954,symbiont_of_Lasioderma_serricor:0.0114379085):0.0043572985):0.0108932462,((((((Bunodophoron_scrobiculatum:0.0130718954,Leifidium_tenerum:0.0021786492):0.0054466231,Sphaerophorus_globosus:0.0103485839):0.0130718954,((((Cladia_aggregata:0.0065359477,Pilophorus_acicularis:0.0076252723):0.0021786492,Cladonia_bellidiflora:0.0087145969):0.0054466231,Stereocaulon_ramulosum:0.0092592593):0.0054466231,Lecanora_dispersa:0.0217864924):0.0043572985):0.0059912854,(Calicium_adspersum:0.0136165577,(Cyphelium_inquinans:0.0076252723,(Texosporium_sancti-jacobi:0.0038126362,Thelomma_mammosum:0.0043572985):0.0021786492):0.0108932462):0.0092592593):0.0032679739,Porpidia_crustulata:0.0065359477):0.0038126362,(Nephroma_arcticum:0.0125272331,(Peltigera_neopolydactyla:0.0125272331,Solorina_crocea:0.0130718954):0.0294117647):0.0152505447):0.0103485839):0.0098039216,(((Chaenothecopsis_savonica:0.0076252723,Stenocybe_pullatula:0.0054466231):0.0021786492,Mycocalicium_albonigrum:0.0049019608):0.0049019608,Sphinctrina_turbinata:0.0103485839):0.0076252723):0.0136165577,(((((Capronia_mansonii:0.0098039216,Exophiala_dermatitidis:0.0032679739):0.0005446623,Sarcinomyces_phaeomuriformis:0.0059912854):0.0076252723,(Capronia_pilosella:0.0147058824,Exophiala_mansonii:0.0114379085):0.0043572985):0.0054466231,((Exophiala_jeanselmei:0.0152505447,Phaeococcomyces_exophialae:0.0108932462):0.0087145970,(Nadsoniella_nigra:0.0038126362,Phaeoannellomyces_elegans:0.0059912854):0.0059912854):0.0032679739):0.0119825708,(Coniosporium_apollinis:0.0010893246,Coniosporium_perforans:0.0005446623):0.0147058823):0.0201525055):0.0212418301,(((((((((((((((Aspergillus_avenaceus:0.0070806100,Aspergillus_flavus:0.0038126362):0.0010893246,(Eurotium_herbariorum:0.0000010000,Eurotium_rubrum:0.0000010000):0.0032679739):0.0005446623,(Aspergillus_fumigatus:0.0016339869,Neosartorya_fischeri:0.0005446623):0.0016339869):0.0010893246,(Aspergillus_terreus:0.0049019608,(Emericella_nidulans:0.0119825708,Fennellia_flavipes:0.0021786492):0.0027233115):0.0021786492):0.0010893246,Chaetosartorya_cremea:0.0016339869):0.0021786492,(((Chromocleista_malachitea:0.0038126362,((Eupenicillium_crustaceum:0.0010893246,Penicillium_chrysogenum:0.0027233115):0.0038126362,Geosmithia_namyslowskii:0.0065359477):0.0032679739):0.0027233115,Eupenicillium_javanicum:0.0005446623):0.0038126362,Monascus_purpureus:0.0108932462):0.0027233115):0.0038126362,Hemicarpenteles_ornatus:0.0016339869):0.0027233115,(Hamigera_avellanea:0.0021786492,Merimbla_ingelheimense:0.0005446623):0.0038126362):0.0043572985,Aspergillus_zonatus:0.0070806100):0.0043572985,Byssochlamys_nivea:0.0021786492):0.0005446623,Paecilomyces_variotii:0.0005446623):0.0021786492,Thermoascus_crustaceus:0.0038126362):0.0016339869,((Geosmithia_cylindrospora:0.0059912854,Talaromyces_eburneus:0.0010893246):0.0005446623,Talaromyces_emersonii:0.0010893246):0.0005446623):0.0021786492,(Talaromyces_bacillisporus:0.0098039216,Talaromyces_flavus:0.0065359477):0.0103485839):0.0043572985,((Elaphomyces_aculeatus:0.0038126362,Elaphomyces_maculatus:0.0010893246):0.0021786492,Elaphomyces_leveillei:0.0027233115):0.0081699346):0.0119825708):0.0087145970,((Ascosphaera_apis:0.0196078431,Eremascus_albus:0.0130718954):0.0092592593,((((Auxarthron_zuffianum:0.0076252723,Renispora_flavissima:0.0076252723):0.0032679739,((Coccidioides_immitis:0.0005446623,Uncinocarpus_reesii:0.0065359477):0.0016339869,Onygena_equina:0.0076252723):0.0038126362):0.0081699346,(Ctenomyces_serratus:0.0059912854,(Microsporum_audouinii:0.0005446623,Trichophyton_rubrum:0.0065359477):0.0054466231):0.0076252723):0.0027233115,Gymnoascoideus_petalosporus:0.0130718954):0.0065359477):0.0065359477):0.0032679739,(Blastomyces_dermatitidis:0.0010893246,Chrysosporium_parvum:0.0032679739):0.0010893246):0.0054466231);
+(Ajellomyces_capsulatum:0.0005448607,Ajellomyces_capsulatus:0.0016357743,(((((((((((((((((((((((Aleuria_aurantia:0.0005448607,Byssonectria_terrestris:0.0082148819):0.0016357743,(Pyronema_domesticum:0.0071143374,Scutellinia_scutellata:0.0071143374):0.0016357743):0.0005448607,(Terichophaea_hybrida:0.0010901186,Wilcoxina_mikolae:0.0010901186):0.0027282814):0.0043700398,Otidea_leporina:0.0137420263):0.0065646718,(Glaziella_aurantiaca:0.0176354738,Pulvinula_archeri:0.0176354738):0.0038223865):0.0032751339,((Geopyxis_carbonaria:0.0170780246,Paurocotylis_pila:0.0038223865):0.0032751339,Tarzetta_catinus:0.0165209906):0.0065646718):0.0021818284,Ascodesmis_sphaerospora:0.0076644072):0.0027282814,(((Cookeina_sulcipes:0.0104208409,Sarcoscypha_austriaca:0.0093170482):0.0043700398,Microstoma_protracta:0.0093170482):0.0126333251,Desmazierella_acicola:0.0054665509):0.0027282814):0.0021818284,(Sarcosoma_globosum:0.0010901186,Urnula_hiemalis:0.0016357743):0.0038223865):0.0071143374,((((((((((Arthrobotrys_conoides:0.0016357743,Duddingtonia_flagrans:0.0071143374):0.0032751339,Monacrosporium_gephyropaga:0.0016357743):0.0010901186,(Arthrobotrys_robusta:0.0049180944,Monacrosporium_ellipsospora:0.0082148819):0.0005448607):0.0016357743,Monacrosporium_haptotylum:0.0049180944):0.0021818284,Arthrobotrys_dactyloides:0.0060154098):0.0032751339,Dactylella_rhopalota:0.0043700398):0.0021818284,Dactylella_oxyspora:0.0043700398):0.0054665509,Orbilia_delicatula:0.0082148819):0.0170780246,((((((((Balsamia_magnata:0.0043700398,(Balsamia_vulgaris:0.0027282814,Barssia_oregonensis:0.0049180944):0.0016357743):0.0082148819,(Helvella_lacunosa:0.0109733487,Wynnella_silvicolor:0.0159643712):0.0109733487):0.0266116302,Underwoodia_columnaris:0.0109733487):0.0049180944,(Tuber_excavatum:0.0082148819,(Tuber_magnatum:0.0060154098,Tuber_panniferum:0.0071143374):0.0027282814):0.0043700398):0.0016357743,((Choiromyces_meandriformis:0.0016357743,Choiromyces_venosus:0.0021818284):0.0049180944,((Tuber_borchii:0.0054665509,Tuber_rapaeodorum:0.0010901186):0.0010901186,Tuber_gibbosum:0.0027282814):0.0005448607):0.0005448607):0.0032751339,((Dingleya_verrucosa:0.0032751339,Reddellomyces_donkii:0.0010901186):0.0005448607,Labyrinthomyces_varius:0.0027282814):0.0049180944):0.0038223865,Caloscypha_fulgens:0.0148523734):0.0060154098,((((Discina_macrospora:0.0038223865,Gyromitra_montana:0.0010901186):0.0027282814,(((Gyromitra_esculenta1:0.0005448607,Gyromitra_esculenta2:0.0005448607):0.0032751339,Pseudorhizina_californica:0.0027282814):0.0005448607,Gyromitra_melaleucoides:0.0043700398):0.0000010000):0.0016357743,(Hydnotrya_cerebriformis:0.0076644072,Hydnotrya_tulasnei:0.0049180944):0.0016357743):0.0021818284,(Disciotis_venosa:0.0010901186,(((Fischerula_subcaulis:0.0087657620,Leucangium_carthusianum:0.0098687409):0.0038223865,(Verpa_bohemica:0.0010901186,Verpa_conica:0.0027282814):0.0005448607):0.0010901186,(Morchella_elata:0.0021818284,Morchella_esculenta:0.0049180944):0.0038223865):0.0000010000):0.0038223865):0.0065646718):0.0043700398):0.0032751339,Rhizina_undulata:0.0049180944):0.0016357743):0.0082148819,(((Ascobolus_lineolatus:0.0328458240,Thecotheus_holmskjoldii:0.0181933387):0.0187516200,(((((Candida_albicans:0.0148523734,Pichia_membranaefaciens:0.0530348261):0.0060154098,(Endomyces_sp.:0.0317084625,((Eremothecium_gossypii:0.0027282814,Holleya_sinecauda:0.0071143374):0.0082148819,Saccharomyces_barnettii:0.0115262650):0.0159643712):0.0071143374):0.0209889216,Dipodascopsis_uninucleata:0.0221100870):0.0170780246,((Neolecta_irregularis:0.0049180944,Neolecta_vitellina:0.0027282814):0.0193103183,((Pneumocystis_carinii:0.0385587194,Schizosaccharomyces_japonicus:0.0328458240):0.0060154098,((Protomyces_inouyei:0.0038223865,(Taphrina_deformans:0.0000010000,Taphrina_wiesneri:0.0005448607):0.0082148819):0.0165209906,Saitoella_complicata:0.0204289685):0.0071143374):0.0060154098):0.0098687409):0.0131874703,((Cronartium_ribicola:0.0719826998,Ustilago_maydis:0.0654150859):0.0249203751,(Taphrina_californica:0.0334151540,Xerocomus_chrysenteron:0.0305728279):0.0131874703):0.0317084625):0.0165209906):0.0093170482,((((Boudiera_acanthospora:0.0198694343,Peziza_quelepidotia:0.0249203751):0.0060154098,Terfezia_terfezioides:0.0115262650):0.0054665509,(((Cazia_flexiascus:0.0027282814,Terfezia_arenaria:0.0038223865):0.0054665509,Peziza_succosa:0.0082148819):0.0021818284,Pachyphloeus_melanoxanthus:0.0243574721):0.0032751339):0.0065646718,Peziza_badia:0.0104208409):0.0176354738):0.0082148819):0.0104208409,((((Ascozonus_woolhopensis:0.0071143374,Thelebolus_stercoreus:0.0109733487):0.0049180944,((Cudonia_confusa:0.0027282814,Spathularia_flavida:0.0021818284):0.0076644072,Rhytisma_salicinum:0.0109733487):0.0093170482):0.0027282814,Botrytis_cinerea:0.0010901186):0.0032751339,(Leotia_lubrica:0.0093170482,Microglossum_viride:0.0076644072):0.0054665509):0.0038223865):0.0005448607,((((Amylocarpus_encephaloides:0.0065646718,Neobulgaria_premnophila:0.0339849177):0.0043700398,(Blumeria_graminis:0.0071143374,(Erysiphe_orontii:0.0049180944,Phyllactinia_guttata:0.0060154098):0.0032751339):0.0049180944):0.0032751339,((Monilinia_fructicola:0.0010901186,Monilinia_laxa:0.0010901186):0.0010901186,Sclerotinia_sclerotiorum:0.0010901186):0.0098687409):0.0043700398,Cyttaria_darwinii:0.0126333252):0.0038223865):0.0054665509,((Aliquandostipite_khaoyaiensis:0.0254837020,((Diploschistes_ocellatus:0.0170780246,Graphis_scripta:0.0606746023):0.0137420263,Siphula_ceratites:0.0271762328):0.0154081656):0.0082148819,(((((((((((((((Alternaria_alternata:0.0005448607,Clathrospora_diplospora:0.0005448607):0.0010901186,Alternaria_brassicae:0.0027282814):0.0016357743,Alternaria_brassicicola:0.0000010000):0.0000010000,Alternaria_raphani:0.0000010000):0.0038223865,Pleospora_herbarum:0.0000010000):0.0021818284,Cochliobolus_sativus:0.0000010000):0.0005448607,(Pyrenophora_trichostoma:0.0043700398,Pyrenophora_tritici-repentis:0.0000010000):0.0016357743):0.0016357743,Setosphaeria_rostrata:0.0032751339):0.0187516200,Pleospora_betae:0.0038223865):0.0032751339,(Cucurbitaria_berberidis:0.0016357743,(((Cucurbitaria_elongata:0.0010901186,(Ophiobolus_herpotrichus:0.0005448607,Phaeosphaeria_microscopica:0.0000010000):0.0005448607):0.0000010000,Leptosphaeria_maculans:0.0010901186):0.0005448607,(Leptosphaeria_doliolum:0.0038223865,Phaeosphaeria_nodorum:0.0016357743):0.0005448607):0.0005448607):0.0000010000):0.0032751339,Pleospora_rudis:0.0049180944):0.0043700398,(Cucurbidothis_pithyophila:0.0065646718,((Helminthosporium_solani:0.0016357743,Helminthosporium_velutinum:0.0043700398):0.0038223865,Leptosphaeria_bicolor:0.0038223865):0.0104208409):0.0071143374):0.0049180944,(((Herpotrichia_juniperi:0.0010901186,Mycosphaerella_mycopappi:0.0005448607):0.0010901186,Herpotrichia_nigra:0.0071143374):0.0060154098,((Kirschsteiniothelia_maritima:0.0076644072,(Monodictys_castaneae:0.0049180944,(Sporormia_lignicola:0.0021818284,Westerdykella_dispersa:0.0093170482):0.0010901186):0.0021818284):0.0027282814,Lophiostoma_crenatum:0.0060154098):0.0016357743):0.0010901186):0.0065646718,((Dendrographa_leucophaea_f._mino:0.0087657620,Diplodia_tumefaciens:0.0005448607):0.0187516200,Rhytidhysteron_rufulum:0.0038223865):0.0142969938):0.0093170482,(((((Aureobasidium_pullulans:0.0000010000,Unidentified:0.0000010000):0.0060154098,(Dothidea_hippophaeos:0.0000010000,Dothidea_insculpta:0.0000010000):0.0038223865):0.0005448607,(Capnodium_dematum:0.0159643712,Meliolina_sydowiana:0.0082148819):0.0060154098):0.0016357743,(Botryosphaeria_rhodina:0.0076644072,Botryosphaeria_ribis:0.0016357743):0.0065646718):0.0027282814,Phaeosclera_dematioides:0.0049180944):0.0021818284):0.0021818284):0.0027282814):0.0021818284,Sarcinomyces_crustaceus:0.0131874703):0.0010901186,(((((((Ascovaginospora_stellipala:0.0249203751,Camarops_microspora:0.0093170482):0.0082148819,((Chaetomium_elatum:0.0049180944,(Neurospora_crassa:0.0104208409,Sordaria_fimicola:0.0032751339):0.0049180944):0.0038223865,Podospora_anserina:0.0137420263):0.0038223865):0.0038223865,(Kionochaeta_spissa:0.0237949924,(Meliola_juddiana:0.0283067182,Meliola_niessliana:0.0104208409):0.0414316138):0.0115262650):0.0098687409,((((((Balansieae_sp.:0.0115262650,Metarhizium_anisopliae:0.0137420263):0.0038223865,((Claviceps_purpurea:0.0016357743,(Epichloe_baconii:0.0016357743,Symbion_of_Hamiltonaphis_styrac:0.0181933387):0.0021818284):0.0021818284,(Cordyceps_capitata:0.0021818284,Tolypocladium_cylindrosporum:0.0005448607):0.0000010000):0.0087657620):0.0027282814,(Paecilomyces_tenuipes_2:0.0043700398,(Verticillium_lecanii:0.0010901186,Verticillium_psalliotae:0.0010901186):0.0021818284):0.0027282814):0.0016357743,((Chaetopsina_fulva:0.0054665509,(Hypocrea_lutea:0.0032751339,(Hypomyces_chrysospermus:0.0010901186,Hypomyces_polyporinus:0.0010901186):0.0038223865):0.0082148819):0.0043700398,(((((((Fusarium_cerealis:0.0005448607,Gibberella_pulicaris:0.0005448607):0.0005448607,Fusarium_equiseti:0.0021818284):0.0005448607,Fusarium_oxysporum:0.0000010000):0.0000010000,Nectria_haematococca:0.0005448607):0.0000010000,Fusarium_culmorum:0.0000010000):0.0021818284,Fusarium_merismoides:0.0038223865):0.0005448607,Nectria_cinnabarina:0.0027282814):0.0016357743):0.0016357743):0.0027282814,((Geosmithia_lavendula:0.0016357743,Geosmithia_putterillii:0.0021818284):0.0038223865,(Spicellum_roseum:0.0027282814,Trichothecium_roseum:0.0049180944):0.0076644072):0.0016357743):0.0032751339,((Ceratocystis_fimbriata:0.0159643712,(((Graphium_tectonae:0.0016357743,(Lomentospora_prolificans:0.0000010000,Petriella_setifera:0.0005448607):0.0005448607):0.0038223865,(Pseudallescheria_boydii:0.0000010000,Pseudallescheria_ellipsoidea:0.0000010000):0.0005448607):0.0038223865,Microascus_cirrosus:0.0098687409):0.0098687409):0.0093170482,((Glomerella_cingulata:0.0076644072,Glomerella_glycines:0.0010901186):0.0065646718,(Verticillium_dahliae1:0.0000010000,Verticillium_dahliae2:0.0027282814):0.0317084625):0.0032751339):0.0038223865):0.0104208409):0.0049180944,(((((Cryphonectria_cubensis:0.0000010000,Cryphonectria_havanensis:0.0005448607):0.0005448607,Endothia_gyrosa:0.0005448607):0.0005448607,Cryphonectria_parasitica:0.0000010000):0.0010901186,Valsa_leucostoma:0.0093170482):0.0159643712,((Gaeumannomyces_graminis_var._gr:0.0076644072,Magnaporthe_grisea:0.0010901186):0.0148523734,((Ophiostoma_stenoceras:0.0010901186,Sporothrix_schenckii:0.0000010000):0.0038223865,Ophiostoma_ulmi:0.0098687409):0.0087657620):0.0049180944):0.0076644072):0.0043700398,(Diatrype_disciformis:0.0093170482,((Hypoxylon_nummularium:0.0027282814,Obolarina_dryophila:0.0032751339):0.0071143374,Xylaria_carpophila:0.0098687409):0.0010901186):0.0126333251):0.0221100870,symbiont_of_Lasioderma_serricor:0.0076644072):0.0076644072):0.0032751339,((((((Bunodophoron_scrobiculatum:0.0126333252,Leifidium_tenerum:0.0016357743):0.0054665509,Sphaerophorus_globosus:0.0076644072):0.0120795902,(((Cladia_aggregata:0.0054665509,Pilophorus_acicularis:0.0076644072):0.0010901186,Cladonia_bellidiflora:0.0082148819):0.0027282814,Stereocaulon_ramulosum:0.0076644072):0.0060154098):0.0010901186,((Calicium_adspersum:0.0148523734,(Cyphelium_inquinans:0.0076644072,(Texosporium_sancti-jacobi:0.0027282814,Thelomma_mammosum:0.0038223865):0.0010901186):0.0076644072):0.0082148819,Lecanora_dispersa:0.0204289685):0.0032751339):0.0032751339,Porpidia_crustulata:0.0060154098):0.0010901186,(Nephroma_arcticum:0.0104208409,(Peltigera_neopolydactyla:0.0098687409,Solorina_crocea:0.0087657620):0.0193103183):0.0104208409):0.0082148819):0.0049180944,(((Chaenothecopsis_savonica:0.0071143374,Stenocybe_pullatula:0.0054665509):0.0005448607,Mycocalicium_albonigrum:0.0049180944):0.0027282814,Sphinctrina_turbinata:0.0093170482):0.0071143374):0.0076644072,((((((Capronia_mansonii:0.0087657620,Sarcinomyces_phaeomuriformis:0.0060154098):0.0000010000,Exophiala_dermatitidis:0.0032751339):0.0049180944,Capronia_pilosella:0.0159643712):0.0016357743,((Exophiala_jeanselmei:0.0142969938,Phaeococcomyces_exophialae:0.0109733487):0.0076644072,(Nadsoniella_nigra:0.0038223865,Phaeoannellomyces_elegans:0.0060154098):0.0049180944):0.0027282814):0.0021818284,Exophiala_mansonii:0.0109733487):0.0049180944,(Coniosporium_apollinis:0.0010901186,Coniosporium_perforans:0.0005448607):0.0148523734):0.0221100870):0.0159643712,((((((((((((((Aspergillus_avenaceus:0.0071143374,Aspergillus_flavus:0.0038223865):0.0005448607,(Aspergillus_fumigatus:0.0005448607,Neosartorya_fischeri:0.0000010000):0.0021818284):0.0005448607,(Eurotium_herbariorum:0.0000010000,Eurotium_rubrum:0.0000010000):0.0027282814):0.0021818284,Chaetosartorya_cremea:0.0010901186):0.0000010000,(Aspergillus_terreus:0.0038223865,(Emericella_nidulans:0.0115262650,Fennellia_flavipes:0.0010901186):0.0016357743):0.0021818284):0.0021818284,(Chromocleista_malachitea:0.0038223865,(((Eupenicillium_crustaceum:0.0010901186,Penicillium_chrysogenum:0.0000010000):0.0032751339,Geosmithia_namyslowskii:0.0038223865):0.0027282814,Eupenicillium_javanicum:0.0000010000):0.0000010000):0.0027282814):0.0005448607,((Hamigera_avellanea:0.0021818284,Merimbla_ingelheimense:0.0000010000):0.0038223865,Hemicarpenteles_ornatus:0.0005448607):0.0021818284):0.0005448607,Monascus_purpureus:0.0109733487):0.0032751339,(Talaromyces_bacillisporus:0.0104208409,Talaromyces_flavus:0.0038223865):0.0093170482):0.0021818284,Talaromyces_emersonii:0.0000010000):0.0010901186,(Geosmithia_cylindrospora:0.0060154098,Talaromyces_eburneus:0.0005448607):0.0005448607):0.0010901186,((Aspergillus_zonatus:0.0076644072,Paecilomyces_variotii:0.0000010000):0.0005448607,Byssochlamys_nivea:0.0021818284):0.0016357743):0.0010901186,Thermoascus_crustaceus:0.0021818284):0.0027282814,(Elaphomyces_aculeatus:0.0027282814,(Elaphomyces_leveillei:0.0027282814,Elaphomyces_maculatus:0.0005448607):0.0010901186):0.0076644072):0.0109733487):0.0065646718,(Ascosphaera_apis:0.0170780246,Eremascus_albus:0.0104208409):0.0060154098):0.0038223865,((((Auxarthron_zuffianum:0.0071143374,Renispora_flavissima:0.0076644072):0.0021818284,((Coccidioides_immitis:0.0000010000,Uncinocarpus_reesii:0.0065646718):0.0016357743,Onygena_equina:0.0065646718):0.0038223865):0.0076644072,(Ctenomyces_serratus:0.0043700398,(Microsporum_audouinii:0.0005448607,Trichophyton_rubrum:0.0027282814):0.0049180944):0.0060154098):0.0016357743,Gymnoascoideus_petalosporus:0.0109733487):0.0054665509):0.0032751339,(Blastomyces_dermatitidis:0.0016357743,Chrysosporium_parvum:0.0016357743):0.0010901186):0.0054665509);
 
 TIME STAMP
 ----------
 
-Date and time: Fri Mar 12 17:48:56 2021
-Total CPU time used: 421.628 seconds (0h:7m:1s)
-Total wall-clock time used: 127.593 seconds (0h:2m:7s)
+Date and time: Wed Mar 17 15:49:55 2021
+Total CPU time used: 7.74601 seconds (0h:0m:7s)
+Total wall-clock time used: 7.99628 seconds (0h:0m:7s)
 

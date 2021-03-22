@@ -23,8 +23,11 @@ void NNIMove::doSwap(PhyloTree* tree) {
     PhyloNeighbor*        node2_nei = (PhyloNeighbor*)*node2_it;
 
     // reorient partial_lh before swap
-    tree->reorientPartialLh(node1->findNeighbor(node2), node1);
-    tree->reorientPartialLh(node2->findNeighbor(node1), node2);
+
+    if(!tree->params->mpboot2) {
+        tree->reorientPartialLh(node1->findNeighbor(node2), node1);
+        tree->reorientPartialLh(node2->findNeighbor(node1), node2); 
+    }
 
     node1->updateNeighbor(node1_it, node2_nei);
     node2_nei->node->updateNeighbor(node2, node1);
@@ -32,9 +35,12 @@ void NNIMove::doSwap(PhyloTree* tree) {
     node2->updateNeighbor(node2_it, node1_nei);
     node1_nei->node->updateNeighbor(node1, node2);
     
-    std::swap(node1_nei->length, node2_nei->length);
 
-    tree->clearInwardViewsFromNeighbors(node1, node2);
+    if(!tree->params->mpboot2) {
+        std::swap(node1_nei->length, node2_nei->length);
+        tree->clearInwardViewsFromNeighbors(node1, node2);
+    }
+
 }
 
 
@@ -70,7 +76,10 @@ double NNIMove::optimizeNNIBranches(PhyloTree* tree, bool nni5, int nni5_num_eva
             tree->optimizeOneBranch(node1, node2, false, NNI_MAX_NR_STEP);
         }
     }
-    newloglh = tree->computeLikelihoodFromBuffer();
+    
+    if (!tree->params->mpboot2) newloglh = tree->computeLikelihoodFromBuffer();
+    else newloglh = -tree->computeParsimony();
+
     TREE_LOG_LINE(*tree, VB_DEBUG, "NNI of branch " << central_branch_id
         << " for nodes with Ids " << node1->id << " - " << node2->id
         << ": scores " << newloglh);
@@ -141,7 +150,6 @@ NNIContext::NNIContext(PhyloTree* phylo_tree, PhyloNode* firstNode, PhyloNode* s
         tree->reorientPartialLh(node1->findNeighbor(node2), node1);
         tree->reorientPartialLh(node2->findNeighbor(node1), node2);
     }
-
     int mem_id = 0;
     // save Neighbor and allocate new Neighbor pointer
     for (id = 0; id < IT_NUM; id++) {
@@ -150,17 +158,21 @@ NNIContext::NNIContext(PhyloTree* phylo_tree, PhyloNode* firstNode, PhyloNode* s
         PhyloNeighbor* newNei = saved_nei[id]->newNeighbor();
         *saved_it[id]         = newNei;
 
-        if (oldNei->partial_lh) {
+        if (!tree->params->mpboot2 && oldNei->partial_lh) {
             newNei->partial_lh = tree->nni_partial_lh + mem_id * tree->lh_block_size;
             newNei->scale_num  = tree->nni_scale_num  + mem_id * tree->scale_block_size;
-            mem_id++;
             tree->mem_slots.addSpecialNei(newNei);
+            mem_id++;
+        }
+
+        if (tree->params->mpboot2 && oldNei->partial_pars) {
+            newNei->partial_pars = tree->nni_partial_pars + mem_id * tree->pars_block_size;
+            mem_id++;
         }
     }
 
-    // cout << mem_id << endl;
     if (nni5) {
-        ASSERT(mem_id == 2);
+        if(!tree->params->mpboot2) ASSERT(mem_id == 2);
     }
 }
 

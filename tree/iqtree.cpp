@@ -2518,10 +2518,8 @@ void IQTree::hill_climb(int search_iterations) {
         else doParsimonySPR();
     }
     else {
-        initializeAllPartialLh();
-        initializeAllPartialPars();
         pair<int, int> nniInfos; // <num_NNIs, num_steps>
-        nniInfos = doNNISearch(true, "");
+        nniInfos = doNNISearch(false, "");
     }
     return;
 }
@@ -2682,6 +2680,10 @@ double IQTree::doTreeSearch() {
         }
         else doTreePerturbation();
 
+        initializeAllPartialPars();
+    
+
+
         /*----------------------------------------
          * Optimize tree with SPR && NNI
          *----------------------------------------*/
@@ -2803,9 +2805,12 @@ double IQTree::doTreeSearch() {
 
         // print UFBoot trees every 10 iterations
 
-        saveCheckpoint();
-        checkpoint->dump();
+        assert(nni_partial_pars);
 
+        if (!params->mpboot2) {
+            saveCheckpoint();
+            checkpoint->dump();
+        }
         if (bestcandidate_changed) {
             printBestCandidateTree();
             bestcandidate_changed = false;
@@ -3438,6 +3443,8 @@ pair<int, int> IQTree::optimizeNNI(bool speedNNI, const char* context) {
     
     initProgress(MAXSTEPS, task, "done", "step", true);
     double originalScore = curScore;
+
+
     for (numSteps = 1; numSteps <= MAXSTEPS; numSteps++) {
         initializeTree(); //make sure branch numbering is consistent
         //LOG_LINE(VB_DEBUG, "numSteps = " << numSteps);
@@ -3510,11 +3517,18 @@ pair<int, int> IQTree::optimizeNNI(bool speedNNI, const char* context) {
 
         evaluating.start();
         positiveNNIs.clear();
+
+        clearAllPartialLH();
+
+        
+
         evaluateNNIs(nniBranches, positiveNNIs);
         evaluating.stop();
 
+        clearAllPartialLH();
+
         if (positiveNNIs.size() == 0) {
-            if (!nonNNIBranches.empty() && totalNNIApplied == 0) {
+            if (!nonNNIBranches .empty() && totalNNIApplied == 0) {
                 evaluateNNIs(nonNNIBranches, positiveNNIs);
                 if (positiveNNIs.size() == 0) {
                     break;
@@ -3523,7 +3537,6 @@ pair<int, int> IQTree::optimizeNNI(bool speedNNI, const char* context) {
                 break;
             }
         }
-
         sorting.start();
         /* sort all positive NNI moves (ASCENDING) */
         sort(positiveNNIs.begin(), positiveNNIs.end());
@@ -3538,11 +3551,14 @@ pair<int, int> IQTree::optimizeNNI(bool speedNNI, const char* context) {
         LOG_LINE(VB_MAX, "Applying " << appliedNNIs.size()
             << " non-conflicting positive NNIs"
                  << " (out of " << positiveNNIs.size() << " positive NNIs)");
+
+
         doNNIs(appliedNNIs, true);
         curScore = optimizeAllBranches(1, params->loglh_epsilon, NNI_MAX_NR_STEP, false);
         const double loglh_tolerance = 0.1;
         auto expected_score = appliedNNIs.at(0).newloglh;
         applying.stop();
+
 
         if (curScore < expected_score - params->loglh_epsilon) {
             std::stringstream details;
@@ -3639,10 +3655,14 @@ pair<int, int> IQTree::optimizeNNI(bool speedNNI, const char* context) {
         LOG_LINE(VB_QUIET, "WARNING: NNI search needs unusual large number of steps"
                  << " (" << numSteps << ") to converge!");
     }
+
     if(curScore < originalScore - params->loglh_epsilon){
         LOG_LINE(VB_QUIET, "AAAAAAAAAAAAAAAAAAA: " << curScore
                  << "\t" << originalScore << "\t" << curScore - originalScore);
+
+        cout << curScore << " " << computeParsimony() << endl;
     }
+
     return make_pair(numSteps, static_cast<int>(totalNNIApplied));
 }
 
@@ -3905,6 +3925,7 @@ void IQTree::evaluateNNIs(Branches &nniBranches, vector<NNIMove>  &positiveNNIs)
         PhyloNode* node2 = (PhyloNode*)it->second.second;
         NNIMove    nni   = getBestNNIForBran(node1, node2, nullptr);
         if (nni.newloglh > previous_score) {
+            cout << "Bodka" << endl;
             positiveNNIs.push_back(nni);
             LOG_LINE(VB_DEBUG, positiveNNIs.size() << "."
                      << " Branch " <<nni.central_branch_id

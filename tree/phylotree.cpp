@@ -1434,13 +1434,17 @@ int PhyloTree::initializeAllPartialPars() {
     int index = 0;
     initializeAllPartialPars(index);
     clearAllPartialParsimony(false);
-    return index;
+
+    nni_partial_pars = central_partial_pars + index * pars_block_size;
+    return index + 1;
 }
 
 void PhyloTree::ensureCentralPartialParsimonyIsAllocated(size_t extra_vector_count) {
     if (central_partial_pars != nullptr) {
         return;
     }
+
+    if(params->mpboot2) extra_vector_count = 10;
     determineBlockSizes();
     uint64_t tip_partial_pars_size = get_safe_upper_limit_float(aln->num_states * (aln->STATE_UNKNOWN+1));
     size_t   vector_count          = aln->getNSeq() * 4 - 6 + extra_vector_count;
@@ -1778,8 +1782,10 @@ void PhyloTree::initializeAllScorePars() {
 }
 
 void PhyloTree::deleteAllPartialParsimony() {
+    assert(central_partial_pars);
     aligned_free(central_partial_pars);
     tip_partial_pars        = nullptr;
+
     clearAllPartialParsimony(true);
     tip_partial_lh_computed &= ~2;
 }
@@ -3531,43 +3537,50 @@ void PhyloTree::optimizeOneBranch(PhyloNode *node1, PhyloNode *node2,
     double original_len = current_it->length;
     ASSERT(original_len >= 0.0);
     tree_buffers.theta_computed = false;
-    double original_lh = computeLikelihoodBranch(current_it, node1, tree_buffers);
+    double original_lh;
+    if (params->mpboot2){
+        original_lh = -computeParsimonyBranch(current_it, node1);
+    } else {
+        original_lh = computeLikelihoodBranch(current_it, node1, tree_buffers);
+    } 
     double new_len;
-    if (optimize_by_newton) {
-        // Newton-Raphson method
-        double derivative_of_likelihood_wrt_length = 0;
-        new_len = minimizeNewton(params->min_branch_length, original_len,
-            params->max_branch_length, params->min_branch_length,
-            derivative_of_likelihood_wrt_length, maxNRStep);
-    }
-    else {
-        // Brent method
-        double negative_lh = 0;
-        double ferror;
-        new_len = minimizeOneDimen(params->min_branch_length, original_len,
-            params->max_branch_length, params->min_branch_length,
-            &negative_lh, &ferror);
-    }
-    current_it->length      = new_len;
-    current_it_back->length = new_len;
-    curScore = computeLikelihoodFromBuffer();
-    if (curScore != original_lh) {
-        LOG_LINE(VB_MAX, "  branch=" << current_it->id
-            << ", old_len=" << original_len << ", new_len=" << new_len
-            << ", old_lh=" << original_lh << ", new_lh=" << curScore
-            << ", delta=" << (curScore - original_lh));
-    }
-    if (optimize_by_newton && new_len > params->max_branch_length*0.95 && !isSuperTree()) {
-        if (original_lh > curScore) {
-            current_it->length      = original_len;
-            current_it_back->length = original_len;
-            new_len                 = original_len;
-            curScore                = original_lh;
+    if (!params->mpboot2){
+        if (optimize_by_newton) {
+            // Newton-Raphson method
+            double derivative_of_likelihood_wrt_length = 0;
+            new_len = minimizeNewton(params->min_branch_length, original_len,
+                params->max_branch_length, params->min_branch_length,
+                derivative_of_likelihood_wrt_length, maxNRStep);
         }
-    }
-    if (clearLH && original_len != new_len) {
-        node1->clearReversePartialLh(node2);
-        node2->clearReversePartialLh(node1);
+        else {
+            // Brent method
+            double negative_lh = 0;
+            double ferror;
+            new_len = minimizeOneDimen(params->min_branch_length, original_len,
+                params->max_branch_length, params->min_branch_length,
+                &negative_lh, &ferror);
+        }
+        current_it->length      = new_len;
+        current_it_back->length = new_len;
+        curScore = computeLikelihoodFromBuffer();
+        if (curScore != original_lh) {
+            LOG_LINE(VB_MAX, "  branch=" << current_it->id
+                << ", old_len=" << original_len << ", new_len=" << new_len
+                << ", old_lh=" << original_lh << ", new_lh=" << curScore
+                << ", delta=" << (curScore - original_lh));
+        }
+        if (optimize_by_newton && new_len > params->max_branch_length*0.95 && !isSuperTree()) {
+            if (original_lh > curScore) {
+                current_it->length      = original_len;
+                current_it_back->length = original_len;
+                new_len                 = original_len;
+                curScore                = original_lh;
+            }
+        }
+        if (clearLH && original_len != new_len) {
+            node1->clearReversePartialLh(node2);
+            node2->clearReversePartialLh(node1);
+        }
     }
 }
 
@@ -4829,6 +4842,7 @@ NNIMove PhyloTree::getBestNNIForBran(PhyloNode *node1, PhyloNode *node2, NNIMove
     }
     int branch_id = nei1->id;
 
+
     NNIContext context(this, node1, node2);
     NNIMove    localNNIMoves[2];
     if (!nniMoves) {
@@ -4836,6 +4850,8 @@ NNIMove PhyloTree::getBestNNIForBran(PhyloNode *node1, PhyloNode *node2, NNIMove
         //NNIMove constructor now sets node1, node2, and ptnlh to nullptr (James B. 06-Aug-2020)
     }
     
+   
+
     if (nniMoves[0].node1 != nullptr) {
         // assuming that node1Nei_it and node2Nei_it is defined in nniMoves structure
         for (int cnt = 0; cnt < 2; cnt++) {
@@ -4860,7 +4876,6 @@ NNIMove PhyloTree::getBestNNIForBran(PhyloNode *node1, PhyloNode *node2, NNIMove
         }
         ASSERT(cnt == 2);
     }
-
     // Initialize node1 and node2 in nniMoves
     nniMoves[0].central_branch_id = nniMoves[1].central_branch_id = branch_id;
     nniMoves[0].node1    = nniMoves[1].node1    = node1;
@@ -4871,7 +4886,10 @@ NNIMove PhyloTree::getBestNNIForBran(PhyloNode *node1, PhyloNode *node2, NNIMove
         if (constraintTree.isCompatible(nniMoves[cnt])) {
             NNIMove& move = nniMoves[cnt];
             optimizeOneBranch(move.node1, move.node2, false, NNI_MAX_NR_STEP);
-            double old_log_lh = computeLikelihoodFromBuffer();
+            double old_log_lh;
+            if(params->mpboot2) old_log_lh = -computeParsimony();
+            else old_log_lh = computeLikelihoodFromBuffer();
+
             move.doSwap(this);
             int nni5_num_eval = max(params->nni5_num_eval, getMixlen());
             double new_log_lh = move.optimizeNNIBranches(this, params->nni5, nni5_num_eval);
@@ -6487,6 +6505,8 @@ void PhyloTree::reorientPartialLh(PhyloNeighbor* dad_branch,
     if ( dad_branch->partial_lh != nullptr ) {
         return;
     }
+
+
     PhyloNode* node = dad_branch->getNode();
     FOR_EACH_PHYLO_NEIGHBOR(node, dad, it, nei) {
         PhyloNeighbor *backnei = nei->getNode()->findNeighbor(node);
