@@ -12,6 +12,7 @@
 
 template <class Move>
 void PhyloTree::doParsimonySearch(const ParsimonySearchParameters& s) {
+
     intptr_t branch_count    = leafNum * 2 - 3; //assumed > 3
     int      index_parsimony = 0;
     
@@ -54,6 +55,8 @@ void PhyloTree::doParsimonySearch(const ParsimonySearchParameters& s) {
     size_t  moves_applied    = 0;
     size_t  moves_considered = 0;
     int64_t positions_considered = 0;
+
+    
     for (size_t iteration=1; iteration<=s.iterations;++iteration) {
         rescoring.start();
         int parsimony_score = computeParsimony("Determining two-way parsimony", true, true );

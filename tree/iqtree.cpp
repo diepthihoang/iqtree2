@@ -2440,13 +2440,13 @@ double IQTree::doTreeSearch() {
          *----------------------------------------*/
 
         doParsimonySPR();
-        curScore = computeParsimony("Determining two-way parsimony", true, true );
+        curScore = -computeParsimony("Determining two-way parsimony", true, true );
         initializeAllPartialLh();
         initializeAllPartialPars();
 
 
-        pair<int, int> nniInfos; // <num_NNIs, num_steps>
-        nniInfos = doNNISearch(true, "");
+        // pair<int, int> nniInfos; // <num_NNIs, num_steps>
+        // nniInfos = doNNISearch(true, "");
         curTree = getTreeString();
         int pos = addTreeToCandidateSet(curTree, curScore, true, MPIHelper::getInstance().getProcessID());
         if (pos != -2 && pos != -1 && (Params::getInstance().fixStableSplits || Params::getInstance().adaptPertubation)) {

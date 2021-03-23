@@ -1725,6 +1725,7 @@ void initializeParams(Params &params, IQTree &iqtree)
         params.speed_conf = 1.0;
     }
 
+    params.unsuccess_iteration = (iqtree.aln->at(0).size() + 99) / 100 * 100;
     // TODO: check if necessary
 //    if (iqtree.isSuperTree())
 //        ((PhyloSuperTree*) &iqtree)->mapTrees();
